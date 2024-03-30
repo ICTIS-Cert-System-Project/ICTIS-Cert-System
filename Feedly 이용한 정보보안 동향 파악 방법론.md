@@ -9,4 +9,4 @@ RSS는 뉴스나 블로그에서 주로 사용하는 콘텐츠 표현 방식으�
 
 ## Feedly의 Opml import와 Export 사용법
 
-### opml의 정의
+## opml의 정의
