@@ -62,7 +62,7 @@
 - <https://feedly.com/i/cortex> 로 이동하여 OPML 파일 선택 버튼을 클릭하거나 OPML 파일을 표시된 공간으로 끌어다 놓음.
 - 소스와 피드가 Feedly에 자동으로 추가됨.
   
-### Feedly의 OPML Export (OPML 파일을 통해 피드 내보내기] 
+### Feedly의 OPML Export (OPML 파일을 통해 피드 내보내기)
 - **Opml Export의 두가지 방법**
 
 #### 첫번째 방법 
