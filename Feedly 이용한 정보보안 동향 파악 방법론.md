@@ -66,12 +66,12 @@
 **Opml Export의 두가지 방법**
 
 #### 첫번째 방법 
--  <http://feedly.com/i/opml> 링크로 이동하면 바로 Export가 가능함.
+-  <http://feedly.com/i/opml> 링크로 이동하면 바로 *Export*가 가능함.
 #### 두번째 방법
 - [Feedly](https://Feedly.com, "Feedly link")로 이동.
-- **Feedly** 로그인.
+- *Feedly* 로그인.
   
-- 톱니바퀴 아이콘을 클릭하여 **Organize Sources** 페이지를 열어야 함.
+- 톱니바퀴 아이콘을 클릭하여 *Organize Sources* 페이지를 열어야 함.
 
 <img src="https://images.ctfassets.net/lzny33ho1g45/1eMBV5VfVSaHTBRJH148sY/1648ee28dbb1bb28575ff35898bbaacc/Click_on_the_gear_icon_in_the_Feeds_section?w=1400&fm=avif" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly gear icon"></img><br/>
 
