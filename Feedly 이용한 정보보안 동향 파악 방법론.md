@@ -14,7 +14,7 @@
   
 ### [Alerts]
 1. [CISA Alerts] <http://www.us-cert.gov/current/index.rdf>
-2. [CISA Known exploited vulnerabilities catalog] <https://advisories.feedly.com/cisa/exploitedCve/feed.json>
+2. [CISA - Known exploited vulnerabilities catalog] <https://advisories.feedly.com/cisa/exploitedCve/feed.json>
    
 ### [Analysis]
 
