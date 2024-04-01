@@ -71,10 +71,10 @@
 - [Feedly](https://Feedly.com, "Feedly link")로 이동.
 - Feedly 로그인.
 - 톱니바퀴 아이콘을 클릭하여 Organize Sources 페이지를 열어야 함.
-  <img src="https://images.ctfassets.net/lzny33ho1g45/1eMBV5VfVSaHTBRJH148sY/1648ee28dbb1bb28575ff35898bbaacc/Click_on_the_gear_icon_in_the_Feeds_section?w=1400&fm=avif" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly gear icon"></img><br/>
+<img src="https://images.ctfassets.net/lzny33ho1g45/1eMBV5VfVSaHTBRJH148sY/1648ee28dbb1bb28575ff35898bbaacc/Click_on_the_gear_icon_in_the_Feeds_section?w=1400&fm=avif" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly gear icon"></img><br/>
 - 맨 오른쪽에서 곡선 화살표 버튼( OPML 가져오기 버튼 옆)을 클릭함.
-  <img src="https://images.ctfassets.net/lzny33ho1g45/1laXaqSJRgspmmKlNQkKge/3ee6afbbcd979e23644dd66838d12ae7/Click_on_arrow_button?w=1400&fm=avif" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly curved arrow icon"></img><br/>
+<img src="https://images.ctfassets.net/lzny33ho1g45/1laXaqSJRgspmmKlNQkKge/3ee6afbbcd979e23644dd66838d12ae7/Click_on_arrow_button?w=1400&fm=avif" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly curved arrow icon"></img><br/>
 - OPML 내보내기 페이지가 열림.
- <img src="https://images.ctfassets.net/lzny33ho1g45/1JFR8F5fljjLxWCoOATqE6/0e290832e1c3eefb9aabd043cca6df29/Download_Feedly_OPML_button?w=1400&fm=avif" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly opml export page"></img><br/>
+<img src="https://images.ctfassets.net/lzny33ho1g45/1JFR8F5fljjLxWCoOATqE6/0e290832e1c3eefb9aabd043cca6df29/Download_Feedly_OPML_button?w=1400&fm=avif" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly opml export page"></img><br/>
 - 위 이미지에서 Feedly OPML 다운로드를 클릭하여 다운로드 프로세스를 시작함.
 - *파일이 다운로드되면 저장하고 이를 사용하여 다른 RSS 서비스로 가져올 수 있음.*
