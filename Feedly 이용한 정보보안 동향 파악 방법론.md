@@ -19,8 +19,8 @@
 ### [Analysis]
 1. [이스트시큐리티 알약 블로그 | 국내] <https://blog.alyac.co.kr>
 2. [잉카인터넷 시큐리티 대응센터 블로그 | 국내] <https://isarc.tachyonlab.com>
-3. [Mandiant Blog | 국외] <https://www.mandiant.com/resources/blog>
-4. [ASEC 블로그 | 국내] <https://asec.ahnlab.com>
+3. [ASEC 블로그 | 국내] <https://asec.ahnlab.com> 
+4. [Mandiant Blog | 국외] <https://www.mandiant.com/resources/blog>
 5. [Imperva Blog | 국외] <https://www.imperva.com/blog>
 6. [Cyble Blog | 국외] <https://cyble.com/blog>
 7. [Research Check Point | 국외] <https://research.checkpoint.com>
@@ -38,13 +38,17 @@
 19. [TrendMicro - Research, News, and Perspective | 국외] <https://www.trendmicro.com/en_us/research.html>
 
 ### [News]
-1. [Packet Storm] <https://packetstormsecurity.com>
-2. [데일리시큐] <https://www.dailysecu.com>
-3. [보안뉴스] <https://www.boannews.com>
-4. [The Hacker News] <https://thehackernews.com>
-5. [Secwiki] [https://www.sec-wiki.com>
-6. 
-## opml의 정의
+1. [데일리시큐 | 국내] <https://www.dailysecu.com>
+2. [보안뉴스 | 국내] <https://www.boannews.com>
+3. [Packet Storm | 국외] <https://packetstormsecurity.com>
+4. [The Hacker News | 국외] <https://thehackernews.com>
+5. [Secwiki | 국외] <https://www.sec-wiki.com>
+6. [SecurityWeek | 국외] <https://www.securityweek.com>
+7. [Hackread | 국외] <https://www.hackread.com>
+8. [GBHackers | 국외] <https://gbhackers.com>
+9. [BleepingComputer | 국외] <https://www.bleepingcomputer.com>
+    
+## OPML의 정의
 - OPML은 Outline Processor Markup Language(HTML 또는 XML과 같은 마크업 언어를 의미함)를 나타냄.
 - OPML은 RSS 구독 목록을 백업하고 교환하기 위한 범용 표준임. 
 
