@@ -13,11 +13,13 @@
 
   
 ### [Alerts]
-1. [CISA Alerts] <http://www.us-cert.gov/current/index.rdf>
-2. [CISA - Known exploited vulnerabilities catalog] <https://advisories.feedly.com/cisa/exploitedCve/feed.json>
+1. [CISA Alerts] <https://www.cisa.gov/news-events/cybersecurity-advisories>
+2. [CISA - Known exploited vulnerabilities catalog] <https://www.cisa.gov/known-exploited-vulnerabilities-catalog>
    
 ### [Analysis]
-
+1. [이스트시큐리티 알약 블로그] <https://blog.alyac.co.kr>
+2. [잉카인터넷 시큐리티 대응센터 블로그] <https://isarc.tachyonlab.com>
+3. 
 ### [News]
 
 ## Feedly의 Opml import와 Export 사용법
