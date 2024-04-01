@@ -63,7 +63,8 @@
 - 소스와 피드가 Feedly에 자동으로 추가됨.
   
 ### Feedly의 OPML Export (OPML 파일을 통해 피드 내보내기)
-**Opml Export의 두가지 방법**
+
+*Opml Export의 두가지 방법*
 
 #### 첫번째 방법 
 -  <http://feedly.com/i/opml> 링크로 이동하면 바로 *Export*가 가능함.
