@@ -23,7 +23,8 @@
 4. [ASEC 블로그] <https://asec.ahnlab.com>
 5. [Imperva Blog] <https://www.imperva.com/blog>
 6. [Cyble Blog] <https://cyble.com/blog>
-7. 
+7. [Research Check Point] <https://research.checkpoint.com>
+8. 
 ### [News]
 
 ## Feedly의 Opml import와 Export 사용법
