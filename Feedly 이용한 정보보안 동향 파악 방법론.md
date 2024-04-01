@@ -13,32 +13,37 @@
 
   
 ### [Alerts]
-1. [CISA Alerts] <https://www.cisa.gov/news-events/cybersecurity-advisories>
-2. [CISA - Known exploited vulnerabilities catalog] <https://www.cisa.gov/known-exploited-vulnerabilities-catalog>
+1. [CISA Alerts | 국외] <https://www.cisa.gov/news-events/cybersecurity-advisories>
+2. [CISA - Known exploited vulnerabilities catalog | 국외] <https://www.cisa.gov/known-exploited-vulnerabilities-catalog>
    
 ### [Analysis]
-1. [이스트시큐리티 알약 블로그] <https://blog.alyac.co.kr>
-2. [잉카인터넷 시큐리티 대응센터 블로그] <https://isarc.tachyonlab.com>
-3. [Mandiant Blog] <https://www.mandiant.com/resources/blog>
-4. [ASEC 블로그] <https://asec.ahnlab.com>
-5. [Imperva Blog] <https://www.imperva.com/blog>
-6. [Cyble Blog] <https://cyble.com/blog>
-7. [Research Check Point] <https://research.checkpoint.com>
-8. [Cisco Talos Blog] <https://blog.talosintelligence.com>
-9. [Cofense Blog] <https://cofense.com/blog>
-10. [CrowdStrike Blog] <https://www.crowdstrike.com/blog>
-11. [FortiGuard Labs - 위협 신호 보고서] <https://fortiguard.fortinet.com/threat-signal-report>
-12. [Huntress Blog] <https://www.huntress.com/blog>
-13. [Kaspersky Blog] <https://www.kaspersky.com/blog>
-14. [MarewareByte Blog] <https://www.kaspersky.com/blog>
-15. [Morphisec Blog] <https://blog.morphisec.com>
-16. [Reversing Labs Blog] <https://www.reversinglabs.com/blog>
-17. [Sucuri Blog] <https://blog.sucuri.net>
-18. [TAG Blog] <https://blog.google/threat-analysis-group>
-19. [TrendMicro - Research, News, and Perspective] <https://www.trendmicro.com/en_us/research.html>
+1. [이스트시큐리티 알약 블로그 | 국내] <https://blog.alyac.co.kr>
+2. [잉카인터넷 시큐리티 대응센터 블로그 | 국내] <https://isarc.tachyonlab.com>
+3. [Mandiant Blog | 국외] <https://www.mandiant.com/resources/blog>
+4. [ASEC 블로그 | 국내] <https://asec.ahnlab.com>
+5. [Imperva Blog | 국외] <https://www.imperva.com/blog>
+6. [Cyble Blog | 국외] <https://cyble.com/blog>
+7. [Research Check Point | 국외] <https://research.checkpoint.com>
+8. [Cisco Talos Blog | 국외] <https://blog.talosintelligence.com>
+9. [Cofense Blog | 국외] <https://cofense.com/blog>
+10. [CrowdStrike Blog | 국외] <https://www.crowdstrike.com/blog>
+11. [FortiGuard Labs - 위협 신호 보고서 | 국외] <https://fortiguard.fortinet.com/threat-signal-report>
+12. [Huntress Blog | 국외] <https://www.huntress.com/blog>
+13. [Kaspersky Blog | 국외] <https://www.kaspersky.com/blog>
+14. [MarewareByte Blog | 국외] <https://www.kaspersky.com/blog>
+15. [Morphisec Blog | 국외] <https://blog.morphisec.com>
+16. [Reversing Labs Blog | 국외] <https://www.reversinglabs.com/blog>
+17. [Sucuri Blog | 국외] <https://blog.sucuri.net>
+18. [TAG Blog | 국외] <https://blog.google/threat-analysis-group>
+19. [TrendMicro - Research, News, and Perspective | 국외] <https://www.trendmicro.com/en_us/research.html>
 
 ### [News]
-
+1. [Packet Storm] <https://packetstormsecurity.com>
+2. [데일리시큐] <https://www.dailysecu.com>
+3. [보안뉴스] <https://www.boannews.com>
+4. [The Hacker News] <https://thehackernews.com>
+5. [Secwiki] [https://www.sec-wiki.com>
+6. 
 ## opml의 정의
 - OPML은 Outline Processor Markup Language(HTML 또는 XML과 같은 마크업 언어를 의미함)를 나타냄.
 - OPML은 RSS 구독 목록을 백업하고 교환하기 위한 범용 표준임. 
