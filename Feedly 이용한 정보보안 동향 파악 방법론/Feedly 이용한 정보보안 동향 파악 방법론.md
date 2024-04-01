@@ -89,4 +89,4 @@
 *파일이 다운로드되면 저장하고 이를 사용하여 다른 RSS 서비스로 가져올 수 있음.*
 
 ## OPML 첨부파일
-- [첨부파일](./C:\Users\My Home\Downloads\feedly-3c6514c8-d8c0-4998-a7aa-b7c5ee97d0cf-2024-04-01.opml)
+- Github 저장소 폴더의 Feedly 이용한 정보보안 동향 파악 방법론 -> RSS 리스트 -> RSS 리스트.opml 다운로드  
