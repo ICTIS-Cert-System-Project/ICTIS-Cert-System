@@ -35,9 +35,11 @@
 14. [MarewareByte Blog | 국외] <https://www.kaspersky.com/blog>
 15. [Morphisec Blog | 국외] <https://blog.morphisec.com>
 16. [Reversing Labs Blog | 국외] <https://www.reversinglabs.com/blog>
-17. [Sucuri Blog | 국외] <https://blog.sucuri.net>
-18. [TAG Blog | 국외] <https://blog.google/threat-analysis-group>
-19. [TrendMicro - Research, News, and Perspective | 국외] <https://www.trendmicro.com/en_us/research.html>
+17. [SpiderLabs Blog | 국외] <https://www.trustwave.com/en-us/resources/blogs>
+18. [Sucuri Blog | 국외] <https://blog.sucuri.net>
+19. [TAG Blog | 국외] <https://blog.google/threat-analysis-group>
+20. [TrendMicro - Research, News, and Perspective | 국외] <https://www.trendmicro.com/en_us/research.html>
+21. [Unit 42 | 국외] <https://unit42.paloaltonetworks.com>
 
 ### [News]
 1. [데일리시큐 | 국내] <https://www.dailysecu.com>
@@ -50,44 +52,47 @@
 8. [GBHackers | 국외] <https://gbhackers.com>
 9. [BleepingComputer | 국외] <https://www.bleepingcomputer.com>
 
-## RSS 링크
-- 공식 웹 사이트의 RSS 서비스 링크임.
+## RSS 링크 정리
+- 위 공식 웹 사이트의 RSS 서비스 링크임.
+- Feedly RSS 검색을 통해 링크를 추가해야 함.
 
 ### [Alerts]
-1. [CISA Alerts | 국외]
-2. [CISA - Known exploited vulnerabilities catalog | 국외]
+1. [CISA Alerts | 국외] <http://www.us-cert.gov/current/index.rdf>
+2. [CISA - Known exploited vulnerabilities catalog | 국외] <https://advisories.feedly.com/cisa/exploitedCve/feed.json>
  
 ### [Analysis]
-1. [이스트시큐리티 알약 블로그 | 국내] 
-2. [잉카인터넷 시큐리티 대응센터 블로그 | 국내] 
-3. [ASEC 블로그 | 국내] 
-4. [Mandiant Blog | 국외] 
-5. [Imperva Blog | 국외] 
-6. [Cyble Blog | 국외] 
-7. [Research Check Point | 국외] 
-8. [Cisco Talos Blog | 국외] 
-9. [Cofense Blog | 국외] 
-10. [CrowdStrike Blog | 국외] 
-11. [FortiGuard Labs - 위협 신호 보고서 | 국외] 
-12. [Huntress Blog | 국외] 
-13. [Kaspersky Blog | 국외] 
-14. [MarewareByte Blog | 국외] 
-15. [Morphisec Blog | 국외] 
-16. [Reversing Labs Blog | 국외] 
-17. [Sucuri Blog | 국외] 
-18. [TAG Blog | 국외] 
-19. [TrendMicro - Research, News, and Perspective | 국외]
+1. [이스트시큐리티 알약 블로그 | 국내] <http://cfs.tistory.com/custom/named/al/alyacofficialblog/rss.xml>
+2. [잉카인터넷 시큐리티 대응센터 블로그 | 국내] <https://isarc.tachyonlab.com/rss>
+3. [ASEC 블로그 | 국내] <https://asec.ahnlab.com/en/feed>
+4. [Mandiant Blog | 국외] <https://www.mandiant.com/resources/blog/rss.xml>
+5. [Imperva Blog | 국외] <http://feeds.feedburner.com/Imperviews?format=xml>
+6. [Cyble Blog | 국외] <https://blog.cyble.com/feed>
+7. [Research Check Point | 국외] <https://research.checkpoint.com/category/threat-research/feed>
+8. [Cisco Talos Blog | 국외] <http://vrt-sourcefire.blogspot.com/feeds/posts/default>
+9. [Cofense Blog | 국외] <http://blog.phishme.com/feed>
+10. [CrowdStrike Blog | 국외] <https://www.crowdstrike.com/blog/feed>
+11. [FortiGuard Labs - 위협 신호 보고서 | 국외] <https://filestore.fortinet.com/fortiguard/rss/threatsignal.xml>
+12. [Huntress Blog | 국외] <https://www.huntress.com/blog/rss.xml>
+13. [Kaspersky Blog | 국외] <http://blog.kaspersky.com/feed>
+14. [MarewareByte Blog | 국외] <http://blog.malwarebytes.org/feed>
+15. [Morphisec Blog | 국외] <http://blog.morphisec.com/rss.xml>
+16. [Reversing Labs Blog | 국외] <https://blog.reversinglabs.com/blog/rss.xml>
+17. [SpiderLabs Blog | 국외] <https://www.trustwave.com/en-us/rss/spiderlabs-blog>
+18. [Sucuri Blog | 국외] <http://blog.sucuri.net/feed>
+19. [TAG Blog | 국외] <https://blog.google/threat-analytic-group/rss>
+20. [TrendMicro - Research, News, and Perspective | 국외] <http://feeds.trendmicro.com/TrendMicroSimplySecurity>
+21. [Unit 42 | 국외] <http://feeds.feedburner.com/Unit42>
 
 ### [News]
-1. [데일리시큐 | 국내] 
-2. [보안뉴스 | 국내] 
-3. [Packet Storm | 국외] 
-4. [The Hacker News | 국외] 
-5. [Secwiki | 국외] 
-6. [SecurityWeek | 국외] 
-7. [Hackread | 국외]
-8. [GBHackers | 국외] 
-9. [BleepingComputer | 국외]
+1. [데일리시큐 | 국내] <http://www.dailysecu.com/rss/allArticle.xml>
+2. [보안뉴스 | 국내] *카테고리별 분류* (긴급경보) <http://www.boannews.com/media/news_rss.xml?skind=5> (사건ㆍ사고) <http://www.boannews.com/media/news_rss.xml?kind=1>
+3. [Packet Storm | 국외] *카테고리별 분류* (0day) <http://rss.packetstormsecurity.org/news/tags/zero_day> (News) <https://rss.packetstormsecurity.com/news>
+4. [The Hacker News | 국외] <http://thehackernews.com/feeds/posts/default>
+5. [Secwiki | 국외] <http://wiki.ourren.com/rss.php>
+6. [SecurityWeek | 국외] <http://feeds.feedburner.com/Securityweek>
+7. [Hackread | 국외] <http://feeds.feedburner.com/hackread>
+8. [GBHackers | 국외] <https://gbhackers.com/feed>
+9. [BleepingComputer | 국외] <http://www.bleepingcomputer.com/feed>
     
 ## OPML의 정의
 - OPML은 Outline Processor Markup Language(*HTML 또는 XML과 같은 마크업 언어를 의미함*)를 나타냄.
