@@ -21,7 +21,8 @@
 2. [잉카인터넷 시큐리티 대응센터 블로그] <https://isarc.tachyonlab.com>
 3. [Mandiant Blog] <https://www.mandiant.com/resources/blog>
 4. [ASEC 블로그] <https://asec.ahnlab.com>
-5. 
+5. [Imperva Blog] <https://www.imperva.com/blog>
+6. 
 ### [News]
 
 ## Feedly의 Opml import와 Export 사용법
