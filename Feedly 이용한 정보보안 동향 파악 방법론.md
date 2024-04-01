@@ -27,6 +27,14 @@
 8. 
 ### [News]
 
+## opml의 정의
+- OPML은 Outline Processor Markup Language(HTML 또는 XML과 같은 마크업 언어를 의미함)를 나타냄.
+- OPML은 RSS 구독 목록을 백업하고 교환하기 위한 범용 표준임. 
+
 ## Feedly의 Opml import와 Export 사용법
 
-## opml의 정의
+### Feedly의 Opml import
+
+### Feedly의 Opml Export 
+
+
