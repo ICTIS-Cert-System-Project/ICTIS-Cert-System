@@ -63,15 +63,15 @@
 - 소스와 피드가 Feedly에 자동으로 추가됨.
   
 ### Feedly의 OPML Export (OPML 파일을 통해 피드 내보내기)
-- **Opml Export의 두가지 방법**
+**Opml Export의 두가지 방법**
 
 #### 첫번째 방법 
 -  <http://feedly.com/i/opml> 링크로 이동하면 바로 Export가 가능함.
 #### 두번째 방법
 - [Feedly](https://Feedly.com, "Feedly link")로 이동.
-- Feedly 로그인.
+- **Feedly** 로그인.
   
-- 톱니바퀴 아이콘을 클릭하여 Organize Sources 페이지를 열어야 함.
+- 톱니바퀴 아이콘을 클릭하여 **Organize Sources** 페이지를 열어야 함.
 
 <img src="https://images.ctfassets.net/lzny33ho1g45/1eMBV5VfVSaHTBRJH148sY/1648ee28dbb1bb28575ff35898bbaacc/Click_on_the_gear_icon_in_the_Feeds_section?w=1400&fm=avif" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly gear icon"></img><br/>
 
@@ -84,4 +84,5 @@
 <img src="https://images.ctfassets.net/lzny33ho1g45/1JFR8F5fljjLxWCoOATqE6/0e290832e1c3eefb9aabd043cca6df29/Download_Feedly_OPML_button?w=1400&fm=avif" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly opml export page"></img><br/>
 
 - 위 이미지에서 Feedly OPML 다운로드를 클릭하여 다운로드 프로세스를 시작함.
-- *파일이 다운로드되면 저장하고 이를 사용하여 다른 RSS 서비스로 가져올 수 있음.*
+
+*파일이 다운로드되면 저장하고 이를 사용하여 다른 RSS 서비스로 가져올 수 있음.*
