@@ -51,7 +51,7 @@
 9. [BleepingComputer | 국외] <https://www.bleepingcomputer.com>
     
 ## OPML의 정의
-- OPML은 Outline Processor Markup Language(HTML 또는 XML과 같은 마크업 언어를 의미함)를 나타냄.
+- OPML은 Outline Processor Markup Language(*HTML 또는 XML과 같은 마크업 언어를 의미함*)를 나타냄.
 - OPML은 RSS 구독 목록을 백업하고 교환하기 위한 범용 표준임. 
 
 ## Feedly의 OPML Import와 Export 사용법
