@@ -24,7 +24,19 @@
 5. [Imperva Blog] <https://www.imperva.com/blog>
 6. [Cyble Blog] <https://cyble.com/blog>
 7. [Research Check Point] <https://research.checkpoint.com>
-8. 
+8. [Cisco Talos Blog] <https://blog.talosintelligence.com>
+9. [Cofense Blog] <https://cofense.com/blog>
+10. [CrowdStrike Blog] <https://www.crowdstrike.com/blog>
+11. [FortiGuard Labs - 위협 신호 보고서] <https://fortiguard.fortinet.com/threat-signal-report>
+12. [Huntress Blog] <https://www.huntress.com/blog>
+13. [Kaspersky Blog] <https://www.kaspersky.com/blog>
+14. [MarewareByte Blog] <https://www.kaspersky.com/blog>
+15. [Morphisec Blog] <https://blog.morphisec.com>
+16. [Reversing Labs Blog] <https://www.reversinglabs.com/blog>
+17. [Sucuri Blog] <https://blog.sucuri.net>
+18. [TAG Blog] <https://blog.google/threat-analysis-group>
+19. [TrendMicro - Research, News, and Perspective] <https://www.trendmicro.com/en_us/research.html>
+
 ### [News]
 
 ## opml의 정의
