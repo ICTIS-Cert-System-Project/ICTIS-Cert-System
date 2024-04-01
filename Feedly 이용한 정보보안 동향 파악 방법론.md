@@ -2,6 +2,8 @@
 ##### 작성자: 강하늘 사원
 ##### 작성일자: 2024년 3월 30일
 
+<img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/feedly_logo_icon_169177.png" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly"></img><br/>
+
 ## RSS(Really Simple Syndication)정의 
 - RSS는 뉴스나 블로그에서 주로 사용하는 콘텐츠 표현 방식으로서, 컨텐츠 업데이트가 자주 일어나는 웹사이트에서 직접 방문하지 않아도 업데이트된 정보를 쉽게 구독자들에게 제공하는 서비스임.
 
