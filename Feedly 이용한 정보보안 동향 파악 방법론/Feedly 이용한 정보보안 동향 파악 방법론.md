@@ -53,7 +53,8 @@
 7. [Hackread | 국외] <https://www.hackread.com>
 8. [GBHackers | 국외] <https://gbhackers.com>
 9. [BleepingComputer | 국외] <https://www.bleepingcomputer.com>
-
+10. [Security Affairs | 국외] <https://securityaffairs.com>
+    
 ## RSS 링크 정리
 - 위 공식 웹 사이트의 RSS 서비스 링크임.
 - Feedly RSS 검색을 통해 링크를 추가해야 함.
@@ -95,7 +96,8 @@
 7. [Hackread | 국외] <http://feeds.feedburner.com/hackread>
 8. [GBHackers | 국외] <https://gbhackers.com/feed>
 9. [BleepingComputer | 국외] <http://www.bleepingcomputer.com/feed>
-    
+10. [Security Affairs | 국외] <http://securityaffairs.co/wordpress/feed>
+        
 ## OPML의 정의
 - OPML은 Outline Processor Markup Language(*HTML 또는 XML과 같은 마크업 언어를 의미함*)를 나타냄.
 - OPML은 RSS 구독 목록을 백업하고 교환하기 위한 범용 표준임. 
