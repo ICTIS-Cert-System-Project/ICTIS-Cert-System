@@ -20,26 +20,25 @@
    
 ### [Analysis]
 1. [이스트시큐리티 알약 블로그 | 국내] <https://blog.alyac.co.kr>
-2. [잉카인터넷 시큐리티 대응센터 블로그 | 국내] <https://isarc.tachyonlab.com>
-3. [ASEC 블로그 | 국내] <https://asec.ahnlab.com> 
-4. [Mandiant Blog | 국외] <https://www.mandiant.com/resources/blog>
-5. [Imperva Blog | 국외] <https://www.imperva.com/blog>
-6. [Cyble Blog | 국외] <https://cyble.com/blog>
-7. [Research Check Point | 국외] <https://research.checkpoint.com>
-8. [Cisco Talos Blog | 국외] <https://blog.talosintelligence.com>
-9. [Cofense Blog | 국외] <https://cofense.com/blog>
-10. [CrowdStrike Blog | 국외] <https://www.crowdstrike.com/blog>
-11. [FortiGuard Labs - 위협 신호 보고서 | 국외] <https://fortiguard.fortinet.com/threat-signal-report>
-12. [Huntress Blog | 국외] <https://www.huntress.com/blog>
-13. [Kaspersky Blog | 국외] <https://www.kaspersky.com/blog>
-14. [MarewareByte Blog | 국외] <https://www.kaspersky.com/blog>
-15. [Morphisec Blog | 국외] <https://blog.morphisec.com>
-16. [Reversing Labs Blog | 국외] <https://www.reversinglabs.com/blog>
-17. [SpiderLabs Blog | 국외] <https://www.trustwave.com/en-us/resources/blogs>
-18. [Sucuri Blog | 국외] <https://blog.sucuri.net>
-19. [TAG Blog | 국외] <https://blog.google/threat-analysis-group>
-20. [TrendMicro - Research, News, and Perspective | 국외] <https://www.trendmicro.com/en_us/research.html>
-21. [Unit 42 | 국외] <https://unit42.paloaltonetworks.com>
+2. [ASEC 블로그 | 국내] <https://asec.ahnlab.com> 
+3. [Mandiant Blog | 국외] <https://www.mandiant.com/resources/blog>
+4. [Imperva Blog | 국외] <https://www.imperva.com/blog>
+5. [Cyble Blog | 국외] <https://cyble.com/blog>
+6. [Research Check Point | 국외] <https://research.checkpoint.com>
+7. [Cisco Talos Blog | 국외] <https://blog.talosintelligence.com>
+8. [Cofense Blog | 국외] <https://cofense.com/blog>
+9. [CrowdStrike Blog | 국외] <https://www.crowdstrike.com/blog>
+10. [FortiGuard Labs - 위협 신호 보고서 | 국외] <https://fortiguard.fortinet.com/threat-signal-report>
+11. [Huntress Blog | 국외] <https://www.huntress.com/blog>
+12. [Kaspersky Blog | 국외] <https://www.kaspersky.com/blog>
+13. [MarewareByte Blog | 국외] <https://www.kaspersky.com/blog>
+14. [Morphisec Blog | 국외] <https://blog.morphisec.com>
+15. [Reversing Labs Blog | 국외] <https://www.reversinglabs.com/blog>
+16. [SpiderLabs Blog | 국외] <https://www.trustwave.com/en-us/resources/blogs>
+17. [Sucuri Blog | 국외] <https://blog.sucuri.net>
+18. [TAG Blog | 국외] <https://blog.google/threat-analysis-group>
+19. [TrendMicro - Research, News, and Perspective | 국외] <https://www.trendmicro.com/en_us/research.html>
+20. [Unit 42 | 국외] <https://unit42.paloaltonetworks.com>
 
 ### [News]
 1. [데일리시큐 | 국내] <https://www.dailysecu.com>
@@ -62,26 +61,25 @@
  
 ### [Analysis]
 1. [이스트시큐리티 알약 블로그 | 국내] <http://cfs.tistory.com/custom/named/al/alyacofficialblog/rss.xml>
-2. [잉카인터넷 시큐리티 대응센터 블로그 | 국내] <https://isarc.tachyonlab.com/rss>
-3. [ASEC 블로그 | 국내] <https://asec.ahnlab.com/en/feed>
-4. [Mandiant Blog | 국외] <https://www.mandiant.com/resources/blog/rss.xml>
-5. [Imperva Blog | 국외] <http://feeds.feedburner.com/Imperviews?format=xml>
-6. [Cyble Blog | 국외] <https://blog.cyble.com/feed>
-7. [Research Check Point | 국외] <https://research.checkpoint.com/category/threat-research/feed>
-8. [Cisco Talos Blog | 국외] <http://vrt-sourcefire.blogspot.com/feeds/posts/default>
-9. [Cofense Blog | 국외] <http://blog.phishme.com/feed>
-10. [CrowdStrike Blog | 국외] <https://www.crowdstrike.com/blog/feed>
-11. [FortiGuard Labs - 위협 신호 보고서 | 국외] <https://filestore.fortinet.com/fortiguard/rss/threatsignal.xml>
-12. [Huntress Blog | 국외] <https://www.huntress.com/blog/rss.xml>
-13. [Kaspersky Blog | 국외] <http://blog.kaspersky.com/feed>
-14. [MarewareByte Blog | 국외] <http://blog.malwarebytes.org/feed>
-15. [Morphisec Blog | 국외] <http://blog.morphisec.com/rss.xml>
-16. [Reversing Labs Blog | 국외] <https://blog.reversinglabs.com/blog/rss.xml>
-17. [SpiderLabs Blog | 국외] <https://www.trustwave.com/en-us/rss/spiderlabs-blog>
-18. [Sucuri Blog | 국외] <http://blog.sucuri.net/feed>
-19. [TAG Blog | 국외] <https://blog.google/threat-analytic-group/rss>
-20. [TrendMicro - Research, News, and Perspective | 국외] <http://feeds.trendmicro.com/TrendMicroSimplySecurity>
-21. [Unit 42 | 국외] <http://feeds.feedburner.com/Unit42>
+2. [ASEC 블로그 | 국내] <https://asec.ahnlab.com/en/feed>
+3. [Mandiant Blog | 국외] <https://www.mandiant.com/resources/blog/rss.xml>
+4. [Imperva Blog | 국외] <http://feeds.feedburner.com/Imperviews?format=xml>
+5. [Cyble Blog | 국외] <https://blog.cyble.com/feed>
+6. [Research Check Point | 국외] <https://research.checkpoint.com/category/threat-research/feed>
+7. [Cisco Talos Blog | 국외] <http://vrt-sourcefire.blogspot.com/feeds/posts/default>
+8. [Cofense Blog | 국외] <http://blog.phishme.com/feed>
+9. [CrowdStrike Blog | 국외] <https://www.crowdstrike.com/blog/feed>
+10. [FortiGuard Labs - 위협 신호 보고서 | 국외] <https://filestore.fortinet.com/fortiguard/rss/threatsignal.xml>
+11. [Huntress Blog | 국외] <https://www.huntress.com/blog/rss.xml>
+12. [Kaspersky Blog | 국외] <http://blog.kaspersky.com/feed>
+13. [MarewareByte Blog | 국외] <http://blog.malwarebytes.org/feed>
+14. [Morphisec Blog | 국외] <http://blog.morphisec.com/rss.xml>
+15. [Reversing Labs Blog | 국외] <https://blog.reversinglabs.com/blog/rss.xml>
+16. [SpiderLabs Blog | 국외] <https://www.trustwave.com/en-us/rss/spiderlabs-blog>
+17. [Sucuri Blog | 국외] <http://blog.sucuri.net/feed>
+18. [TAG Blog | 국외] <https://blog.google/threat-analytic-group/rss>
+19. [TrendMicro - Research, News, and Perspective | 국외] <http://feeds.trendmicro.com/TrendMicroSimplySecurity>
+20. [Unit 42 | 국외] <http://feeds.feedburner.com/Unit42>
 
 ### [News]
 1. [데일리시큐 | 국내] <http://www.dailysecu.com/rss/allArticle.xml>
