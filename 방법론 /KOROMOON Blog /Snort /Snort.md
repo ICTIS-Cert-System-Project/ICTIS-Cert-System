@@ -1,5 +1,5 @@
 # Snort 규칙 헤더 및 옵션 정보 (Snort Rule Header & Option Information)
 ##### 원작자: 문광일 PM
-##### 링크:
+##### 링크: [KOROMOON](https://koromoon.blogspot.com/2020/10/snort-snort-rule-header-option.html, "KOROMOON link")
 ##### 작성자: 강하늘 사원
 ##### 작성일자: 2024년 4월 3일 
