@@ -23,4 +23,4 @@
 1. 푸터
 </br>
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhwqWVOFusw1-YNirZ3qCmWN8b1sR0u8p4kSGgQ6FqKO-Rbu9_Z4NdB45PXIWf2Y7FJFgirRgEHdTXkljYNIifBFrSdj8Vs7qX5hTDgb4rO2i_BPhJd9Bw0sQC3gvK7hx-xnDb7vkkYqU/s640/%25EB%2584%25A4%25ED%258A%25B8%25EC%259B%258C%25ED%2581%25AC+%25EB%25A9%2594%25EC%258B%259C%25EC%25A7%2580+%25ED%258F%25AC%25EB%25A7%25B7%25ED%258C%2585.png">
-- 네트워크 메시지 포맷팅
+<네트워크 메시지 포맷팅>
