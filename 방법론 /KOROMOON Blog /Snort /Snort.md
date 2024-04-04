@@ -1453,3 +1453,31 @@ content </span>수정자<span lang="EN-US">(modifiers) &gt;<o:p></o:p></span></s
 </div>
 
 ### 5.2 protected_content 
+protected_content 키워드는 content 키워드의 많은 기능을 제공하지만 매우 다른 방식으로 수행되고 활용됨. </br>
+protected_content 키워드가 content 키워드에 비해 갖는 주요 이점은 보안 해시 다이제스트만 공개함으로써 지정된 컨텐츠를 숨길 수 있다는 것임. </br>
+content 키워드와 마찬가지로 주요 목적은 특정 바이트의 문자열을 일치시키는 것임. </br>
+들어오는 패킷의 일부를 해싱한 결과값과 지정된 해시값을 비교하여 검색을 수행하므로 계산 비용이 많이 듬. 
+
+
+현재는 protected_content 키워드로 MD5, SHA256, SHA512 해시 알고리즘을 사용할 수 있음. </br>
+Snort 설정에서 기본값을 설정하지 않은 경우 해시를 사용하여 규칙에 해시 알고리즘을 지정해야 함. </br>
+또한, 원시 데이터의 길이를 나태내기 위해 length 수정자(modifier)를 이용해서 사용해야 함.
+
+
+
+content 키워드와 마찬가지로 여러 protected_content 규칙을 하나의 규칙으로 사용할 수 있음. </br>
+또한, 여러 protected_content  규칙을 여러 protected_content 규칙과 혼합할 수 있음.
+
+
+
+규칙 앞에 ! 가 있으면 대상 콘텐츠가 포함되지 않은 패킷에 대해 경고(alert)를 트리거함. </br>
+이는 특정 패턴과 일치하지 않는 패킷에 대해 경고(alert)하려는 규칙을 작성할 때 유용함.
+
+
+
+Protected_content 키워드는 일부 content 수정자(modifiers)와 함께 사용할 수 있으나 지원되지 않는 것들은 아래와 같음: </br>
+nocase </br>
+fast_pattern </br>
+depth </br>
+within
+</br>
