@@ -1791,3 +1791,47 @@ within
 
 
 ### 5.11 http_client_body
+- http_client_body 키워드는 HTTP 클라이언트 요청의 본문으로 검색을 제한하는 content 수정자임.
+- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_client_body 키워드를 지정하기 전에 content 키워드가 있어야 함.
+- 이 옵션으로 검사하는 데이터의 양은 HttpInspect 의 포스트 깊이 구성 옵션(post depth config option)에 따라 다름.
+- 이 키워드를 사용한 패턴 일치는 포스트 깊이(post depth)가 -1 로 설정한 경우 작동하지 않음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">http_client_body;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">이 규칙은<span lang="EN-US"> "EFG" </span>패턴 검색을<span lang="EN-US"> HTTP </span>클라이언트 요청의
+  본문으로 제한함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><br></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">alert
+  tcp any any -&gt; any 80 (content:"ABC"; content:"EFG";
+  http_client_body;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+노트 : </br>
+http_client_body 수정자는 동일한 content 에 대해 rawbytes 수정자와 함께 사용할 수 없음.
+
+
+### 5.12 http_cookie
