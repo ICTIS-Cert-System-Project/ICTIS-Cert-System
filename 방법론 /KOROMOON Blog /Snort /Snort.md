@@ -1933,7 +1933,7 @@ http_raw_cookie 수정자는 동일한 content 에 대해 rawbytes, http_cookie 
 
 ### 5.14 http_header
 - http_header 키워드는 HTTP 클라이언트 요청 또는 HTTP 서버 응답의 추출된 헤더 필드로 검색을 제한하는 content 수정자임. (HttpInspect 구성에 따라)
- * 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_header 키워드를 지정하기 전에 content 키워드가 있어야 함.
+- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_header 키워드를 지정하기 전에 content 키워드가 있어야 함.
 - 추출된 헤더 필드는 HttpInspect 구성에 따라 NORMALIZED 일 수 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -1976,7 +1976,7 @@ http_header 수정자는 동일한 content 에 대해 rawbytes 수정자와 함�
 
 ### 5.15 http_raw_header
 - http_raw_header 키워드는 HTTP 클라이언트 또는 HTTP 서버 응답의 추출된 비정규화(UNNORMALIZED) 헤더 필드로 검색을 제한하는 content 수정자임. (HttpInspect 구성에 따라)
- + 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_raw_header 키워드를 지정하기 전에 content 키워드가 있어야 함.
+- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_raw_header 키워드를 지정하기 전에 content 키워드가 있어야 함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -2018,7 +2018,7 @@ http_raw_header 수정자는 동일한 content 에 대해 rawbytes, http_header 
 ### 5.16 http_method
 
 - http_method 키워드는 HTTP 클라이언트 요청에서 추출된 Method 로 검색을 제한하는 content 수정자임.
- + 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_method 키워드를 지정하기 전에 content 키워드가 있어야 함.
+- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_method 키워드를 지정하기 전에 content 키워드가 있어야 함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
