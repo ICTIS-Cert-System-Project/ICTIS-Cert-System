@@ -1123,6 +1123,8 @@ Snort Metadata Keys &gt;<o:p></o:p></span></span></p>
 
 
 
+
+
 ### 4.9 General Rule Quick Reference
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 General </span>규칙 옵션 키워드 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -1214,3 +1216,32 @@ General </span>규칙 옵션 키워드 <span lang="EN-US">&gt;<o:p></o:p></span>
 
 ## (5) Payload 감지 규칙 옵션
 ### 5.1 content
+content 키워드는 Snort 의 중요한 기능 중 하나임. </br>
+이를 통해 사용자는 패킷 페이로드의 특정 컨텐츠를 검색하고 해당 데이터를 기반으로 응답을 트리거하는 규칙을 설정할 수 있음. </br>
+content 옵션 패턴 매치가 수행될 때마다 Boyer-Moore 패턴 매치 함수가 호출되고 패킷 내용에 대해 테스트가 수행됨.  </br>
+인수 데이터 문자열과 정확히 일치하는 데이터가 패킷 페이로드의 모든 위치에 포함되어 있으면 테스트가 성공하고 나머지 규칙 옵션 테스트가 수행됨. </br>
+이 테스트는 대소문자를 구분함.
+
+</br>
+
+content 키워드에 대한 옵션 데이터는 다소 복잡함. 혼합 텍스트 및 바이너리 데이터를 포함할 수 있음. </br>
+바이너리 데이터는 일반적으로 파이프(|) 문자로 묶여 있으며 바이트 코드로 표시됨. </br>
+바이트 코드는 16진수로 바이너리 데이터를 나타내고 복잡한 바이너리 데이터를 설명하기 위한 좋은 축약 방법임.  </br>
+아래 예제는 Snort 규칙에서 혼합 텍스트와 바이너리 데이터의 사용을 보여줌.
+
+</br>
+
+하나의 규칙에 여러 content 규칙을 지정할 수 있음. </br>
+따라서 규칙을 잘못 판정하지 않도록 조정할 수 있음.
+
+</br>
+
+규칙 앞에 ! 문자열이 있을 경우 content 가 포함되지 않은 패킷에 대해 경고를 트리거됨. </br>
+이는 특정 패턴과 일치하지 않는 패킷에 대해 경고를 보내려는 규칙을 작성할 때 유용함.
+
+</br>
+
+참고로 다음 문자는 contnet 규칙 내에서 이스케이프 처리해야 함. </br>
+;\”
+
+
