@@ -1607,9 +1607,13 @@ within
 ### 5.6 rawbytes
 - rawbytes 키워드를 사용하면 규칙이 원시 패킷 데이터를 보고 전처리기(preprocessors)에 의해 수행된 디코딩을 무시함.
 - 이는 content 키워드 옵션의 수정자(modifier) 역할을 함.
+
 </br>
+
 - HTTP Inspect 는 원시 HTTP 요청 및 응답의 특정 부분과 일치하는 http_raw_cookie, http_raw_header, http_raw_uri 등과 같은 원시 데이터를 사용하기 위한 키워드 세트가 있음.
+
 </br>
+
 - rawbytes 가 명시적으로 지정되지 않은 경우 대부분의 다른 전처리기는 기본적으로 컨텐츠 일치를 위해 디코딩/정규화된 데이터를 사용함. 
  - 따라서 패킷에서 임의의 원시 데이터를 검사하려면 rawbytes 를 지정해야 함.
 
