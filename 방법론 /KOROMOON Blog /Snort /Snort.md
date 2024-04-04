@@ -1481,3 +1481,43 @@ fast_pattern </br>
 depth </br>
 within
 </br>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">protected_content:[!]"&lt;content
+  hash&gt;", length:orig_len[, hash:md5|sha256|sha512];<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">"HTTP"
+  </span></i><i>문자열에 대한 다음 경고<span lang="EN-US">(alert)
+  : <o:p></o:p></span></i></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">&nbsp;</span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any &lt;&gt; any 80 (msg:"MD5 Alert";<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">protected_content:"293C9EA246FF9985DC6F62A650F78986";
+  hash:md5; offset:0; length:4;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any &lt;&gt; any 80 (msg:"SHA256 Alert";<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">protected_content:"56D6F32151AD8474F40D7B939C2161EE2BBF10023F4AF1DBB3E13260EBDC6342";
+  hash:sha256; offset:0; length:4;)<o:p></o:p></span></span></i></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
