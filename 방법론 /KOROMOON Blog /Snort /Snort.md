@@ -13,8 +13,13 @@
 - *규칙이 길지 않은 이상 가독성을 위해서 한 줄로 작성하는 걸 추천함.*
 </br>
 
-![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/5fcd3392-0a88-4e3a-bb37-7930e363348f) </br>
-<Snort 규칙 구성 요소>
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/efbcc7de-7cb7-49f8-a3ca-90aa0c2a3909)
+
+</br>
+
 
 **Snort 규칙은 두 개의 논리적 섹션으로 나뉘는데 각각 규칙 헤더와 규칙 옵션임.** </br>
 규칙 헤더에는 행위(Action), 프로토콜, 출발지 주소, 출발지 포트, 방향성, 목적지 주소, 목적지 포트가 포함됨. </br>
