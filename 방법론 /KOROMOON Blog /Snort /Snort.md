@@ -1648,3 +1648,107 @@ within
 </tbody></table>
 
 </div>
+
+### 5.7 depth
+
+- depth 키워드를 사용하면 규칙 작성자(rule writer)가 지정된 패턴을 검색해야 하는 거리를 지정할 수 있음. </br>
+- 예를 들어 "depth:5;" 는 페이로드의 처음 5 바이트 내에서만 지정된 패턴을 찾도록 지시함. </br>
+- depth 키워드는 이전 content 키워드에 대한 수정자이므로 depth 키워드를 지정하기 전에 content 키워드가 있어야 함. </br>
+- 이 키워드는 검색되는 패턴 길이보다 크거나 같은 값을 허용하며 허용 범위는 1 ~ 65535 임. </br>
+- 동일한 규칙에서 byte extract 키워드로 추출된 변수를 참조하는 문자열 값으로 설정할 수도 있음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">depth:[&lt;number&gt;|&lt;var_name&gt;];<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+### 5.8 offset
+- offset 키워드를 사용하면 규칙 작성기(Rule Writer)가 패킷 내에서 패턴 검색을 시작할 위치를 지정할 수 있음.
+ + 예를 들어 "offset:5;" 는 페이로드의 처음 5 바이트 이후에 지정된 패턴을 찾도록 Snort 에 지시함.
+- offset 키워드는 이전 content 키워드에 대한 수정자이므로 offset 키워드를 지정하기 전에 content 키워드가 있어야 함.
+ + 해당 키워드의 값 허용 범위는 -65535 ~ 65535 임.
+- 동일한 규칙에서 byte extract 키워드로 추출된 변수를 참조하는 문자열 값으로 설정할 수도 있음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">offset:[&lt;number&gt;|&lt;var_name&gt;];<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">다음
+  예제는 결합된<span lang="EN-US"> content, offset </span>및<span lang="EN-US"> depth </span>키워드를
+  사용하는 예제임<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">&nbsp;</span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">alert
+  tcp any any -&gt; any 80 (content:"cgi-bin/phf"; offset:4;
+  depth:20;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.9 distance
+- distance 키워드를 사용하면 규칙 작성자가 이전 패턴 일치의 끝을 기준으로 지정된 패턴 검색을 시작하기 전에 Snort 가 무시해야 하는 패킷의 거리를 지정할 수 있음.
+- 이는 패킷의 시작이 아닌 마지막 패턴 일치의 끝과 관련이 있다는 점으로 offset 키워드와 정반대임.
+- 해당 키워드의 값 허용 범위는 -65535 ~ 65535 임.
+- 동일한 규칙에서 byte extract 키워드로 추출된 변수를 참조하는 문자열 값으로 설정할 수도 있음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">distance:[&lt;byte_count&gt;|&lt;var_name&gt;];<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">이 규칙은<span lang="EN-US"> /ABC.{1,}DEF/ </span>의 정규표현식과 매핑됨<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">&nbsp;</span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">alert
+  tcp any any -&gt; any any (content:"ABC"; content:"DEF";
+  distance:1;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.10 within
