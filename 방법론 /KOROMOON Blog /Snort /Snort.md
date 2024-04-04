@@ -1452,6 +1452,7 @@ content </span>수정자<span lang="EN-US">(modifiers) &gt;<o:p></o:p></span></s
 
 </div>
 
+
 ### 5.2 protected_content 
 protected_content 키워드는 content 키워드의 많은 기능을 제공하지만 매우 다른 방식으로 수행되고 활용됨. </br>
 protected_content 키워드가 content 키워드에 비해 갖는 주요 이점은 보안 해시 다이제스트만 공개함으로써 지정된 컨텐츠를 숨길 수 있다는 것임. </br>
@@ -1521,3 +1522,51 @@ within
 </tbody></table>
 
 </div>
+
+! 수정자(modifier)는 해당 수정자가 포함된 전체 내용 검색 결과를 무효화함. </br>
+예를 들어 content:!"A"; within:50; 규칙일 경우 페이로드가 5 바이트 뿐이며 해당 5 바이트에 “A” 가 없으면 결과는 일치로 리턴함. </br>
+유효한 일치를 위해 50 바이트가 있어야 하는 경우 isdataat 을 내용의 선행자(pre-cursor)로 사용해야 함. </br>
+
+
+### 5.3 hash
+- hash 키워드는 protected_content 규칙과 일치할 때 사용할 해싱 알고리즘을 지정하는 데 사용됨.
+- Snort 설정에 기본 알고리즘이 지정되지 않은 경우 protected_content 규칙에 반드시 사용할 알고리즘을 지정해야 함.
+- 현재 MD5, SHA256, SHA512가 지원됨.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">hash:[md5|sha256|sha512];<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+### 5.4 length
+- length 키워드는 protected_content 규칙 요약(digest)에 지정된 컨텐츠의 원래 길이를 지정하는데 사용됨. 
+- 제공된 값은 0보다 크도 65536보다 작아야 함.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">length:[&lt;original_length&gt;];<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+## 5.5 nocase
+- nocase 키워드를 사용하면 규칙 작성기(rule writer)가 Snort에서 대소문자를 무시하고 특정 패턴을 찾도록 지정할 수 있음. 
+- nocase 는 규칙에서 이전 content 키워드를 수정함.
