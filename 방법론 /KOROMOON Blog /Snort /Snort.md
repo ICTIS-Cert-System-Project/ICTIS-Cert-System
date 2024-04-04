@@ -162,6 +162,7 @@
 
 </div>
 
+
 ## (3) 규칙 옵션
 - 규칙 옵션은 Snort 침입 탐지 엔진의 핵심이며 편의성과 유연성을 결합함.
 - **모든 Snort 규칙 옵션은 세미콜론 문자(;)를 사용하여 서로 구분함.**
@@ -218,6 +219,7 @@
 
 </div>
 
+
 ## (4) General 규칙 옵션
 ### 4.1 msg
 - msg 키워드는 로깅 및 경고 엔진에 패킷 덤프 또는 경고와 함께 인쇄할 메시지를 알려줌.
@@ -236,6 +238,7 @@
 </tbody></table>
 
 </div>
+
 
 ### 4.2 reference
 - reference 키워드를 사용하면 규칙에 대해서 외부 공격 식별 시스템에 대한 참조를 포함할 수 있음.
@@ -363,6 +366,7 @@
 
 </div>
 
+
 ### 4.3 gid
 - gid 키워드(generator id)는 특정 규칙이 발생할 때 Snort 가 어떤 이벤트를 생성하는 지 식별하는데 사용됨.
 - 현재 사용 중인 gid 에 대해서는 /etc/generators 파일을 참조 바람.
@@ -406,6 +410,7 @@
 </tbody></table>
 
 </div>
+
 
 ### 4.4 sid
 - sid 키워드는 Snort 규칙을 고유하게 식별하는 데 사용됨.
@@ -488,6 +493,7 @@
 
 </div>
 
+
 ### 4.5 rev
 - rev 키워드는 Snort 규칙의 수정 버전을 고유하게 식별하는 데 사용됨.
 - Snort 규칙 ID 와 함께 개정이 허용되며 서명 및 설명을 수정하여 업데이트 된 정보를 대체할 수 있음.
@@ -524,6 +530,7 @@
 </tbody></table>
 
 </div>
+
 
 ### 4.6 classtype
 
@@ -961,3 +968,155 @@
   </td>
  </tr>
 </tbody></table>
+</br>
+
+- classtype 옵션은 구성 분류 옵션(config classification option)을 이용한 snort.conf 에 정의된 분류만 사용할 수 있음.
+- Snort 는 classification.config 파일에서 제공하는 규칙에 따라 사용되는 기본 분류 집합을 제공함.
+
+
+### 4.7 priority
+- priority 키워드는 규칙에 심각도 레벨을 지정함.
+- classtype 키워드는 구성 분류 옵션(config classification option)에 의해 정의된 기본적인 우선순위를 할당함.
+- 각 경우의 예는 아래와 같음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">priority:&lt;priority integer&gt;;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any 80 (msg:"WEB-MISC phf attempt"; flags:A+;
+  content:"/cgi-bin/phf"; priority:10;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">&nbsp;</span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any 80 (msg:"EXPLOIT ntpdx overflow";
+  dsize:&gt;128; classtype:attempted-admin; priority:10 );<o:p></o:p></span></span></i></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+### 4.8 metadata
+- metadata 키워드를 사용하면 규칙 작성자가 규칙에 대한 추가 정보를 일반적으로 키-값 형식으로 포함시킬 수 잇음.
+- 특정 메타데이터 키와 값은 Snort 에 의미가 있으며 아래 표에 나열되어 있음.
+
+</br>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">&lt;
+Snort Metadata Keys &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">키<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 10cm;" width="378">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 87.25pt;" width="116">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">값 형식<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">engine<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 10cm;" width="378">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">공유 라이브러리 규칙 표시<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 87.25pt;" width="116">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">"shared"<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">soid<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 10cm;" width="378">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">공유 라이브러리 규칙 생성기 및<span lang="EN-US"> SID<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 87.25pt;" width="116">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">gid|sid<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">service<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 10cm;" width="378">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">목표 기반 서비스 식별자<span lang="EN-US"><o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">(service </span>메타데이터 키는 호스트 속성 테이블이 제공될 때만 의미가 있음<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 87.25pt;" width="116">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">"http"<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+- 표에 나열된 것 이외의 키는 Snort 에서 효과적으로 무시되며 키와 값을 사용하여 자유 형식이 될 수 있음.
+- 여러 키는 쉼표로 구분되며 키와 값은 공백으로 구분됨.
+</br>
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">metadata:key1 value1;<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">metadata:key1 value1, key2 value2;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+- 아래 예제는 공유 라이브러리 규칙에서 스텁(stub) 규칙을 보여줌.
+- 첫 번째 예제는 여러 metadata 키워드를 사용하고 두 번째 예제는 단일 metadata 키워드를 사용하며 키는 쉼표로 구분됨.
+
+</br>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any 80 (msg:"Shared Library Rule Example";
+  metadata:engine shared; metadata:soid 3|12345;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any 80 (msg:"Shared Library Rule Example";
+  metadata:engine shared, soid 3|12345;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any 80 (msg:"HTTP Service Rule Example";
+  metadata:service http;)<o:p></o:p></span></span></i></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
