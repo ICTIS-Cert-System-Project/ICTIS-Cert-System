@@ -1120,3 +1120,97 @@ Snort Metadata Keys &gt;<o:p></o:p></span></span></p>
 </tbody></table>
 
 </div>
+
+
+
+### 4.9 General Rule Quick Reference
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+General </span>규칙 옵션 키워드 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">키워드<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">msg<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">msg </span>키워드는 로깅 및 경고 엔진에 패킷 덤프 또는 경고와 함께 인쇄할
+  메시지를 알려줌<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">reference<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">reference </span>키워드를 사용하면 규칙에 대해서 외부 공격 식별 시스템에 대한
+  참조를 포함할 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">gid<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">gid </span>키워드<span lang="EN-US">(generator
+  id)</span>는 특정 규칙이 발생할 때<span lang="EN-US"> Snort </span>가 어떤 이벤트를 생성하는 지 식별하는데
+  사용됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">sid<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">sid </span>키워드는<span lang="EN-US"> Snort </span>규칙을
+  고유하게 식별하는 데 사용됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">rev<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">rev </span>키워드는<span lang="EN-US"> Snort </span>규칙의
+  수정 버전을 고유하게 식별하는 데 사용됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">classtype<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">classtype </span>키워드는 규칙에 대한 공격 범주화하는데 사용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">priority<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">priority </span>키워드는 규칙에 심각도 레벨을 지정함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">metadata<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">metadata </span>키워드를 사용하면 규칙 작성자가 규칙에 대한 추가 정보를 일반적으로
+  키<span lang="EN-US">-</span>값 형식으로 포함시킬 수 잇음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+## (5) Payload 감지 규칙 옵션
+### 5.1 content
