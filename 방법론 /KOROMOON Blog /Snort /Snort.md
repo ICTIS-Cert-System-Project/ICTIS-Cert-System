@@ -2099,3 +2099,43 @@ http_method 수정자는 동일한 content 에 대해 rawbytes 또는 fast_patte
 http_uri 수정자는 동일한 content 에 대해 rawbytes 수정자와 함께 사용할 수 없음.
 
 ### 5.18 http_raw_uri
+- http_raw_uri 키워드는 비정규화(UNNORMALIZED) 요청 URI 필드로 검색을 제한하는 content 수정자임.
+- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_raw_uri 키워드를 지정하기 전에 content 키워드가 있어야 함.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">http_raw_uri;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 규칙은<span lang="EN-US"> "EFG" </span>패턴
+  검색을 비정규화<span lang="EN-US">(UNNORMALIZED) URI </span>로 제한함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><br></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">alert tcp any any -&gt; any 80
+  (content:"ABC"; content:"EFG"; http_raw_uri;)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+노트 : </br>
+http_raw_uri 수정자는 동일한 content 에 대해 rawbytes, http_uri 또는 fast_pattern 수정자와 함께 사용할 수 없음.
+
+
+### 5.19 http_stat_code
