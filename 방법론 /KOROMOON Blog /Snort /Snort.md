@@ -2139,3 +2139,44 @@ http_raw_uri 수정자는 동일한 content 에 대해 rawbytes, http_uri 또는
 
 
 ### 5.19 http_stat_code
+- http_stat_code 키워드는 HTTP 서버 응답에서 추출된 상태 코드 필드로 검색을 제한하는 content 수정자임.
+- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_stat_code 키워드를 지정하기 전에 content 키워드가 있어야 함.
+- 상태 코드 필드는 확장 응답 검사가 HttpInspect 에 대해 구성된 경우에만 추출됨.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">http_stat_code;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">이 규칙은<span lang="EN-US"> "200" </span>패턴에 대한 검색을<span lang="EN-US"> HTTP </span>서버
+  응답의 추출된 상태 코드 필드로 제한함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><br></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">alert
+  tcp any 80 -&gt; any any (content:"ABC"; content:"200";
+  http_stat_code;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+노트 : </br>
+http_stat_code 수정자는 동일한 content 에 대해 rawbytes 또는 fast_pattern 수정자와 함께 사용할 수 없음.
+
+### 5.20 http_stat_msg
