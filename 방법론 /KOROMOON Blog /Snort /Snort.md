@@ -2180,3 +2180,52 @@ http_raw_uri 수정자는 동일한 content 에 대해 rawbytes, http_uri 또는
 http_stat_code 수정자는 동일한 content 에 대해 rawbytes 또는 fast_pattern 수정자와 함께 사용할 수 없음.
 
 ### 5.20 http_stat_msg
+- http_stat_msg 키워드는 HTTP 서버 응답에서 추출된 상태 메시지 필드로 검색을 제한하는 content 수정자임.
+- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_stat_msg 키워드를 지정하기 전에 content 키워드가 있어야 함.
+- 상태 메시지 필드는 확장 응답 검사가 HttpInspect 에 대해 구성된 경우에만 추출됨.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">http_stat_msg;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">이 규칙은<span lang="EN-US"> "Not Found" </span>패턴 검색을<span lang="EN-US"> HTTP </span>서버
+  응답의 추출된 상태 메시지 필드로 제한함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><br></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">alert
+  tcp any any -&gt; any 80 (content:"ABC"; content:"Not
+  Found"; http_stat_msg;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+노트 : </br>
+http_stat_msg 수정자는 동일한 content 에 대해 rawbytes 또는 fast_pattern 수정자와 함께 사용할 수 없음.
+
+### 5.21 http_encode
+http_encode 키워드는 HTTP 클라이언트 요청 또는 HTTP 서버 응답에 있는 인코딩 유형을 기반으로 경고를 활성화함. </br>
+HTTP 인코딩과 관련된 여러 키워드가 있음. </br>
+키워드 'uri', 'header' 및 'cookie' 는 특정 인코딩 유형을 검색하는 데 사용되는 HTTP 필드를 결정함. </br>
+키워드 'utf8', 'double encode', 'non ascii', 'uencode', 'iis encode', 'ascii' 및 'bare byte' 는 경고를 트리거하는 인코딩 유형을 결정함. </br>
+이러한 키워드는 OR 연산을 사용하여 결합할 수 있으며 제외도 허용됨. </br>
+규칙이 키워드 'header' 와 함께 작동하려면 구성 옵션 '헤더 정규화(normalize header)'를 설정해야 함. </br>
+키워드 'cookie' 는 '쿠키 사용(enable cookie)' 및 '쿠키 정규화(normalize cookies)' 옵션에 따라 다름. </br>
+이 규칙 옵션은 지정된 HTTP 필드가 정규화(NORMALIZED)가 아닌 경우 인코딩을 감지할 수 없음.
