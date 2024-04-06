@@ -2697,7 +2697,7 @@ urilen:>500,row;
 
 ### 5.26 pcre
 - pcre 키워드를 사용하면 perl 호환 정규식을 사용하여 규칙을 작성할 수 있음.
-- 무엇을 할 수 있는지에 대한 자세한 내용은 PCRE 웹사이트(http://www.pcre.org)를 확인하십시오.
+- 무엇을 할 수 있는지에 대한 자세한 내용은 PCRE 웹사이트(http://www.pcre.org) 를 확인하십시오.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
