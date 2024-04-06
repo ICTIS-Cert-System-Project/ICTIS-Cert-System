@@ -6546,7 +6546,7 @@ stream_size 옵션은 스트림 전처리기(Stream preprocessor)가 활성화�
 </div>
 
 
-#### 7.2 session
+### 7.2 session
 
 
 
