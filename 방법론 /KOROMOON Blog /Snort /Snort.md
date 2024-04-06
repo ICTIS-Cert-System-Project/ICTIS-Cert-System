@@ -2597,9 +2597,9 @@ uricontent 는 rawbytes 수정자 또는 다른 HTTP 수정자로 수정할 수 
 
 
 ### 5.24 urilen
-Snort 규칙 언어의 urilen 키워드는 일치시킬 URI 길이의 정확한 길이, 최소 길이, 최대 길이 또는 범위를 지정함. </br>
-기본적으로 원시 URI 버퍼가 사용됨. </br>
-선택적 <uribuf> 인수를 사용하면 원시 또는 정규화된 버퍼를 사용할 지 여부를 지정할 수 있음. </br>
+- Snort 규칙 언어의 urilen 키워드는 일치시킬 URI 길이의 정확한 길이, 최소 길이, 최대 길이 또는 범위를 지정함. 
+- 기본적으로 원시 URI 버퍼가 사용됨. 
+- 선택적 <uribuf> 인수를 사용하면 원시 또는 정규화된 버퍼를 사용할 지 여부를 지정할 수 있음. 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -2648,3 +2648,2184 @@ urilen:>500,row;
 
 
 ### 5.25 isdataat
+- 페이로드의 지정된 위치에 데이터가 있는지 확인하고 선택적으로 이전의 컨텐츠 끝과 관련된 데이터를 찾음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">isdataat:[!]&lt;int&gt;[,
+  relative|rawbytes];<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">이 규칙은
+  패킷에 <span lang="EN-US">PASS </span>문자열이 있는지 확인한 다음 문자열 <span lang="EN-US">PASS </span>가
+  끝난 후 <span lang="EN-US">50 </span>바이트 이상이 있는지 확인함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">그런
+  다음<span lang="EN-US"> PASS </span>문자열 끝의 <span lang="EN-US">50 </span>바이트 내에 개행 문자가
+  없는지 확인함<span lang="EN-US">.</span></span></i></p><p class="MsoNoSpacing"><i><span style="font-family: courier;"><span lang="EN-US"><br></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any 111 (content:"PASS"; isdataat:50,relative; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">content:!"|0a|";
+  within:50;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+- rawbytes 수정자가 isdataat 와 함께 지정되면 원시 패킷 데이터를 살펴보고 전처리기가 수행한 모든 디코딩을 무시함.
+- 이 수정자는 이전 컨텐츠 일치가 원시 패킷 데이터에 있는 한 relative 수정자와 함께 작동함.
+- ! 수정자는 isdataat 테스트의 결과를 무효화함.
+- 페이로드 내에 특정 양의 데이터가 없으면 경고함.
+- 예를 들어 수정자 컨텐츠가 있는 규칙은 다음과 같음.
+- "foo"; isdataat:!10,relative; 는 페이로드가 끝나기 전에 “foo” 뒤에 10 바이트가 없으면 경고함.
+
+
+
+### 5.26 pcre
+- pcre 키워드를 사용하면 perl 호환 정규식을 사용하여 규칙을 작성할 수 있음.
+- 무엇을 할 수 있는지에 대한 자세한 내용은 PCRE 웹사이트(http://www.pcre.org)를 확인하십시오.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">pcre:[!]"(/&lt;regex&gt;/|m&lt;delim&gt;&lt;regex&gt;&lt;delim&gt;)[ismxAEGRUBPHMCOIDKYS]";<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+post-re 수정자는 정규식에 대한 컴파일 시간 플래그를 설정함.
+
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">Perl </span>호환 수정자<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">i<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">대소문자를 구분하지 않음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">s<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">점 메타 문자<span lang="EN-US">(.)</span>에 줄바꿈 포함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">m<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">기본적으로 문자열은 하나의 큰 문자 줄로 처리됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">^ </span>및 <span lang="EN-US">$ </span>는 문자열의
+  시작과 끝으로 일치함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">m </span>이 설정되면<span lang="EN-US"> ^ </span>및
+  <span lang="EN-US">$ </span>는 버퍼의 모든 개행 바로 뒤 또는 바로 앞과 버퍼의 맨 처음과 맨 끝을 일치함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">x<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">패턴의 공백 데이터 문자는 이스케이프되거나 문자 클래스 내부의 경우를 제외하고
+  무시됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">A<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">패턴은 버퍼의 시작 부분에서만 일치해야 함<span lang="EN-US">.
+  (^ </span>와 동일<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">E<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">제목 문자열의 끝에서만 일치하도록 <span lang="EN-US">$ </span>를
+  설정하십시오<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">E </span>가 없으면 <span lang="EN-US">$ </span>는
+  개행 문자인 경우 최종 문자 바로 앞과도 일치함<span lang="EN-US">. (</span>다른 개행 앞이 아님<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">G<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">한정자<span lang="EN-US">(quantifier)</span>의 <span lang="EN-US">“</span>탐욕<span lang="EN-US">”(greediness)</span>을 반전하여 기본적으로 탐욕스럽지<span lang="EN-US">(greedy) </span>않지만 <span lang="EN-US">“?” </span>가 뒤따르면 탐욕스러워짐<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">R<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">마지막 패턴 일치의 끝을 기준으로 일치함<span lang="EN-US">.
+  (distance:0; </span>과 유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">U<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">디코딩된 <span lang="EN-US">URI </span>버퍼를 일치시킴<span lang="EN-US">. (uricontent </span>및<span lang="EN-US"> http_uri </span>와 비슷<span lang="EN-US">)<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 수정자는 동일한 컨텐츠에 대해 정규화되지 않은 <span lang="EN-US">HTTP </span>요청<span lang="EN-US"> uri </span>버퍼 수정자<span lang="EN-US">(I)</span>와
+  함께 사용할 수 없음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">I<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">정규화되지 않은 <span lang="EN-US">HTTP </span>요청 <span lang="EN-US">uri </span>버퍼와 일치함<span lang="EN-US">. (http_raw_uri </span>와 유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 수정자는 동일한 컨텐츠에 대해 <span lang="EN-US">HTTP </span>요청
+  <span lang="EN-US">uri </span>버퍼 수정자<span lang="EN-US">(U)</span>와 함께 사용할 수 없음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">P<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">정규화되지 않은 <span lang="EN-US">HTTP </span>요청 본문과
+  일치함<span lang="EN-US">. (http_client_body </span>와 유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">SIP </span>메시지의 경우 요청 또는 응답에 대해 <span lang="EN-US">SIP </span>본문을 일치시킴<span lang="EN-US">. (sip_body </span>와 유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">H<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">정규화된 <span lang="EN-US">HTTP </span>요청 또는 <span lang="EN-US">HTTP </span>응답 헤더와 일치함<span lang="EN-US">. (http_header </span>와 유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 수정자는 동일한 컨텐츠에 대해 정규화되지 않은 <span lang="EN-US">HTTP </span>요청 또는 <span lang="EN-US">HTTP </span>응답 헤더 수정자<span lang="EN-US">(D)</span>와 함께 사용할 수 없음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">SIP </span>메시지의 경우 요청 또는 응답에 대해 <span lang="EN-US">SIP </span>헤더를 일치시킴<span lang="EN-US">. (sip_header </span>와 유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">D<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">정규화되지 않은 <span lang="EN-US">HTTP </span>요청 또는
+  <span lang="EN-US">HTTP </span>응답 헤더와 일치함<span lang="EN-US">. (http_raw_header </span>와
+  유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 수정자는 동일한 컨텐츠에 대해 정규화된 <span lang="EN-US">HTTP
+  </span>요청 또는 <span lang="EN-US">HTTP </span>응답 헤더 수정자<span lang="EN-US">(H)</span>와
+  함께 사용할 수 없음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">M<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">정규화된 <span lang="EN-US">HTTP </span>요청 방법과 일치함<span lang="EN-US">. (http_method </span>와 유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">C<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">정규화된 <span lang="EN-US">HTTP </span>요청 또는 <span lang="EN-US">HTTP </span>응답 쿠키와 일치함<span lang="EN-US">. (http_cookie </span>와 유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 수정자는 동일한 컨텐츠에 대해 정규화되지 않은 <span lang="EN-US">HTTP </span>요청 또는 <span lang="EN-US">HTTP </span>응답 쿠키 수정자<span lang="EN-US">(K)</span>와 함께 사용할 수 없음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">K<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">정규화되지 않은 <span lang="EN-US">HTTP </span>요청 또는
+  <span lang="EN-US">HTTP </span>응답 쿠키와 일치함<span lang="EN-US">. (http_raw_cookie </span>와
+  유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 수정자는 동일한 컨텐츠에 대해 정규화된 <span lang="EN-US">HTTP
+  </span>요청 또는 <span lang="EN-US">HTTP </span>응답 쿠키 수정자<span lang="EN-US">(C)</span>와
+  함께 사용할 수 없음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">S<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">HTTP </span>응답 상태 코드와 일치함<span lang="EN-US">.
+  (http_stat_code </span>와 유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">Y<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">HTTP </span>응답 상태 메시지와 일치함<span lang="EN-US">.
+  (http_stat_msg </span>와 유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">B<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">디코딩된 버퍼를 사용하지 마십시오<span lang="EN-US">.
+  (rawbytes </span>와 유사<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">O<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 표현식에 대해 구성된 <span lang="EN-US">pcre </span>일치
+  제한 및 <span lang="EN-US">pcre </span>일치 제한 재귀를 재정의함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">지정된<span lang="EN-US"> pcre </span>패턴을 평가하는
+  동안 제한을 완전히 무시함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+노트 : </br>
+수정자 R(상대) 과 B(원시 바이트)는 U, I, P, H, D, M, C, K, S 및 Y 와 같은 HTTP 수정자와 함께 허용되지 않음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">이 예제는
+  <span lang="EN-US">HTTP URI foo.php?id=&lt;some numbers&gt; </span>에 대해 대소문자를 구분하지
+  않는 검색을 수행함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><br></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">alert
+  tcp any any -&gt; any 80 (content:"/foo.php?id=";
+  pcre:"/\/foo.php?id=[0-9]{1,10}/iU";)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+노트 : </br>
+pcre 를 사용하는 규칙에 하나 이상의 content 키워드가 있는 것이 좋음. </br>
+이를 통해 fast_pattern 일치자가 일치하지 않는 패킷을 필터링하여 회선을 통해 들어오는 각 패킷에 대해 pcre 평가가 수행되지 않도록 할 수 있음.
+
+</br>
+
+노트 : </br>
+Snort 가 PCRE 를 사용하여 여러 URI 를 처리하는 것이 예상대로 작동하지 않음. </br>
+uricontent 없이 사용되는 PCRE 는 첫 번째 URI 만 평가함. </br>
+pcre 를 사용하여 모든 URI 를 검사하려면 content 또는 uricontent 를 사용해야 함. </br>
+
+
+
+### 5.27 pkt_data
+
+- 이 옵션은 감지에 사용되는 커서(cursor)를 원시 전송 페이로드로 설정함.
+- 규칙에서 pkt_data 뒤에 오는 상대 또는 절대 컨텐츠 일치(HTTP 수정자 또는 원시 바이트 없음) 및 기타 페이로드 감지 규칙 옵션은 커서(탐지에 사용)가 다시 설정될 때까지 원시 TCP/UDP 페이로드 또는 정규화된 버퍼(telnet, 정규화된 smtp 경우)에 적용됨.
+- 이 규칙 옵션은 규칙에서 여러 번 사용할 수 있음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">pkt_data;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any(msg:"Absolute Match"; pkt_data;
+  content:"BLAH"; offset:0; depth:10;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><br></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any(msg:"PKT DATA"; pkt_data;
+  content:"foo"; within:10;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><br></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any(msg:"PKT DATA"; pkt_data;
+  content:"foo";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><br></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">alert
+  tcp any any -&gt; any any(msg:"PKT DATA"; pkt_data;
+  pcre:"/foo/i";)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+
+### 5.28 file_data
+
+
+
+- 이 옵션은 감지에 사용되는 커서를 다음 버퍼 중 하나로 설정함.
+
+
+
+1. 탐지되는 트래픽이 HTTP 일 때 버퍼를 설정함 : </br>
+  a. HTTP 응답 본문 (chunking/압축/정규화 제외) </br>
+  b. HTTP dechunked 응답 본문 </br>
+  c. HTTP 압축해제 응답 본문 (inspect_gzip 이 켜져 있는 경우) </br>
+  d. HTTP 정규화된 응답 본문 (normalized_javascript 가 설정된 경우) </br>
+  e. HTTP UTF 정규화된 응답 본문 (normalized_utf 가 설정된 경우) </br>
+  f. 모두 포함(All of the obove)
+
+</br>
+
+2. 감지되는 트래픽이 SMTP/POP/IMAP 인 경우 버퍼를 다음으로 설정함 : </br>
+  a. SMTP/POP/IMAP 데이터 본문 (디코딩이 해제된 이메일 헤더 및 MIME 포함) </br>
+  b. Base64 디코딩된 MIME 첨부 파일 (b64_decode_depth 가 -1 보다 큰 경우) </br>
+  c. 인코딩되지 않은 MIME 첨부 파일 (bitenc_decode_depth 가 -1 보다 큰 경우) </br>
+  d. 인용 인쇄 가능한(Quoted-Printable) 디코딩된 MIME 첨부 파일 (qp_decde_depth 가 -1 보다 큰 경우) </br>
+  e. Unix-to-Unix 디코딩된 첨부 파일 (uu_decode_depth 가 -1 보다 큰 경우)
+
+</br>
+
+
+3. 1 과 2 번 항목으로 설정하지 않으면 페이로드로 설정됨.
+
+</br>
+
+상대 또는 절대 컨텐츠 일치(HTTP 수정자 또는 rawbytes 없음) 및 규칙에서 file_data 를 따르는 페이로드 감지 규칙 옵션은 다른 규칙 옵션에 의해 명시적으로 재설정될 때까지 이 버퍼에 적용됨. </br>
+이 규칙 옵션은 규칙에서 여러 번 사용할 수 있음. </br>
+file_data 에 대한 mime 인수는 더 이상 사용되지 않음. </br>
+규칙 옵션 file_data 는 자체적으로 디코딩된 MIME 첨부를 가리킴. </br>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">file_data;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any(msg:"Absolute Match"; file_data;
+  content:"BLAH"; offset:0; depth:10;)</span></span></i></p><p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;"><br></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any(msg:"FILE DATA"; file_data; content:"foo";
+  within:10;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any(msg:"FILE DATA"; file_data;
+  content:"foo";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any(msg:"FILE DATA"; file_data;
+  pcre:"/foo/i";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">다음
+  규칙은 <span lang="EN-US">file_data </span>버퍼 내에서 컨텐츠 <span lang="EN-US">"foo"
+  </span>를 검색하고 전체 패킷 페이로드 내에서 컨텐츠 <span lang="EN-US">"bar" </span>를 검색함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">규칙
+  옵션 <span lang="EN-US">pkt_data </span>는 탐지에 사용되는 커서를 <span lang="EN-US">TCP </span>페이로드로
+  재설정함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">alert
+  tcp any any -&gt; any any(msg:"FILE DATA"; file_data;
+  content:"foo"; pkt_data; content:"bar";)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.29 base64_decode
+
+
+
+- 이 옵션은 base64 로 인코딩된 데이터를 디코딩하는 데 사용됨.
+- 이 옵션은 HTTP 인증 헤더와 같은 HTTP 헤더의 경우 특히 유용함.
+- 이 옵션은 디코딩하기 전에 데이터를 펼침.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">base64_decode[:[bytes
+  &lt;bytes_to_decode&gt;][, ][offset &lt;offset&gt;[, relative]]];<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">옵션<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bytes<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">디코딩할 <span lang="EN-US">base64 </span>인코딩 바이트
+  수임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 인수는 양수 및 <span lang="EN-US">0 </span>이 아닌
+  값만 사용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 옵션을 지정하지 않으면 헤더 라인의 끝에 도달하거나 패킷 페이로드의 끝에
+  도달할 때까지 <span lang="EN-US">base64 </span>로 인코딩된 데이터를 찾음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">offset<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">relative </span>옵션이 지정될 때 <span lang="EN-US">doe_ptr
+  </span>에 상대적인 오프셋을 결정하거나 <span lang="EN-US">base64 </span>인코딩 데이터의 검사를 시작하기 위해 패킷
+  페이로드의 시작에 상대적인 오프셋을 결정함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 인수는 양수 및 <span lang="EN-US">0 </span>이 아닌
+  값만 사용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">relative<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">base64 </span>로 인코딩된 데이터에 대한 검사가 <span lang="EN-US">doe_ptr </span>에 상대적임을 지정함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+- base64_decode 에 대한 위의 인수는 선택사항임.
+
+
+
+노트 : </br>
+이 옵션은 HTTP 와 유사한 폴딩(folding)이 있는 프로토콜로 확장할 수 있음. </br>
+폴딩(folding)이 없으면 다음 공백이나 탭없이 캐리지 리턴이나 줄바꿈 또는 둘 다가 표시되면 base64 로 인코딩된 데이터 검색이 종료됨. </br>
+이 옵션은 다른 페이로드 감지 규칙 옵션이 base64 디코딩된 버퍼에서 작동하도록 base64_data 와 함께 사용해야 함. </br>
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp $EXTERNAL_NET any -&gt; $HOME_NET any \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(msg:"Base64
+  Encoded Data"; base64_decode; base64_data; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"foo
+  bar"; within:20;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp $EXTERNAL_NET any -&gt; $HOME_NET any \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(msg:"Authorization
+  NTLM"; content:"Authorization: NTLM"; base64_decode:relative;
+  base64_data; content:"NTLMSSP"; )<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any (msg:"Authorization NTLM"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"Authorization:";
+  http_header; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">base64_decode:bytes
+  12, offset 6, relative; base64_data; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">content:"NTLMSSP";
+  within:8;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.30 base64_data
+
+
+
+- 이 옵션은 file_date 규칙 옵션과 유사하며 감지에 사용되는 커서가 있는 경우 base64 디코딩된 버퍼의 시작 부분으로 설정하는 데 사용됨.
+- 이 옵션은 인수를 사용하지 않음.
+- base64_data 옵션보다 먼저 base64_decode 규칙 옵션을 지정해야 함.
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">base64_data;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+- 이 옵션은 base64 디코딩된 버퍼가 있는 경우 일치함.
+
+
+
+노트 : </br>
+이 버퍼에서는 빠른 패턴 컨텐츠(fast pattern content) 일치가 허용되지 않음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any (msg:"Authorization NTLM"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"Authorization:";
+  http_header; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">base64_decode:bytes
+  12, offset 6, relative; base64_data; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">content:"NTLMSSP";
+  within:8;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+### 5.31 byte_test
+
+
+
+- 특정 값(연산자 사용)에 대해 바이트 필드를 테스트함.
+- 바이너리 값을 테스트하거나 대표 바이트 문자열을 해당 바이너리로 변환하고 테스트할 수 있음.
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">byte_test:&lt;bytes to convert&gt;,
+  [!]&lt;operator&gt;, &lt;value&gt;, &lt;offset&gt; \<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">[, relative][, &lt;endian&gt;][, string,
+  &lt;number type&gt;][, dce] \<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">[, bitmask &lt;bitmask_value&gt;];<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bytes = 1 - 10<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">operator = ’&lt;’ | ’=’ | ’&gt;’ |
+  ’&lt;=’ | ’&gt;=’ | ’&amp;’ | ’ˆ’<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">value = 0 - 4294967295<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">offset = -65535 to 65535<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bitmask_value = 1 to 4 byte hexadecimal
+  value<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">Perl </span>호환 수정자<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bytes_to_convert<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">패킷에서 가져올 바이트 수임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">dce </span>없이 사용할 경우 허용되는 값은 <span lang="EN-US">1-10 </span>임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">dce </span>와 함께 사용하는 경우 허용되는 값은 <span lang="EN-US">1,2 </span>및 <span lang="EN-US">4 </span>임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">operator<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">값을 테스트하기 위해 수행할 작업 <span lang="EN-US">: <o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•</span><span lang="EN-US" style="font-family: courier;"> &lt; - </span><span style="font-family: courier;">미만</span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> &gt; - </span>보다 큼<span lang="EN-US"><o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> &lt;= - </span>작거나 같음<span lang="EN-US"><o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> &gt;= - </span>크거나 같음<span lang="EN-US"><o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> = - </span>같음<span lang="EN-US"><o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> &amp; - </span>비트 <span lang="EN-US">AND<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> ˆ - </span>비트<span lang="EN-US"> OR<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">value<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">변환된 값을 테스트할 값임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">offset<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">처리를 시작할 페이로드의 바이트 수임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">relative<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">마지막 패턴 일치에 상대적인 오프셋을 사용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">endian<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">읽고 있는 번호의 엔디안 유형 <span lang="EN-US">: <o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•</span><span lang="EN-US" style="font-family: courier;"> big - </span><span style="font-family: courier;">데이터를 빅 엔디안으로
+  처리</span><span lang="EN-US" style="font-family: courier;"> (</span><span style="font-family: courier;">기본값</span><span lang="EN-US" style="font-family: courier;">).</span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> little - </span>데이터를 리틀
+  엔디안으로 처리<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">string<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">데이터는 패킷에 문자열 형식으로 저장됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">number
+  type<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">읽을 번호 유형 <span lang="EN-US">: <o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•</span><span lang="EN-US" style="font-family: courier;"> hex - </span><span style="font-family: courier;">변환된 문자열 데이터가</span><span lang="EN-US" style="font-family: courier;"> 16 </span><span style="font-family: courier;">진수로 표시됨</span><span lang="EN-US" style="font-family: courier;">.</span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> dec - </span>변환된 문자열 데이터가<span lang="EN-US"> 10 </span>진수로 표시됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> oct - </span>변환된 문자열 데이터가<span lang="EN-US"> 8 </span>진수로 표시됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">dce<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">dce </span>는<span lang="EN-US"> DCE/RPC 2 </span>전처리기가
+  변환할 값의 바이트 순서를 결정하도록 함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bitmask<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">변환된 바이트에 <span lang="EN-US">AND </span>연산자를
+  적용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">결과는 마스크의 후행 <span lang="EN-US">0 </span>수와 동일한
+  비트 수만큼 오른쪽 시프트됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+- 모든 연산자에 ! 연산자가 사실이 아닌지 확인함. 
+- 만약 ! 연산자없이 지정된 경우 연산자는 = 로 설정됨.
+
+
+
+노트 : </br> 
+Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
+& 연산자를 사용하면 if (data & value) { do something();} 을 사용하는 것과 같음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  udp $EXTERNAL_NET any -&gt; $HOME_NET any \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(msg:"AMD
+  procedure 7 plog overflow"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"|00
+  04 93 F3|"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"|00
+  00 00 07|"; distance:4; within:4; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_test:4,
+  &gt;, 1000, 20, relative;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp $EXTERNAL_NET any -&gt; $HOME_NET any \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(msg:"AMD
+  procedure 7 plog overflow"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"|00
+  04 93 F3|"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"|00
+  00 00 07|"; distance:4; within:4; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_test:4,
+  &gt;, 1000, 20, relative;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  udp any any -&gt; any 1234 \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(byte_test:4,
+  =, 1234, 0, string, dec; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">msg:"got
+  1234!";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  udp any any -&gt; any 1235 \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(byte_test:3,
+  =, 123, 0, string, dec; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">msg:"got
+  123!";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  udp any any -&gt; any 1236 \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(byte_test:2,
+  =, 12, 0, string, dec; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">msg:"got
+  12!";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  udp any any -&gt; any 1237 \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(byte_test:10,
+  =, 1234567890, 0, string, dec; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">msg:"got
+  1234567890!";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  udp any any -&gt; any 1238 \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(byte_test:8,
+  =, 0xdeadbeef, 0, string, hex; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">msg:"got
+  DEADBEEF!";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(byte_test:2,
+  =, 568, 0, bitmask 0x3FF0; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">msg:"got
+  568 after applying bitmask 0x3FF0 on 2 bytes extracted";)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.23 byte_jump
+
+
+
+- byte_jump 키워드를 사용하면 길이 인코딩된 프로토콜에 대한 규칙을 간단하게 작성할 수 있음.
+- 데이터 일부의 길이를 읽은 다음 패킷에서 훨씬 앞으로 건너 뛰는 옵션을 사용하면 길이 인코딩된 프로토콜의 특정 부분을 건너 뛰고 특정 위치에서 탐지를 수행하는 규칙을 작성할 수 있음.
+- byte_jump 옵션은 일부 바이트 수를 읽고 숫자 표현으로 변환하고 해당 바이트를 앞으로 이동하고 나중에 감지할 수 있도록 포인터를 설정하여 이를 수행함.
+- 이 포인터는 오프셋 감지 끝 포인터 또는 doe_ptr 로 알려져 있음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">byte_jump:&lt;bytes_to_convert&gt;,
+  &lt;offset&gt; [, relative][, multiplier &lt;mult_value&gt;] \<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">[, &lt;endian&gt;][, string,
+  &lt;number_type&gt;][, align][, from_beginning][, from_end] \<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">[, post_offset &lt;adjustment
+  value&gt;][, dce][, bitmask &lt;bitmask_value&gt;];<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bytes = 1 - 10<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">offset = -65535 to 65535<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">mult_value = 0 - 65535<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">post_offset = -65535 to 65535<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bitmask_value = 1 to 4 bytes hexadecimal
+  value<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">옵션<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bytes_to_convert<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">패킷에서 가져올 바이트 수임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">dce </span>없이 사용할 경우 허용되는 값은 <span lang="EN-US">1-10 </span>임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">dce </span>와 함께 사용하는 경우 허용되는 값은 <span lang="EN-US">1, 2 </span>및 <span lang="EN-US">4 </span>임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">from_end </span>인수와 함께 사용하면 <span lang="EN-US">bytes_to_convert
+  </span>는 <span lang="EN-US">0 </span>이 될 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">bytes_to_convert </span>가 <span lang="EN-US">0 </span>이면 추출된 값은 <span lang="EN-US">0 </span>임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">offset<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">처리를 시작할 페이로드의 바이트 수임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">relative<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">마지막 패턴 일치에 상대적인 오프셋을 사용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">multiplier
+  &lt;value&gt;<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">계산된 바이트 수에 <span lang="EN-US">&lt;value&gt;
+  </span>을 곱하고 해당 바이트 수를 앞으로 건너뜀<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">big<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">데이터를 빅 엔디안으로 처리함<span lang="EN-US">. (</span>기본값<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">little<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">데이터를 리틀 엔디안으로 처리함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">string<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">데이터는 패킷에 문자열 형식으로 저장됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">hex<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">변환된 문자열 데이터는 <span lang="EN-US">16 </span>진수로
+  표시됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">dec<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">변환된 문자열 데이터는 <span lang="EN-US">10 </span>진수로
+  표시됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">oct<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">변환된 문자열 데이터는 <span lang="EN-US">8 </span>진수로
+  표시됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">align<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">변환된 바이트 수를 다음 <span lang="EN-US">32 </span>비트
+  경계까지 반올림함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">from_beginning<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">패킷의 현재 위치에서가 아니라 패킷 페이로드의 시작 부분부터 앞으로 건너뜀<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">from_end<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">점프는 페이로드의 끝에서 시작됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">post_offset
+  &lt;value&gt;<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">다른 점프 옵션이 적용된 후 <span lang="EN-US">&lt;value&gt;
+  </span>바이트 수만큼 앞으로 또는 뒤<span lang="EN-US">(</span>음수 값의 양수<span lang="EN-US">)</span>로
+  건너뜀<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">dce<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">DCE/RPC 2 </span>전처리기<span lang="EN-US">(preprocessor)</span>가
+  변환할 값의 바이트 순서를 결정하게 하십시오<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">bitmask<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">bytes_to_convert </span>인수에
+  <span lang="EN-US">AND </span>연산자를 적용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">결과는 마스크의 후행 <span lang="EN-US">0 </span>수와 동일한
+  비트 수만큼 오른쪽 시프트됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  udp any any -&gt; any 32770:34000 (content:"|00 01 86 B8|"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"|00
+  00 00 01|"; distance:4; within:4; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_jump:4,
+  12, relative, align; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_test:4,
+  &gt;, 900, 20, relative; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">msg:"statd
+  format string buffer overflow";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any (content:"Begin"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_jump:0,
+  0, from_end, post_offset -6; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"end..";
+  distance:0; within:5; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">msg:"Content
+  match from end of the payload";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any (content:"catalog"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_jump:2,
+  1, relative, post_offset 2, bitmask 0x03f0; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_test:2,
+  =, 968, 0, relative; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">msg:"Bitmask
+  applied on the 2 bytes extracted for byte_jump";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any (content:"catalog"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_jump:1,
+  2, from_end, post_offset -5, bitmask 0x3c; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_test:1,
+  =, 106, 0, relative; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">msg:"Byte
+  jump calculated from end of payload after bitmask applied";)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.33 byte_extract
+
+
+
+- byte_extract 키워드는 길이 인코딩 프로토콜에 대한 규칙을 작성하는 데 유용한 또 다른 옵션임.
+- 패킷 페이로드에서 몇 바이트를 읽어 변수에 저장됨.
+- 이러한 변수는 하드 코딩된 값을 사용하는 대신 나중에 규칙에서 참조할 수 있음.
+
+
+
+노트 : </br>
+규칙당 2개의 byte_extract 변수만 생성할 수 있음. </br>
+동일한 규칙에서 여러 번 재사용할 수 있음.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center"><table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">byte_extract:&lt;bytes_to_extract&gt;,
+  &lt;offset&gt;, &lt;name&gt; [, relative] \<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">[, multiplier &lt;multiplier value&gt;][,
+  &lt;endian&gt;][, string][, hex][, dec][, oct] \<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">[, align &lt;align value&gt;][, dce][,
+  bitmask &lt;bitmask&gt;];<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bytes_to_extract = 1 - 10<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">operator = ’&lt;’ | ’=’ | ’&gt;’ |
+  ’&lt;=’ | ’&gt;=’ | ’&amp;’ | ’ˆ’<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">value = 0 - 4294967295<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">offset = -65535 to 65535<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bitmask_value = 1 to 4 byte hexadecimal
+  value<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">옵션<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bytes_to_convert<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">패킷에서 가져올 바이트 수임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">offset<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">처리를 시작할 페이로드의 바이트 수임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">name<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">변수의 이름임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">다른 규칙 옵션에서 변수를 참조하는 데 사용됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">relative<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">마지막 패턴 일치에 상대적인 오프셋을 사용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">multiplier
+  &lt;value&gt;<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">패킷에서 읽은 바이트에 <span lang="EN-US">&lt;value&gt;
+  </span>을 곱하고 그 숫자를 변수에 저장함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">big<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">데이터를 빅 엔디안으로 처리함<span lang="EN-US">. (</span>기본값<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">little<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">데이터를 리틀 엔디안으로 처리함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">dce<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">DCE/RPC 2 </span>전처리기<span lang="EN-US">(preprocessor)</span>가
+  변환할 값의 바이트 순서를 결정하십시오<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이 옵션이 작동하려면<span lang="EN-US"> DCE/RPC 2 </span>전처리기가
+  활성화되어야 함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">string<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">데이터는 패킷에 문자열 형식으로 저장됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">hex<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">변환된 문자열 데이터는 <span lang="EN-US">16 </span>진수로
+  표시됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">dec<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">변환된 문자열 데이터는 <span lang="EN-US">10 </span>진수로
+  표시됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">oct<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">변환된 문자열 데이터는 <span lang="EN-US">8 </span>진수로
+  표시됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">align
+  &lt;value&gt;<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">변환된 바이트 수를 다음 <span lang="EN-US">&lt;value&gt;
+  </span>바이트 경계까지 반올림함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">&lt;value&gt; </span>은 <span lang="EN-US">2 </span>또는 <span lang="EN-US">4 </span>일 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bitmask<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">인수를 추출하기 위해 바이트 값에 <span lang="EN-US">AND </span>연산자를
+  적용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">결과는 마스크의 후행 <span lang="EN-US">0 </span>수와 동일한
+  비트 수만큼 오른쪽 시프트함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+- byte_extract 규칙 옵션은 자체적으로 아무것도 감지하지 않음.
+- 다른 규칙 옵션에서 사용할 패킷 데이터를 추출하는 데 사용됨.
+- 다음은 byte_extract 변수를 사용할 수 있는 위치 목록 :
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>바이트 추출 변수를 사용하는 기타 옵션 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">규칙
+  옵션<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">변수를
+  취하는 인수<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">content/uricontent<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">offset, depth, distance, within<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">byte_test<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">offset, value<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">byte_jump<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">offset<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">isdataat<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">offset<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">이 예에서는
+  두 개의 변수를 사용하여 다음을 수행함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">• 오프셋<span lang="EN-US"> 0</span>의 바이트에서 문자열의 오프셋을 읽음<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">• 오프셋<span lang="EN-US"> 1</span>의 바이트에서 문자열의 깊이를 읽음<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">• 이
+  값을 사용하여 패턴 일치를 더 작은 영역으로 제한함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any (byte_extract:1, 0, str_offset; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_extract:1,
+  1, str_depth; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"bad
+  stuff"; offset:str_offset; depth:str_depth; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">msg:"Bad
+  Stuff detected within field";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any (content:"|04 63 34 35|"; offset:4;
+  depth:4; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_extract:
+  2, 0, var_match, relative, bitmask 0x03ff; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_test:
+  2, =, var_match, 2, relative; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">msg:"Byte
+  test value matches bitmask applied on bytes extracted";)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.34 byte_math
+
+
+
+- 추출된 값과 지정된 값 또는 기존 변수에 대해 수학적 연산을 수행하고 결과를 새 결과 변수에 저장함.
+- 이러한 결과 변수는 하드 코딩된 값을 사용하는 대신 나중에 규칙에서 참조할 수 있음.
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">byte_math:bytes &lt;bytes_to_extract&gt;,
+  offset &lt;offset_value&gt;, oper &lt;operator&gt;,<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">rvalue &lt;r_value&gt;, result
+  &lt;result_variable&gt; [, relative]<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">[, endian &lt;endian&gt;] [, string
+  &lt;number type&gt;][, dce]<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">[, bitmask &lt;bitmask_value&gt;];<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bytes_to_extract = 1 - 10<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">operator = ’+’ | ’-’ | ’*’ | ’/’ |
+  ’&lt;&lt;’ | ’&gt;&gt;’<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">r_value = 0 - 4294967295 | byte extract
+  variable<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">offset_value = -65535 to 65535<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bitmask_value = 1 to 4 byte hexadecimal
+  value<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">result_variable = Result Variable name<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">옵션<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bytes_to_extract<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">패킷에서 가져올 바이트 수임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">dce </span>없이 사용할 경우 허용되는 값은 <span lang="EN-US">1-10 </span>임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">dce </span>와 함께 사용하는 경우 허용되는 값은 <span lang="EN-US">1, 2 </span>및 <span lang="EN-US">4 </span>임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">&lt;&lt; </span>또는 <span lang="EN-US">&gt;&gt; </span>연산자와
+  함께 사용하는 경우 허용되는 값은 <span lang="EN-US">1-4 </span>임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">oper<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">추출된 값에 대해 수행할 수학적 연산이 허용된 연산자 <span lang="EN-US">: <o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">+, -, *, /, &lt;&lt;, &gt;&gt;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">rvalue<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">수학적 연산을 사용할 값임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">offset<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">처리를 시작할 페이로드의 바이트 수임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">relative<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">마지막 패턴 일치에 상대적인 오프셋을 사용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">endian<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">읽고 있는 번호의 엔디안 유형<span lang="EN-US"> : <o:p></o:p></span></span></p><p class="MsoNoSpacing"><span style="font-family: courier;">•</span><span lang="EN-US" style="font-family: courier;"> big - </span><span style="font-family: courier;">데이터를 빅 엔디안으로
+  처리함</span><span lang="EN-US" style="font-family: courier;">. (</span><span style="font-family: courier;">기본값</span><span lang="EN-US" style="font-family: courier;">).</span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> little - </span>데이터를 <span lang="EN-US">little endian</span>으로 처리함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">string<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">데이터는 패킷에 문자열 형식으로 저장됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">number
+  type<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">읽을 번호 유형<span lang="EN-US"> : <o:p></o:p></span></span></p><p class="MsoNoSpacing"><span style="font-family: courier;">•</span><span lang="EN-US" style="font-family: courier;"> hex - </span><span style="font-family: courier;">변환된 문자열 데이터가</span><span lang="EN-US" style="font-family: courier;"> 16 </span><span style="font-family: courier;">진수로 표시됨</span><span lang="EN-US" style="font-family: courier;">.</span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> dec - </span>변환된 문자열 데이터가<span lang="EN-US"> 10 </span>진수로 표시됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">•<span lang="EN-US"> oct - </span>변환된 문자열 데이터가<span lang="EN-US"> 8 </span>진수로 표시됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">dce<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">DCE/RPC 2 </span>전처리기<span lang="EN-US">(preprocessor)</span>가
+  변환할 값의 바이트 순서를 결정하게 하십시오<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bitmask<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">추출된 바이트에 <span lang="EN-US">AND </span>연산자를
+  적용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">결과는 마스크의 후행 <span lang="EN-US">0 </span>수와 동일한
+  비트 수만큼 오른쪽 시프트됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>바이트 수학 결과 변수를 사용하는 기타 규칙 옵션 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">규칙
+  옵션<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">결과
+  변수를 받는 인수<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">content<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">offset, depth, distance, within<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">byte_test<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">offset, value<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">byte_jump<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">offset<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">isdataat<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">offset<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  udp $EXTERNAL_NET any -&gt; $HOME_NET any \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(msg:"Perform
+  Arithmetic Operation on the extracted bytes"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"|00
+  04 93 F3|"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"|00
+  00 00 07|"; distance:4; within:4; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_math:bytes
+  4, offset 0, oper +, rvalue 248, result var, relative; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_test:4,
+  &gt;, var, 2, relative;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp $EXTERNAL_NET any -&gt; $HOME_NET any \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(msg:"Bitwise
+  shift operator"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:"|00
+  00 00 07|"; distance:4; within:4; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_extract:
+  1, 0, extracted_val, relative; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_math:
+  bytes 1, offset 2, oper &gt;&gt;, rvalue extracted_val, result var, relative;
+  \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_test:2,
+  =, var, 0, relative;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  udp any any -&gt; any 1234 \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(content:
+  "Packets start"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_math:
+  bytes 2, offset 0, oper -, rvalue 100, result var, relative, bitmask 0x7FF0;
+  \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">content:
+  "Packets end"; distance: 2; within var; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">msg:"Content
+  match with bitmask applied to the bytes extracted";)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  udp any any -&gt; any 1235 \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">(byte_extract:
+  4, 3, extracted_val, relative; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_math:
+  bytes 5, offset 0, oper +, rvalue extracted_val, result var, string hex; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">byte_test:5,
+  =, var, 4, string, hex; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">msg:"String
+  operator used with math rule option";)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.35 ftpbounce
+
+- ftpbounce 키워드는 FTP bounce 공격을 감지함.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">ftpbounce;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp $EXTERNAL_NET any -&gt; $HOME_NET 21 (msg:"FTP PORT bounce
+  attempt"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">flow:to_server,established;
+  content:"PORT"; nocase; ftpbounce; pcre:"/ˆPORT/smi";\<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">classtype:misc-attack;
+  sid:3441; rev:1;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.36 asn1
+
+
+
+- ASN.1 탐지 플러그인은 패킷 또는 패킷의 일부를 디코딩하고 다양한 악성 인코딩을 찾음.
+- 'asn1' 옵션에 여러 옵션을 사용할 수 있으며 암시적 논리의 부울 OR 임.
+- 따라서 인수 중 하나라도 참으로 평가되면 전체 옵션이 참으로 평가됨.
+- ASN.1 옵션은 좀 더 동적인 유형 감지뿐만 아니라 프로그래밍 방식 감지 기능을 제공함.
+- 옵션에 인수가 있는 경우 옵션과 인수는 공백이나 쉼표로 구분됨.
+- 선호하는 사용법은 옵션과 인수 사이에 공백을 사용하는 것임.
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">asn1:[bitstring_overflow][,
+  double_overflow][, oversize_length &lt;value&gt;][, absolute_offset
+  &lt;value&gt;|relative_of<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 125.9pt;" width="168">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">옵션<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 336.2pt;" width="448">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 125.9pt;" width="168">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">bitstring_overflow<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 336.2pt;" width="448">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">원격으로 악용될 수 있는 것으로 알려진 유효하지 않은 비트 문자열 인코딩을 감지함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 125.9pt;" width="168">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">double_overflow<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 336.2pt;" width="448">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">표준 버퍼보다 큰 이중 <span lang="EN-US">ASCII </span>인코딩을 감지함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">이것은 <span lang="EN-US">Microsoft </span>에서 악용 가능한 기능으로 알려져 있지만 현재 어떤 서비스가
+  악용될 수 있는지는 알 수 없음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 125.9pt;" width="168">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">oversize_length &lt;value&gt;<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 336.2pt;" width="448">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;"><span lang="EN-US">ASN.1 </span>유형 길이를 제공된 인수와 비교함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">구문은 <span lang="EN-US">"oversize_length 500" </span>과 같음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">즉<span lang="EN-US">, ASN.1 </span>유형이 <span lang="EN-US">500 </span>보다 크면
+  이 키워드가 <span lang="EN-US">true </span>로 평가됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">이 키워드에는 비교할 길이를 지정하는 하나의 인수가 있어야 함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 125.9pt;" width="168">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">absolute_offset &lt;value&gt;<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 336.2pt;" width="448">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">이것은 패킷 시작으로부터의 절대 오프셋임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">예를 들어 <span lang="EN-US">snmp </span>패킷을 디코딩하려면 <span lang="EN-US">"absolute_offset
+  0" </span>이라고 말하면 됨<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;"><span lang="EN-US">absolute_offset </span>에는 오프셋 값이라는 하나의 인수가 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">오프셋은 양수 또는 음수일 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 125.9pt;" width="168">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">relative_offset &lt;value&gt;<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 336.2pt;" width="448">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">이것은 마지막 컨텐츠 일치<span lang="EN-US">, pcre </span>또는 <span lang="EN-US">byte_jump
+  </span>의 상대적 오프셋임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;"><span lang="EN-US">relative_offset </span>에는 오프셋 번호라는 하나의 인수가 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">따라서 콘텐츠<span lang="EN-US"> "foo"</span>바로 다음에<span lang="EN-US"> ASN.1 </span>시퀀스 디코딩을 시작하려면 <span lang="EN-US">'content:"foo";
+  asn1:bitstring_overflow, relative_offset 0' </span>를 지정함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">오프셋 값은 양수 또는 음수일 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  udp any any -&gt; any 161 (msg:"Oversize SNMP Length"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">asn1:oversize_length
+  10000, absolute_offset 0;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any 80 (msg:"ASN1 Relative Foo";
+  content:"foo"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">asn1:bitstring_overflow,
+  relative_offset 0;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+### 5.37 cvs
+
+
+
+CVS 감지 플러그인은 Bugtraq-10384, CVE-2004-0396, "Malformed Entry Modified and Unchanged flag insertion" 를 감지하는 데 도움이 됨. </br>
+기본 CVS 서버 포트는 2401 및 514 이며 스트림 재조립을 위한 기본 포트에 포함됨.
+
+</br>
+
+노트 : </br>
+이 플러그인은 암호화된 세션은 감지할 수 없음. </br>
+예를 들어 SSH 서비스와 일반적으로 포트 22번에 대해서 감지할 수 없음.
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">cvs:&lt;option&gt;;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">옵션<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span lang="EN-US"><span style="font-family: courier;">invalid-entry<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;"><span lang="EN-US">CVS 1.11.15 </span>및 이전 버전에서 힙 오버플로우 및 잘못된 포인터 역참조를 유발하는
+  잘못된 항목 문자열을 찾음<span lang="EN-US">. (CVE-2004-0396 </span>참조<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any 2401 (msg:"CVS Invalid-entry"; \<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">flow:to_server,established;
+  cvs:invalid-entry;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.38 dce_iface
+생략
+
+
+
+
+
+### 5.39 dce_opnum
+생략
+
+
+
+
+
+### 5.40 dce_stub_data
+생략
+
+
+
+
+
+### 5.41 sip_method
+생략
+
+
+
+
+
+### 5.42 sip_stat_code
+생략
+
+
+
+
+
+### 5.43 sip_header
+생략
+
+
+
+
+
+### 5.44 sip_body
+생략
+
+
+
+
+
+### 5.45 gtp_type
+생략
+
+
+
+
+
+### 5.46 gtp_info
+생략
+
+
+
+
+
+### 5.47 gtp_version
+생략
+
+
+
+
+
+### 5.48 ssl_version
+생략
+
+
+
+
+
+### 5.49 ssl_state
+생략
+
+
+### 5.50 Payload Detection Quick Reference
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>페이로드 감지 규칙 옵션 키워드 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">키워드<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">content<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">content </span>키워드를 통해 사용자는 패킷 페이로드에서 특정 컨텐츠를 검색하고
+  해당 데이터를 기반으로 응답을 트리거하는 규칙을 설정할 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">rawbytes<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">rawbytes </span>키워드를 사용하면 규칙에서 전처리기가 수행한 디코딩을 무시하고
+  원시 패킷 데이터를 볼 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">depth<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">depth </span>키워드를 사용하면 규칙 작성기가 패킷 <span lang="EN-US">Snort </span>가 지정된 패턴을 검색해야 하는 거리를 지정할 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">offset<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">offset </span>키워드를 사용하면 규칙 작성기가 패킷 내에서 패턴 검색을 시작할
+  위치를 지정할 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">distance<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">distance </span>키워드를 사용하면 규칙 작성자가 이전 패턴 일치의 끝을 기준으로
+  지정된 패턴을 검색하기 전에 <span lang="EN-US">Snort </span>가 무시해야 하는 패킷의 거리를 지정할 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">within<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">within </span>키워드는<span lang="EN-US"> content </span>키워드를
+  사용하여 패턴 일치 사이에 최대 <span lang="EN-US">N </span>바이트가 있는지 확인하는 내용 수정자임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">uricontent<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">Snort </span>규칙 언어의 <span lang="EN-US">uricontent
+  </span>키워드는 정규화된 요청 <span lang="EN-US">URI </span>필드를 검색함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">isdataat<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">isdataat </span>키워드는 페이로드의 지정된 위치에 데이터가 있는지 확인함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">pcre<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">pcre </span>키워드를 사용하면 <span lang="EN-US">perl </span>호환
+  정규식을 사용하여 규칙을 작성할 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">byte_test<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">byte_test </span>키워드는 특정 값<span lang="EN-US">(</span>연산자
+  포함<span lang="EN-US">)</span>에 대해 바이트 필드를 테스트함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">byte_jump<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">byte_jump </span>키워드를 사용하면 규칙이 데이터 일부의 길이를 읽은 다음 패킷에서
+  해당 길이를 건너 뛸 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">ftpbounce<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">ftpbounce </span>키워드는<span lang="EN-US"> FTP bounce </span>공격을
+  감지함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">asn1<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">asn1 </span>탐지 플러그인은 패킷 또는 패킷의 일부를 디코딩하고 다양한 악성
+  인코딩을 찾음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">cvs<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">cvs </span>키워드는 유효하지 않은 항목 문자열을 감지함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">dce_iface<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">생략<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">dce_opnum<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" valign="top" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">생략<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">dce_stub_data<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" valign="top" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">생략<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">sip_method<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" valign="top" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">생략<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">sip_stat_code<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" valign="top" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">생략<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">sip_header<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" valign="top" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">생략<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">sip_boy<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" valign="top" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">생략<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">gtp_type<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" valign="top" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">생략<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">gtp_info<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" valign="top" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">생략<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">gtp_version<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" valign="top" width="494">
+  <p class="MsoNormal" style="line-height: normal; margin-bottom: 0cm;"><span style="font-family: courier;">생략<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+
+
+## (6) Non-Payload 감지 규칙 옵션
+### 6.1 fragoffset
+
+
+- fragoffset 키워드를 사용하면 IP 조각 오프셋 필드를 10 진수 값과 비교할 수 있음.
+- IP 세션의 모든 첫 번째 조각을 포착하려면 fragbits 키워드를 사용하고 fragoffset 0 과 함께 More fragments 옵션을 찾을 수 있음.
+
