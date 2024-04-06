@@ -7121,17 +7121,12 @@ Post-Detection </span>규칙 옵션 키워드 <span lang="EN-US">&gt;<o:p></o:p>
 - 많은 서비스는 일반적으로 대문자로 명령어을 모냄.
  - FTP 가 좋은 예임.
   - FTP 에서 사용자 이름을 보내기 위해 클라이언트는 다음을 보냄.
-
-</br>
-
-user username_here
+    </br>
+      user username_here
 
 
 
-- FTP root 로그인 시도를 찾는 간단한 규칙은 다음과 같음.
-
-</br>
-
+- FTP root 로그인 시도를 찾는 간단한 규칙은 다음과 같음.</br>
 alert tcp any any -> any any 21 \(content:"user root";) </br>
 
 
@@ -7150,10 +7145,7 @@ user\<tab>root </br>
 
 
 - FTP 서버가 처리 할 수 있는 모든 경우를 처리하려면 규칙에 단순한 문자열 일치보다 더 스마트 한 것이 필요함.
- - ftp 에서 루트 로그인을 찾는 좋은 규칙은 다음과 같음.
-
-
-
+ - ftp 에서 루트 로그인을 찾는 좋은 규칙은 다음과 같음. </br>
 alert tcp any any -> any 21 \(flow:to_server,established; \\  </br>
 content:"root"; pcre:"/user\s+root/i";)
 
