@@ -2477,6 +2477,174 @@ fast_pattern 수정자는 해당 내용이 offset, depth, distance 및 within �
 </div>
 
 ### 5.23 uricontent
+Snort 규칙 언어의 uricontent 키워드는 정규화(NORMALIZED) 요청 URI 필드를 검색함. </br>
+이는 content 키워드에 http_uri 수정자를 사용하는 것과 같음. </br>
+따라서 %2f 또는 Directory Traversal 기법과 같이 정규화된 항목을 포함하는 규칙을 작성하는 경우 이러한 규칙은 경고하지 않음. </br>
+그 이유는 찾고 있는 항목이 정규화된 URI 버퍼에서 찾기 때문임. </br>
+
+</br>
 
 
+예를 들어, URI : </br>
+/scripts/..%c0%af../winnt/system32/cmd.exe?/c+ver
 
+</br>
+
+다음으로 정규화됨 : </br>
+/winnt/system32/cmd.exe?/c+ver
+
+</br>
+
+또 다른 예, URI : </br>
+bin/aaaaaaaaaaaaaaaaaaaaaaaaaa/..%252fp%68f?
+
+</br>
+
+다음으로 정규화됨 : </br>
+/cgi-bin/phf?
+
+</br>
+
+uricontent 규칙을 작성할 때 URI 가 정규화될 문자열(context)에서 찾을려는 content 를 작성해야 함. </br>
+예를 들어 Snort 가 Directory Traversal 기법을 정규화하는 경우 Directory Traversal 기법을 포함하지 말 것! </br>
+content 옵션을 사용하여 정규화되지 않은 컨텐츠를 찾는 규칙을 작성할 수 있음. (5.1 섹션 참조) </br>
+uricontent 는 content 키워드에 사용할 수 있는 여러 수정자와 함께 사용할 수 있음. </br>
+여기에는 다음이 포함되며 이 옵션은 HTTP 검사 전처리기(HTTP Inspect preprocessor)와 함께 작동함. </br>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+uricontent </span>수정자 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">수정자<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">섹션<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">nocase<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">5.5<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">depth<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">5.7<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">offset<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">5.8<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">distance<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">5.9<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">within<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">5.10<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">fast_pattern<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 230.6pt;" width="307">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span lang="EN-US"><span style="font-family: courier;">5.22<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">uricontent:[!]"&lt;content
+  string&gt;";<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+노트 : </br>
+uricontent 는 rawbytes 수정자 또는 다른 HTTP 수정자로 수정할 수 없음. </br>
+비정규화(UNNORMALIZED) 요청 URI 필드를 검색하려면 content 옵션과 함께 http_raw_uri 수정자를 사용해야 함. </br>
+
+
+### 5.24 urilen
+Snort 규칙 언어의 urilen 키워드는 일치시킬 URI 길이의 정확한 길이, 최소 길이, 최대 길이 또는 범위를 지정함. </br>
+기본적으로 원시 URI 버퍼가 사용됨. </br>
+선택적 <uribuf> 인수를 사용하면 원시 또는 정규화된 버퍼를 사용할 지 여부를 지정할 수 있음. </br>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">urilen:min&lt;&gt;max[,&lt;uribuf&gt;];<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">urilen:[&lt;|&gt;]&lt;number&gt;[,&lt;uribuf&gt;];<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">&lt;uribuf&gt; : "norm" |
+  "raw"<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+다음 예는 길이가 5 바이트인 URI 와 일치함. </br>
+urilen:5;
+
+</br>
+
+다음 예는 5 바이트보다 짧은 URI 와 일치함. </br>
+urilen:<5;
+
+</br>
+
+다음 예는 5 바이트보다 크고 10 바이트(포함)보다 작은 URI 와 일치함. </br>
+urilen:5<>10;
+
+</br>
+
+다음 예는 정규화된 URI 버퍼를 사용하여 500 바이트보다 큰 URI 를 일치시킴. </br>
+urilen:>500,norm;
+
+</br>
+
+다음 예는 원시 URI 버퍼를 사용하도록 명시적으로 나타내는 500 바이트보다 큰 URI 와 일치함. </br>
+urilen:>500,row;
+
+</br>
+
+이 옵션은 HTTP 감사 전처리기(HTTP Inspect preprocessor)와 함께 작동함.
+
+
+### 5.25 isdataat
