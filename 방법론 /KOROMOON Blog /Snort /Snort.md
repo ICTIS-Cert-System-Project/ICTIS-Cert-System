@@ -3043,10 +3043,10 @@ pcre 를 사용하여 모든 URI 를 검사하려면 content 또는 uricontent �
 
 </br>
 
-상대 또는 절대 컨텐츠 일치(HTTP 수정자 또는 rawbytes 없음) 및 규칙에서 file_data 를 따르는 페이로드 감지 규칙 옵션은 다른 규칙 옵션에 의해 명시적으로 재설정될 때까지 이 버퍼에 적용됨. </br>
-이 규칙 옵션은 규칙에서 여러 번 사용할 수 있음. </br>
-file_data 에 대한 mime 인수는 더 이상 사용되지 않음. </br>
-규칙 옵션 file_data 는 자체적으로 디코딩된 MIME 첨부를 가리킴. </br>
+- 상대 또는 절대 컨텐츠 일치(HTTP 수정자 또는 rawbytes 없음) 및 규칙에서 file_data 를 따르는 페이로드 감지 규칙 옵션은 다른 규칙 옵션에 의해 명시적으로 재설정될 때까지 이 버퍼에 적용됨. 
+- 이 규칙 옵션은 규칙에서 여러 번 사용할 수 있음. 
+- file_data 에 대한 mime 인수는 더 이상 사용되지 않음. 
+- 규칙 옵션 file_data 는 자체적으로 디코딩된 MIME 첨부를 가리킴. </br>
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -4453,8 +4453,8 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 
 
-CVS 감지 플러그인은 Bugtraq-10384, CVE-2004-0396, "Malformed Entry Modified and Unchanged flag insertion" 를 감지하는 데 도움이 됨. </br>
-기본 CVS 서버 포트는 2401 및 514 이며 스트림 재조립을 위한 기본 포트에 포함됨.
+- CVS 감지 플러그인은 Bugtraq-10384, CVE-2004-0396, "Malformed Entry Modified and Unchanged flag insertion" 를 감지하는 데 도움이 됨. 
+- 기본 CVS 서버 포트는 2401 및 514 이며 스트림 재조립을 위한 기본 포트에 포함됨.
 
 </br>
 
