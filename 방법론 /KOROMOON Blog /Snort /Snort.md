@@ -2229,3 +2229,254 @@ HTTP 인코딩과 관련된 여러 키워드가 있음. </br>
 규칙이 키워드 'header' 와 함께 작동하려면 구성 옵션 '헤더 정규화(normalize header)'를 설정해야 함. </br>
 키워드 'cookie' 는 '쿠키 사용(enable cookie)' 및 '쿠키 정규화(normalize cookies)' 옵션에 따라 다름. </br>
 이 규칙 옵션은 지정된 HTTP 필드가 정규화(NORMALIZED)가 아닌 경우 인코딩을 감지할 수 없음.
+
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="background: rgb(219, 229, 241); border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">옵션<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+  <td style="background: rgb(219, 229, 241); border-left: none; border: 1pt solid windowtext; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;">설명<span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">uri<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">HTTP </span>클라이언트 요청 <span lang="EN-US">URI </span>필드에서
+  지정된 인코딩 유형을 확인함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">header<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">HTTP </span>요청 또는 <span lang="EN-US">HTTP </span>응답
+  헤더 필드에서 지정된 인코딩 유형을 확인함<span lang="EN-US">. (</span>패킷의 흐름에 따라 다름<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">cookie<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">HTTP </span>요청 또는 <span lang="EN-US">HTTP </span>응답
+  쿠키 헤더 필드에서 지정된 인코딩 유형을 확인함<span lang="EN-US">. (</span>패킷의 흐름에 따라 다름<span lang="EN-US">)<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">utf8<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">지정된 버퍼에서 <span lang="EN-US">utf8 </span>인코딩을
+  확인함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">double_encode<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">지정된 버퍼에서 이중 인코딩<span lang="EN-US">(double
+  encoding)</span>을 확인함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">non_ascii<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">지정된 버퍼에서 비<span lang="EN-US"> ASCII </span>인코딩<span lang="EN-US">(non-ASCII encoding)</span>을 확인함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">uencode<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">지정된 버퍼에서 <span lang="EN-US">u </span>인코딩<span lang="EN-US">(u-encoding)</span>을 확인함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">bare_byte<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">지정된 버퍼에서 <span lang="EN-US">bare </span>바이트
+  인코딩<span lang="EN-US">(bare byte encoding)</span>을 확인함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">ascii<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">지정된 버퍼에서 <span lang="EN-US">ASCII </span>인코딩을
+  확인함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: none; border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 90.45pt;" width="121">
+  <p align="left" class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">iis_encode<o:p></o:p></span></span></p>
+  </td>
+  <td style="border-bottom: 1pt solid windowtext; border-left: none; border-right: 1pt solid windowtext; border-top: none; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 370.75pt;" width="494">
+  <p class="MsoNoSpacing"><span style="font-family: courier;">지정된 버퍼에서 <span lang="EN-US">IIS </span>유니코드
+  인코딩을 확인함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">http_encode:&lt;http buffer type&gt;,
+  [!]&lt;encoding type&gt;<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">http_encode:[uri|header|cookie],
+  [!][&lt;utf8|double_encode|non_ascii|uencode|bare_byte|ascii|iis_encode&gt;];<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any any (msg:"UTF8/UEncode Encoding present";
+  http_encode:uri,utf8|uencode;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><br></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">alert
+  tcp any any -&gt; any any (msg:"No UTF8"; http_encode:uri,!utf8;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.22 fast_pattern
+
+fast_pattern 키워드는 빠른 패턴 일치자(matcher)와 함께 사용할 규칙 내의 컨텐츠를 설정하는 content 수정자임. </br>
+빠른 패턴 결정의 기본 동작은 가장 긴 HTTP 버퍼 컨텐츠를 사용하는 것임. </br>
+HTTP 버퍼가 없으면 빠른 패턴이 가장 긴 컨텐츠임. </br>
+이 동작이 주어지면 짧은 컨텐츠가 긴 컨텐츠보다 "고유한" 경우 유효함. </br>
+즉, 더 짧은 컨텐츠가 긴 컨텐츠보다 패킷에서 발견될 가능성이 적음. </br>
+
+</br>
+
+빠른 패턴 일치자(matcher)는 선택을 위해 규칙의 컨텐츠를 사용하고 컨텐츠가 페이로드에서 발경되는 경우에만 해당 규칙을 평가하여 일치 가능성이 있는 규칙만 선택하는데 사용됨. </br>
+이는 오버헤드로 보일 수 있지만 평가해야 하는 규칙 수를 크게 줄여 성능을 향상시킬 수 있음. </br>
+빠른 패턴 일치자(matcher)에 사용되는 컨텐츠가 좋을수록 규칙이 불필요하게 평가될 가능성이 줄어듬. </br>
+
+</br>
+
+이 키워드는 이전 content 키워드에 대한 수정자이므로 fast_pattern 을 지정하기 전에 규칙에 content 규칙 옵션이 있어야 함. </br>
+fast_pattern 옵션은 규칙당 한 번만 지정할 수 있음. </br>
+
+</br>
+
+노트 : </br>
+fast_pattern 수정자는 다음 http 컨텐츠 수정자와 함께 사용할 수 없음. (http_cookie, http_raw_uri, http_raw_header, http_raw_cookie, http_method, http_stat_code, http_stat_msg) </br>
+fast_pattern 수정자는 해당 내용이 offset, depth, distance 및 within 내에서 수정되지 않은 경우에만 부정된(negated) 컨텐츠과 함께 사용할 수 있음. </br>
+빠른 패턴 일치자(matcher)는 항상 대소문자를 구분하지 않음. </br>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">fast_pattern </span>옵션은
+  단독으로 사용하거나 선택적으로 인수를 사용할 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">단독으로 사용하는 경우 단순히 지정된 컨텐츠를 규칙의 빠른 패턴 컨텐츠로 사용한다는
+  의미임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">fast_pattern;<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">선택적 인수는 컨텐츠가 빠른 패턴 일치자<span lang="EN-US">(matcher)</span>에만
+  사용되어야 하며 규칙 옵션으로 평가되지 않도록 지정하는 데만 사용할 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">예를 들어<span lang="EN-US">, </span>알려진 컨텐츠가 페이로드의
+  위치와 관계없이 페이로드에 있어야 하는 경우에 유용함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">규칙 옵션을 평가하는 데 필요한 시간을 절약하기 때문임<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">1. </span>패턴이 대소문자를 구분하지 않는 방식으로 패턴 일치자<span lang="EN-US">(matcher)</span>에 삽입되므로 수정된 컨텐츠는 대소문자를 구분하지 않아야 함<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">2. </span>부정된<span lang="EN-US">(negated) </span>컨텐츠는
+  사용할 수 없음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><span lang="EN-US">3. </span>컨텐츠에는<span lang="EN-US"> offset,
+  depth, distance </span>또는<span lang="EN-US"> within </span>와 같은 위치 수정자가 있을 수 없음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">fast_pattern:only;<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">선택적 인수<span lang="EN-US"> &lt;offset&gt;,
+  &lt;length&gt; </span>를 사용하여 컨텐츠의 일부만 빠른 패턴 일치자<span lang="EN-US">(matcher)</span>에
+  사용되도록 지정할 수 있음<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;">이는 패턴이 매우 길고<span lang="EN-US"> "</span>고유성<span lang="EN-US">"</span>을 충족시키기 위해 패턴의 일부만 필요한 경우에 유용하므로 빠른 패턴 일치자<span lang="EN-US">(matcher)</span>에 전체 패턴을 저장하는 데 필요한 메모리가 줄어듬<span lang="EN-US">.<o:p></o:p></span></span></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><span lang="EN-US"><span style="font-family: courier;">fast_pattern:&lt;offset&gt;,&lt;length&gt;;<o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+ 
+</br>
+
+
+노트 : </br>
+선택적 인수 <offset>, <length> 는 상호 배타적임. 
+
+</br>
+
+<p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
+</span>사용예<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
+<div align="center">
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">이 규칙은<span lang="EN-US"> "IJKLMNO" </span>패턴이 이전 패턴<span lang="EN-US">
+  "ABCDEFGH" </span>보다 짧더라도<span lang="EN-US"> fast_pattern </span>일치자와
+  함께 사용되도록 함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any 80 (content:"ABCDEFGH"; content:"IJKLMNO";
+  fast_pattern;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">이 규칙은<span lang="EN-US"> fast_pattern </span>일치자에<span lang="EN-US">
+  content:"IJKLMNO"; </span>를 사용하고<span lang="EN-US"> content</span>가<span lang="EN-US"> fast_pattern </span>일치자만 사용되어야 하며<span lang="EN-US"> content </span>규칙
+  옵션으로 평가되지 않아야 함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><i><span lang="EN-US"><span style="font-family: courier;">alert
+  tcp any any -&gt; any 80 (content:"ABCDEFGH";
+  content:"IJKLMNO"; nocase; fast_pattern:only;)<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><br></span></p>
+  <p class="MsoNoSpacing"><i><span style="font-family: courier;">이 규칙은<span lang="EN-US"> "JKLMN" </span>을 <span lang="EN-US">fast_pattern content </span>로
+  사용하지만 <span lang="EN-US">content </span>규칙 옵션을 <span lang="EN-US">“IJKLMNO” </span>로
+  평가함<span lang="EN-US">.<o:p></o:p></span></span></i></p>
+  <p class="MsoNoSpacing"><span style="font-family: courier;"><i><span lang="EN-US">alert
+  tcp any any -&gt; any 80 (content:"ABCDEFGH";
+  content:"IJKLMNO"; fast_pattern:1,5;)</span></i><span lang="EN-US"><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+### 5.23 uricontent
+
+
+
