@@ -2439,7 +2439,7 @@ fast_pattern 수정자는 해당 내용이 offset, depth, distance 및 within �
 
 
 노트 : </br>
-선택적 인수 <offset>, <length> 는 상호 배타적임. 
+선택적 인수 \<offset>, \<length> 는 상호 배타적임. 
 
 </br>
 
