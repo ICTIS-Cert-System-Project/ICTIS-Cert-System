@@ -3,6 +3,7 @@
 ##### 작성일자: 2024년 3월 30일
 
 <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/feedly_logo_icon_169177.png" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly"></img><br/>
+![68747470733a2f2f63646e2e69636f6e2d69636f6e732e636f6d2f69636f6e73322f323639392f504e472f3531322f666565646c795f6c6f676f5f69636f6e5f3136393137372e706e67](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/f4b2251d-0cdb-416f-8394-abf13d0a153b)
 
 ## RSS(Really Simple Syndication)정의
 - RSS는 뉴스나 블로그에서 주로 사용하는 콘텐츠 표현 방식임.
