@@ -28,13 +28,13 @@
 ## (3) THOR Lite 제품 사용 예제
 - THOR Lite 제품 다운로드 시 Nextron Systems 사 홈페이지에 가입을 해야 다운로드가 가능하며, 사용 라이센스 파일도 가입해야함.
 - 사용 라이센스 기간은 1년이며 짧은 기간이 아니므로 큰 문제는 안됨.
-- <span style="color:red;">참고로 사용 라이센스 파일은 THOR Lite 프로그램 디렉토리 안에 위치해야 사용이 가능함.</span>
+- **참고로 사용 라이센스 파일은 THOR Lite 프로그램 디렉토리 안에 위치해야 사용이 가능함.**
 
 </br><div align="center"> <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzQWZP2aAsAHJTbH3GIfHume4jCSbE05jezOMifdLI-pNZfALITnKnafWnYEYXFbwz88h1nQQDzycYOm7WRc9DA20NSacaSAiIQLCr3St5X2-Suf_1u3C_dxrSpIYCqkMnnlGX2krQNooqQSpTqFJPsn7BdQDUnFyGenxPXZtE30hxd99E14DJD14F/w640-h338/%EC%82%AC%EC%9A%A9%20%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4%20%ED%8C%8C%EC%9D%BC%20%EC%9C%84%EC%B9%98%20%ED%99%94%EB%A9%B4_%EA%B0%80%EA%B3%B5.png"></div>
 
 <div align="center">&lt; 사용 라이센스 위치 화면 &gt;</div></br>
 
-- <p><$\color{#5ad7b7}THOR Lite 제품은 포터블 형식으로 관리자 권한이나 root 권한으로 실행해야 하며 커맨드 라인에서 필요한 옵션만 사용하여 침해 진단함.$</p>
+- **THOR Lite 제품은 포터블 형식으로 관리자 권한이나 root 권한으로 실행해야 하며 커맨드 라인에서 필요한 옵션만 사용하여 침해 진단함.**
 
 - 그러나 모듈 중에서 Autoruns, Filescan, ProcessCheck만 가능하므로 파일 검사 선에서만 진단 가능함.
 
