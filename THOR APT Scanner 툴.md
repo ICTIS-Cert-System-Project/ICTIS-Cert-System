@@ -29,9 +29,9 @@
 - 사용 라이센스 기간은 1년이며 짧은 기간이 아니므로 큰 문제는 안됨.
 - <span style="color:red;">참고로 사용 라이센스 파일은 THOR Lite 프로그램 디렉토리 안에 위치해야 사용이 가능함.</span>
 
-<p align="center"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzQWZP2aAsAHJTbH3GIfHume4jCSbE05jezOMifdLI-pNZfALITnKnafWnYEYXFbwz88h1nQQDzycYOm7WRc9DA20NSacaSAiIQLCr3St5X2-Suf_1u3C_dxrSpIYCqkMnnlGX2krQNooqQSpTqFJPsn7BdQDUnFyGenxPXZtE30hxd99E14DJD14F/w640-h338/%EC%82%AC%EC%9A%A9%20%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4%20%ED%8C%8C%EC%9D%BC%20%EC%9C%84%EC%B9%98%20%ED%99%94%EB%A9%B4_%EA%B0%80%EA%B3%B5.png"></p>
+<p align="center;"> <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzQWZP2aAsAHJTbH3GIfHume4jCSbE05jezOMifdLI-pNZfALITnKnafWnYEYXFbwz88h1nQQDzycYOm7WRc9DA20NSacaSAiIQLCr3St5X2-Suf_1u3C_dxrSpIYCqkMnnlGX2krQNooqQSpTqFJPsn7BdQDUnFyGenxPXZtE30hxd99E14DJD14F/w640-h338/%EC%82%AC%EC%9A%A9%20%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4%20%ED%8C%8C%EC%9D%BC%20%EC%9C%84%EC%B9%98%20%ED%99%94%EB%A9%B4_%EA%B0%80%EA%B3%B5.png"></p>
 
-<center>&lt; 사용 라이센스 위치 화면 &gt;</center>
+<p align="center;">&lt; 사용 라이센스 위치 화면 &gt;</p>
 
 - <span style="color:red;">THOR Lite 제품은 포터블 형식으로 관리자 권한이나 root 권한으로 실행해야 하며 커맨드 라인에서 필요한 옵션만 사용하여 침해 진단함.</span>
 - 그러나 모듈 중에서 Autoruns, Filescan, ProcessCheck만 가능하므로 파일 검사 선에서만 진단 가능함.
@@ -57,7 +57,7 @@
 - APT 관련 YARA 규칙 다운로드 링크 : [https://github.com/Neo23x0/signature-base/tree/master/yara](https://github.com/Neo23x0/signature-base/tree/master/yara)
 
 ## <details><summary>별첨. THOR 명령어</summary>
-`>> thor64-lite.exe --version
+>> thor64-lite.exe --version
 
   
 
@@ -823,5 +823,5 @@ thor64-lite.exe --nohtml --nocsv -l \\sys\rep\%COMPUTERNAME%_thor.txt
 
 탑재된 이미지를 검사함.
 
-thor64-lite.exe --lab -p G: --virtual-map G:C`
+thor64-lite.exe --lab -p G: --virtual-map G:C
 </details>
