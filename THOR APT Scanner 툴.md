@@ -3,10 +3,11 @@
 ##### 링크: [KOROMOON][KOROMOONlink]
 [KOROMOONlink]: https://koromoon.blogspot.com/2022/09/thor-apt-scanner.html "Go KOROMOON"
 ##### 작성자: 김태현 사원
-##### 작성일자: 2024년 4월 9일 </br>
+##### 작성일자: 2024년 4월 9일
+</br>
 
 
-## THOR APT Scanner
+## (1) THOR APT Scanner
 - Nextron Systems 사에서 개발한 침해 진단 도구로 수천 개의 YARA 및 Sigma 규칙, IOC, 루트킷 및 이상 검사로 구성된 거대한 서명 세트를 통해 모든 종류의 위협을 검사하는 도구임.
 - 홈페이지 링크 : https://www.nextron-systems.com/
 - 아래와 같이 제품별로 기능이 분류되며 THOR 10은 기업용 제품으로 금액적으로 부담됨.
@@ -20,11 +21,11 @@
 - 또한, 리눅스 서버에서는 유료 백신을 설치할 경우, 서버당 라이센스 비용이 상당하며 실서비스에 구동할 경우, 오탐으로 인한 서비스 파일 삭제 등 문제가 발생할 수 있음.
 - 리눅스 서버에 설치가 안되는 경우가 더러 있으며 THOR APT Scanner와 같이 상용 침해 진단 도구를 이용하여 업무에 활용함.
 
-## THOR 명령어
+## (2) THOR 명령어
 - THOR Lite 10.7.3 버전에서 명령어를 조사함.
 - 방대한 관계로 아래 별첨을 참조 바람.
 
-##  THOR Lite 제품 사용 예제
+## (3) THOR Lite 제품 사용 예제
 - THOR Lite 제품 다운로드 시 Nextron Systems 사 홈페이지에 가입을 해야 다운로드가 가능하며, 사용 라이센스 파일도 가입해야함.
 - 사용 라이센스 기간은 1년이며 짧은 기간이 아니므로 큰 문제는 안됨.
 - <span style="color:red;">참고로 사용 라이센스 파일은 THOR Lite 프로그램 디렉토리 안에 위치해야 사용이 가능함.</span>
@@ -57,7 +58,7 @@
 - 제품에 기본적으로 제공하는 YARA 규칙으로도 상당수 탐지가 가능하며 아래 링크에서 고도화된 APT 관련 YARA 규칙을 추가할 수 있음. (주기적 업데이트 가능)
 - APT 관련 YARA 규칙 다운로드 링크 : [https://github.com/Neo23x0/signature-base/tree/master/yara](https://github.com/Neo23x0/signature-base/tree/master/yara)
 
-<details><summary>별첨. THOR 명령어</summary>
+<details><summary>(4) 별첨. THOR 명령어</summary>
 `>> thor64-lite.exe --version
 
   
