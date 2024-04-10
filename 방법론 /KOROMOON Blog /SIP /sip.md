@@ -121,3 +121,27 @@ SIP 서버 : UA간 직접 호출이 가능하지만 SIP 서버를 둠으로써 �
  </tr>
 </tbody></table>
 </div>
+
+## (5) SIP 패킷 구조
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/b39e6848-8ef6-4575-b15e-aaa67e7a9faf)
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/e51e3c9f-464f-4430-9dba-cf0c4be1b8ff)
+
+- 위 그림은 일반적인 SIP를 포함한 패킷의 구조이며 IP Header (20 Byte) / UDP Header (8 Byte) / SIP Header / SIP Message Body 로 이루어짐. 
+- SIP Message Body 는 있을 수도 있고 없을 수도 있는 옵션이며 주로 SDP(Session Description Protocol : 멀티미디어 세션 파라미터)의 내용이 첨가된다고 보면 됨.
+- 위 그림에서는 Transport Layer 프로토콜로 UDP로 되어 있으며 UDP가 일반적이지만 TCP 또는 SCTP가 사용될 수 있음.
+
+
+*참고*) SDP Lines Message 설명
+- SDP도 SIP 마찬가지로 텍스트 기반이며 다음의 내용을 포함함.
+- 관심 가질 사항은 딱 2개이며 m, a 임. 실제 사용될 코덱과 코덱의 속성에 대해 설명함.
+
+
+v = protocol version </br>
+o = owner/creator and session identifier )  </br>
+s = session name </br>
+c = connection information – not required if included in all media </br>
+k = encryption keys </br>
+t = time the session is active </br>
+m = media description and transport address </br>
+a = (zero or more) media attributes lines </br>
+
