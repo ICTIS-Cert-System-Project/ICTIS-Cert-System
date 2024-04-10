@@ -6,7 +6,7 @@
 ##### 작성일자: 2024년 4월 10일 
 
 ## (1) SIP의 정의
-![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/c385e492-53ff-42dc-bbfb-680440041a73)
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/154ab895-39f8-4ee4-9e99-f48dbb240527)
 - Session Initiation Protocol 의 약자로서 매우 간단한 텍스트 기반의 응용계층 제어 프로토콜로서 HTTP 프로토콜의 응답/요청 트랙잭션 모델임.
 - SIP는 SMTP와 HTTP 이후에 설계되었으며 SMTP나 HTTP처럼 텍스트 기반의 인터넷 표준을 따름으로서 고장 수리와 네트워크 디버깅이 쉬움.
 - 쉽게 설명하자면 두 개의 엔드 포인트 간의 통신 세션을 시작하는 데 필요한 확장 가능하고 가벼운 요청/응답 프로토콜임.
