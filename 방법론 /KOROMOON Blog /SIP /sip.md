@@ -233,3 +233,65 @@ a = (zero or more) media attributes lines </br>
  </tr>
 </tbody></table>
 </div>
+
+## (7) SIP 요청 메시지
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="background: #DBE5F1; border: solid black 1.0pt; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" valign="top" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<b><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">메시지<span lang="EN-US"><o:p></o:p></span></span></b></div>
+</td>
+  <td style="background: #DBE5F1; border-left: none; border: solid black 1.0pt; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-themecolor: text1; mso-border-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div align="center" class="MsoNormal" style="text-align: center;">
+<b><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">설명<span lang="EN-US"><o:p></o:p></span></span></b></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">INVITE<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">사용자 에이전트에게 호출 요청<span lang="EN-US">, </span>호출 전송<span lang="EN-US"><o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">ACK<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">호출 확인<span lang="EN-US"><o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">BYE<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">호출 종료<span lang="EN-US"><o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">CANCEL<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">아직<span lang="EN-US"> OK</span>되지 않은 호출 종료<span lang="EN-US"><o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">REGISTER<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">등록 서비스에 연락 주소와 대신 사용할
+  수 있는 별칭 제공<span lang="EN-US"><o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">OPTIONS<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">사용자 에이전트에게 가능한 옵션<span lang="EN-US">(</span>해당 에이전트가 이해하는 메시지와 코덱<span lang="EN-US">)</span>을 요청<span lang="EN-US"><o:p></o:p></span></span></div>
+</td>
+ </tr>
+</tbody></table>
