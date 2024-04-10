@@ -27,3 +27,45 @@
 - 통신에 있어서 SIP 프로토콜의 역할은 HTTP 프로토콜이 웹에서 수행하는 역할에 비견할 수 있음.
 - SIP 프로토콜이 통신 산업에 엄청난 반향을 일으키고 있음. 셀률러 기술 기업들은 향후의 모든 어플리케이션을 SIP 프로토콜로 표준화하기로 결정함.
 - VoIP 벤더, 인터넷 텔레폰 및 인스턴트 메시징 어플리케이션(ex. MSN Messenger)이 모두 SIP 프로토콜로 표준화되고 있음.
+
+## (4) SIP 구성 요소
+
+- SIP 시스템의 구성 요소는 SIP 클라이언트와 SIP 서버로 나누어짐.
+
+</br>
+
+SIP 클라이언트
+<div>
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="background: #DBE5F1; border: solid black 1.0pt; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" valign="top" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<b><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">구분<span lang="EN-US"><o:p></o:p></span></span></b></div>
+</td>
+  <td style="background: #DBE5F1; border-left: none; border: solid black 1.0pt; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-themecolor: text1; mso-border-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div align="center" class="MsoNormal" style="text-align: center;">
+<b><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">설명<span lang="EN-US"><o:p></o:p></span></span></b></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">UAC<o:p></o:p></span></span></div>
+<div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">(User Agent Clinet)<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">세션 종단에 위치하여 호<span lang="EN-US">(call)</span>를 생성하고 설정을 요청함<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">UAS<o:p></o:p></span></span></div>
+<div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">(User Agent Server)<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span lang="EN-US">UAC</span>로부터 호<span lang="EN-US">(call)</span>를 수락하거나 거절
+  또는<span lang="EN-US"> Redirect</span>함<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+</tbody></table>
+</div>
