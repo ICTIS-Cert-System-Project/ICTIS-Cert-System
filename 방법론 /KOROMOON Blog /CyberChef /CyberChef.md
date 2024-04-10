@@ -296,3 +296,42 @@
 - 인터넷 앱( https://gchq.github.io/CyberChef/ )의 왼쪽 상단 모서리에 있는 링크를 사용하여 CyberChef 전체 사본을 다운로드하여 가상 머신에 놓거나 다른 사람과 공유하거나 폐쇄된 네트워크에서 호스팅할 수 있음.
 
 ## (5) 사용예
+01. Base64 로 인코딩된 문자열 디코딩
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/f5382650-d07c-4548-9df7-34904d388c19)
+
+02. 날짜와 시간을 다른 시간대로 변환
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/9c386369-6b33-40ea-85d0-5a3fe2ad326d)
+
+03. Teredo IPv6 주소 구문 분석
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/1f1e3c7e-e9cd-425a-9362-2c694e53d764)
+
+04. 16 진수 덤프에서 데이터를 변환한 다음 압축해제
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/438af126-456b-471d-a97c-698d69cae995)
+
+05. 쉘코드 복호화와 디스어셈블리
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/4d080385-d3cb-4efc-94ca-a23aeb873a95)
+
+06. 여러 타임 스탬프를 전체 날짜로 표시
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/20a532a6-73d7-4352-99ba-2fc9eff3c845)
+
+07. 서로 다른 유형의 데이터에 대해 서로 다른 작업 수행
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/2c33a04a-03fa-444c-8447-e3988ea11ba5)
+
+08. 입력의 일부를 연산에 대한 인수로 사용
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/45845b95-e8a7-46ce-8610-722cd6ed765b)
+
+09. AES 암호 해독을 수행하여 암호 스트림의 시작 부분에서 IV 추출
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/5f2a6dd4-730a-4500-b9c8-a0cab83c3b74)
+
+10. 여러 계층의 중첩 인코딩을 자동으로 감지
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/2aa8bf55-7745-4c8d-9f9e-ebb65cd2a834)
