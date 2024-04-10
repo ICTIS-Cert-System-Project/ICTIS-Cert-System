@@ -145,3 +145,91 @@ t = time the session is active </br>
 m = media description and transport address </br>
 a = (zero or more) media attributes lines </br>
 
+## (6) SIP Header Field
+- 주요 필드만 소개함.
+<div>
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="background: #DBE5F1; border: solid black 1.0pt; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" valign="top" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<b><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">필드<span lang="EN-US"><o:p></o:p></span></span></b></div>
+</td>
+  <td style="background: #DBE5F1; border-left: none; border: solid black 1.0pt; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-themecolor: text1; mso-border-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div align="center" class="MsoNormal" style="text-align: center;">
+<b><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">설명<span lang="EN-US"><o:p></o:p></span></span></b></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">From<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span lang="EN-US">SIP </span>요청 발신자<span lang="EN-US"><o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">To<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">요청 수신자<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">이는 종종<span lang="EN-US"> SIP URI("</span>별칭<span lang="EN-US">" </span>또는 실제 주소일 수
+  있음<span lang="EN-US">)</span>와 동일함<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Contact<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">사용자 에이전트의 실제 주소<span lang="EN-US"><o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Call-ID<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">두 사용자 에이전트 간의 전체 호출<span lang="EN-US">, </span>즉 대화를 나타냄<span lang="EN-US">.<o:p></o:p></span></span></div>
+<div class="MsoNormal">
+<span style="color: red; font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">주의<span lang="EN-US">! </span>절대로 발신자의 전화 번호가 아님<span lang="EN-US">.<o:p></o:p></span></span></div>
+<div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">모든 관련<span lang="EN-US"> SIP </span>메시지는 동일한<span lang="EN-US"> Call-ID</span>를 사용함<span lang="EN-US">.<o:p></o:p></span></span></div>
+<div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">예를 들어 사용자 에이전트가<span lang="EN-US"> BYE </span>메시지를 수신하면<span lang="EN-US"> Call-ID</span>에 따라 종료할 호출을 알게
+  됨<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Cseq<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">메시지의 순차 번호<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">이는 단일 대화나<span lang="EN-US"> Call-ID </span>내에서만 사용되며 새 메시지와 재시도를 구분하기 위해 사용됨<span lang="EN-US">.<o:p></o:p></span></span></div>
+<div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">재시도는 초기 메시지가 해당 시간
+  내에<span lang="EN-US"> OK</span>되지 못할 때 발생하며 일정 간격으로 실행됨<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Content-Type<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">메시지 내부 페이로드의<span lang="EN-US"> MIME </span>타입<span lang="EN-US"><o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Content-Length<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">페이로드의 바이트 크기<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">엔빌로프<span lang="EN-US">(envelope)</span>와 페이로드는 한 줄을 띄어 구분함<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+</tbody></table>
+</div>
