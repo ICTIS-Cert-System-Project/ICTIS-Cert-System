@@ -402,3 +402,37 @@ a = (zero or more) media attributes lines </br>
 ② 401 Unauthorized : SIP Server -> UAC
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/80af4c5e-71b7-408e-bd45-1edfff1461aa)
+
+- UAC가 전송한 REGISTER 요청 메시지를 수신한 SIP Server는 해당 Authorization 헤더값을 체크함.
+- 만약 Authorization 헤더값이 설정되어 있지 않아 인증 정보가 없을 경우 SIP Server는 UAC에게 nonce 헤더값을 설정하여 challenge 함.
+- 이때 SIP 메시지 상의 WWW-Authenticate 헤더값에 생성된 nonce 항목과 algorithm 항목에 암호화 알고리즘 방식등을 설정하여 UAC가 SIP Server로의 인증시 참조할 정보들을 기술함.
+
+③ REGISTER : UAC -> SIP Server
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/62d36ce0-2b7b-4321-aca5-526a779efde9)
+
+- UAC는 SIP Server가 전송한 nonce 값의 체크섬(checksum)을 계산하여 해당 값을 참조하여 SIP 메시지의 Authorization 헤더값을 설정한 후 다시 서버로 전송하여 인증절차를 밟음. (credentials)
+
+④ 200 OK : SIP Server -> UAC
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/9df3dbcc-91d7-493f-88f2-8e155d22ffa1)
+
+
+- UAC로부터 인증 정보가 재첨부된 SIP REGISTER 요청 메시지를 수신한 SIP Server는 수신된 인증 정보로 인증 과정이 문제없이 통과되었을 경우 UAC에게 인증이 성공적으로 완료되었음을 알리는  200 OK 메시지를 전송함.
+
+### 참고 사이트 : 
+[1] SIP의 이해 </br>
+http://www.nexpert.net/category/SIP%EC%9D%98%20%EC%9D%B4%ED%95%B4 </br>
+[2] SIP이란 </br>
+http://blog.daum.net/mun850515/18259412 </br>
+[3] SIP Header Field </br>
+http://blog.daum.net/notime/16711061 </br>
+http://blog.acronym.co.kr/125 </br>
+[4] 몽키몽키님의 이동통신 기초 </br>
+http://blog.naver.com/PostList.nhn?blogId=cache798&from=postList&categoryNo=47 </br>
+[5] Penetration Testing VOIP with Backtrack </br>
+http://dayatcempoe.blogspot.kr/2012/01/penetration-testing-voip-with-backtrack.html </br>
+[6] [단독] KT 고객에게 걸려온 SIPVicious 전화의 정체? </br>
+http://www.boannews.com/media/view.asp?idx=33548&page=16&kind=1&search=title&find=%C8%A3%BE%D6%C1%F8%B1%E2%C0%DA </br>
+[7] SIPVicious 블로그 </br>
+http://blog.sipvicious.org/
