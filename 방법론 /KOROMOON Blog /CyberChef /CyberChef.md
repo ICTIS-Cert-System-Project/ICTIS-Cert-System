@@ -1,8 +1,9 @@
 # CyberChef *(암호화, 인코딩, 압축 및 데이터 분석을 위한 웹 앱)*
-#####  원작자:
-#####  링크:
-#####  작성자:
-#####  작성일자:
+#####  원작자: 문광일 PM
+#####  링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2021/01/cyberchef.html "Go koromoon"
+#####  작성자: 강하늘 사원
+#####  작성일자: 2024년 4월 10일
 
 </br>
 
