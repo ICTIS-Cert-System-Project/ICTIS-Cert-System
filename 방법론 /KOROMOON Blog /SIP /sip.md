@@ -295,3 +295,110 @@ a = (zero or more) media attributes lines </br>
 </td>
  </tr>
 </tbody></table>
+
+## (8) SIP 응답 메시지
+- 자주 사용되는 응답 메시지만 소개함.
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="background: #DBE5F1; border: solid black 1.0pt; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 125.9pt;" valign="top" width="168"><div align="center" class="MsoNormal" style="text-align: center;">
+<b><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">메시지<span lang="EN-US"><o:p></o:p></span></span></b></div>
+</td>
+  <td style="background: #DBE5F1; border-left: none; border: solid black 1.0pt; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-themecolor: text1; mso-border-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 335.3pt;" valign="top" width="447"><div align="center" class="MsoNormal" style="text-align: center;">
+<b><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">설명<span lang="EN-US"><o:p></o:p></span></span></b></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 125.9pt;" width="168"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">100 Trying<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 335.3pt;" valign="top" width="447"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">이 메시지가 수신되어도 최종 사용자
+  에이전트에 의해 아직 처리되지 않습니다<span lang="EN-US">. </span>기다리십시오<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 125.9pt;" width="168"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">180 Ringing<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 335.3pt;" valign="top" width="447"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">이 메시지가 최종 사용자 에이전트에
+  의해 수신되어 해당 사용자에게 나타납니다<span lang="EN-US">. </span>기다리십시오<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 125.9pt;" width="168"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">200 OK<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 335.3pt;" valign="top" width="447"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">이 메시지가 최종 사용자에 의해 수락되었습니다<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 125.9pt;" width="168"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">301 Moved Permanently<o:p></o:p></span></span></div>
+<div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">&amp;<o:p></o:p></span></span></div>
+<div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">302 Moved Temporarily<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 335.3pt;" valign="top" width="447"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">사용자 에이전트의 주소가 변경되었습니다<span lang="EN-US">. Contact </span>필드에 새 영구 주소 또는 임시 주소가 있습니다<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 125.9pt;" width="168"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">400 Bad Request<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 335.3pt;" valign="top" width="447"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">일반 오류 메시지<span lang="EN-US">. </span>클라이언트가 이 메시지를 이해하지 못합니다<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 125.9pt;" width="168"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">401 Unauthorized<o:p></o:p></span></span></div>
+<div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">&amp;<o:p></o:p></span></span></div>
+<div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">407 Proxy Authentication Require<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 335.3pt;" valign="top" width="447"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">자격을 증명하고 다시 시도하십시오<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 125.9pt;" width="168"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">404 Not Found<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 335.3pt;" valign="top" width="447"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">연결하려는 사용자가 존재하지 않거나
+  등록되지 않았습니다<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 125.9pt;" width="168"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">408 Request Timeout<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 335.3pt;" valign="top" width="447"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">상대방이 응답하지 않습니다<span lang="EN-US">. </span>이는<span lang="EN-US"> SIP </span>메시지가<span lang="EN-US"> OK</span>되지
+  않았을 뿐 아니라 모든 재시도가 실패했음을 의미합니다<span lang="EN-US">. </span>전화 벨이 너무 오랫동안 울렸다는 것을 의미하는
+  것이 아닙니다<span lang="EN-US">. (</span>전화 벨은 계속해서 울릴 수 있습니다<span lang="EN-US">)<o:p></o:p></span></span></div>
+</td>
+ </tr>
+</tbody></table>
+
+## (10) SIP 인증 절차
+- SIP는 HTTP 인증 방식에 기반을 둔 Stateless, Challenge-Based 인증 매커니즘을 제공함.
+- Inbound Proxy Server  또는 UAS가 SIP 요청 메시지를 수신하면 UAC에게 Identity Assurance 제공을 요청함.
+- UAC가 인증되면 해당 SIP 요청을 수신한 UAS는 UAC가 권한이 있는지를 확인해야 함.
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/aa0cb629-f953-4c7a-a963-c67c2aa05faf)
+
+① REGISTER : UAC -> SIP Server
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/274a2fec-3422-4709-a0df-537c661beeb2)
+- 먼저 UAC가 SIP Server로 자기좀 등록해 달라고 SIP REGISTER 요청 메시지를 전송함.
+
+② 401 Unauthorized : SIP Server -> UAC
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/80af4c5e-71b7-408e-bd45-1edfff1461aa)
