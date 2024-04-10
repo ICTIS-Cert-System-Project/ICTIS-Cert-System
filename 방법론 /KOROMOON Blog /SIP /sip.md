@@ -69,3 +69,55 @@ SIP 클라이언트
  </tr>
 </tbody></table>
 </div>
+
+SIP 서버 : UA간 직접 호출이 가능하지만 SIP 서버를 둠으로써 확장성을 제공함.
+<div>
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="background: #DBE5F1; border: solid black 1.0pt; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" valign="top" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<b><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">구분<span lang="EN-US"><o:p></o:p></span></span></b></div>
+</td>
+  <td style="background: #DBE5F1; border-left: none; border: solid black 1.0pt; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-themecolor: text1; mso-border-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div align="center" class="MsoNormal" style="text-align: center;">
+<b><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">설명<span lang="EN-US"><o:p></o:p></span></span></b></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Proxy Server<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span lang="EN-US">UAC</span>로부터<span lang="EN-US"> SIP </span>콜을 받아 자신이 콜을
+  대신 만들어 주는 역할을 함<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Register Server<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">사용자의 에이전트로부터 레지스터 요청을
+  수신하여 사용자의 위치 정보를 유지함<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Redirect Server<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">사용자가 직접 요청을 할 수 있는
+  상대방의<span lang="EN-US"> URL</span>을 알려줌<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+<tr>
+  <td style="border-top: none; border: solid black 1.0pt; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 104.65pt;" width="140"><div align="center" class="MsoNormal" style="text-align: center;">
+<span lang="EN-US"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Location Server<o:p></o:p></span></span></div>
+</td>
+  <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; mso-border-alt: solid black .5pt; mso-border-bottom-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-right-themecolor: text1; mso-border-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; padding: 0cm 5.4pt 0cm 5.4pt; width: 356.55pt;" valign="top" width="475"><div class="MsoNormal">
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span lang="EN-US">Proxy
+  Server</span>나<span lang="EN-US">
+  Redirect Server</span>로부터<span lang="EN-US"> SIP </span>콜의 목적지 노드의 주소가 요청되면 이를<span lang="EN-US"> Resolution(</span>변환<span lang="EN-US">) </span>해주는 역할을 함<span lang="EN-US">.<o:p></o:p></span></span></div>
+</td>
+ </tr>
+</tbody></table>
+</div>
