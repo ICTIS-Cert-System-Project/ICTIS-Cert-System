@@ -128,3 +128,99 @@ Control Point 에서 직접 관심있는 Device 나 Service 의 검색을 하게
 Search 요청은 UDP 멀티캐스트 방식으로 전달되고 Search 응답은 UDP 유니캐스트 방식으로 받음.
 Search 요청은 M-SEARCH 메소드를 사용하며 전송 형식은 다음과 같음.
 
+
+<div style="text-align: center;">
+<span style="font-family: Courier New, Courier, monospace;">&lt; Search 요청 형식 &gt;</span></div>
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">M-SEARCH *
+  HTTP/1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Search </span>타입의 요청 메소드<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">Host:239.255.255.250:1900&nbsp;&nbsp; // </span>멀티캐스트
+  주소 및 포트<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">ST:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </span>검색 대상<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">MAN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // HTTP Extension
+  Framework </span>에 의해 필수 사항으로<span lang="EN-US">
+  "ssdp:discover" </span>값 사용<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">MX:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Device </span>응답 최대 대기 시간<span lang="EN-US"> (0 ~ 120)</span></span></div>
+</td>
+ </tr>
+</tbody></table>
+
+<div style="text-align: center;">
+<span style="font-family: Courier New, Courier, monospace;">&lt; Search 요청 패킷 &gt;</span></div>
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/9d6d6a32-d14e-432b-acb0-dd0072b50fcc)
+
+다음은 Search 응답 형식임.
+
+<div style="text-align: center;">
+<span style="font-family: Courier New, Courier, monospace;">&lt; Search 응답 형식 &gt;</span></div>
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">HTTP/1.1 200
+  OK&nbsp;&nbsp; // Search </span>타입의 응답 값<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">CACHE-CONTROL:&nbsp;&nbsp;&nbsp; // </span>호스트와
+  통신 유효 시간으로<span lang="EN-US"> max-age </span>지시어 포함<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">DATE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </span>응답이 전달된 시간<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">EXT:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // HTTP Extension Framework </span>에 의해 필수 사항으로 값은 없음<span lang="EN-US">.<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">LOCATION:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </span>서비스에 대한 설명이 지정된<span lang="EN-US"> URL<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">SERVER:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // UPnP </span>정보<span lang="EN-US">, OS </span>정보 등<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">ST:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </span>검색 대상<span lang="EN-US"> (Request ST </span>에 따라 전달할 응답도
+  달라짐<span lang="EN-US">)<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">USN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Unique Service Name (NOTIFY </span>전송시의<span lang="EN-US"> USN </span>과 동일한 값으로<span lang="EN-US"> ST</span>와 쌍으로 전송<span lang="EN-US">)</span></span></div>
+</td>
+ </tr>
+</tbody></table>
+
+<div style="text-align: center;">
+<span style="font-family: Courier New, Courier, monospace;">&lt; Search 응답 패킷 &gt;</span></div>
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/007b1347-8fe5-4d20-9472-3d41cdfe1f64)
+
+Search 응답 ST 필드에 대해서 좀 더 살펴보자.
+Request ST 이 "ssdp:all" 일때 ST 를 "upnp:rootdevice", "uuid:device-uuid", "urn:schemas-upnp-org:device:devicetype:v"와 "urn:schemas-upnp-org:service:servicetype:v" 를 서비스당 하나씩 하여 해당 갯 수만큼 응답을 전송해야 함.
+Request ST 이 "upnp:rootdevice" 일때 ST 값을 "upnp:rootdevice" 로 하여 한번 응답함.
+Request ST 이 "uuid:device-uuid" 일때 device-uuid 와 일치하는 device 이면 ST 값을 uuid:device-uuid 로 동일하게 하여 한번 응답함.
+Request ST 이 "urn:schemas-upnp-org:device:devicetype:v" 일때 일치하는 devicetype 과 같은 버전이면 ST 값을 동일하게 하여 한번 응답함.
+Request ST 이 "urn:schemas-upnp-org:service:servicetype:v" 이면 일치하는 servicetype 과 같은 버전이면 ST 값을 동일하게 하여 한번 응답함.
+
+## (7) UUID
+
+UUID (Universally Unique Identifier) 는 기기를 식별하기 위한 유일한 값을 뜻함.
+UUID 는 128 비트 크기를 가지며 형식은 아래와 같음.
+
+<div>
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">UUID =
+  4*&lt;hexOctet&gt; "-" 2*&lt;hexOctet&gt; "-"
+  2*&lt;hexOctet&gt; "-" 2*&lt;hexOctet&gt; "-" 6*&lt;hexOctet&gt;<o:p></o:p></span></span></div>
+</td>
+ </tr>
+</tbody></table>
+</div>
+
+UUID 조건
+1. 중복 X
+2. 128 비트 크기
+3. 변경할 수 없는 고정 값
