@@ -121,3 +121,10 @@ HOST: 239.255.255.250:1900
 NT: Notifycation Type
 NTS: ssdp:byebye
 USN: uuid:advertisement UUID
+
+## (6) Search 타입
+
+Control Point 에서 직접 관심있는 Device 나 Service 의 검색을 하게 하기 위한 Search Message 를 멀티캐스트 방식으로 전달하는 타입임.
+Search 요청은 UDP 멀티캐스트 방식으로 전달되고 Search 응답은 UDP 유니캐스트 방식으로 받음.
+Search 요청은 M-SEARCH 메소드를 사용하며 전송 형식은 다음과 같음.
+
