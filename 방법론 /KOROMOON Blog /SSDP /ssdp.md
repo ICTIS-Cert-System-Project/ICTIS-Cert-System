@@ -27,3 +27,66 @@ UPnP 를 통한 디바이스 간의 통신은 발견 단계, 기술 단계, 제�
 <span style="font-family: Courier New, Courier, monospace;">&lt; UPnP 프로토콜 스택의 구조 &gt;</span></div>
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/03473286-3203-4633-8c3b-22c37e19d69a)
+
+
+## (3) SSDP 에서 사용하는 멀티캐스트 주소
+
+IPv4 239.255.255.250  site-local 주소
+IPv6 FF02::C   link-local 주소
+IPv6 FF05::C   site-local 주소
+IPv6 FF08::C   organization-local 주소
+IPv6 FF0E::C   global 주소
+
+
+
+## (4) SSDP Header
+
+SSDP 는 HTTP 1.1 의 Generic Message 를 준수한 Header Field Format 부분을 이용하여 정의되며 TCP 대신에 UDP 를 사용함.(HTTPU)
+Message Body 는 사용하지 않지만 만약에 Message Body 가 수신된다면 이를 무시할 수 있도록 정의함.
+각각의 SSDP Message 는 하나의 시작줄(Start-LINE, 첫번째 줄)을 갖어야 하며 적어도 다음의 3 가지 중 하나이어야 함. (공통적으로 "HTTP/1.1" 을 포함하여야 하는 것을 알 수 있으며 HTTP 1.1 하위 버전과의 호환성을 유지해야 함)
+
+NOTIFY * HTTP/1.1
+M-SEARCH * HTTP/1.1
+HTTP/1.1 200 OK
+
+## (5) Advertisement 타입
+
+UPnP 를 지원하는 디바이스에서 자신의 디바이스와 서비스를 Advertising(광고)하기 위한 Discovery Message 를 멀티캐스트 방식으로 전달하는 타입임.
+전송 시 Default TTL 값은 4이고 설정 가능할 수 있어야 함.
+NOTIFY 메소드를 사용하며 전송 형식은 다음과 같음.
+
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">NOTIFY *
+  HTTP/1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Advertisement </span>타입의 요청 메소드<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">Host:239.255.255.250:1900&nbsp;&nbsp; // </span>멀티캐스트
+  주소 및 포트<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">NT:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Notification Type<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">NTS:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Notification Sub
+  Type (ssdp:alive / ssdp:byebye)<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;// Device </span>에 관한 정보를 담고 있는<span lang="EN-US"> URL<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">USN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Unique Service
+  Name<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">Cache-Control:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // max-age </span>를 사용하며<span lang="EN-US"> Advertisement </span>가 유효한 시간<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">Server:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // UPnP </span>정보<span lang="EN-US">, OS </span>정보 등<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">BODY:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </span>없음</span></div>
+</td>
+ </tr>
+</tbody></table>
+<div style="text-align: center;">
+<span style="font-family: Courier New, Courier, monospace;">&lt; NOTIFY 전송 형식 &gt;</span></div>
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/ae4b117e-709b-49f6-9e9c-1129c662ecce)
+<div style="text-align: center;">
+<span style="font-family: Courier New, Courier, monospace;">&lt; NOTIFY 전송 패킷 &gt;</span></div>
