@@ -32,10 +32,10 @@
 
 ## (3) SSDP 에서 사용하는 멀티캐스트 주소
 
-IPv4 239.255.255.250  site-local 주소
-IPv6 FF02::C   link-local 주소
-IPv6 FF05::C   site-local 주소
-IPv6 FF08::C   organization-local 주소
+IPv4 239.255.255.250  site-local 주소 </br>
+IPv6 FF02::C   link-local 주소 </br>
+IPv6 FF05::C   site-local 주소 </br>
+IPv6 FF08::C   organization-local 주소 </br>
 IPv6 FF0E::C   global 주소
 
 
@@ -46,8 +46,8 @@ IPv6 FF0E::C   global 주소
 - Message Body 는 사용하지 않지만 만약에 Message Body 가 수신된다면 이를 무시할 수 있도록 정의함.
 - 각각의 SSDP Message 는 하나의 시작줄(Start-LINE, 첫번째 줄)을 갖어야 하며 적어도 다음의 3 가지 중 하나이어야 함. (공통적으로 "HTTP/1.1" 을 포함하여야 하는 것을 알 수 있으며 HTTP 1.1 하위 버전과의 호환성을 유지해야 함)
 
-NOTIFY * HTTP/1.1
-M-SEARCH * HTTP/1.1
+NOTIFY * HTTP/1.1 </br>
+M-SEARCH * HTTP/1.1 </br>
 HTTP/1.1 200 OK
 
 ## (5) Advertisement 타입
