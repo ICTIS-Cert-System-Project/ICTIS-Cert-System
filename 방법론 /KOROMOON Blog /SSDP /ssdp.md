@@ -22,3 +22,8 @@ SSDP 는 Advertisement, Search 두 개의 타입이 있음.
 IP, TCP, UDP, HTTP, XML 과 같은 기존의 프로토콜들을 사용함.
 Wire 프로토콜에 기반을 두고 있으며 디바이스 간에 교환하는 데이터는 XML 로 표현되고 HTTP 를 통해서 통신함. IP 네트워킹을 채택한 이유는 다른 물리적 미디어로 확장이 용이하며 실제 복수 벤더 간의 상호 운용성을 가능함.
 UPnP 를 통한 디바이스 간의 통신은 발견 단계, 기술 단계, 제어 단계, 이벤팅 단계, 프리젠테이션 단계로 나누어지며 SSDP 를 이용한 통신은 발견 단계에서 이용됨.
+
+<div style="text-align: center;">
+<span style="font-family: Courier New, Courier, monospace;">&lt; UPnP 프로토콜 스택의 구조 &gt;</span></div>
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/03473286-3203-4633-8c3b-22c37e19d69a)
