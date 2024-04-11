@@ -90,3 +90,34 @@ NOTIFY 메소드를 사용하며 전송 형식은 다음과 같음.
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/ae4b117e-709b-49f6-9e9c-1129c662ecce)
 <div style="text-align: center;">
 <span style="font-family: Courier New, Courier, monospace;">&lt; NOTIFY 전송 패킷 &gt;</span></div>
+
+NT 필드와 USN 필드는 각 경우에 따라서 아래와 같이 전송하는 방식이 다름.
+
+① root device 에 대하여 3개 전송
+
+NT: upnp:rootdevice
+USN: uuid:device-uuid::upnp:rootdevice (device-uuid 부분에 해당 device 에 유일한 uuid 값이 들어감)
+
+NT: uuid:device-uuid (device-uuid 부분에 해당 device 에 유일한 uuid 값이 들어감)
+USN: uuid:device-uuid (device-uuid 부분에 해당 device 에 유일한 uuid 값이 들어감)
+
+NT: urn:schemas-upnp-org:device:devicetype:v (devicetype 과 v 에 UPnP Forum 에서 정의한 값이 들어감. e.g MediaServer:1)
+USN: uuid:device-uuid::urn:schemas-upnp-org:device:devicetype:v (device-uuid 부분에 해당 device 에 유일한 uuid 값이 들어감. devicetype 과 v 에 UPnP Forum 에서 정의한 값이 들어감. e.g MediaServer:1)
+
+② device 내의 각 servicetype 에 대하여 한번씩 전송
+
+NT: urn:schemas-upnp-org:service:servicetype:v(servicetype 과 v 에는 UPnP Forum 에서 정의한 service type 값이 들어감. e.g ConnectionManager:1)
+USN: uuid:device-UUID::urn:schemas-upnp-org:service:serviceTtpe:v
+
+지원서비스가 2개라면 총 한 세트에  5번을 보내는 것임.
+위의 NT 나 USN 에 포함된 device-uuid 에 해당하는 값은 device description 내의 UDN 값과 동일하여야 함.
+
+참고로 Device 가 네트워크에서 제거될때 취소 Message 를 전송함.
+Device의 IP 주소가 변경되었을 때에도 이전 Advertisement 를 취소하고 새로운 IP 주소를 가지고 다시 Advertising 해야 함.
+NTS 필드 값에 ssdp:byebye 를 넣어 멀티캐스트 방식으로 전송함.
+
+NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+NT: Notifycation Type
+NTS: ssdp:byebye
+USN: uuid:advertisement UUID
