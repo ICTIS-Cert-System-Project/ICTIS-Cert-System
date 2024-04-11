@@ -117,10 +117,10 @@ USN: uuid:device-UUID::urn:schemas-upnp-org:service:serviceTtpe:v
 - Device의 IP 주소가 변경되었을 때에도 이전 Advertisement 를 취소하고 새로운 IP 주소를 가지고 다시 Advertising 해야 함.
 - NTS 필드 값에 ssdp:byebye 를 넣어 멀티캐스트 방식으로 전송함.
 
-NOTIFY * HTTP/1.1
-HOST: 239.255.255.250:1900
-NT: Notifycation Type
-NTS: ssdp:byebye
+NOTIFY * HTTP/1.1 </br>
+HOST: 239.255.255.250:1900 </br>
+NT: Notifycation Type </br>
+NTS: ssdp:byebye </br>
 USN: uuid:advertisement UUID
 
 ## (6) Search 타입
