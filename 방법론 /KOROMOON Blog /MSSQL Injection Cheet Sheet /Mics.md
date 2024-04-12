@@ -45,6 +45,12 @@ nonce 는 클라이언트가 LanManager 및 NT 응답을 생성하는데 사용�
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/dec738c1-75d8-42d4-86fa-79a587ae9e4c)
 
 Type 3 메시지에는 사용자 이름, 호스트 이름, NT 도메인 이름 및 두 개의 응답이 들어 있음.
+
+
 호스트, 도메인, 사용자 이름의 문자열은 유니 코드이며 끝이 아닌 문자임.
+
+
 호스트 및 도메인 이름은 대문자임.
+
+
 응답 문자열의 길이는 24 바이트임.
