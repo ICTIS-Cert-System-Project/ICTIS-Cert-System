@@ -129,6 +129,7 @@ SYN + ACK 상태를 확인한 Client는 서버에게 ACK를 보내고 연결 성
 
 ## 4 Way-Handshake에서 사용되는 TCP 헤더 필드
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FnLiSw%2Fbtr9BGEYnpj%2FsPkUq1VsL9EkCN3HRKkbg0%2Fimg.png">
+
 __Sequence Number__
 
 - Segment에 있는 **첫 번째 바이트의 바이트 스트림 번호**임.
