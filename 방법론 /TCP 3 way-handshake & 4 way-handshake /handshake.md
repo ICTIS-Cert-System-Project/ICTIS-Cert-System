@@ -246,5 +246,11 @@ RST(TCP reset) 세그먼트가 전송되면 갑작스러운 연결 해제가 수
 
 ### 참고 사이트:
 [1] <https://jeongkyun-it.tistory.com/180>
+
+
+
 [2] <https://hojunking.tistory.com/107>
+
+
+
 [3] <https://hojunking.tistory.com/106>
