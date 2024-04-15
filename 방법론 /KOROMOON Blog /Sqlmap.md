@@ -23,10 +23,12 @@ sqlmap 을 이용하여 DB > 테이블 > 컬럼 순으로 SQL Injection 공격 �
 ※ OWASP Broken Web Apps VM v1.2 이미지 다운로드 : https://sourceforge.net/projects/owaspbwa/
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165739282/d9904d2f-8e2a-437a-bcf2-470bfb05f0ae)
+
 < 공격시도 URL 정보 >
 
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165739282/b5f9fc03-08d4-4e5c-b317-33f964f49900)
+
 < 공격시도 URL 접근 패킷덤프 - 쿠키값 확인 >
 
 
@@ -301,10 +303,12 @@ root@kali:/home/kali# sqlmap -hh
 
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165739282/86525517-3ff0-4aa5-a50d-3a32a2a10c6a)
+
 < 명령어 입력 >
 
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165739282/effdaddf-a27e-4c1c-97b9-b80a136f82d0)
+
 < 결과값 출력 >
 
 
@@ -331,10 +335,12 @@ root@kali:/home/kali# sqlmap -hh
 
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165739282/f517bf72-6f72-45f1-b82f-71066f23fd97)
+
 < 명령어 입력 >
 
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165739282/ed810065-4db1-472f-9030-c0523572b22f)
+
 < 결과값 출력 >
 
 
@@ -350,10 +356,12 @@ root@kali:/home/kali# sqlmap -hh
 
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165739282/fa9a69d3-b889-41d3-833c-e056650cdbf3)
+
 < 명령어 입력 >
 
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165739282/0a33dcfa-a009-4d99-88b9-8378ef08987d)
+
 < 결과값 출력 >
 
 
@@ -367,11 +375,12 @@ root@kali:/home/kali# sqlmap -hh
 덤프된 파일은 sqlmal 툴 -> output 폴더 -> IP or URL 폴더 -> dump 폴더 안에 생성됨.
 (ex. /home/kali/.sqlmap/output/192.168.100.131/dump)
 
-
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165739282/a9492e7f-58ba-450e-bdfa-08d53f0c5e04)
 
 < 명령어 입력 >
 
 
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165739282/532ae9ad-86d2-4bfa-b5e4-15b18b9aec55)
 
 < 결과값 출력 >
 
