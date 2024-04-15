@@ -2,7 +2,7 @@
 #####  원작자: 문광일 PM
 #####  링크: [KOROMOON][koromoonlink]
 [koromoonlink]: https://koromoon.blogspot.com/2021/01/cyberchef.html "Go koromoon"
-#####  작성자: 강하늘 사원
+#####  작성자: 정한울 대리
 #####  작성일자: 2024년 4월 10일
 
 </br>
@@ -10,11 +10,10 @@
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/b67b3250-8336-419a-b242-3cdc9149f49a)
 
 ## (1) 설명
-- 영국 정보기관인 GCHQ 에서 만든 암호화, 인코딩, 압축 및 데이터 분석을 위한 웹 응용 프로그램임.
-- 해당 프로그램 기능은 XOR 또는 Base64 와 같은 간단한 인코딩, AES, DES 및 Blowfish 와 같은 보다 복잡한 암호화, 바이너리 및 16 진수 덤프 생성, 데이터 압축 및 압축 해제, 해시 및 체크섬 계산, IPv6 및 X.509 구문 분석, 문자 인코딩 변경 등이 포함됨.
-- 또한, 복잡한 도구나 알고리즘을 다루지 않고도 간단한 드래그 앤 드롭 방식으로 복잡한 데이터를 쉽게 분석할 수 있어 비전문가나 전문가도 모두 유용하게 사용할 수 있음.
-- HTML 페이지로 제공되며 온라인으로 액세스하거나 로컬 시스템에 복사본을 다운로드하여 인터넷 연결 없이도 사용 가능함.
-- 현재 최신 버전은 9.21.0 버전으로 Google Chrome 50 이상, Mozilla Firefox 38 이상에서 사용이 가능함.
+- 설명 1
+- 설명 2
+- 설명 3 
+- - 현재 최신 버전은 9.21.0 버전으로 Google Chrome 50 이상, Mozilla Firefox 38 이상에서 사용이 가능함.
 
 
 
