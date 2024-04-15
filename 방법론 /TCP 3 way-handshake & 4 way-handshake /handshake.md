@@ -243,3 +243,8 @@ RST(TCP reset) 세그먼트가 전송되면 갑작스러운 연결 해제가 수
 2. 자원이 부족해 자원 할당을 해제해야하는 경우
 3. TCP 연결에 장애가 발생한 경우
     - 즉시 연결을 끊고 새로운 연결을 시도해 정상적인 통신으로 돌아올 수 있음.
+
+### 참고 사이트:
+[1] <https://jeongkyun-it.tistory.com/180>
+[2] <https://hojunking.tistory.com/107>
+[3] <https://hojunking.tistory.com/106>
