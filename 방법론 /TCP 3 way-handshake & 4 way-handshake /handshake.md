@@ -123,4 +123,4 @@ SYN + ACK 상태를 확인한 Client는 서버에게 ACK를 보내고 연결 성
 
 위와 같이 신뢰성을 위해 3번의 핸드쉐이킹을 거쳐 연결을 맺는것을 3 Way-Handshake라고 함.
 
-
+## 4 Way-Handshake
