@@ -1,12 +1,15 @@
+# Plink 명령어
 ##### 원작자: 문광일 PM
-##### 링크: 
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2019/02/plink.html "Go koromoon"
 ##### 작성자: 강하늘 사원
 ##### 작성일자: 2024년 4월 15일 
 
 
 ## (1) 설명
 
-![[Pasted image 20240415134035.png]]
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/ec0f898f-be5b-4db9-9352-aab6d59b0bf1)
+
 Plink 는 PuTTY 제품군 하나로 임의의 포트를 사용하여 다른 시스템에 대한 SSH 네트워크 연결을 설정하는 데 사용하는 툴임.  
 PuTTY 홈페이지 : [https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)  
   
