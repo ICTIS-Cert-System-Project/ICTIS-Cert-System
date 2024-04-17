@@ -35,4 +35,27 @@ inode 에 포함된 정보는 아래와 같음.
 </br>
 </br>
 inode 포인터 구조를 통해 파일의 실제 데이터가 저장된 블록의 정보를 포함하여 파일의 메타 데이터 정보만 저장시킴.</br>
-대부분의 파일 시스템에서는 15개의 포인터로 된 데이터 구조가 저장되어 있으며 자세한 구조는 생략함.</br>
+</br>
+</br>
+##  아이노드 블록의 구조
+
+1)Mode, ID, Size, Links, Timestamps</br>
+inode 메타 데이터가 기록되는 영역</br>
+</br>
+2)Direct Blocks(12개)</br>
+각 주소 공간은 실제 데이터 블록을 가리키게 됨.</br>
+12개의 주소공간을 갖으며 각 데이터 블록은 4KB 크기를 갖으으며 전체 12개로 구성되어 있기에 총 48KB 용량의 영역을 갖음.</br>
+</br>
+3)Single Indirect Block</br>
+Single indirect block은 1개로 구성되어 있으며 전체 4KB의 크기를 갖음.</br>
+데이터 블록의 주소를 가리키는 4byte 단위의 포인터로 구성되어 있으므로 4KB의 공간을 포인터로 채운다면, 총 1024개의 포인터를 채울 수 있음.</br>
+1024개의 포인터가 4KB짜리 데이터 블록을 가리키므로, `1024*4KB=4MB`의 용량의 관리가 가능함.</br>
+</br>
+4)Double Indirect Block</br>
+Double indirect block은 1개로 구성되어 있으므로 총 4KB의 크기를 갖음.</br>
+Single indirect block을 가리키는 포인터로 구성되어 있으므로 1024*1024*4KB=4GB의 용량의 관리가 가능함.</br>
+</br>
+5)Triple Indirect Block</br>
+Single indirect block, Double indirect block과 동일한 방식으로 작동함</br>
+Double indirect block을 가리키는 포인터로 구성되어 있으므로 1024*1024*1024*4KB=4TB의 용량의 관리가 가능함.</br>
+</br>
