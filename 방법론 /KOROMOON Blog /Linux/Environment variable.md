@@ -91,9 +91,10 @@
 아래는 export 명령어에 대한 추가 정보임.<br>
 export<br>
 환경변수 리스트를 보여줌<br>
-export [변수명]=[$변수명]:[환경변수값]
-ex. `export PATH=$PATH:/home/koromoon/hack1/bin:/home/koromoon/hack2/bin`
-변수명에 환경변수값을 추가함<br>
+`export [변수명]=[$변수명]:[환경변수값]`<br>
+ex. `export PATH=$PATH:/home/koromoon/hack1/bin:/home/koromoon/hack2/bin`<br>
+
+**변수명에 환경변수값을 추가함**<br>
 
 <br>
 <br>
@@ -101,12 +102,11 @@ ex. `export PATH=$PATH:/home/koromoon/hack1/bin:/home/koromoon/hack2/bin`
 ## (4) 사용자 환경 변수 설정
 
 <br>
-<br>
 
-.bashrc 이나 .bash_profile 파일 하단에 'export [변수명]=[환경변수값]' 명령줄을 추가한 후 source [파일 이름] 명령어를 입력해서 설정함.<br>
-삭제할 때는 역으로 'export [변수명]=[환경변수값]' 명령줄을 삭제한 후 source [파일 이름] 명령어를 입력해서 설정함.<br>
-.bashrc (특정 사용자가 새로운 로컬 세션으로 접근 시도시)<br>
-.bash_profile (특정 사용자가 원격 로그인 세션으로 접근 시도시)<br>
+`.bashrc` 이나 `.bash_profile` 파일 하단에 `'export [변수명]=[환경변수값]'` 명령줄을 추가한 후 `source [파일 이름]` 명령어를 입력하여 설정함.<br>
+삭제할 때는 역으로 `'export [변수명]=[환경변수값]'` 명령줄을 삭제한 후 `source [파일 이름]` 명령어를 입력하여 설정함.<br>
+`.bashrc` (특정 사용자가 새로운 로컬 세션으로 접근 시도시)<br>
+`.bash_profile` (특정 사용자가 원격 로그인 세션으로 접근 시도시)<br>
 
 <br>
 <br>
@@ -114,51 +114,19 @@ ex. `export PATH=$PATH:/home/koromoon/hack1/bin:/home/koromoon/hack2/bin`
 ## (5) 시스템 전체 환경 변수
 
 <br>
-<br>
 
-/etc/bash.bashrc 이나 /etc/profile 파일 하단에 'export [변수명]=[환경변수값]' 명령줄을 추가한 후 source [파일 이름] 명령어를 입력해서 설정함.<br>
-삭제할 때는 역으로 'export [변수명]=[환경변수값]' 명령줄을 삭제한 후 source [파일 이름] 명령어를 입력해서 설정함.<br>
-.bashrc (모든 사용자가 새로운 로컬 세션으로 접근 시도시)<br>
-.bash_profile (모든 사용자가 원격 로그인 세션으로 접근 시도시)<br>
+`/etc/bash.bashrc` 이나 `/etc/profile` 파일 하단에 `'export [변수명]=[환경변수값]'` 명령줄을 추가한 후 source [파일 이름] 명령어를 입력하여 설정함.<br>
+삭제할 때는 역으로 `'export [변수명]=[환경변수값]'` 명령줄을 삭제한 후 `source [파일 이름]` 명령어를 입력하여 설정함.<br>
+`.bashrc` (모든 사용자가 새로운 로컬 세션으로 접근 시도시)<br>
+`.bash_profile` (모든 사용자가 원격 로그인 세션으로 접근 시도시)<br>
 
 <br>
 <br>
 
 ## (6) 일반적으로 사용되는 환경변수 목록
 
-<br>
-<br>
 
-HOME         : 사용자의 홈디렉토리<br>
-PATH         : 실행파일을 찾는 경로<br>
-LANG         : 프로그램 사용시 기본 지원되는 언어<br>
-PWD          : 사용자의 현재 작업하는 디렉토리<br>
-TERM         : 로긴 터미널 타입<br>
-SHELL        : 로그인해서 사용하는 쉘<br>
-USER         : 사용자의 이름<br>
-DISPLAY      : X 디스플레이 이름<br>
-VISUAL       : visual 편집기의 이름<br>
-EDITOR       : 기본 편집기의 이름<br>
-COLUMNS      : 현재 터미널이나 윈도우 터미널의 컬럼수<br>
-PS1          : 명령프롬프트변수<br>
-PS2          : 2차 명령프롬프트임. 명령행에서 사용하여 명령행을 연장했을 때 나타냄.<br>
-BASH         : 사용하는 bash 쉘의 경로<br>
-BASH_VERSION : bash의 버전<br>
-HISTFILE     : history 파일의 경로<br>
-HISTFILESIZE : history 파일의 크기<br>
-HISTSIZE     : history에 저장되는 갯수<br>
-HISTCONTROL  : 중복되어지는 명령에 대한 기록 유무를 지정하는 변수<br>
-HOSTNAME     : 호스트의 이름<br>
-LINES        : 터미널의 라인 수<br>
-LOGNAME      : 로그인이름<br>
-LS_COLORS    : ls 명령의 색상관련 옵션<br>
-MAIL         : 메일을 보관하는 경로<br>
-MAILCHECK    : 메일확인시간<br>
-OSTYPE       : 운영체제 타입<br>
-SHLVL        : 쉘의 레벨<br>
-TERM         : 터미널종류<br>
-UID          : 사용자의 UID<br>
-USERNAME     : 사용자이름<br>
+</br>![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/b2037ce7-5a88-4456-a25f-0f73fa436dc8)</div>
 
 <br>
 <br>
