@@ -9,7 +9,7 @@
 
 ## (1) 설명
 
-Netcat 은 TCP 나 UDP 프로토콜을 사용하는 네트워크 연결에서 데이터를 읽고 쓰는 유틸리티 프로그램임.<br>
+Netcat 은 TCP 나 UDP 프로토콜을 사용하는 네트워크 연결에서 데이터를 읽고 쓰는 유틸리티 프로그램임.<br><br>
 일반적으로 UNIX 의 cat 명령어와 비슷한 사용법을 가지고 잇지만 cat 명령어를 통해 파일에 쓰거나 읽듯이 Netcat 툴은 네트워크에 읽거나 쓸 수 있음.<br><br>
 이것은 스크립트와 병용하여 네트워크에 대한 디버깅, 테스트 툴로써 매우 편리하고 원하는 포트로 원하는 데이터를 주고 받을 수 있는 특징 때문에 악의적으로 사용할 수 있음.<br><br>
 또한, 컴퓨터 포렌식에 있어서 라이브 시스템의 데이터를 손상없이 가져오기 위해서도 사용될 수 있음.<br>
@@ -60,32 +60,32 @@ https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf<br><br>
 참고로 포트 범위는 개별 또는 범위(m-n)일 수 있음.<br><br><br>
 
 ## (3) 사용 예
-1. 특정 포트에 대한 연결 수립<br>
-원격 IP 의 특정 포트로 연결하여 Open 되어 있는 여부를 확인함.<br>
+1. 특정 포트에 대한 연결 수립<br><br>
+원격 IP 의 특정 포트로 연결하여 Open 되어 있는 여부를 확인함.<br><br>
 `nc [IP] [Port]`<br>
 <div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj26vMovg5synzLGTccviKy3Bh7Fwr9vyJpIEcvNV3O3P_0DR1nvyOh7SbB6BHb0eiqnaYrzV5_Vo75s2gjgF2CPFcuClNe8JDaIMEqh8GzYhAVdkQoOIJ2BwHIjcJMrLlP1UCYigKdAOE/s1600/%25ED%258A%25B9%25EC%25A0%2595+%25ED%258F%25AC%25ED%258A%25B8%25EC%2597%2590+%25EB%258C%2580%25ED%2595%259C+%25EC%2597%25B0%25EA%25B2%25B0+%25EC%2588%2598%25EB%25A6%25BD.png"></div><br><br>
 
-2. 서비스 배너 수집<br>
+2. 서비스 배너 수집<br><br>
 다양한 서비스를 대상으로 그대로 사용할 수 있음.<br>
-하지만 HTTP 서비스는 HTTP 헤더 양식을 전송해줘야 함.<br>
+하지만 HTTP 서비스는 HTTP 헤더 양식을 전송해줘야 함.<br><br>
 `echo -e "HEAD / HTTP/1.0\n\n" | nc [IP] 80`<br>
 <div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoaWHzRs5Eysrtj7MwxJwG93oiVnlK0lhMfsw458wNV7xJYfmxaXrF4mYtIJa-S3t6HVqeSGTxlGrjFngRQHSYpugvkM1nkyIBDjfsZwvRPJxWPNmBe3h70eUUK9qlR8mfkzHGiNtpOzQ/s1600/%25EC%2584%259C%25EB%25B9%2584%25EC%258A%25A4+%25EB%25B0%25B0%25EB%2584%2588+%25EC%2588%2598%25EC%25A7%2591.png"></div><br><br>
 
-3. 포트 스캐닝<br>
-TCP 프로토콜을 사용하여 특정 포트나 포트 범위를 스캔함.<br>
+3. 포트 스캐닝<br><br>
+TCP 프로토콜을 사용하여 특정 포트나 포트 범위를 스캔함.<br><br>
 `nc -n -v -z -w 1 [IP] [포트 범위]`<br>
 <div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh13c9lcWxw5TwLBJpjyNLUm_NZ3zAsQujCfqBInGQ77S6RUAJ5DL5lzdX37VcE_8vbXM0Ux9quTZPYrTjypVuipPBIiaHJcl7cBBkknPy6ikZF1FYbGhW6EZh2m5FDpTQ_PUZ_ut1jwxc/s1600/%25ED%258F%25AC%25ED%258A%25B8+%25EC%258A%25A4%25EC%25BA%2590%25EB%258B%259D.png"></div><br><br>
 
-4. 파일 전송<br>
-클라이언트(윈도우) -> 서버(Kali Linux)로 파일 전송<br>
+4. 파일 전송<br><br>
+클라이언트(윈도우) -> 서버(Kali Linux)로 파일 전송<br><br>
 클라이언트<br>
-`nc -w3 [IP] [Port] < [파일명]`<br>
+`nc -w3 [IP] [Port] < [파일명]`<br><br>
 서버<br>
 `nc -l -p [Port] > [파일명]`<br>
 <div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLJghqkvJi7EEYkN5gOMcpHOrLAssBsvMkaFseVbjUZ26uWPYWigxTUkSpL_d-qDlSow1hVAbyeoPkAOwBYLI3MS_Orkt2YY6K1u9fsnUeuI1sjW0aTab7uavss0mjGbiAAaZgcuNqs9Y/s1600/%25ED%2581%25B4%25EB%259D%25BC%25EC%259D%25B4%25EC%2596%25B8%25ED%258A%25B8%2528%25EC%259C%2588%25EB%258F%2584%25EC%259A%25B0%2529-%25EC%2584%259C%25EB%25B2%2584%2528Kali+Linux%2529%25EB%25A1%259C+%25ED%258C%258C%25EC%259D%25BC+%25EC%25A0%2584%25EC%2586%25A1_1.png"></div><br>
 <div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhesAfNu5IJ2nouAur7moiNTHJ-NOV99AZq0ScVga1EFcziWg7qjVBuvRycwNYQPLW3NHvxT-McO7iDvJXYUtvqK5Xlni5ZMjG3pujhXPey6-JA_GrJOqfUq2rKIVCTI18j1eYIKashfuM/s1600/%25ED%2581%25B4%25EB%259D%25BC%25EC%259D%25B4%25EC%2596%25B8%25ED%258A%25B8%2528%25EC%259C%2588%25EB%258F%2584%25EC%259A%25B0%2529-%25EC%2584%259C%25EB%25B2%2584%2528Kali+Linux%2529%25EB%25A1%259C+%25ED%258C%258C%25EC%259D%25BC+%25EC%25A0%2584%25EC%2586%25A1_2.png"></div><br><br>
 
-5. 백도어 쉘 (Backdoor Shell)<br>
+5. 백도어 쉘 (Backdoor Shell)<br><br>
 Netcat 툴을 이용한 백도어 쉘의 기본 매커니즘은 특정 포트(-p)에서 listen 모드(-l)로 실행하여 연결 수립 시 특정 쉘을 실행(-e)하도록 옵션을 지정하는 방식임.<br><br>
 
 리눅스 환경(서버)에서 백도어 쉘<br>
@@ -99,7 +99,7 @@ Netcat 툴을 이용한 백도어 쉘의 기본 매커니즘은 특정 포트(-p
 위 스샷에서 서버(Kali Linux) 측 쉘에 접속 후 명령어 뒤에 세미콜론 문자(;)를 덧붙여야 함.<br>
 (사용하는 클라이언트 마다 다를 수 있음)<br><br>
 
-6. 리버스 쉘 (Reverse Shell)<br>
+6. 리버스 쉘 (Reverse Shell)<br><br>
 
 **Netcat 툴을 이용한 백도어 쉘의 기본 매커니즘은 백도어 쉘과는 반대로 보통 서버 앞단에 방화벽을 우회하기 위해서 리버스 쉘을 이용함.**<br>
 **방화벽에서 허용된 나가는 포트를 이용하여 클라이언트 측에서 쉘을 실행시킨 후 서버 측에서 접속함.**<br><br>
