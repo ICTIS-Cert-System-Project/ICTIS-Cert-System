@@ -49,13 +49,13 @@ inode 메타 데이터가 기록되는 영역</br>
 3)Single Indirect Block</br>
 Single indirect block은 1개로 구성되어 있으며 전체 4KB의 크기를 갖음.</br>
 데이터 블록의 주소를 가리키는 4byte 단위의 포인터로 구성되어 있으므로 4KB의 공간을 포인터로 채운다면, 총 1024개의 포인터를 채울 수 있음.</br>
-1024개의 포인터가 4KB짜리 데이터 블록을 가리키므로, `1024*4KB=4MB`의 용량의 관리가 가능함.</br>
+1024개의 포인터가 4KB짜리 데이터 블록을 가리키므로, `1024 * 4KB = 4MB`의 용량의 관리가 가능함.</br>
 </br>
 4)Double Indirect Block</br>
 Double indirect block은 1개로 구성되어 있으므로 총 4KB의 크기를 갖음.</br>
-Single indirect block을 가리키는 포인터로 구성되어 있으므로 1024*1024*4KB=4GB의 용량의 관리가 가능함.</br>
+Single indirect block을 가리키는 포인터로 구성되어 있으므로 `1024 * 1024 * 4KB = 4GB` 의 용량의 관리가 가능함.</br>
 </br>
 5)Triple Indirect Block</br>
 Single indirect block, Double indirect block과 동일한 방식으로 작동함</br>
-Double indirect block을 가리키는 포인터로 구성되어 있으므로 1024*1024*1024*4KB=4TB의 용량의 관리가 가능함.</br>
+Double indirect block을 가리키는 포인터로 구성되어 있으므로 `1024 * 1024 * 1024 * 4KB = 4TB` 의 용량의 관리가 가능함.</br>
 </br>
