@@ -352,4 +352,7 @@ DUAL 테이블은 테스트에 사용할 수 있는 더미 테이블임.
 ## ( 13 ) 패스워드 크랙(Password Cracking)
 
 JTR 용 Metasploit 모듈은 아래 링크에서 찾을 수 있음.
+
+
+
 http://www.metasploit.com/modules/auxiliary/analyze/jtr_oracle_fast
