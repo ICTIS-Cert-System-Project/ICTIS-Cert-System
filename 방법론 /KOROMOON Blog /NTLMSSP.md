@@ -70,7 +70,7 @@ NT 도메인 이름 : Ursa-Minor
 
 인증 과정은 다음과 같음.
 
- C -> S   GET ...
+    C -> S   GET ...
     
     S -> C   401 Unauthorized
              WWW-Authenticate: NTLM
