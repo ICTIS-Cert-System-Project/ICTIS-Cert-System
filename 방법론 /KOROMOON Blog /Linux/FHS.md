@@ -29,15 +29,18 @@ HP, 레드햇, IBM, Dell 과 같은 주요 소프트웨어 및 하드웨어 공�
 노란색&ensp; -&ensp; 구버전, 지원함<br>
 녹색 &emsp;&ensp;-&ensp; 최신 버전<br>
 
+<br>
+<br>
 
+## (3) 최상위 디렉토리 구조인 / 디렉토리 구조 확인
 
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/80d84ce8-9570-4694-8279-019b56167544)</div>
 
+<br>
+<br>
 
-
-
-
-
-
-
+## (4) 디렉토리 구조
 
 </br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/47c1d2a2-481d-4c1d-81c0-2524b4b69a07)</div>
+
+<br>
