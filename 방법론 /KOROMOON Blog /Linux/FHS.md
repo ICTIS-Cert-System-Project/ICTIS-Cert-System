@@ -40,4 +40,4 @@ HP, 레드햇, IBM, Dell 과 같은 주요 소프트웨어 및 하드웨어 공�
 
 
 
-</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/e419582c-eddb-43c8-b523-452719746131)</div>
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/47c1d2a2-481d-4c1d-81c0-2524b4b69a07)</div>
