@@ -50,3 +50,69 @@ Type 3 메시지에는 사용자 이름, 호스트 이름, NT 도메인 이름 �
 응답 문자열의 길이는 24 바이트임.
 
 ## (6) 암호 해시
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/eba92159-a82b-4df3-8547-1d1eac82bffa)
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/290521d1-2e8c-4cb4-ad8d-c5c95b5dc3d8)
+
+두 개의 응답 문자열을 계산하시 위해 두 가지 암호 해시가 사용됨.
+(LanManager 암호 해시와 NT 암호 해시)
+입력은 passw 와 nonce 이며 결과는 lm_resp 와 nt_resp 에 있음.
+
+## (7) HTTP 에서의 NTLMSSP 인증 과정 예
+
+아래 정보를 가지고 가정할 경우임.
+호스트 이름 : "LightCity
+NT 도메인 이름 : Ursa-Minor
+사용자 이름 : Zaphod
+암호 : Beeblebrox
+서버 nonce : SrvNonce
+
+인증 과정은 다음과 같음.
+
+ C -> S   GET ...
+    
+    S -> C   401 Unauthorized
+             WWW-Authenticate: NTLM
+    
+    C -> S   GET ...
+             Authorization: NTLM TlRMTVNTUAABAAAAA7IAAAoACgApAAAACQAJACAAAABMSUdIVENJVFlVUlNBLU1JTk9S
+    
+    S -> C   401 Unauthorized
+             WWW-Authenticate: NTLM TlRMTVNTUAACAAAAAAAAACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAA==
+    
+    C -> S   GET ...
+             Authorization: NTLM TlRMTVNTUAADAAAAGAAYAHIAAAAYABgAigAAABQAFABAAAAADAAMAFQAAAASABIAYAAAAAAAAACiAAAAAYIAAFUAUgBTAEEALQBNAEkATgBPAFIAWgBhAHAAaABvAGQATABJAEcASABUAEMASQBUAFkArYfKbe/jRoW5xDxHeoxC1gBmfWiS5+iX4OAN4xBKG/IFPwfH3agtPEia6YnhsADT
+    
+    S -> C   200 Ok
+
+인코딩되지 않은 메시지는 다음과 같음.
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/ecd21668-6e45-4bd7-96cf-186d1e20336c)
+
+중간 해시 암호는 다음과 같음.
+lm_hpw (LanManager hashed password):
+91 90 16 f6 4e c7 b0 0b a2 35 02 8c a5 0c 7a 03 00 00 00 00 00
+nt_hpw (NT hashed password):
+8c 1b 59 e3 2e 66 6d ad f1 75 74 5f ad 62 c1 33 00 00 00 00 00
+
+
+## (8) HTTP 에서의 NTLMSSP 인증 과정 5단계 패킷 덤프 및 시그니처
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/a036bada-0a5c-4533-be0c-d54c54f4c963)
+
+인증 과정에서 5 단계는 Type 3 메시지를 클라이언트에서 서버 측으로 전송하며 중요한 정보가 들어 있음.
+해당 단계를 탐지하는 Snort 룰은 아래와 같음. (위 화면에서 빨간 박스 탐지)
+alert tcp any any -> any 80:8080 (msg:"KOROMOON_NTLMSSP_Type3_Message"; content"Authorization|3A| NTLM TlRMTVNTUAADAAA";)
+
+
+
+### 참고 사이트 : </br>
+https://en.wikipedia.org/wiki/NTLMSSP
+https://msdn.microsoft.com/en-us/library/aa480475.aspx
+https://www.innovation.ch/personal/ronald/ntlm.html
+https://msdn.microsoft.com/en-us/library/cc237488.aspx
+http://davenport.sourceforge.net/ntlm.html
+http://horae.tistory.com/entry/NTLM-VS-Kerberos-%EC%9D%B8%EC%A6%9D
+https://www.secpulse.com/archives/71555.html
+http://blog.daum.net/mania1001/134
