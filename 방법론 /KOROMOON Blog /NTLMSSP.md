@@ -91,6 +91,7 @@ NT 도메인 이름 : Ursa-Minor
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/ecd21668-6e45-4bd7-96cf-186d1e20336c)
 
 중간 해시 암호는 다음과 같음.
+
    lm_hpw (LanManager hashed password):
    91 90 16 f6 4e c7 b0 0b a2 35 02 8c a5 0c 7a 03 00 00 00 00 00
    nt_hpw (NT hashed password):
