@@ -370,6 +370,8 @@ eval 대신 system, exec, passthru, escapeshellcmd, pcntl_exec, shell_exec, proc
 
 
 참고 사이트 : 
+
+
 https://www.fireeye.com/blog/threat-research/2013/08/breaking-down-the-china-chopper-web-shell-part-i.html
 https://www.fireeye.com/blog/threat-research/2013/08/breaking-down-the-china-chopper-web-shell-part-ii.html
 http://informationonsecurity.blogspot.kr/2012/11/china-chopper-webshell.html
