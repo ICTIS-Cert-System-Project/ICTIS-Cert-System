@@ -33,32 +33,31 @@
 
 ## (2) 사용예
 
-test.txt 파일에서 koromoon 문자열 검색
-findstr koromoon test.txt
+test.txt 파일에서 koromoon 문자열 검색<br>
+`findstr koromoon test.txt`<br>
 
-test.txt 파일에서 koromoon 으로 사작해서 jjang 로 끝나는 문자열 검색
-findstr koromoon.*jjang test.txt
+test.txt 파일에서 koromoon 으로 사작해서 jjang 로 끝나는 문자열 검색<br>
+`findstr koromoon.*jjang test.txt`<br>
 
-test.txt 파일에서 첫 문구에서 koromoon 으로 시작하는 문자열 검색
-(앞에 특수 문자열이 있는 것도 출력됨. 순수 koromoon... 으로 시작하는 문자열은 따로 못빼는 것으로 확인됨. ㅠㅠ)
-findstr ^koromoon test.txt
+test.txt 파일에서 첫 문구에서 koromoon 으로 시작하는 문자열 검색<br>
+`findstr ^koromoon test.txt`<br>
 
-test.txt 파일에서 첫 문구에서 <koromoon 으로 시작하는 문자열 검색
-findstr ^<koromoon test.txt
+test.txt 파일에서 첫 문구에서 <koromoon 으로 시작하는 문자열 검색<br>
+`findstr ^<koromoon test.txt`<br>
 
-현재 위치한 디렉토리의 모든 파일에서 koromoon 문자열 검색
-(여기서 /N 옵션은 줄번호를 출력함)
-findstr /N koromoon *
+현재 위치한 디렉토리의 모든 파일에서 koromoon 문자열 검색<br>
+(여기서 /N 옵션은 줄번호를 출력함)<br>
+`findstr /N koromoon *`<br>
 
-현재 위치한 디렉토리의 모든 txt 파일에서 koromoon 문자열 검색
-findstr /N koromoon *.txt
+현재 위치한 디렉토리의 모든 txt 파일에서 koromoon 문자열 검색<br>
+`findstr /N koromoon *.txt`<br>
 
-C 드라이브 전체에서 대소문자 koromoon 문자열 검색
-(여기서 /S 옵션은 하위 디렉토리를 포함시키는 옵션이며 /I 옵션은 대소문자를 구분하지 않는 옵션임)
-findstr /S /I koromoon C:\*.*
+C 드라이브 전체에서 대소문자 koromoon 문자열 검색<br>
+(여기서 /S 옵션은 하위 디렉토리를 포함시키는 옵션이며 /I 옵션은 대소문자를 구분하지 않는 옵션임)<br>
+`findstr /S /I koromoon C:\*.*`<br>
 
-현재 위치의 하위 폴더까지 포함된 전체 파일에서 대소문자 구분없이 koromoon 문자열 검색
-findstr /S /N /I koromoon *
+현재 위치의 하위 폴더까지 포함된 전체 파일에서 대소문자 구분없이 koromoon 문자열 검색<br>
+`findstr /S /N /I koromoon *`<br>
 
 
 
