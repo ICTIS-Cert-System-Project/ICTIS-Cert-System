@@ -46,17 +46,63 @@
 ##### 링크: [GOOGLE][googlelink]
 [googlelink]: https://support.google.com/webmasters/answer/1061943?hl=ko&ref_topic=9426101 "Gogoogle"
 
+<br>
 
-![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/7ca30c90-0e7a-46c2-b447-4a2f1b380f58)
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/7ca30c90-0e7a-46c2-b447-4a2f1b380f58)</div><br>
 
+**※ 위 표에서 사용자 에이전트의 ‡ Chrome/W.X.Y.Z**<br>
 
+표에 있는 사용자 에이전트 문자열에 Chrome/W.X.Y.Z 문자열이 표시되는 경우 W.X.Y.Z는 사용자 에이전트가 사용하는 Chrome 브라우저의 버전을 나타냄(예: 41.0.2272.96). 이 버전 번호는 Googlebot이 사용하는 최신 Chromium 출시 버전과 일치하도록 시간이 지남에 따라 커짐.<br>
+이 패턴이 있는 사용자 에이전트를 위해 로그를 검색하거나 서버를 필터링하는 경우 정확한 버전 번호를 지정하기보다는 버전 번호에 와일드 카드를 사용하는 것이 좋음.<br>
 
+<br>
+<br>
 
+## (5) robots.txt 를 이용하여 웹 크롤러 차단 방법
 
+User-Agent 명을 기재해서 사용하며 특정 폴더 및 전체 폴더에 대해서 차단 및 허용함.<br>
 
+**Google 웹 검색에 대해 허용할 경우**<br>
+`User-agent: Googlebot`<br>
+`Disallow:`<br>
 
+**Google 웹 검색에 대해 전체 폴더 차단할 경우**<br>
+`User-agent: Googlebot`<br>
+`Disallow: /`<br>
 
+**Google 웹 검색에 대해 /board 폴더만 차단할 경우**<br>
+`User-agent: Googlebot`<br>
+`Disallow: /board`<br>
 
+**모든 웹 크롤러를 허용할 경우**<br>
+`User-agent: * `<br>
+`Disallow: `<br>
+
+**모든 웹 크롤러에 대해 특정 폴더만 차단할 경우**<br>
+`User-agent: *` <br>
+`Disallow: /koromoon_photo/` <br>
+`Disallow: /koromoon_diary/`<br>
+
+**특정 웹 크롤러만 차단할 경우 (ex. koromoonbot)**<br>
+`User-agent: koromoonbot`<br>
+`Disallow:` /<br>
+
+**특정 웹 크롤러만 허용할 경우 (ex. koromoonbot)**<br>
+`User-agent: koromoonbot`<br>
+`Disallow:`<br>
+`User-agent: *`<br>
+`Disallow: /`<br>
+
+<br>
+<br>
+
+## (6) Meta Tag 를 이용하여 웹 크롤러 차단 방법
+
+특정 페이지에 대해서만 차단할 경우 Meta Tag 를 이용하여 차단함.<br>
+
+해당 페이지에 대해 Google 웹 검색을 차단할 경우<br>
+
+`<meta name="robots" content="nofollow"><meta name="googlebot" content="noindex">`<br>
 
 
 
