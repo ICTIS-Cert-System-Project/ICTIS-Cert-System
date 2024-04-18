@@ -159,6 +159,208 @@ CLASS/PATH/CONTEXT 에 대한 자세한 내용은 다음을 입력 : (CLASS | PA
 
 ## (3) WMIC 명령어 사용예
 
-공격자가 원격 PC에서 WMIC 명령어를 사용하여 막대한 양의 정보를 열거하거나 명령어 실행 등을 할 수 있음.
+공격자가 원격 PC에서 WMIC 명령어를 사용하여 막대한 양의 정보를 열거하거나 명령어 실행 등을 할 수 있음.<br>
+
+1. 시스템 역할, 사용자 이름 및 제조업체 가져오기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/e3a6ae51-e4b6-451c-95ec-aaa7a2d6d8d0)</div>
+
+Roles - 피해자 시스템이 워크스테이션, 서버, 브라우저 등과 같은 모든 역할을 검색함.<br>
+Manufacturer - 시스템 제조사의 특정 모델에 특정 취약점이 존재하는 경우가 있음. 해당 정보를 찾기 위해서 검색함.<br>
+UserName - 관리자와 일반 사용자를 구분할 수 있으므로 시스템의 사용자 이름 정보가 필요함.<br>
+
+**/format:list - 출력을 목록 형식으로 출력함.**<br>
+
+`wmic computersystem get Name, Domain, Manufacturer, Model, Username, Roles /format:list`<br>
+
+2. SID 가져오기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/13c086fa-6a7a-4acc-a233-1f4010a02e8a)</div>
+
+계정 이름, 도메인, 로컬 그룹 회원 상태, SID 및 상태를 출력함.<br>
+
+`wmic group get Caption, InstallDate, LocalAccount, Domain, SID, Status`<br>
+
+3.  프로세스 만들기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/e3620d86-e4cb-4eb7-a543-474e227d7193)</div>
+
+프로세스 별칭을 사용하여 피해자 시스템에서 프로세스를 만들 수 있음.<br>
+이는 백도어를 실행하거나 피해자 시스템의 메모리를 가득 채우거나, 프로세스를 생성할 뿐만 아니라 Process ID 를 제공하며 필요에 따라 프로세스를 조작할 수 있음.<br>
+또한, 악의적인 해킹에도 쓰이는 데 프로세스 생성을 이용하여 백신 삭제에도 이용됨.<br>
+아래 명령어는 계산기를 실행시키는 예임.<br>
+
+`wmic process call create "calc.exe"`<br>
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/1d8d70bd-05f7-4745-8eca-7a395cd3752b)</div><br>
+
+4.프로세스 우선 순위 변경
+프로세스 별칭을 사용하여 피해자 시스템에서 실행 중인 프로세스의 우선 순위를 변경할 수 있음.<br>
+프로세스의 우선 순위를 낮추면 해당 프로그램이 손상될수 있으며 증가하면 전체 시스템이 손상될 수 있음.<br>
+
+`wmic process where name="explorer.exe" call set priority 64`<br>
+
+5. 프로세스 종료
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/377ba365-8e2b-4f01-8c69-50c5bad2d48e)</div><br>
+
+프로세스 별칭을 사용하여 피해자 시스템에서 실행 중인 프로세스를 종료함.<br>
+아래 명령어는 계산기를 종료시키는 예임.<br>
+
+`wmic process where name="calc.exe" call terminate`<br>
+
+
+6. 실행 파일 목록 가져오기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/60f7fabe-a5ee-42c7-9682-caf39e61a1ac)</div><br>
+
+아래 명령어는 윈도우의 실행 파일이 아닌 실행 파일의 위치를 포함하는 목록을 얻음.<br>
+
+`wmic process where "NOT ExecutablePath LIKE '%Windows%'" GET ExecutablePath`<br>
+
+7. 폴더 속성 가져오기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/3888926e-02d6-4ef3-b900-d92a5ceda32e)</div><br>
+
+대상 시스템의 폴더에 대한 기본 정보를 추출하기 위해 fsdir 별칭을 사용할 수 있음.<br>
+폴더에 대한 CompressionMethod, 생성 날짜, 파일 크기, 읽기 가능 여부, 쓰기 가능 여부, 시스템 파일 여부, 암호화 여부, 암호화 유형 등을 출력할 수 있음.<br>
+
+`wmic fsdir "c:\\KOROMOON" get /format:list`<br>
+
+8. 파일 속성 가져오기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/6fd33a43-86b0-44fd-83ee-4d7f2f5d2bc3)</div><br>
+
+대상 시스템의 파일에 대한 기본 정보를 추출하기 위해 datafile 별칭을 사용할 수 있음.<br>
+파일에 대한 CompressionMethod, 생성 날짜, 파일 크기, 읽기 가능 여부, 쓰기 가능 여부, 시스템 파일 여부, 암호화 여부, 암호화 유형 등을 출력할 수 있음.<br>
+
+`wmic datafile where name='c:\\KOROMOON\\hacker.txt' get /format:list`<br>
+
+9. 시스템 파일 찾기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/99bb349a-d37b-4162-b0fc-9a46451b9b9c)</div><br>
+
+Temp 폴더, Win 폴더 등 모든 중요한 시스템 파일의 경로를 출력함.<br>
+
+`wmic environment get Description, VariableValue`<br>
+
+10. 설치된 응용 프로그램 목록 얻기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/fe5c5327-3ac1-4197-b5d1-feb3699d8b81)</div><br>
+
+피해자 시스템에 설치된 응용 프로그램 또는 소프트웨어 목록을 출력함.<br>
+
+`wmic product get name`<br>
+
+11. 실행 중인 서비스 목록보기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/c7f10060-5906-4371-a061-7dfb9d3bcf48)</div><br>
+
+실행중인 서비스 목록과 자동으로 시작되는 서비스 목록을 가져옴.<br>
+시작 모드에서 "자동" 또는 "수동"으로 표시되며 상태 표시는 "실행 중"으로 표시됨.<br>
+
+`wmic service where (state="running") get caption, name, startmode`<br>
+
+12. 시작 서비스 얻기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/12393a1b-c2a9-4818-a17b-c530f6a3988d)</div><br>
+
+시작 중에 실행되는 모든 서비스에 대한 startup 별칭을 사용하여 시작 서비스를 출력함.<br>
+`wmic startup get Caption, Command`<br>
+
+13. 시스템 드라이버 정보 얻기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/ca5d37b5-f798-487c-904a-132e981fd167)</div><br>
+
+sysdrive 별칭을 사용하여 이름, 경로, 서비스 유형과 같은 드라이버 세부 정보를 출력함.<br>
+해당 명령어를 통해 드라이버 파일의 경로, 상태(실행 중 또는 중지됨),  유형(커널 또는 파일시스템) 등을 출력함.<br>
+
+`wmic sysdriver get Caption, Name, PathName, ServiceType, State, Status /format:list`<br>
+
+14. OS 세부 정보 얻기
+
+시스템이 설정된 시간대를 이용하여 피해자의 위치를 열거할 수 있음. 이는 os 별칭을 사용하여 출력함.<br>
+또한, os 별칭을 사용하여 마지막 부팅 업데이트 시간과 등록된 사용자 수, 프로세스 수, 물리 또는 가상 메모리에 대한 정보를 얻음.<br>
+
+`wmic os get CurrentTimeZone, FreePhysicalMemory, FreeVirtualMemory, LastBootUpdate, NumberofProcesses, NumberofUsers, Organization, RegisteredUsers, Status /format:list`<br>
+
+15. 메인보드 세부 정보 얻기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/161a7239-d438-41a8-b00b-928bdea99f4b)</div><br>
+
+피해자 시스템의 메인보드 세부 정보를 출력하기 위해 baseboard 별칭을 사용함.<br>
+출력되는 정보는 메인보드 제조업체, 일련 번호 및 버전임.<br>
+
+`wmic baseboard get Manufacturer, Product, SerialNumber, Version`<br>
+
+16. BIOS 일력 번호 가져오기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/8130e6ba-6a6e-45f3-87ee-1c99c432e639)</div><br>
+
+피해자 시스템의 BIOS 세부 정보를 출력하기 위해 bios 별칭을 사용함.<br>
+아래 명령어는 피해자 시스템의 BIOS 일련 번호를 확인함.<br>
+
+`wmic bios get serialNumber`<br>
+
+17. 하드디스크 정보 얻기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/2660f6e4-397b-4063-aeff-b7c21af1340c)</div><br>
+
+diskdrive 별칭을 사용하여 시스템 하드디스크에 대한 정보를 출력함.<br>
+해당 명령어를 통해 인터페이스 유형, 제조업체 및 모델명을 확인함.<br>
+
+`wmic diskdrive get Name, Manufacturer, Model, InterfaceType, MediaLoaded, MediaType /format:list`<br>
+
+18. 하드디스크 파티션 정보 얻기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/e3e246c2-737a-4841-bd75-3afadcd7112a)</div><br>
+
+logicaldisk 별칭을 사용하여 하드디스크 파티션에 대한 정보를 출력함.<br>
+해당 명령어을 통해 이름, 압축 상태, 파일 시스템(NTFS, FAT) 등을 출력함.<br>
+
+`wmic logicaldisk where drivetype=3 get Name, Compressed, Description, FileSystem, FreeSpace, SupportsDiskQuotas, VolumeDirty, VolumeName`<br>
+
+19. 메모리 캐시 정보 얻기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/1a61b7dc-ad6b-419b-8b9f-a12d0e3289b8)</div><br>
+
+memcache 별칭을 사용하여 메모리 캐시에 대한 정보를 출력함.<br>
+해당 명령어를 통해 이름, 블록 크기, 목적 등을 알 수 있음.<br>
+
+`wmic memcache get Name, BlockSize, Purpose, MaxCacheSize, Status`<br>
+
+20. 메모리 칩 정보 얻기
+
+memorychip 별칭을 사용하여 RAM 에 대한 정보를 출력함.<br>
+해당 명령어를 통해 RAM 을 제거하거나 물리적으로 시스템 근처에 있는 RAM 의 일련 번호를 출력함.<br>
+
+`wmic memorychip get PartNumber, SerialNumber`<br>
+
+21. 피해자 시스템이 호스트 OS 인지 가상 이미지인지 확인하기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/8b2c397d-c499-48d8-98a9-c9230e6b81df)</div><br>
+
+아래 명령어는 피해자 시스템에 대한 정보를 확인할 수 있으며 Description 에서 호스트 OS 인지 가상 이미지인지 확인할 수 있음.<br>
+
+`wmic onboarddevice get Description, DeviceType, Enabled, Status /format:list`<br>
+
+22. 사용자 계정 잠그기
+
+</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/651d9223-965f-4261-b308-03549f82374b)</div><br>
+
+useraccount 별칭을 사용하여 특정 계정을 사용하지 못하도록 제한할 수 있음.<br>
+
+`wmic useraccount where name='계정명' set disabled=false`<br>
+
+
+
+
+
+
+
+
+
+
+
 
 
