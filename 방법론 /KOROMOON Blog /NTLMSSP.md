@@ -101,9 +101,9 @@ nt_hpw (NT hashed password):
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/a036bada-0a5c-4533-be0c-d54c54f4c963)
 
-인증 과정에서 5 단계는 Type 3 메시지를 클라이언트에서 서버 측으로 전송하며 중요한 정보가 들어 있음.
-해당 단계를 탐지하는 Snort 룰은 아래와 같음. (위 화면에서 빨간 박스 탐지)
-alert tcp any any -> any 80:8080 (msg:"KOROMOON_NTLMSSP_Type3_Message"; content"Authorization|3A| NTLM TlRMTVNTUAADAAA";)
+인증 과정에서 5 단계는 Type 3 메시지를 클라이언트에서 서버 측으로 전송하며 중요한 정보가 들어 있음. </br>
+해당 단계를 탐지하는 Snort 룰은 아래와 같음. (위 화면에서 빨간 박스 탐지) </br>
+`alert tcp any any -> any 80:8080 (msg:"KOROMOON_NTLMSSP_Type3_Message"; content"Authorization|3A| NTLM TlRMTVNTUAADAAA";)`
 
 
 
