@@ -194,7 +194,7 @@ UserName - 관리자와 일반 사용자를 구분할 수 있으므로 시스템
 </br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/1d8d70bd-05f7-4745-8eca-7a395cd3752b)</div>
 <br>
 
-4.프로세스 우선 순위 변경<br>
+4. 프로세스 우선 순위 변경<br>
 프로세스 별칭을 사용하여 피해자 시스템에서 실행 중인 프로세스의 우선 순위를 변경할 수 있음.<br>
 프로세스의 우선 순위를 낮추면 해당 프로그램이 손상될수 있으며 증가하면 전체 시스템이 손상될 수 있음.<br>
 
