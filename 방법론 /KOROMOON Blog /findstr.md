@@ -14,19 +14,18 @@
 
 **파일에서 문자열을 찾습니다.**</br>
 
-
 </br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/781da852-16e3-4f57-a75d-f450323a4215)</div>
 
 
-/C 옵션을 사용한 경우가 아니면, 찾는 문자열을 여러 개 지정할 때 공백으로 분리하십시오.</br>
+/C 옵션을 사용한 경우가 아니면, 찾는 문자열을 여러 개 지정할 때 공백으로 분리.</br>
 
-예를 들면, 'FINDSTR "hello there" x.y' 명령을 입력하면 파일 x.y에서 "hello"나 "there"을 찾습니다.</br>
-반면에 'FINDSTR /C:"hello there" x.y' 명령을 입력하면 파일 x.y에서 "hello there"을 찾습니다.</br>
+예를 들면, 'FINDSTR "hello there" x.y' 명령을 입력하면 파일 x.y에서 "hello"나 "there"을 찾음.</br>
+반면 'FINDSTR /C:"hello there" x.y' 명령을 입력하면 파일 x.y에서 "hello there"을 찾음.</br>
+
 
 **정규식에 대한 참고 사항**</br>
 
-
-</br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/504ec4b7-e369-4907-abde-65dc61e1d092)</div>
+</br><div>![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/504ec4b7-e369-4907-abde-65dc61e1d092)</div>
 
 <br>
 <br>
@@ -59,31 +58,4 @@ C 드라이브 전체에서 대소문자 koromoon 문자열 검색<br>
 현재 위치의 하위 폴더까지 포함된 전체 파일에서 대소문자 구분없이 koromoon 문자열 검색<br>
 `findstr /S /N /I koromoon *`<br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br>
