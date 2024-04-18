@@ -49,17 +49,23 @@ CCC 폴더 - 플러그인 폴더
 ## ( 4 ) caidao 툴 사용법
 
 1. 상단 메뉴
+
+
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/7536b627-0618-4dd1-8a91-aa3354aced5e)
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/30f016a0-8de7-43cf-833e-73275f696f25)
 
 2. 오른쪽 상태바
+
+
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/88036980-dd0b-431d-8963-5524cdd3e668)
 
 Site Type 는 피해자 웹서버를 그룹별로 나눠서 관리 가능함.
 자신이 원하는 이름으로 Site Type 을 만들고 등록, 수정, 삭제가 가능함.
 
 3. 피해자 웹서버 등록
+
+
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/c60a5d4c-6336-4e91-9ce7-0a9e0f02520d)
 
 원하는 Site Type 에 피해자 웹서버를 등록함.
@@ -67,6 +73,8 @@ Site Type 는 피해자 웹서버를 그룹별로 나눠서 관리 가능함.
 웹 언어는 서버 사이드 스크립트로 eval 함수의 변수명은 공격자만 알 수 있으므로 일종의 패스워드임.
 
 4. 오른쪽 마우스 기능
+
+
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/d2175fb7-bb7f-46ce-9136-3c36ea1c64f5)
 
 iles Management - 피해자 웹서버에 파일 업로드, 다운로드 가능
@@ -74,11 +82,14 @@ Database Management - 피해자 웹서버 DB에 원하는 쿼리 입력 가능 (
 Virtual Terminal - 터미널 기능
 
 5. Files Management
+
+
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/e2583d66-d526-404b-8e7d-fd86baea3382)
 
 기본적인 기능은 다 갖추고 있으며 Modify the file time 기능은 타임 스탬프를 수정하는 기능으로 웹쉘 파일을 찾을 때 시간대를 가지고 탐지하는 것을 회피함.
 
 6. Database Management
+
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/73c2b4a2-3f32-4bb8-84eb-1e9e7399fda6)
 
