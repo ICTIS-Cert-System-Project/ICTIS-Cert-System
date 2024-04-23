@@ -75,11 +75,11 @@ HTML 페이지로 제공되며 온라인으로 액세스하거나 로컬 시스�
 
 </div>
 
-- 사용법은 오른쪽 상단 Input 입력란에 변환할 데이터를 입력한 후 왼쪽 Operations 메뉴에서 작업하고자 하는 메뉴를 중앙 Recipe 영역으로 드래그 앤 드롭하면 됨.
-- 그리고 중앙 하단의 BAKE 버튼을 누르면 오른쪽 하단 Output 창에 결과값이 출력됨.
+사용법은 오른쪽 상단 Input 입력란에 변환할 데이터를 입력한 후 왼쪽 Operations 메뉴에서 작업하고자 하는 메뉴를 중앙 Recipe 영역으로 드래그 앤 드롭하면 됨.
+그리고 중앙 하단의 BAKE 버튼을 누르면 오른쪽 하단 Output 창에 결과값이 출력됨.
 
 ## (3) 작업 메뉴 설명
-- 왼쪽 Operations 에 대한 작업 메뉴들을 설명함.
+왼쪽 Operations 에 대한 작업 메뉴들을 설명함.
 <table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
  <tbody><tr>
   <td style="background: #DBE5F1; border: solid windowtext 1.0pt; mso-background-themecolor: accent1; mso-background-themetint: 51; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 125.9pt;" width="168">
