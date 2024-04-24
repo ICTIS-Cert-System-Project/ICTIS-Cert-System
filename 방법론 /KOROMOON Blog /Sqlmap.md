@@ -15,11 +15,11 @@ sqlmap 을 이용하여 DB > 테이블 > 컬럼 순으로 SQL Injection 공격 �
 테스트 환경은 아래와 같음.
 
 ■ 테스트 환경
-- 공격자 : Kali Linux 2020.2a 버전 VMware Image (IP : 192.168.100.130)
-- 피해자 : OWASP Broken Web Apps VM v1.2 이미지의 Dam Vulnerable Web Applicaion 웹 사이트 (IP : 192.168.100.131)
-- 공격시도 URL : http://192.168.100.131/dvwa/vulnerabilities/sqli/?id=koromoon&Submit=Submit#
-- sqlmap 버전 : 1.4.4#stable 버전
-- 기타 정보 : DVWA 로그인 인증(admin/admin) 후에 공격 시도가 가능하므로 세션이 맺은 상태에서 공격 시도해야 함. 그래서 sqlmap 에서 --cookie 옵션을 설정하여 공격 시도함. 쿠키값 확인은 Wireshark 툴을 이용하여 DVWA 로그인 인증(admin/admin) 후에 패킷덤프에서 쿠키값을 확인할 수 있음. 
+공격자 : Kali Linux 2020.2a 버전 VMware Image (IP : 192.168.100.130)
+피해자 : OWASP Broken Web Apps VM v1.2 이미지의 Dam Vulnerable Web Applicaion 웹 사이트 (IP : 192.168.100.131)
+공격시도 URL : http://192.168.100.131/dvwa/vulnerabilities/sqli/?id=koromoon&Submit=Submit#
+sqlmap 버전 : 1.4.4#stable 버전
+기타 정보 : DVWA 로그인 인증(admin/admin) 후에 공격 시도가 가능하므로 세션이 맺은 상태에서 공격 시도해야 함. 그래서 sqlmap 에서 --cookie 옵션을 설정하여 공격 시도함. 쿠키값 확인은 Wireshark 툴을 이용하여 DVWA 로그인 인증(admin/admin) 후에 패킷덤프에서 쿠키값을 확인할 수 있음. 
 ※ OWASP Broken Web Apps VM v1.2 이미지 다운로드 : https://sourceforge.net/projects/owaspbwa/
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165739282/d9904d2f-8e2a-437a-bcf2-470bfb05f0ae)
