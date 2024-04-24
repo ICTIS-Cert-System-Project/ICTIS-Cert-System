@@ -7,10 +7,10 @@
 </br>
 
 ## (1) 기본 사항
-- Snort 는 유연하면서 강력한 그리고 간단한 규칙 기술 언어를 사용함.
-- 대부분의 Snort 규칙은 한 줄로 작성됨.
-- 1.8 버전 이상에서는 줄 끝 부분에 백슬래시(\\)를 추가하여 규칙을 여러 줄로 확장할 수 있음.
-- *규칙이 길지 않은 이상 가독성을 위해서 한 줄로 작성하는 걸 추천함.*
+Snort 는 유연하면서 강력한 그리고 간단한 규칙 기술 언어를 사용함.
+대부분의 Snort 규칙은 한 줄로 작성됨.
+1.8 버전 이상에서는 줄 끝 부분에 백슬래시(\\)를 추가하여 규칙을 여러 줄로 확장할 수 있음.
+*규칙이 길지 않은 이상 가독성을 위해서 한 줄로 작성하는 걸 추천함.*
 </br>
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -33,9 +33,9 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 
 ### 2.1 규칙 행위
 
-- 규칙 행위는 규칙 기준과 일치하는 패킷을 찾을 때 Snort 가 수행할 행위를 지시함.
-- alert, log, pass 이 3가지 기본 동작이 있음.
-- 인라인 모드에서 Snort 를 실행할 경우 drop, reject, sdrop 와 같은 추가 옵션이 있음.
+규칙 행위는 규칙 기준과 일치하는 패킷을 찾을 때 Snort 가 수행할 행위를 지시함.
+alert, log, pass 이 3가지 기본 동작이 있음.
+인라인 모드에서 Snort 를 실행할 경우 drop, reject, sdrop 와 같은 추가 옵션이 있음.
 
 </br>
 
@@ -104,14 +104,14 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 </div>
 
 ### 2.2 프로토콜
-- **현재 Snort 에서는 TCP, UDP, ICMP, IP 이렇게 4가지 프로토콜 분석 가능함. (규칙에 기재할 때 소문자로 기재할 것!)**
-- 앞으로 다른 프로토콜이 추가할 수 있을 것으로 전망됨. (ex. ARP, IGRP, GRE, OSPF, RIP, IPX)
+**현재 Snort 에서는 TCP, UDP, ICMP, IP 이렇게 4가지 프로토콜 분석 가능함. (규칙에 기재할 때 소문자로 기재할 것!)**
+앞으로 다른 프로토콜이 추가할 수 있을 것으로 전망됨. (ex. ARP, IGRP, GRE, OSPF, RIP, IPX)
 
 ### 2.3 IP 주소
-- IP 주소는 IP 와 CIDR 블록 형식으로 기재하며 any 키워드는 임의의 주소를 정의하는데 사용됨.
-- 부정연산자 ! 를 사용할 경우 표시된 IP 주소 이외의 IP 주소만 적용됨. 
-- 쉼표로 구분된 IP 주소 목록을 대괄호 기호로 이용하여 표시함.
-- _참고로 Snort 는 IP 주소 필드에 대한 호스트 이름 조회를 제공하는 매커니즘이 없음._
+IP 주소는 IP 와 CIDR 블록 형식으로 기재하며 any 키워드는 임의의 주소를 정의하는데 사용됨.
+부정연산자 ! 를 사용할 경우 표시된 IP 주소 이외의 IP 주소만 적용됨. 
+쉼표로 구분된 IP 주소 목록을 대괄호 기호로 이용하여 표시함.
+_참고로 Snort 는 IP 주소 필드에 대한 호스트 이름 조회를 제공하는 매커니즘이 없음._
 
 
 
@@ -137,12 +137,12 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 
 
 ### 2.4 포트 번호
-- 포트 번호는 포트, 범위연산자 :, 부정 연산자 ! 를 이용한 여러 가지 방법으로 지정함.
-- any 키워드는 모든 포트를 의미하는 와일드카드 값임.
+포트 번호는 포트, 범위연산자 :, 부정 연산자 ! 를 이용한 여러 가지 방법으로 지정함.
+any 키워드는 모든 포트를 의미하는 와일드카드 값임.
 
 ### 2.5 방향 연산자
-- 일방향 연산자 -> 와 양방향 연산자 <> 를 사용함.
-- **참고로 규칙 일관성을 위해서 <- 기호는 사용하지 않음.**
+일방향 연산자 -> 와 양방향 연산자 <> 를 사용함.
+**참고로 규칙 일관성을 위해서 <- 기호는 사용하지 않음.**
 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -169,13 +169,13 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 
 
 ## (3) 규칙 옵션
-- 규칙 옵션은 Snort 침입 탐지 엔진의 핵심이며 편의성과 유연성을 결합함.
-- **모든 Snort 규칙 옵션은 세미콜론 문자(;)를 사용하여 서로 구분함.**
-- **규칙 옵션 키워드는 콜론 문자(:)를 사용하여 인수와 구분함.**
+규칙 옵션은 Snort 침입 탐지 엔진의 핵심이며 편의성과 유연성을 결합함.
+**모든 Snort 규칙 옵션은 세미콜론 문자(;)를 사용하여 서로 구분함.**
+**규칙 옵션 키워드는 콜론 문자(:)를 사용하여 인수와 구분함.**
 
 </br>
 
-- 규칙 옵션에는 아래 4 가지 주요 범주가 있음.
+규칙 옵션에는 아래 4 가지 주요 범주가 있음.
 
 <div align="center">
 
@@ -227,7 +227,7 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 
 ## (4) General 규칙 옵션
 ### 4.1 msg
-- msg 키워드는 로깅 및 경고 엔진에 패킷 덤프 또는 경고와 함께 인쇄할 메시지를 알려줌.
+msg 키워드는 로깅 및 경고 엔진에 패킷 덤프 또는 경고와 함께 인쇄할 메시지를 알려줌.
 </br>
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -246,8 +246,8 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 
 
 ### 4.2 reference
-- reference 키워드를 사용하면 규칙에 대해서 외부 공격 식별 시스템에 대한 참조를 포함할 수 있음.
-- 플러그인은 고유 URL 뿐만 아니라 여러 특정 시스템을 지원함.
+reference 키워드를 사용하면 규칙에 대해서 외부 공격 식별 시스템에 대한 참조를 포함할 수 있음.
+플러그인은 고유 URL 뿐만 아니라 여러 특정 시스템을 지원함.
 </br>
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -373,13 +373,13 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 
 
 ### 4.3 gid
-- gid 키워드(generator id)는 특정 규칙이 발생할 때 Snort 가 어떤 이벤트를 생성하는 지 식별하는데 사용됨.
-- 현재 사용 중인 gid 에 대해서는 /etc/generators 파일을 참조 바람.
-- gid 키워드는 선택사항이며 규칙에 지정되지 않은 경우 기본값은 1 이며 규칙은 일반 규칙 하위시스템의 일부가 됨.
-- Snort 에 정의된 gid 와 잠재적인 충돌을 피하기 위해서 1,000,000 부터 사용하는 것이 좋음.
-- 일반적인 규칙 작성할 경우, gid 키워드를 사용할 것!
-- 이 옵션은 sid 키워드와 함께 사용해야 함.
-- etc/gen-msg.map 파일에 Preprocessor 및 Decoder gid 에 대한 자세한 정보가 들어 있음.
+gid 키워드(generator id)는 특정 규칙이 발생할 때 Snort 가 어떤 이벤트를 생성하는 지 식별하는데 사용됨.
+현재 사용 중인 gid 에 대해서는 /etc/generators 파일을 참조 바람.
+gid 키워드는 선택사항이며 규칙에 지정되지 않은 경우 기본값은 1 이며 규칙은 일반 규칙 하위시스템의 일부가 됨.
+Snort 에 정의된 gid 와 잠재적인 충돌을 피하기 위해서 1,000,000 부터 사용하는 것이 좋음.
+일반적인 규칙 작성할 경우, gid 키워드를 사용할 것!
+이 옵션은 sid 키워드와 함께 사용해야 함.
+etc/gen-msg.map 파일에 Preprocessor 및 Decoder gid 에 대한 자세한 정보가 들어 있음.
 
 </br>
 
@@ -418,9 +418,9 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 
 
 ### 4.4 sid
-- sid 키워드는 Snort 규칙을 고유하게 식별하는 데 사용됨.
-- 이 정보는 출력 플러그인이 규칙을 쉽게 식별할 수 있게 함.
-- 이 옵션은 rev 키워드와 함께 사용해야 함.
+sid 키워드는 Snort 규칙을 고유하게 식별하는 데 사용됨.
+이 정보는 출력 플러그인이 규칙을 쉽게 식별할 수 있게 함.
+이 옵션은 rev 키워드와 함께 사용해야 함.
 
 <div align="center">
 
@@ -463,8 +463,8 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 
 </br>
 
-- sid-msg.map 파일에는 Snort 규칙 ID 에 대한 경고 메시지 매핑이 들어 있음.
-- 이 정보는 경고를 사후 처리하여 ID 를 경고 메시지에 매핑할 때 유용함.
+sid-msg.map 파일에는 Snort 규칙 ID 에 대한 경고 메시지 매핑이 들어 있음.
+이 정보는 경고를 사후 처리하여 ID 를 경고 메시지에 매핑할 때 유용함.
 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -500,9 +500,9 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 
 
 ### 4.5 rev
-- rev 키워드는 Snort 규칙의 수정 버전을 고유하게 식별하는 데 사용됨.
-- Snort 규칙 ID 와 함께 개정이 허용되며 서명 및 설명을 수정하여 업데이트 된 정보를 대체할 수 있음.
-- 이 옵션은 sid 키워드와 함께 사용해야 함.
+rev 키워드는 Snort 규칙의 수정 버전을 고유하게 식별하는 데 사용됨.
+Snort 규칙 ID 와 함께 개정이 허용되며 서명 및 설명을 수정하여 업데이트 된 정보를 대체할 수 있음.
+이 옵션은 sid 키워드와 함께 사용해야 함.
 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -539,8 +539,8 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 
 ### 4.6 classtype
 
-- classtype 키워드는 규칙에 대한 공격 범주화하는데 사용함.
-- Snort 는 기본적으로 제공하는 규칙에 대해서 공격 범주를 제공함.
+classtype 키워드는 규칙에 대한 공격 범주화하는데 사용함.
+Snort 는 기본적으로 제공하는 규칙에 대해서 공격 범주를 제공함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -577,12 +577,12 @@ Snort </span>규칙 구성 요소<span lang="EN-US"> &gt;<o:p></o:p></span></spa
 
 </br>
 
-- Snort 가 정의한 공격 범주 분류는 classification.config 파일에 있음.
-- 이 파일은 다음과 같은 구문을 사용함.
-  + config classification: \<class name>,\<class description>,\<default priority>
+Snort 가 정의한 공격 범주 분류는 classification.config 파일에 있음.
+이 파일은 다음과 같은 구문을 사용함.
+config classification: \<class name>,\<class description>,\<default priority>
 
-- 이러한 공격 범주 분류는 아래 표에 나열되어 있음.
-- 현재 4 가지 기본 우선 순위로 기재하였으며 1(높음) 은 가장 심각하고 4(매우 낮음) 는 가장 덜 심각함.
+이러한 공격 범주 분류는 아래 표에 나열되어 있음.
+현재 4 가지 기본 우선 순위로 기재하였으며 1(높음) 은 가장 심각하고 4(매우 낮음) 는 가장 덜 심각함.
 
 </br>
 
@@ -1097,8 +1097,8 @@ Snort Metadata Keys &gt;<o:p></o:p></span></span></p>
 
 </div>
 
-- 아래 예제는 공유 라이브러리 규칙에서 스텁(stub) 규칙을 보여줌.
-- 첫 번째 예제는 여러 metadata 키워드를 사용하고 두 번째 예제는 단일 metadata 키워드를 사용하며 키는 쉼표로 구분됨.
+아래 예제는 공유 라이브러리 규칙에서 스텁(stub) 규칙을 보여줌.
+첫 번째 예제는 여러 metadata 키워드를 사용하고 두 번째 예제는 단일 metadata 키워드를 사용하며 키는 쉼표로 구분됨.
 
 </br>
 
@@ -1529,9 +1529,9 @@ within
 
 
 ### 5.3 hash
-- hash 키워드는 protected_content 규칙과 일치할 때 사용할 해싱 알고리즘을 지정하는 데 사용됨.
-- Snort 설정에 기본 알고리즘이 지정되지 않은 경우 protected_content 규칙에 반드시 사용할 알고리즘을 지정해야 함.
-- 현재 MD5, SHA256, SHA512가 지원됨.
+hash 키워드는 protected_content 규칙과 일치할 때 사용할 해싱 알고리즘을 지정하는 데 사용됨.
+Snort 설정에 기본 알고리즘이 지정되지 않은 경우 protected_content 규칙에 반드시 사용할 알고리즘을 지정해야 함.
+현재 MD5, SHA256, SHA512가 지원됨.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -1549,8 +1549,8 @@ within
 
 
 ### 5.4 length
-- length 키워드는 protected_content 규칙 요약(digest)에 지정된 컨텐츠의 원래 길이를 지정하는데 사용됨. 
-- 제공된 값은 0보다 크도 65536보다 작아야 함.
+length 키워드는 protected_content 규칙 요약(digest)에 지정된 컨텐츠의 원래 길이를 지정하는데 사용됨. 
+제공된 값은 0보다 크도 65536보다 작아야 함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -1568,8 +1568,8 @@ within
 
 
 ### 5.5 nocase
-- nocase 키워드를 사용하면 규칙 작성기(rule writer)가 Snort에서 대소문자를 무시하고 특정 패턴을 찾도록 지정할 수 있음. 
-- nocase 는 규칙에서 이전 content 키워드를 수정함.
+nocase 키워드를 사용하면 규칙 작성기(rule writer)가 Snort에서 대소문자를 무시하고 특정 패턴을 찾도록 지정할 수 있음. 
+nocase 는 규칙에서 이전 content 키워드를 수정함.
 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -1605,17 +1605,17 @@ within
 
 
 ### 5.6 rawbytes
-- rawbytes 키워드를 사용하면 규칙이 원시 패킷 데이터를 보고 전처리기(preprocessors)에 의해 수행된 디코딩을 무시함.
-- 이는 content 키워드 옵션의 수정자(modifier) 역할을 함.
+rawbytes 키워드를 사용하면 규칙이 원시 패킷 데이터를 보고 전처리기(preprocessors)에 의해 수행된 디코딩을 무시함.
+이는 content 키워드 옵션의 수정자(modifier) 역할을 함.
 
 </br>
 
-- HTTP Inspect 는 원시 HTTP 요청 및 응답의 특정 부분과 일치하는 http_raw_cookie, http_raw_header, http_raw_uri 등과 같은 원시 데이터를 사용하기 위한 키워드 세트가 있음.
+HTTP Inspect 는 원시 HTTP 요청 및 응답의 특정 부분과 일치하는 http_raw_cookie, http_raw_header, http_raw_uri 등과 같은 원시 데이터를 사용하기 위한 키워드 세트가 있음.
 
 </br>
 
-- rawbytes 가 명시적으로 지정되지 않은 경우 대부분의 다른 전처리기는 기본적으로 컨텐츠 일치를 위해 디코딩/정규화된 데이터를 사용함. 
- - 따라서 패킷에서 임의의 원시 데이터를 검사하려면 rawbytes 를 지정해야 함.
+rawbytes 가 명시적으로 지정되지 않은 경우 대부분의 다른 전처리기는 기본적으로 컨텐츠 일치를 위해 디코딩/정규화된 데이터를 사용함. 
+따라서 패킷에서 임의의 원시 데이터를 검사하려면 rawbytes 를 지정해야 함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -1651,11 +1651,11 @@ within
 
 ### 5.7 depth
 
-- depth 키워드를 사용하면 규칙 작성자(rule writer)가 지정된 패턴을 검색해야 하는 거리를 지정할 수 있음. </br>
-- 예를 들어 "depth:5;" 는 페이로드의 처음 5 바이트 내에서만 지정된 패턴을 찾도록 지시함. </br>
-- depth 키워드는 이전 content 키워드에 대한 수정자이므로 depth 키워드를 지정하기 전에 content 키워드가 있어야 함. </br>
-- 이 키워드는 검색되는 패턴 길이보다 크거나 같은 값을 허용하며 허용 범위는 1 ~ 65535 임. </br>
-- 동일한 규칙에서 byte extract 키워드로 추출된 변수를 참조하는 문자열 값으로 설정할 수도 있음.
+depth 키워드를 사용하면 규칙 작성자(rule writer)가 지정된 패턴을 검색해야 하는 거리를 지정할 수 있음. </br>
+예를 들어 "depth:5;" 는 페이로드의 처음 5 바이트 내에서만 지정된 패턴을 찾도록 지시함. </br>
+depth 키워드는 이전 content 키워드에 대한 수정자이므로 depth 키워드를 지정하기 전에 content 키워드가 있어야 함. </br>
+이 키워드는 검색되는 패턴 길이보다 크거나 같은 값을 허용하며 허용 범위는 1 ~ 65535 임. </br>
+동일한 규칙에서 byte extract 키워드로 추출된 변수를 참조하는 문자열 값으로 설정할 수도 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -1673,11 +1673,11 @@ within
 
 
 ### 5.8 offset
-- offset 키워드를 사용하면 규칙 작성기(Rule Writer)가 패킷 내에서 패턴 검색을 시작할 위치를 지정할 수 있음.
- + 예를 들어 "offset:5;" 는 페이로드의 처음 5 바이트 이후에 지정된 패턴을 찾도록 Snort 에 지시함.
-- offset 키워드는 이전 content 키워드에 대한 수정자이므로 offset 키워드를 지정하기 전에 content 키워드가 있어야 함.
- + 해당 키워드의 값 허용 범위는 -65535 ~ 65535 임.
-- 동일한 규칙에서 byte extract 키워드로 추출된 변수를 참조하는 문자열 값으로 설정할 수도 있음.
+offset 키워드를 사용하면 규칙 작성기(Rule Writer)가 패킷 내에서 패턴 검색을 시작할 위치를 지정할 수 있음.
+예를 들어 "offset:5;" 는 페이로드의 처음 5 바이트 이후에 지정된 패턴을 찾도록 Snort 에 지시함.
+offset 키워드는 이전 content 키워드에 대한 수정자이므로 offset 키워드를 지정하기 전에 content 키워드가 있어야 함.
+해당 키워드의 값 허용 범위는 -65535 ~ 65535 임.
+동일한 규칙에서 byte extract 키워드로 추출된 변수를 참조하는 문자열 값으로 설정할 수도 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -1714,10 +1714,10 @@ within
 </div>
 
 ### 5.9 distance
-- distance 키워드를 사용하면 규칙 작성자가 이전 패턴 일치의 끝을 기준으로 지정된 패턴 검색을 시작하기 전에 Snort 가 무시해야 하는 패킷의 거리를 지정할 수 있음.
-- 이는 패킷의 시작이 아닌 마지막 패턴 일치의 끝과 관련이 있다는 점으로 offset 키워드와 정반대임.
-- 해당 키워드의 값 허용 범위는 -65535 ~ 65535 임.
-- 동일한 규칙에서 byte extract 키워드로 추출된 변수를 참조하는 문자열 값으로 설정할 수도 있음.
+distance 키워드를 사용하면 규칙 작성자가 이전 패턴 일치의 끝을 기준으로 지정된 패턴 검색을 시작하기 전에 Snort 가 무시해야 하는 패킷의 거리를 지정할 수 있음.
+이는 패킷의 시작이 아닌 마지막 패턴 일치의 끝과 관련이 있다는 점으로 offset 키워드와 정반대임.
+해당 키워드의 값 허용 범위는 -65535 ~ 65535 임.
+동일한 규칙에서 byte extract 키워드로 추출된 변수를 참조하는 문자열 값으로 설정할 수도 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -1752,10 +1752,10 @@ within
 </div>
 
 ### 5.10 within
-- within 키워드는 content 키워드를 사용하여 패턴 일치 사이에 최대 N 바이트가 되도록 하는 content 수정자임. (5.1 참조)
-- distance 키워드와 함께 규칙 옵션으로 사용하도록 설계됨.
-- 해당 키워드는 검색되는 패턴 길이보다 크거나 같은 값을 허용하며 최대값은 63335 임.
-- 동일한 규칙에서 byte extract 키워드로 추출된 변수를 참조하는 문자열 값으로 설정할 수도 있음.
+within 키워드는 content 키워드를 사용하여 패턴 일치 사이에 최대 N 바이트가 되도록 하는 content 수정자임. (5.1 참조)
+distance 키워드와 함께 규칙 옵션으로 사용하도록 설계됨.
+해당 키워드는 검색되는 패턴 길이보다 크거나 같은 값을 허용하며 최대값은 63335 임.
+동일한 규칙에서 byte extract 키워드로 추출된 변수를 참조하는 문자열 값으로 설정할 수도 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -1791,10 +1791,10 @@ within
 
 
 ### 5.11 http_client_body
-- http_client_body 키워드는 HTTP 클라이언트 요청의 본문으로 검색을 제한하는 content 수정자임.
-- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_client_body 키워드를 지정하기 전에 content 키워드가 있어야 함.
-- 이 옵션으로 검사하는 데이터의 양은 HttpInspect 의 포스트 깊이 구성 옵션(post depth config option)에 따라 다름.
-- 이 키워드를 사용한 패턴 일치는 포스트 깊이(post depth)가 -1 로 설정한 경우 작동하지 않음.
+http_client_body 키워드는 HTTP 클라이언트 요청의 본문으로 검색을 제한하는 content 수정자임.
+이 키워드는 이전 content 키워드에 대한 수정자이므로 http_client_body 키워드를 지정하기 전에 content 키워드가 있어야 함.
+이 옵션으로 검사하는 데이터의 양은 HttpInspect 의 포스트 깊이 구성 옵션(post depth config option)에 따라 다름.
+이 키워드를 사용한 패턴 일치는 포스트 깊이(post depth)가 -1 로 설정한 경우 작동하지 않음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -1888,10 +1888,10 @@ http_cookie 키워드는 HTTP 클라이언트 요청 또는 HTTP 서버 응답�
 http_cookie 수정자는 동일한 content 에 대해 rawbytes 또는 fast_pattern 수정자와 함께 사용할 수 없음.
 
 ### 5.13 http_raw_cookie
-- http_raw_cookie 키워드는 HTTP 클라이언트 또는 HTTP 서버 응답의 추출된 비정규화(UNNORMALIZED) 쿠키 헤더 필드로 검색을 제한하는 content 수정자임. (HttpInspect 구성에 따라)
-- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_raw_cookie 키워드를 지정하기 전에 content 키워드가 있어야 함.
-- 이 키워드는 쿠키 사용 구성 옵션(enable cookie config option)에 따라 다름.
-- 이 옵션이 구성된 경우에만 쿠키 헤더 필드가 추출됨.
+http_raw_cookie 키워드는 HTTP 클라이언트 또는 HTTP 서버 응답의 추출된 비정규화(UNNORMALIZED) 쿠키 헤더 필드로 검색을 제한하는 content 수정자임. (HttpInspect 구성에 따라)
+이 키워드는 이전 content 키워드에 대한 수정자이므로 http_raw_cookie 키워드를 지정하기 전에 content 키워드가 있어야 함.
+이 키워드는 쿠키 사용 구성 옵션(enable cookie config option)에 따라 다름.
+이 옵션이 구성된 경우에만 쿠키 헤더 필드가 추출됨.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -1932,9 +1932,9 @@ http_cookie 수정자는 동일한 content 에 대해 rawbytes 또는 fast_patte
 http_raw_cookie 수정자는 동일한 content 에 대해 rawbytes, http_cookie 또는 fast_pattern 수정자와 함께 사용할 수 없음.
 
 ### 5.14 http_header
-- http_header 키워드는 HTTP 클라이언트 요청 또는 HTTP 서버 응답의 추출된 헤더 필드로 검색을 제한하는 content 수정자임. (HttpInspect 구성에 따라)
-- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_header 키워드를 지정하기 전에 content 키워드가 있어야 함.
-- 추출된 헤더 필드는 HttpInspect 구성에 따라 NORMALIZED 일 수 있음.
+http_header 키워드는 HTTP 클라이언트 요청 또는 HTTP 서버 응답의 추출된 헤더 필드로 검색을 제한하는 content 수정자임. (HttpInspect 구성에 따라)
+이 키워드는 이전 content 키워드에 대한 수정자이므로 http_header 키워드를 지정하기 전에 content 키워드가 있어야 함.
+추출된 헤더 필드는 HttpInspect 구성에 따라 NORMALIZED 일 수 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -1975,8 +1975,8 @@ http_raw_cookie 수정자는 동일한 content 에 대해 rawbytes, http_cookie 
 http_header 수정자는 동일한 content 에 대해 rawbytes 수정자와 함께 사용할 수 없음.
 
 ### 5.15 http_raw_header
-- http_raw_header 키워드는 HTTP 클라이언트 또는 HTTP 서버 응답의 추출된 비정규화(UNNORMALIZED) 헤더 필드로 검색을 제한하는 content 수정자임. (HttpInspect 구성에 따라)
-- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_raw_header 키워드를 지정하기 전에 content 키워드가 있어야 함.
+http_raw_header 키워드는 HTTP 클라이언트 또는 HTTP 서버 응답의 추출된 비정규화(UNNORMALIZED) 헤더 필드로 검색을 제한하는 content 수정자임. (HttpInspect 구성에 따라)
+이 키워드는 이전 content 키워드에 대한 수정자이므로 http_raw_header 키워드를 지정하기 전에 content 키워드가 있어야 함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -2017,8 +2017,8 @@ http_raw_header 수정자는 동일한 content 에 대해 rawbytes, http_header 
 
 ### 5.16 http_method
 
-- http_method 키워드는 HTTP 클라이언트 요청에서 추출된 Method 로 검색을 제한하는 content 수정자임.
-- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_method 키워드를 지정하기 전에 content 키워드가 있어야 함.
+http_method 키워드는 HTTP 클라이언트 요청에서 추출된 Method 로 검색을 제한하는 content 수정자임.
+이 키워드는 이전 content 키워드에 대한 수정자이므로 http_method 키워드를 지정하기 전에 content 키워드가 있어야 함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -2058,9 +2058,9 @@ http_method 수정자는 동일한 content 에 대해 rawbytes 또는 fast_patte
 
 
 ### 5.17 http_uri
-- http_uri 키워드는 정규화(NORMALIZED) 요청 URI 필드로 검색을 제한하는 content 수정자임.
-- content 규칙 옵션 다음에 http_uri 수정자를 사용하는 것은 uricontent 키워드를 사용하는 것과 같음. (5.23 참조)
-- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_uri 키워드를 지정하기 전에 content 키워드가 있어야 함.
+http_uri 키워드는 정규화(NORMALIZED) 요청 URI 필드로 검색을 제한하는 content 수정자임.
+content 규칙 옵션 다음에 http_uri 수정자를 사용하는 것은 uricontent 키워드를 사용하는 것과 같음. (5.23 참조)
+이 키워드는 이전 content 키워드에 대한 수정자이므로 http_uri 키워드를 지정하기 전에 content 키워드가 있어야 함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -2099,8 +2099,8 @@ http_method 수정자는 동일한 content 에 대해 rawbytes 또는 fast_patte
 http_uri 수정자는 동일한 content 에 대해 rawbytes 수정자와 함께 사용할 수 없음.
 
 ### 5.18 http_raw_uri
-- http_raw_uri 키워드는 비정규화(UNNORMALIZED) 요청 URI 필드로 검색을 제한하는 content 수정자임.
-- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_raw_uri 키워드를 지정하기 전에 content 키워드가 있어야 함.
+http_raw_uri 키워드는 비정규화(UNNORMALIZED) 요청 URI 필드로 검색을 제한하는 content 수정자임.
+이 키워드는 이전 content 키워드에 대한 수정자이므로 http_raw_uri 키워드를 지정하기 전에 content 키워드가 있어야 함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -2139,9 +2139,9 @@ http_raw_uri 수정자는 동일한 content 에 대해 rawbytes, http_uri 또는
 
 
 ### 5.19 http_stat_code
-- http_stat_code 키워드는 HTTP 서버 응답에서 추출된 상태 코드 필드로 검색을 제한하는 content 수정자임.
-- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_stat_code 키워드를 지정하기 전에 content 키워드가 있어야 함.
-- 상태 코드 필드는 확장 응답 검사가 HttpInspect 에 대해 구성된 경우에만 추출됨.
+http_stat_code 키워드는 HTTP 서버 응답에서 추출된 상태 코드 필드로 검색을 제한하는 content 수정자임.
+이 키워드는 이전 content 키워드에 대한 수정자이므로 http_stat_code 키워드를 지정하기 전에 content 키워드가 있어야 함.
+상태 코드 필드는 확장 응답 검사가 HttpInspect 에 대해 구성된 경우에만 추출됨.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -2180,9 +2180,9 @@ http_raw_uri 수정자는 동일한 content 에 대해 rawbytes, http_uri 또는
 http_stat_code 수정자는 동일한 content 에 대해 rawbytes 또는 fast_pattern 수정자와 함께 사용할 수 없음.
 
 ### 5.20 http_stat_msg
-- http_stat_msg 키워드는 HTTP 서버 응답에서 추출된 상태 메시지 필드로 검색을 제한하는 content 수정자임.
-- 이 키워드는 이전 content 키워드에 대한 수정자이므로 http_stat_msg 키워드를 지정하기 전에 content 키워드가 있어야 함.
-- 상태 메시지 필드는 확장 응답 검사가 HttpInspect 에 대해 구성된 경우에만 추출됨.
+http_stat_msg 키워드는 HTTP 서버 응답에서 추출된 상태 메시지 필드로 검색을 제한하는 content 수정자임.
+이 키워드는 이전 content 키워드에 대한 수정자이므로 http_stat_msg 키워드를 지정하기 전에 content 키워드가 있어야 함.
+상태 메시지 필드는 확장 응답 검사가 HttpInspect 에 대해 구성된 경우에만 추출됨.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -2597,9 +2597,9 @@ uricontent 는 rawbytes 수정자 또는 다른 HTTP 수정자로 수정할 수 
 
 
 ### 5.24 urilen
-- Snort 규칙 언어의 urilen 키워드는 일치시킬 URI 길이의 정확한 길이, 최소 길이, 최대 길이 또는 범위를 지정함. 
-- 기본적으로 원시 URI 버퍼가 사용됨. 
-- 선택적 <uribuf> 인수를 사용하면 원시 또는 정규화된 버퍼를 사용할 지 여부를 지정할 수 있음. 
+Snort 규칙 언어의 urilen 키워드는 일치시킬 URI 길이의 정확한 길이, 최소 길이, 최대 길이 또는 범위를 지정함. 
+기본적으로 원시 URI 버퍼가 사용됨. 
+선택적 <uribuf> 인수를 사용하면 원시 또는 정규화된 버퍼를 사용할 지 여부를 지정할 수 있음. 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -2650,7 +2650,7 @@ urilen:>500,row;
 
 
 ### 5.25 isdataat
-- 페이로드의 지정된 위치에 데이터가 있는지 확인하고 선택적으로 이전의 컨텐츠 끝과 관련된 데이터를 찾음.
+페이로드의 지정된 위치에 데이터가 있는지 확인하고 선택적으로 이전의 컨텐츠 끝과 관련된 데이터를 찾음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -2686,18 +2686,18 @@ urilen:>500,row;
  </tr>
 </tbody></table>
 
-- rawbytes 수정자가 isdataat 와 함께 지정되면 원시 패킷 데이터를 살펴보고 전처리기가 수행한 모든 디코딩을 무시함.
-- 이 수정자는 이전 컨텐츠 일치가 원시 패킷 데이터에 있는 한 relative 수정자와 함께 작동함.
-- ! 수정자는 isdataat 테스트의 결과를 무효화함.
-- 페이로드 내에 특정 양의 데이터가 없으면 경고함.
-- 예를 들어 수정자 컨텐츠가 있는 규칙은 다음과 같음.
-- "foo"; isdataat:!10,relative; 는 페이로드가 끝나기 전에 “foo” 뒤에 10 바이트가 없으면 경고함.
+rawbytes 수정자가 isdataat 와 함께 지정되면 원시 패킷 데이터를 살펴보고 전처리기가 수행한 모든 디코딩을 무시함.
+이 수정자는 이전 컨텐츠 일치가 원시 패킷 데이터에 있는 한 relative 수정자와 함께 작동함.
+! 수정자는 isdataat 테스트의 결과를 무효화함.
+페이로드 내에 특정 양의 데이터가 없으면 경고함.
+예를 들어 수정자 컨텐츠가 있는 규칙은 다음과 같음.
+"foo"; isdataat:!10,relative; 는 페이로드가 끝나기 전에 “foo” 뒤에 10 바이트가 없으면 경고함.
 
 
 
 ### 5.26 pcre
-- pcre 키워드를 사용하면 perl 호환 정규식을 사용하여 규칙을 작성할 수 있음.
-- 무엇을 할 수 있는지에 대한 자세한 내용은 PCRE 웹사이트(http://www.pcre.org) 를 확인하십시오.
+pcre 키워드를 사용하면 perl 호환 정규식을 사용하여 규칙을 작성할 수 있음.
+무엇을 할 수 있는지에 대한 자세한 내용은 PCRE 웹사이트(http://www.pcre.org) 를 확인하십시오.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식<span lang="EN-US"> &gt;<o:p></o:p></span></span></p>
@@ -2963,9 +2963,9 @@ pcre 를 사용하여 모든 URI 를 검사하려면 content 또는 uricontent �
 
 ### 5.27 pkt_data
 
-- 이 옵션은 감지에 사용되는 커서(cursor)를 원시 전송 페이로드로 설정함.
-- 규칙에서 pkt_data 뒤에 오는 상대 또는 절대 컨텐츠 일치(HTTP 수정자 또는 원시 바이트 없음) 및 기타 페이로드 감지 규칙 옵션은 커서(탐지에 사용)가 다시 설정될 때까지 원시 TCP/UDP 페이로드 또는 정규화된 버퍼(telnet, 정규화된 smtp 경우)에 적용됨.
-- 이 규칙 옵션은 규칙에서 여러 번 사용할 수 있음.
+이 옵션은 감지에 사용되는 커서(cursor)를 원시 전송 페이로드로 설정함.
+규칙에서 pkt_data 뒤에 오는 상대 또는 절대 컨텐츠 일치(HTTP 수정자 또는 원시 바이트 없음) 및 기타 페이로드 감지 규칙 옵션은 커서(탐지에 사용)가 다시 설정될 때까지 원시 TCP/UDP 페이로드 또는 정규화된 버퍼(telnet, 정규화된 smtp 경우)에 적용됨.
+이 규칙 옵션은 규칙에서 여러 번 사용할 수 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -3015,7 +3015,7 @@ pcre 를 사용하여 모든 URI 를 검사하려면 content 또는 uricontent �
 
 
 
-- 이 옵션은 감지에 사용되는 커서를 다음 버퍼 중 하나로 설정함.
+이 옵션은 감지에 사용되는 커서를 다음 버퍼 중 하나로 설정함.
 
 
 
@@ -3043,10 +3043,10 @@ pcre 를 사용하여 모든 URI 를 검사하려면 content 또는 uricontent �
 
 </br>
 
-- 상대 또는 절대 컨텐츠 일치(HTTP 수정자 또는 rawbytes 없음) 및 규칙에서 file_data 를 따르는 페이로드 감지 규칙 옵션은 다른 규칙 옵션에 의해 명시적으로 재설정될 때까지 이 버퍼에 적용됨. 
-- 이 규칙 옵션은 규칙에서 여러 번 사용할 수 있음. 
-- file_data 에 대한 mime 인수는 더 이상 사용되지 않음. 
-- 규칙 옵션 file_data 는 자체적으로 디코딩된 MIME 첨부를 가리킴. </br>
+상대 또는 절대 컨텐츠 일치(HTTP 수정자 또는 rawbytes 없음) 및 규칙에서 file_data 를 따르는 페이로드 감지 규칙 옵션은 다른 규칙 옵션에 의해 명시적으로 재설정될 때까지 이 버퍼에 적용됨. 
+이 규칙 옵션은 규칙에서 여러 번 사용할 수 있음. 
+file_data 에 대한 mime 인수는 더 이상 사용되지 않음. 
+규칙 옵션 file_data 는 자체적으로 디코딩된 MIME 첨부를 가리킴. </br>
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -3105,9 +3105,9 @@ pcre 를 사용하여 모든 URI 를 검사하려면 content 또는 uricontent �
 
 
 
-- 이 옵션은 base64 로 인코딩된 데이터를 디코딩하는 데 사용됨.
-- 이 옵션은 HTTP 인증 헤더와 같은 HTTP 헤더의 경우 특히 유용함.
-- 이 옵션은 디코딩하기 전에 데이터를 펼침.
+이 옵션은 base64 로 인코딩된 데이터를 디코딩하는 데 사용됨.
+이 옵션은 HTTP 인증 헤더와 같은 HTTP 헤더의 경우 특히 유용함.
+이 옵션은 디코딩하기 전에 데이터를 펼침.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -3172,7 +3172,7 @@ pcre 를 사용하여 모든 URI 를 검사하려면 content 또는 uricontent �
 
 </div>
 
-- base64_decode 에 대한 위의 인수는 선택사항임.
+base64_decode 에 대한 위의 인수는 선택사항임.
 
 
 
@@ -3220,9 +3220,9 @@ pcre 를 사용하여 모든 URI 를 검사하려면 content 또는 uricontent �
 
 
 
-- 이 옵션은 file_date 규칙 옵션과 유사하며 감지에 사용되는 커서가 있는 경우 base64 디코딩된 버퍼의 시작 부분으로 설정하는 데 사용됨.
-- 이 옵션은 인수를 사용하지 않음.
-- base64_data 옵션보다 먼저 base64_decode 규칙 옵션을 지정해야 함.
+이 옵션은 file_date 규칙 옵션과 유사하며 감지에 사용되는 커서가 있는 경우 base64 디코딩된 버퍼의 시작 부분으로 설정하는 데 사용됨.
+이 옵션은 인수를 사용하지 않음.
+base64_data 옵션보다 먼저 base64_decode 규칙 옵션을 지정해야 함.
 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -3239,7 +3239,7 @@ pcre 를 사용하여 모든 URI 를 검사하려면 content 또는 uricontent �
 
 </div>
 
-- 이 옵션은 base64 디코딩된 버퍼가 있는 경우 일치함.
+이 옵션은 base64 디코딩된 버퍼가 있는 경우 일치함.
 
 
 
@@ -3272,8 +3272,8 @@ pcre 를 사용하여 모든 URI 를 검사하려면 content 또는 uricontent �
 
 
 
-- 특정 값(연산자 사용)에 대해 바이트 필드를 테스트함.
-- 바이너리 값을 테스트하거나 대표 바이트 문자열을 해당 바이너리로 변환하고 테스트할 수 있음.
+특정 값(연산자 사용)에 대해 바이트 필드를 테스트함.
+바이너리 값을 테스트하거나 대표 바이트 문자열을 해당 바이너리로 변환하고 테스트할 수 있음.
 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -3418,8 +3418,8 @@ pcre 를 사용하여 모든 URI 를 검사하려면 content 또는 uricontent �
 
 </div>
 
-- 모든 연산자에 ! 연산자가 사실이 아닌지 확인함. 
-- 만약 ! 연산자없이 지정된 경우 연산자는 = 로 설정됨.
+모든 연산자에 ! 연산자가 사실이 아닌지 확인함. 
+만약 ! 연산자없이 지정된 경우 연산자는 = 로 설정됨.
 
 
 
@@ -3507,10 +3507,10 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 
 
-- byte_jump 키워드를 사용하면 길이 인코딩된 프로토콜에 대한 규칙을 간단하게 작성할 수 있음.
-- 데이터 일부의 길이를 읽은 다음 패킷에서 훨씬 앞으로 건너 뛰는 옵션을 사용하면 길이 인코딩된 프로토콜의 특정 부분을 건너 뛰고 특정 위치에서 탐지를 수행하는 규칙을 작성할 수 있음.
-- byte_jump 옵션은 일부 바이트 수를 읽고 숫자 표현으로 변환하고 해당 바이트를 앞으로 이동하고 나중에 감지할 수 있도록 포인터를 설정하여 이를 수행함.
-- 이 포인터는 오프셋 감지 끝 포인터 또는 doe_ptr 로 알려져 있음.
+byte_jump 키워드를 사용하면 길이 인코딩된 프로토콜에 대한 규칙을 간단하게 작성할 수 있음.
+데이터 일부의 길이를 읽은 다음 패킷에서 훨씬 앞으로 건너 뛰는 옵션을 사용하면 길이 인코딩된 프로토콜의 특정 부분을 건너 뛰고 특정 위치에서 탐지를 수행하는 규칙을 작성할 수 있음.
+byte_jump 옵션은 일부 바이트 수를 읽고 숫자 표현으로 변환하고 해당 바이트를 앞으로 이동하고 나중에 감지할 수 있도록 포인터를 설정하여 이를 수행함.
+이 포인터는 오프셋 감지 끝 포인터 또는 doe_ptr 로 알려져 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -3754,9 +3754,9 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 
 
-- byte_extract 키워드는 길이 인코딩 프로토콜에 대한 규칙을 작성하는 데 유용한 또 다른 옵션임.
-- 패킷 페이로드에서 몇 바이트를 읽어 변수에 저장됨.
-- 이러한 변수는 하드 코딩된 값을 사용하는 대신 나중에 규칙에서 참조할 수 있음.
+byte_extract 키워드는 길이 인코딩 프로토콜에 대한 규칙을 작성하는 데 유용한 또 다른 옵션임.
+패킷 페이로드에서 몇 바이트를 읽어 변수에 저장됨.
+이러한 변수는 하드 코딩된 값을 사용하는 대신 나중에 규칙에서 참조할 수 있음.
 
 
 
@@ -3931,9 +3931,9 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 </div>
 
-- byte_extract 규칙 옵션은 자체적으로 아무것도 감지하지 않음.
-- 다른 규칙 옵션에서 사용할 패킷 데이터를 추출하는 데 사용됨.
-- 다음은 byte_extract 변수를 사용할 수 있는 위치 목록 :
+byte_extract 규칙 옵션은 자체적으로 아무것도 감지하지 않음.
+다른 규칙 옵션에서 사용할 패킷 데이터를 추출하는 데 사용됨.
+다음은 byte_extract 변수를 사용할 수 있는 위치 목록 :
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>바이트 추출 변수를 사용하는 기타 옵션 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -4031,8 +4031,8 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 
 
-- 추출된 값과 지정된 값 또는 기존 변수에 대해 수학적 연산을 수행하고 결과를 새 결과 변수에 저장함.
-- 이러한 결과 변수는 하드 코딩된 값을 사용하는 대신 나중에 규칙에서 참조할 수 있음.
+추출된 값과 지정된 값 또는 기존 변수에 대해 수학적 연산을 수행하고 결과를 새 결과 변수에 저장함.
+이러한 결과 변수는 하드 코딩된 값을 사용하는 대신 나중에 규칙에서 참조할 수 있음.
 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -4331,12 +4331,12 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 
 
-- ASN.1 탐지 플러그인은 패킷 또는 패킷의 일부를 디코딩하고 다양한 악성 인코딩을 찾음.
-- 'asn1' 옵션에 여러 옵션을 사용할 수 있으며 암시적 논리의 부울 OR 임.
-- 따라서 인수 중 하나라도 참으로 평가되면 전체 옵션이 참으로 평가됨.
-- ASN.1 옵션은 좀 더 동적인 유형 감지뿐만 아니라 프로그래밍 방식 감지 기능을 제공함.
-- 옵션에 인수가 있는 경우 옵션과 인수는 공백이나 쉼표로 구분됨.
-- 선호하는 사용법은 옵션과 인수 사이에 공백을 사용하는 것임.
+ASN.1 탐지 플러그인은 패킷 또는 패킷의 일부를 디코딩하고 다양한 악성 인코딩을 찾음.
+'asn1' 옵션에 여러 옵션을 사용할 수 있으며 암시적 논리의 부울 OR 임.
+따라서 인수 중 하나라도 참으로 평가되면 전체 옵션이 참으로 평가됨.
+ASN.1 옵션은 좀 더 동적인 유형 감지뿐만 아니라 프로그래밍 방식 감지 기능을 제공함.
+옵션에 인수가 있는 경우 옵션과 인수는 공백이나 쉼표로 구분됨.
+선호하는 사용법은 옵션과 인수 사이에 공백을 사용하는 것임.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -4453,8 +4453,8 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 
 
-- CVS 감지 플러그인은 Bugtraq-10384, CVE-2004-0396, "Malformed Entry Modified and Unchanged flag insertion" 를 감지하는 데 도움이 됨. 
-- 기본 CVS 서버 포트는 2401 및 514 이며 스트림 재조립을 위한 기본 포트에 포함됨.
+CVS 감지 플러그인은 Bugtraq-10384, CVE-2004-0396, "Malformed Entry Modified and Unchanged flag insertion" 를 감지하는 데 도움이 됨. 
+기본 CVS 서버 포트는 2401 및 514 이며 스트림 재조립을 위한 기본 포트에 포함됨.
 
 </br>
 
@@ -4828,8 +4828,8 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 ### 6.1 fragoffset
 
 
-- fragoffset 키워드를 사용하면 IP 조각 오프셋 필드를 10 진수 값과 비교할 수 있음.
-- IP 세션의 모든 첫 번째 조각을 포착하려면 fragbits 키워드를 사용하고 fragoffset 0 과 함께 More fragments 옵션을 찾을 수 있음.
+fragoffset 키워드를 사용하면 IP 조각 오프셋 필드를 10 진수 값과 비교할 수 있음.
+IP 세션의 모든 첫 번째 조각을 포착하려면 fragbits 키워드를 사용하고 fragoffset 0 과 함께 More fragments 옵션을 찾을 수 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -4867,9 +4867,9 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 
 
-- ttl 키워드는 IP 수명 값을 확인하는 데 사용됨.
-- 이 옵션 키워드는 traceroute 시도 감지에 사용하기 위한 것임.
-- 이 키워드는 0 에서 255 까지의 숫자를 사용함.
+ttl 키워드는 IP 수명 값을 확인하는 데 사용됨.
+이 옵션 키워드는 traceroute 시도 감지에 사용하기 위한 것임.
+이 키워드는 0 에서 255 까지의 숫자를 사용함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -4925,7 +4925,7 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 ### 6.3 tos
 
-- tos 키워드는 특정 값에 대한 IP TOS 필드를 확인하는 데 사용됨.
+tos 키워드는 특정 값에 대한 IP TOS 필드를 확인하는 데 사용됨.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -4998,25 +4998,25 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 
 
-- ipopts 키워드는 특정 IP 옵션이 있는지 확인하는 데 사용됨.
+ipopts 키워드는 특정 IP 옵션이 있는지 확인하는 데 사용됨.
 
-- 다음 옵션을 확인할 수 있음.
+다음 옵션을 확인할 수 있음.
 
-  + rr - 경로 기록 </br>
-  + eol - 목록 끝 </br>
-  + nop - 작업 없음 </br>
-  + ts - 타임 스탬프 </br>
-  + sec - IP 보안 </br>
-  + esec - IP 확장 보안 </br>
-  + lsrr - 느슨한 소스 라우팅 </br>
-  + lsrre - 느슨한 소스 라우팅 (MS99-038 및 CVE-1999-0909 의 경우) </br>
-  + ssrr - 엄격한 소스 라우팅 </br>
-  + satid - 스트림 식별자 </br>
-  + any - 모든 IP 옵션 설정 </br>
+   rr - 경로 기록 </br>
+   eol - 목록 끝 </br>
+   nop - 작업 없음 </br>
+   ts - 타임 스탬프 </br>
+   sec - IP 보안 </br>
+   esec - IP 확장 보안 </br>
+   lsrr - 느슨한 소스 라우팅 </br>
+   lsrre - 느슨한 소스 라우팅 (MS99-038 및 CVE-1999-0909 의 경우) </br>
+   ssrr - 엄격한 소스 라우팅 </br>
+   satid - 스트림 식별자 </br>
+   any - 모든 IP 옵션 설정 </br>
 
 </br>
 
-- IP 옵션에 대해 가장 자주 관찰되는 것은 광범위하고 널리 퍼진 인터넷 어플리케이션에서 사용되지 않는 엄격하고 느슨한 소스 라우팅임.
+IP 옵션에 대해 가장 자주 관찰되는 것은 광범위하고 널리 퍼진 인터넷 어플리케이션에서 사용되지 않는 엄격하고 느슨한 소스 라우팅임.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5055,18 +5055,18 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 ### 6.6 fragbits
 
-- fragbits 키워드는 단편화 및 예약된 비트가 IP 헤더에 설정되어 있는지 확인하는 데 사용됨.
-- 다음 비트를 확인할 수 있음.
-  + M - 더 많은 조각
-  + D - 조각화하지 마십시오.
-  + R - 예약된 비트
+fragbits 키워드는 단편화 및 예약된 비트가 IP 헤더에 설정되어 있는지 확인하는 데 사용됨.
+다음 비트를 확인할 수 있음.
+   M - 더 많은 조각
+   D - 조각화하지 마십시오.
+   R - 예약된 비트
 
 
 
-- 다음 수정자를 설정하여 일치 기준을 변경할 수 있음.
-  + \+ - 지정된 비트 및 다른 비트에서 일치
-  + \* - 지정된 비트가 설정된 경우 일치
-  + ! - 지정된 비트가 설정되지 않은 경우 일치
+다음 수정자를 설정하여 일치 기준을 변경할 수 있음.
+   \+ - 지정된 비트 및 다른 비트에서 일치
+   \* - 지정된 비트가 설정된 경우 일치
+   ! - 지정된 비트가 설정되지 않은 경우 일치
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5102,8 +5102,8 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 
 
-- dsize 키워드는 패킷 페이로드 크기를 테스트하는 데 사용됨.
-- 버퍼 오버플로우(buffer overflow)를 유발할 수 있는 비정상적인 크기의 패킷을 확인하는 데 사용할 수 있음.
+dsize 키워드는 패킷 페이로드 크기를 테스트하는 데 사용됨.
+버퍼 오버플로우(buffer overflow)를 유발할 수 있는 비정상적인 크기의 패킷을 확인하는 데 사용할 수 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5148,33 +5148,33 @@ Snort 는 이러한 각 연산자에 대해 C 연산자를 사용함. </br>
 
 
 
-- flags 키워드는 특정 TCP 플래그 비트가 있는지 확인하는 데 사용됨.
-- 다음 비트를 확인할 수 있음.
-  + F - FIN \(완료, TCP 플래그 바이트의 LSB)
-  + S - SYN \(시퀀스 번호 동기화)
-  + R - RST \(재설정)
-  + P - PSH \(푸시)
-  + A - ACK \(승인)
-  + U - URG \(긴급)
-  + C - CWR \(혼잡 창 감소, TCP 플래그 바이트의 MSB)
-  + E - ECE \(ECN-Echo, SYN이면 ECN 가능하며 그렇지 않으면 IP 헤더의 CE 플래그가 설정됨)
-  + 0 - TCP 플래그가 설정되지 않음
+flags 키워드는 특정 TCP 플래그 비트가 있는지 확인하는 데 사용됨.
+다음 비트를 확인할 수 있음.
+   F - FIN \(완료, TCP 플래그 바이트의 LSB)
+   S - SYN \(시퀀스 번호 동기화)
+   R - RST \(재설정)
+   P - PSH \(푸시)
+   A - ACK \(승인)
+   U - URG \(긴급)
+   C - CWR \(혼잡 창 감소, TCP 플래그 바이트의 MSB)
+   E - ECE \(ECN-Echo, SYN이면 ECN 가능하며 그렇지 않으면 IP 헤더의 CE 플래그가 설정됨)
+   0 - TCP 플래그가 설정되지 않음
 
 
 
-- 다음 수정자를 설정하여 일치 기준을 변경할 수 있음.
+다음 수정자를 설정하여 일치 기준을 변경할 수 있음.
 
-  + \+ - 지정된 비트 및 다른 비트에서 일치
+\+ - 지정된 비트 및 다른 비트에서 일치
 
-  + \* - 지정된 비트가 설정된 경우 일치
+\* - 지정된 비트가 설정된 경우 일치
 
-  + ! - 지정된 비트가 설정되지 않은 경우 일치
+! - 지정된 비트가 설정되지 않은 경우 일치
 
 
 
-- SYN 패킷이 CWR 및 ECE 세트와 함께 전송되는 ECN 같은 세션 시작 패킷에 대한 쓰기 규칙을 처리하기 위해 마스크 앞에 쉼표를 붙여 옵션 마스크를 지정할 수 있음.
+SYN 패킷이 CWR 및 ECE 세트와 함께 전송되는 ECN 같은 세션 시작 패킷에 대한 쓰기 규칙을 처리하기 위해 마스크 앞에 쉼표를 붙여 옵션 마스크를 지정할 수 있음.
 
-- 예약된 비트의 값에 관계없이 syn 비트만 있는 패킷을 찾으려면 규칙은 S, CE 플래그 값을 확인할 수 있음.
+예약된 비트의 값에 관계없이 syn 비트만 있는 패킷을 찾으려면 규칙은 S, CE 플래그 값을 확인할 수 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5218,11 +5218,11 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 ### 6.9 flow
 
-- flow 키워드는 세션 추적과 함께 사용됨.
-- 규칙을 트래픽 흐름의 특정 방향에만 적용 할 수 있음.
-- 이렇게 하면 규칙이 클라이언트 또는 서버에만 적용됨.
-- 이를 통해 웹 페이지를 보는 $HOME_NET 클라이언트와 관련된 패킷을 $HOME_NET 에서 실행되는 서버와 구별 할 수 있음.
-- 설정된 키워드는 설정된 TCP 연결을 표시하기 위해 여러 위치에서 사용되는 flags:+A 를 대체함.
+flow 키워드는 세션 추적과 함께 사용됨.
+규칙을 트래픽 흐름의 특정 방향에만 적용 할 수 있음.
+이렇게 하면 규칙이 클라이언트 또는 서버에만 적용됨.
+이를 통해 웹 페이지를 보는 $HOME_NET 클라이언트와 관련된 패킷을 $HOME_NET 에서 실행되는 서버와 구별 할 수 있음.
+설정된 키워드는 설정된 TCP 연결을 표시하기 위해 여러 위치에서 사용되는 flags:+A 를 대체함.
 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -5380,15 +5380,15 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 
 
-- flowbits 키워드는 세션 전처리기의 대화 추적과 함께 사용됨.
-- 규칙이 전송 프로토콜 세션 동안 상태를 추적할 수 있도록 함.
-- flowbits 옵션은 규칙이 일반적으로 어플리케이션 프로토콜의 상태를 추적할 수 있도록 허용하므로 TCP 세션에 가장 유용함.
-- flowbits 와 관련된 몇 가지 키워드가 있음.
-- 대부분의 옵션에는 검사중인 특정 상태에 대한 사용자 정의 이름이 필요함.
-- 일부 키워드는 그룹 이름을 사용함.
-- 그룹 이름이 지정되지 않은 경우 flowbits 는 기본 그룹에 속함.
-- 특정 flowbits 는 둘 이상의 그룹에 속할 수 있음.
-- flowbits 이름과 그룹 이름은 마침표, 대시 및 밑줄을 포함한 영숫자 문자열로 제한되어야 함.
+flowbits 키워드는 세션 전처리기의 대화 추적과 함께 사용됨.
+규칙이 전송 프로토콜 세션 동안 상태를 추적할 수 있도록 함.
+flowbits 옵션은 규칙이 일반적으로 어플리케이션 프로토콜의 상태를 추적할 수 있도록 허용하므로 TCP 세션에 가장 유용함.
+flowbits 와 관련된 몇 가지 키워드가 있음.
+대부분의 옵션에는 검사중인 특정 상태에 대한 사용자 정의 이름이 필요함.
+일부 키워드는 그룹 이름을 사용함.
+그룹 이름이 지정되지 않은 경우 flowbits 는 기본 그룹에 속함.
+특정 flowbits 는 둘 이상의 그룹에 속할 수 있음.
+flowbits 이름과 그룹 이름은 마침표, 대시 및 밑줄을 포함한 영숫자 문자열로 제한되어야 함.
 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -5514,9 +5514,9 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 ### **set**
 
-- 이 키워드는 특정 흐름에 대해 그룹화할 비트를 설정함.
-- 그룹이 지정되지 않은 경우 기본 그룹을 설정함.
-- 이 키워드는 항상 true 를 반환함.
+이 키워드는 특정 흐름에 대해 그룹화할 비트를 설정함.
+그룹이 지정되지 않은 경우 기본 그룹을 설정함.
+이 키워드는 항상 true 를 반환함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5600,8 +5600,8 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 ### **unset**
 
-- 이 키워드는 특정 흐름에 대해 지정된 비트를 지우거나 그룹의 모든 비트를 지움. \(그룹이 있어야 함)
-- 이 키워드는 항상 true 를 반환함.
+이 키워드는 특정 흐름에 대해 지정된 비트를 지우거나 그룹의 모든 비트를 지움. \(그룹이 있어야 함)
+이 키워드는 항상 true 를 반환함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5648,10 +5648,10 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 ### **toggle**
 
-- flowbit 가 설정되어 있으면 설정을 해제함.
-- 설정되지 않은 경우 설정하십시오.
-- 지정된 모든 비트를 토글(toggle)하거나 1그룹의 모든 비트를 토글함. \(그룹이 있어야 함)
-- 이 키워드는 항상 true 를 반환함.
+flowbit 가 설정되어 있으면 설정을 해제함.
+설정되지 않은 경우 설정하십시오.
+지정된 모든 비트를 토글(toggle)하거나 1그룹의 모든 비트를 토글함. \(그룹이 있어야 함)
+이 키워드는 항상 true 를 반환함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5692,8 +5692,8 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 ### **isset**
 
-- 이 키워드는 설정되었는지 확인하기 위해 비트 또는 여러 비트를 확인함.
-- 다음 구문에 따라 true 또는 false 를 반환함.
+이 키워드는 설정되었는지 확인하기 위해 비트 또는 여러 비트를 확인함.
+다음 구문에 따라 true 또는 false 를 반환함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5741,10 +5741,10 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 ### **noalert**
 
-- 이 키워드는 항상 false 를 반환함.
-- 이를 통해 사용자는 경고를 생성하지 않고 비트를 설정, 설정 해제 및 토글하는 규칙을 작성할 수 있음.
-- 이는 정상적인 트래픽에 비트를 설정하고 원치 않은 경고를 크게 줄이는 flowbit 규칙을 작성하는 데 가장 유용함.
-- 이 키워드에 지정된 비트가 없음.
+이 키워드는 항상 false 를 반환함.
+이를 통해 사용자는 경고를 생성하지 않고 비트를 설정, 설정 해제 및 토글하는 규칙을 작성할 수 있음.
+이는 정상적인 트래픽에 비트를 설정하고 원치 않은 경고를 크게 줄이는 flowbit 규칙을 작성하는 데 가장 유용함.
+이 키워드에 지정된 비트가 없음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5763,9 +5763,9 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 ### **reset**
 
-- 이 키워드는 지정된 그룹이 없는 경우 지정된 흐름의 모든 상태를 재설정하고 그렇지 않으면 그룹의 모든 비트를 재설정함.
-- 이것은 항상 true 를 반환함.
-- 이 키워드에 지정된 비트가 없음.
+이 키워드는 지정된 그룹이 없는 경우 지정된 흐름의 모든 상태를 재설정하고 그렇지 않으면 그룹의 모든 비트를 재설정함.
+이것은 항상 true 를 반환함.
+이 키워드에 지정된 비트가 없음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5804,7 +5804,7 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 
 
-- seq 키워드는 특정 TCP 시퀀스 번호를 확인하는 데 사용됨.
+seq 키워드는 특정 TCP 시퀀스 번호를 확인하는 데 사용됨.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5841,7 +5841,7 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 
 
-- ack 키워드는 특정 TCP 승인 번호를 확인하는 데 사용됨.
+ack 키워드는 특정 TCP 승인 번호를 확인하는 데 사용됨.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5878,7 +5878,7 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 
 
-- window 키워드는 특정 TCP 창 크기를 확인하는 데 사용됨.
+window 키워드는 특정 TCP 창 크기를 확인하는 데 사용됨.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5915,7 +5915,7 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 
 
-- itype 키워드는 특정 ICMP 유형 값을 확인하는 데 사용됨.
+itype 키워드는 특정 ICMP 유형 값을 확인하는 데 사용됨.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -5954,7 +5954,7 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 
 
-- icode 키워드는 특정 ICMP 코드 값을 확인하는 데 사용됨.
+icode 키워드는 특정 ICMP 코드 값을 확인하는 데 사용됨.
 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -5975,10 +5975,10 @@ RFC 3168, "The Addition of Explicit Congestion Notification \(ECN) to IP" 와 �
 
 
 
-- 첫 번째 형식의 <> 연산자는 지정된 범위(배타적) 내에서 ICMP 코드를 확인함.
-- 즉, 최소값보다 크거나 최대값보다 작음.
-- 최소값은 -1 이 될 수 있으므로 ICMP 코드 0 이 범위에 포함될 수 있음.
-- 숫자 값은 0 에서 255 사이의 허용되는 ICMP 코드 값 및 기타 기준과 관련하여 검증됨.
+첫 번째 형식의 <> 연산자는 지정된 범위(배타적) 내에서 ICMP 코드를 확인함.
+즉, 최소값보다 크거나 최대값보다 작음.
+최소값은 -1 이 될 수 있으므로 ICMP 코드 0 이 범위에 포함될 수 있음.
+숫자 값은 0 에서 255 사이의 허용되는 ICMP 코드 값 및 기타 기준과 관련하여 검증됨.
 
 
 
@@ -6024,9 +6024,9 @@ icode:>number </br>
 
 ### 6.16 icmp_id
 
-- icmp_id 키워드는 특정 ICMP ID 값을 확인하는 데 사용됨.
-- 이것은 일부 비밀 채널 프로그램이 통신 할 때 정적 ICMP 필드를 사용하기 때문에 유용함.
-- 이 특정 플러그인은 stacheldraht DDoS 에이전트를 감지하기 위해 개발됨.
+icmp_id 키워드는 특정 ICMP ID 값을 확인하는 데 사용됨.
+이것은 일부 비밀 채널 프로그램이 통신 할 때 정적 ICMP 필드를 사용하기 때문에 유용함.
+이 특정 플러그인은 stacheldraht DDoS 에이전트를 감지하기 위해 개발됨.
 
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
@@ -6063,9 +6063,9 @@ icode:>number </br>
 
 
 
-- icmp seq 키워드는 특정 ICMP 시퀀스 값을 확인하는 데 사용됨.
-- 이것은 일부 비밀 채널 프로그램이 통신 할 때 정적 ICMP 필드를 사용하기 때문에 유용함.
-- 이 특정 플러그인은 stacheldraht DDoS 에이전트를 감지하기 위해 개발됨.
+icmp seq 키워드는 특정 ICMP 시퀀스 값을 확인하는 데 사용됨.
+이것은 일부 비밀 채널 프로그램이 통신 할 때 정적 ICMP 필드를 사용하기 때문에 유용함.
+이 특정 플러그인은 stacheldraht DDoS 에이전트를 감지하기 위해 개발됨.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -6101,8 +6101,8 @@ icode:>number </br>
 
 
 
-- rpc 키워드는 SUNRPC CALL 요청에서 RPC 애플리케이션, 버전 및 프로시저 번호를 확인하는 데 사용됨.
-- 와일드 카드는 ’\*’ 를 사용하여 버전 및 프로시저 번호 모두에 유효함.
+rpc 키워드는 SUNRPC CALL 요청에서 RPC 애플리케이션, 버전 및 프로시저 번호를 확인하는 데 사용됨.
+와일드 카드는 ’\*’ 를 사용하여 버전 및 프로시저 번호 모두에 유효함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -6144,8 +6144,8 @@ icode:>number </br>
 
 ### 6.19 ip_proto
 
-- ip_proto 키워드는 IP 프로토콜 헤더에 대한 검사를 허용함.
-- 이름으로 지정할 수 있는 프로토콜 목록은 /etc/protocols 를 참조하십시오.
+ip_proto 키워드는 IP 프로토콜 헤더에 대한 검사를 허용함.
+이름으로 지정할 수 있는 프로토콜 목록은 /etc/protocols 를 참조하십시오.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -6183,7 +6183,7 @@ icode:>number </br>
 
 
 
-- sameip 키워드를 사용하면 규칙에서 소스 IP 가 대상 IP 와 동일한 지 확인할 수 있음.
+sameip 키워드를 사용하면 규칙에서 소스 IP 가 대상 IP 와 동일한 지 확인할 수 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -6220,7 +6220,7 @@ icode:>number </br>
 
 
 
-- stream_reassemble 키워드를 사용하면 규칙이 일치하는 트래픽에서 TCP 스트림 재조립을 활성화 또는 비활성화할 수 있음.
+stream_reassemble 키워드를 사용하면 규칙이 일치하는 트래픽에서 TCP 스트림 재조립을 활성화 또는 비활성화할 수 있음.
 
 
 
@@ -6277,7 +6277,7 @@ stream_reassemble 옵션은 스트림 전처리기(Stream preprocessor)가 활�
 
 
 
-- stream_size 키워드를 사용하면 규칙이 TCP 시퀀스 번호에 의해 결정된 대로 관찰된 바이트 수에 따라 트래픽을 일치시킬 수 있음.
+stream_size 키워드를 사용하면 규칙이 TCP 시퀀스 번호에 의해 결정된 대로 관찰된 바이트 수에 따라 트래픽을 일치시킬 수 있음.
 
 
 
@@ -6527,9 +6527,9 @@ stream_size 옵션은 스트림 전처리기(Stream preprocessor)가 활성화�
 ### 7.1 logto
 
 
-- logto 키워드는이 규칙을 트리거하는 모든 패킷을 특수 출력 로그 파일에 기록하도록 Snort에 지시함.
-- 이는 NMAP 활동, HTTP CGI 스캔 등과 같은 데이터를 결합하는 데 특히 유용함.
-- 이 옵션은 Snort 가 바이너리 로깅 모드에 있을 때는 작동하지 않음.
+logto 키워드는이 규칙을 트리거하는 모든 패킷을 특수 출력 로그 파일에 기록하도록 Snort에 지시함.
+이는 NMAP 활동, HTTP CGI 스캔 등과 같은 데이터를 결합하는 데 특히 유용함.
+이 옵션은 Snort 가 바이너리 로깅 모드에 있을 때는 작동하지 않음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -6550,10 +6550,10 @@ stream_size 옵션은 스트림 전처리기(Stream preprocessor)가 활성화�
 
 
 
-- session 키워드는 TCP 세션에서 사용자 데이터를 추출하기 위해 작성됨.
-- 사용자가 telnet, rlogin, ftp 또는 웹 세션에서 입력하는 내용을 보는 것이 매우 유용한 경우가 많음.
-- session 규칙 옵션에 대해 세 가지 사용 가능한 인수 키워드(printable, binary, all)가 있음.
-- printable 키워드는 사용자가 일반적으로 보거나 입력할 수 있는 데이터만 인쇄함.binary 키워드는 바이너리 형식으로 데이터를 인쇄함.all 키워드는 인쇄할 수 없는 문자를 16진수 문자으로 대체함.
+session 키워드는 TCP 세션에서 사용자 데이터를 추출하기 위해 작성됨.
+사용자가 telnet, rlogin, ftp 또는 웹 세션에서 입력하는 내용을 보는 것이 매우 유용한 경우가 많음.
+session 규칙 옵션에 대해 세 가지 사용 가능한 인수 키워드(printable, binary, all)가 있음.
+printable 키워드는 사용자가 일반적으로 보거나 입력할 수 있는 데이터만 인쇄함.binary 키워드는 바이너리 형식으로 데이터를 인쇄함.all 키워드는 인쇄할 수 없는 문자를 16진수 문자으로 대체함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -6605,8 +6605,8 @@ binary 키워드는 어플리케이션 계층 아래의 프로토콜 헤더를 �
 
 ### 7.3 resp
 
-- resp 키워드는 문제가되는 세션을 종료하는 활성 응답을 활성화함.
-- resp 는 수동 또는 인라인 모드 모두에서 사용할 수 있음.
+resp 키워드는 문제가되는 세션을 종료하는 활성 응답을 활성화함.
+resp 는 수동 또는 인라인 모드 모두에서 사용할 수 있음.
 
 
 
@@ -6616,8 +6616,8 @@ binary 키워드는 어플리케이션 계층 아래의 프로토콜 헤더를 �
 
 
 
-- react 키워드를 사용하면 웹 페이지 또는 기타 컨텐츠를 클라이언트에 보낸 다음 연결을 닫는 것을 포함하는 활성 응답을 사용할 수 있음.
-- React는 수동 모드와 인라인 모드 모두에서 사용할 수 있음.
+react 키워드를 사용하면 웹 페이지 또는 기타 컨텐츠를 클라이언트에 보낸 다음 연결을 닫는 것을 포함하는 활성 응답을 사용할 수 있음.
+React는 수동 모드와 인라인 모드 모두에서 사용할 수 있음.
 
 
 
@@ -6627,10 +6627,10 @@ binary 키워드는 어플리케이션 계층 아래의 프로토콜 헤더를 �
 
 
 
-- tag 키워드를 사용하면 규칙에다가 규칙을 트리거 한 단일 패킷 이상을 기록 할 수 있음.
-- 규칙이 트리거되면 소스 및 또는(and/or) 대상 호스트와 관련된 추가 트래픽에 태그가 지정됨.
-- 태그가 지정된 트래픽이 기록되어 응답 코드 및 공격 후 트래픽을 분석 할 수 있음.
-- 태그가 지정된 경고는 원래 경고와 동일한 출력 플러그인으로 전송되지만 이러한 특수 경고를 적절하게 처리하는 것은 출력 플러그인의 책임임.
+tag 키워드를 사용하면 규칙에다가 규칙을 트리거 한 단일 패킷 이상을 기록 할 수 있음.
+규칙이 트리거되면 소스 및 또는(and/or) 대상 호스트와 관련된 추가 트래픽에 태그가 지정됨.
+태그가 지정된 트래픽이 기록되어 응답 코드 및 공격 후 트래픽을 분석 할 수 있음.
+태그가 지정된 경고는 원래 경고와 동일한 출력 플러그인으로 전송되지만 이러한 특수 경고를 적절하게 처리하는 것은 출력 플러그인의 책임임.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -6694,9 +6694,9 @@ flowbits:set,tagged; tag:host,600,seconds,src;)
 
 
 
-- 또한, 규칙에 packets 이외의 메트릭을 사용하는 태그 옵션이 있는 경우 seconds 또는 bytes 개수에 관계없이 태그가 지정된 패킷 수를 제한하는 데 tagged_packet_limit 가 사용됨.
-- 기본 tagged_packet_limit 값은 256 이며 snort.conf 파일에서 구성 옵션을 사용하여 수정할 수 있음.태그 옵션에 packets 메트릭을 추가하고 개수를 0 으로 설정하여 특정 규칙에 대해 이 패킷 제한을 비활성화 할 수 있음. \(이는 snort.conf 의 tagged_packet_limit 옵션을 0 으로 설정하여 글로벌 규모로 수행할 수 있음)
-- 이렇게하면 패킷이 seconds 또는 bytes 의 전체 양에 대해 태그가 지정되고 tagged_packet_limit에 의해 잘리지 않음. \(tag_packet_limit 는 seconds 또는 bytes 카운트가 높은 태그 규칙에 대해 고대역폭 센서에서 DoS 상황을 피하기 위해 도입됨)
+또한, 규칙에 packets 이외의 메트릭을 사용하는 태그 옵션이 있는 경우 seconds 또는 bytes 개수에 관계없이 태그가 지정된 패킷 수를 제한하는 데 tagged_packet_limit 가 사용됨.
+기본 tagged_packet_limit 값은 256 이며 snort.conf 파일에서 구성 옵션을 사용하여 수정할 수 있음.태그 옵션에 packets 메트릭을 추가하고 개수를 0 으로 설정하여 특정 규칙에 대해 이 패킷 제한을 비활성화 할 수 있음. \(이는 snort.conf 의 tagged_packet_limit 옵션을 0 으로 설정하여 글로벌 규모로 수행할 수 있음)
+이렇게하면 패킷이 seconds 또는 bytes 의 전체 양에 대해 태그가 지정되고 tagged_packet_limit에 의해 잘리지 않음. \(tag_packet_limit 는 seconds 또는 bytes 카운트가 높은 태그 규칙에 대해 고대역폭 센서에서 DoS 상황을 피하기 위해 도입됨)
 
 
 
@@ -6730,9 +6730,9 @@ alert tcp 10.1.1.4 any -> 10.1.1.1 any \\      </br>
 
 
 
-- replace 키워드는 Snort 가 이전에 일치하는 컨텐츠에 주어진 문자열로 바꾸도록 하는 기능으로 인라인 모드에서 사용함.
-- 새 문자열과 교체할 내용은 모두 길이가 같아야 함.
-- 규칙 내에서 컨텐츠당 하나번 여러 개의 교체가 있을 수 있음.
+replace 키워드는 Snort 가 이전에 일치하는 컨텐츠에 주어진 문자열로 바꾸도록 하는 기능으로 인라인 모드에서 사용함.
+새 문자열과 교체할 내용은 모두 길이가 같아야 함.
+규칙 내에서 컨텐츠당 하나번 여러 개의 교체가 있을 수 있음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -6753,7 +6753,7 @@ alert tcp 10.1.1.4 any -> 10.1.1.1 any \\      </br>
 
 ### 7.7 detection_filter
 
-- 탐지 필터는 규칙이 이벤트를 생성하기 전에 소스 또는 대상 호스트가 초과해야 하는 비율을 정의함.
+탐지 필터는 규칙이 이벤트를 생성하기 전에 소스 또는 대상 호스트가 초과해야 하는 비율을 정의함.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -6815,8 +6815,8 @@ alert tcp 10.1.1.4 any -> 10.1.1.1 any \\      </br>
 
 </div>
 
-- Snort는 다른 모든 규칙 옵션을 평가 한 후 탐지 단계의 마지막 단계로 탐지 필터를 평가함. \(규칙 소스 내 필터의 위치에 관계없이)
-- 규칙당 최대 하나의 탐지 필터가 허용됨.
+Snort는 다른 모든 규칙 옵션을 평가 한 후 탐지 단계의 마지막 단계로 탐지 필터를 평가함. \(규칙 소스 내 필터의 위치에 관계없이)
+규칙당 최대 하나의 탐지 필터가 허용됨.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>사용예 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -6846,7 +6846,7 @@ alert tcp 10.1.1.4 any -> 10.1.1.1 any \\      </br>
 </div>
 
 
-- 잠재적으로 많은 이벤트가 생성되므로 일반적으로 detection_filter 를 event_filter 와 함께 사용하여 기록된 이벤트 수를 줄임.
+잠재적으로 많은 이벤트가 생성되므로 일반적으로 detection_filter 를 event_filter 와 함께 사용하여 기록된 이벤트 수를 줄임.
 
 
 
@@ -6942,11 +6942,11 @@ Rule Thresholds 은 더 이상 사용되지 않으며 향후 릴리스에서 지
 
 </br>
 
-- 임계값은 규칙의 일부로 포함되거나 적용되는 생성자(generator) 및 SID 를 참조하는 독립 실행 형 임계값을 사용할 수 있음.
-- 규칙에 임계값을 추가하는 것과 동일한 규칙에 적용된 독립형 임계값을 사용하는 것 사이에는 기능적 차이가 없음.
-- 논리적 차이가 있음.일부 규칙은 임계값으로만 이해할 수 있음.이는 임계값을 규칙에 통합해야 함.
- - 예를 들어 너무 많은 로그인 암호 시도를 감지하는 규칙은 5 회 이상의 시도가 필요할 수 있음.
-- 이는 'limit' 유형의 임계값을 사용하여 수행할 수 있음.임계값 기능이 이 규칙의 필수 부분이라는 것은 이치에 맞음.
+임계값은 규칙의 일부로 포함되거나 적용되는 생성자(generator) 및 SID 를 참조하는 독립 실행 형 임계값을 사용할 수 있음.
+규칙에 임계값을 추가하는 것과 동일한 규칙에 적용된 독립형 임계값을 사용하는 것 사이에는 기능적 차이가 없음.
+논리적 차이가 있음.일부 규칙은 임계값으로만 이해할 수 있음.이는 임계값을 규칙에 통합해야 함.
+예를 들어 너무 많은 로그인 암호 시도를 감지하는 규칙은 5 회 이상의 시도가 필요할 수 있음.
+이는 'limit' 유형의 임계값을 사용하여 수행할 수 있음.임계값 기능이 이 규칙의 필수 부분이라는 것은 이치에 맞음.
 
 <p align="center" class="MsoNoSpacing" style="text-align: center;"><span style="font-family: courier;"><span lang="EN-US">&lt;
 </span>형식 <span lang="EN-US">&gt;<o:p></o:p></span></span></p>
@@ -7091,14 +7091,14 @@ Post-Detection </span>규칙 옵션 키워드 <span lang="EN-US">&gt;<o:p></o:p>
 
 
 
-- Snort 는 프로토콜\(ip, tcp, udp, icmp), 포트\(ip 와 icmp 는 약간 다른 로직 사용), content 가 있는 것과 없는 것 별로 규칙을 그룹화함.
-- content 가 포함 된 규칙의 경우 단일 컨텐츠를 기준으로 일치 가능성이 있는 규칙을 선택하기 위해 다중 패턴 매처\(multi-pattern matche)가 사용됨.
-- 이 "빠른" 패턴 일치기\("fast" pattern matcher)를 통해 평가할 규칙을 선택하면 특히 HTTP 와 같은 대규모 규칙 그룹에 적용될 때 성능이 향상되는 것으로 나타남.
-- content 가 길고 고유할수록 해당 규칙과 모든 규칙 옵션이 불필요하게 평가 될 가능성이 줄어듬.
--  일반적으로 "나쁜" 트래픽보다 "좋은" 트래픽이 더 많다고 말하는 것이 안전함\(safe).
--  content 가 없는 규칙은 항상 평가되어\(상주하는 프로토콜 및 포트 그룹과 관련하여) 잠재적으로 성능에 영향을 줌.
--  pcre 및 byte_test 와 같은 검색 옵션은 패킷의 페이로드 섹션에서 검색을 수행하지만 고속 패턴 일치 엔진\(fast pattern matching engine)에서는 사용되지 않음.
--  가능하면 규칙에 하나 이상의 content\(또는 uricontent) 규칙 옵션을 사용하십시오.
+Snort 는 프로토콜\(ip, tcp, udp, icmp), 포트\(ip 와 icmp 는 약간 다른 로직 사용), content 가 있는 것과 없는 것 별로 규칙을 그룹화함.
+content 가 포함 된 규칙의 경우 단일 컨텐츠를 기준으로 일치 가능성이 있는 규칙을 선택하기 위해 다중 패턴 매처\(multi-pattern matche)가 사용됨.
+이 "빠른" 패턴 일치기\("fast" pattern matcher)를 통해 평가할 규칙을 선택하면 특히 HTTP 와 같은 대규모 규칙 그룹에 적용될 때 성능이 향상되는 것으로 나타남.
+content 가 길고 고유할수록 해당 규칙과 모든 규칙 옵션이 불필요하게 평가 될 가능성이 줄어듬.
+일반적으로 "나쁜" 트래픽보다 "좋은" 트래픽이 더 많다고 말하는 것이 안전함\(safe).
+content 가 없는 규칙은 항상 평가되어\(상주하는 프로토콜 및 포트 그룹과 관련하여) 잠재적으로 성능에 영향을 줌.
+pcre 및 byte_test 와 같은 검색 옵션은 패킷의 페이로드 섹션에서 검색을 수행하지만 고속 패턴 일치 엔진\(fast pattern matching engine)에서는 사용되지 않음.
+가능하면 규칙에 하나 이상의 content\(또는 uricontent) 규칙 옵션을 사용하십시오.
 
 
 
@@ -7106,9 +7106,9 @@ Post-Detection </span>규칙 옵션 키워드 <span lang="EN-US">&gt;<o:p></o:p>
 
 ### 9.2 익스플로잇이 아닌 취약점 파악 (Catch the Vulnerability, Not the Exploit)
 
-- 특정 익스플로잇 대신 취약점을 표적으로 삼는 규칙을 작성하십시오.
- - 예를 들어, 쉘을 바인딩하는 쉘코드 대신 인수가 너무 큰 취약한 명령어를 찾으십시오.
-- 취약점에 대한 규칙을 작성하면 공격자가 익스플로잇을 약간 변경할 때 규칙이 회피에 덜 취약함.
+특정 익스플로잇 대신 취약점을 표적으로 삼는 규칙을 작성하십시오.
+예를 들어, 쉘을 바인딩하는 쉘코드 대신 인수가 너무 큰 취약한 명령어를 찾으십시오.
+취약점에 대한 규칙을 작성하면 공격자가 익스플로잇을 약간 변경할 때 규칙이 회피에 덜 취약함.
 
 
 
@@ -7118,21 +7118,21 @@ Post-Detection </span>규칙 옵션 키워드 <span lang="EN-US">&gt;<o:p></o:p>
 
 
 
-- 많은 서비스는 일반적으로 대문자로 명령어을 모냄.
- - FTP 가 좋은 예임.
-  - FTP 에서 사용자 이름을 보내기 위해 클라이언트는 다음을 보냄.
+많은 서비스는 일반적으로 대문자로 명령어을 모냄.
+FTP 가 좋은 예임.
+FTP 에서 사용자 이름을 보내기 위해 클라이언트는 다음을 보냄.
     </br>
       user username_here
 
 
 
-- FTP root 로그인 시도를 찾는 간단한 규칙은 다음과 같음.</br>
+FTP root 로그인 시도를 찾는 간단한 규칙은 다음과 같음.</br>
 alert tcp any any -> any any 21 \(content:"user root";) </br>
 
 
 
-- 사용자 이름 root 를 찾는 규칙을 작성하는 것은 사소한 것처럼 보일 수 있지만, 좋은 규칙은 사용자 명령을 수락할 때 프로토콜이 처리 할 수 있는 모든 이상한 일을 처리함.
- - 예를 들어, 다음은 대부분의 FTP 서버에서 허용됨.
+사용자 이름 root 를 찾는 규칙을 작성하는 것은 사소한 것처럼 보일 수 있지만, 좋은 규칙은 사용자 명령을 수락할 때 프로토콜이 처리 할 수 있는 모든 이상한 일을 처리함.
+예를 들어, 다음은 대부분의 FTP 서버에서 허용됨.
 
 
 
@@ -7144,14 +7144,14 @@ alert tcp any any -> any any 21 \(content:"user root";) </br>
 
 
 
-- FTP 서버가 처리 할 수 있는 모든 경우를 처리하려면 규칙에 단순한 문자열 일치보다 더 스마트 한 것이 필요함.
- - ftp 에서 루트 로그인을 찾는 좋은 규칙은 다음과 같음. </br>
+FTP 서버가 처리 할 수 있는 모든 경우를 처리하려면 규칙에 단순한 문자열 일치보다 더 스마트 한 것이 필요함.
+ftp 에서 루트 로그인을 찾는 좋은 규칙은 다음과 같음. </br>
 alert tcp any any -> any 21 \(flow:to_server,established; \\  </br>
 content:"root"; pcre:"/user\s+root/i";)
 
 </br>
 
-- 이 규칙에서 유의해야 할 몇 가지 중요한 사항이 있음 : </br>
+이 규칙에서 유의해야 할 몇 가지 중요한 사항이 있음 : </br>
   • 규칙에는 설정된 세션에서 서버로 이동하는 트래픽인지 확인하는 flow 옵션이 있음. </br>
   • 규칙에는 공격에서 가장 길고 고유 한 문자열 인 root 를 찾는 content 옵션이 있음.
   • 이 옵션은 페이로드에서 root 컨텐츠가 발견되는 경우에만 평가를 위해 빠른 패턴 일치자가 이 규칙을 선택할 수 있도록 추가됨. </br>
@@ -7163,57 +7163,57 @@ content:"root"; pcre:"/user\s+root/i";)
 
 ### 9.4 규칙 최적화
 
-- 검색 엔진의 컨텐츠 일치 부분에는 몇 가지 회피 사례를 처리하기 위한 재귀가 있음.
-- 제대로 작성되지 않은 규칙으로 인해 Snort 가 검사를 복사하는\(duplicationg) 데 시간을 낭비 할 수 있음.
-- 이제 재귀가 작동하는 방식은 패턴이 일치하는 경우이고 해당 패턴 이후의 검색 옵션이 실패하면 이전에 발견된 위치에서 다시 패턴을 찾음.
-- 패턴이 다시 발견되지 않거나 opt 기능이 모두 성공할 때까지 반복하십시오.
-- 처음 읽을 때, 그것은 현명한 생각처럼 들리지 않을 수도 있지만 필요함.
+검색 엔진의 컨텐츠 일치 부분에는 몇 가지 회피 사례를 처리하기 위한 재귀가 있음.
+제대로 작성되지 않은 규칙으로 인해 Snort 가 검사를 복사하는\(duplicationg) 데 시간을 낭비 할 수 있음.
+이제 재귀가 작동하는 방식은 패턴이 일치하는 경우이고 해당 패턴 이후의 검색 옵션이 실패하면 이전에 발견된 위치에서 다시 패턴을 찾음.
+패턴이 다시 발견되지 않거나 opt 기능이 모두 성공할 때까지 반복하십시오.
+처음 읽을 때, 그것은 현명한 생각처럼 들리지 않을 수도 있지만 필요함.
 
 </br>
 
-- 예를 들어, 다음 규칙을 따르십시오 : </br>
+예를 들어, 다음 규칙을 따르십시오 : </br>
 alert ip any any -> any any \(content:"a"; content:"b"; within:1;)
 
 
 
-- 이 규칙은 "a" 를 찾고 바로 뒤에 "b" 를 찾음.
-- 재귀가 없으면 페이로드 "aab" 에 "a" 바로 뒤에 "b" 가 있음이 분명하더라도 "aab" 페이로드가 실패함.
-- 왜냐하면 첫 번째 "a" 다음에 "b" 가 바로 뒤따르지 않기 때문임.
-- 재귀는 탐지에 중요하지만 재귀 구현은 그리 똑똑하지 않음.
+이 규칙은 "a" 를 찾고 바로 뒤에 "b" 를 찾음.
+재귀가 없으면 페이로드 "aab" 에 "a" 바로 뒤에 "b" 가 있음이 분명하더라도 "aab" 페이로드가 실패함.
+왜냐하면 첫 번째 "a" 다음에 "b" 가 바로 뒤따르지 않기 때문임.
+재귀는 탐지에 중요하지만 재귀 구현은 그리 똑똑하지 않음.
 
 </br>
 
-- 예를 들어 다음 규칙 옵션은 최적화되지 않음. </br>
+예를 들어 다음 규칙 옵션은 최적화되지 않음. </br>
 content:"|13|"; dsize:1;
 
 </br>
 
-- 이 규칙 스니펫\(snippet)을 보면 규칙이 단일 바이트가 0x13 인 패킷을 찾는 것이 분명함.
-- 그러나 재귀로 인해 1024 바이트의 0x13 패킷은 1023 너무 많은 패턴 일치 시도와 1023 너무 많은 dsize 검사를 유발할 수 있음.
+이 규칙 스니펫\(snippet)을 보면 규칙이 단일 바이트가 0x13 인 패킷을 찾는 것이 분명함.
+그러나 재귀로 인해 1024 바이트의 0x13 패킷은 1023 너무 많은 패턴 일치 시도와 1023 너무 많은 dsize 검사를 유발할 수 있음.
 
 </br>
 
 ***왜?***
 
-- 컨텐츠 0x13 이 첫 번째 바이트에서 발견되면 dsize 옵션이 실패하고 재귀로 인해 컨텐츠 0x13 이 이전 0x13 이 발견된 위치부터 다시 발견되고 일단 발견되면 dsize 를 다시 확인함.
-- 페이로드에서 0x13 이 다시 발견되지 않을 때까지 반복함.
+컨텐츠 0x13 이 첫 번째 바이트에서 발견되면 dsize 옵션이 실패하고 재귀로 인해 컨텐츠 0x13 이 이전 0x13 이 발견된 위치부터 다시 발견되고 일단 발견되면 dsize 를 다시 확인함.
+페이로드에서 0x13 이 다시 발견되지 않을 때까지 반복함.
 
 </br>
 
-- 불연속 검사(예 : dsize)가 규칙의 시작 부분으로 이동되도록 규칙 옵션을 재정렬하면 Snort 속도가 빨라짐.
+불연속 검사(예 : dsize)가 규칙의 시작 부분으로 이동되도록 규칙 옵션을 재정렬하면 Snort 속도가 빨라짐.
 
 </br>
 
-- 최적화 된 규칙 스니핑(snipping)은 다음과 같음 : </br>
+최적화 된 규칙 스니핑(snipping)은 다음과 같음 : </br>
 dsize:1; content:"|13|";
 
 
 
-- 1024 바이트 0x13 패킷은 dsize 검사가 첫 번째 옵션이고 dsize 가 재귀 없는 개별 검사이므로 즉시 실패함.
+1024 바이트 0x13 패킷은 dsize 검사가 첫 번째 옵션이고 dsize 가 재귀 없는 개별 검사이므로 즉시 실패함.
 
 </br>
 
-- 다음 규칙 옵션은 개별적이며 일반적으로 규칙의 시작 부분에 배치해야 함.
+다음 규칙 옵션은 개별적이며 일반적으로 규칙의 시작 부분에 배치해야 함.
 
 
 
@@ -7263,13 +7263,13 @@ dsize:1; content:"|13|";
 
 
 
-- 규칙 옵션 byte_test 및 byte_jump 는 길이 인코딩 데이터가 있는 프로토콜에 대한 쓰기 규칙을 지원하기 위해 작성됨.
-- RPC 는 데이터 전달에 간단한 길이 기반 인코딩을 사용하기 때문에 RPC 는 이 두 가지 규칙 옵션에 대한 요구 사항을 생성한 프로토콜임.
+규칙 옵션 byte_test 및 byte_jump 는 길이 인코딩 데이터가 있는 프로토콜에 대한 쓰기 규칙을 지원하기 위해 작성됨.
+RPC 는 데이터 전달에 간단한 길이 기반 인코딩을 사용하기 때문에 RPC 는 이 두 가지 규칙 옵션에 대한 요구 사항을 생성한 프로토콜임.
 
 </br>
 
-- byte_test 및 byte jump 가 유용한 이유를 이해하기 위해 sadmind 서비스에 대한 공격 시도를 살펴봄.
-- 이것은 익스플로잇의 페이로드임.
+byte_test 및 byte jump 가 유용한 이유를 이해하기 위해 sadmind 서비스에 대한 공격 시도를 살펴봄.
+이것은 익스플로잇의 페이로드임.
 
 </br>
 
@@ -7313,7 +7313,7 @@ dsize:1; content:"|13|";
 
 </br>
 
-- 이를 분리하고 각 필드를 설명하고 이 악용을 포착하기 위한 규칙을 작성하는 방법을 알아봄.
+이를 분리하고 각 필드를 설명하고 이 악용을 포착하기 위한 규칙을 작성하는 방법을 알아봄.
 
 RPC 와 관련하여 몇 가지 주의 할 사항이 있음 : </br> 
 • 숫자는 4 바이트를 사용하는 uint32s 로 작성됨. 숫자 26 은 0x0000001a로 표시됨. </br>
@@ -7360,11 +7360,11 @@ RPC 와 관련하여 몇 가지 주의 할 사항이 있음 : </br>
 
 </br>
 
-- 나머지 패킷은 sadmind 의 프로시저 1 로 전달되는 요청임.
-- 그러나 취약점은 sadmind 가 클라이언트에서 오는 uid 를 신뢰한다는 것임.
-- sadmind 는 클라이언트의 uid 가 0 인 요청을 root 로 실행함.
-- 따라서 규칙을 작성하기 위해 요청을 충분히 디코딩했음.
-- 먼저 패킷이 RPC 호출인지 확인해야 함.
+나머지 패킷은 sadmind 의 프로시저 1 로 전달되는 요청임.
+그러나 취약점은 sadmind 가 클라이언트에서 오는 uid 를 신뢰한다는 것임.
+sadmind 는 클라이언트의 uid 가 0 인 요청을 root 로 실행함.
+따라서 규칙을 작성하기 위해 요청을 충분히 디코딩했음.
+먼저 패킷이 RPC 호출인지 확인해야 함.
 
 </br>
 
@@ -7413,7 +7413,7 @@ content:"|00 00 00 01|"; offset:24; depth:4;
 
 
 
-- 우리는 4 바이트를 읽고 이를 숫자로 바꾸고 그 만큼의 바이트를 앞으로 점프하여 RPC 가 문자열에 요구하는 패딩을 고려함.
+우리는 4 바이트를 읽고 이를 숫자로 바꾸고 그 만큼의 바이트를 앞으로 점프하여 RPC 가 문자열에 요구하는 패딩을 고려함.
 
 </br>
 
@@ -7427,8 +7427,8 @@ content:"|00 00 00 01|"; offset:24; depth:4;
 
 
 
-- 이는 우리가 확인하려는 값인 uid 의 정확한 위치임.
-- 영어로 우리는 패킷 시작 부분에서 4 바이트, 36 바이트를 읽고 4 바이트를 정수로 바꾸고 4 바이트 경계에 맞춰 해당 바이트를 앞으로 점프하려고 함.
+이는 우리가 확인하려는 값인 uid 의 정확한 위치임.
+영어로 우리는 패킷 시작 부분에서 4 바이트, 36 바이트를 읽고 4 바이트를 정수로 바꾸고 4 바이트 경계에 맞춰 해당 바이트를 앞으로 점프하려고 함.
 
 Snort 규칙에서 이를 수행하기 위해 다음을 사용함 :
 
@@ -7464,8 +7464,8 @@ content:"|00 00 00 00|"; within:4;
 
 </br>
 
-- 세 번째와 네 번째 문자열 일치는 바로 옆에 있으므로 이러한 패턴을 결합해야 함.
-- 우리는 다음과 같이 끝남.
+세 번째와 네 번째 문자열 일치는 바로 옆에 있으므로 이러한 패턴을 결합해야 함.
+우리는 다음과 같이 끝남.
 
 </br>
 
@@ -7481,8 +7481,8 @@ content:"|00 00 00 00|"; within:4;
 
 </br>
 
-- sadmind 서비스가 클라이언트의 호스트 이름을 읽을 때 버퍼 오버플로우에 취약한 경우 호스트 이름의 길이를 읽고 그만큼 앞으로 이동하는 대신 호스트 이름의 길이가 너무 크지 않은지 확인함.
-- 이를 위해 36 바이트에서 시작하여 4 바이트를 패킷으로 읽어서 숫자로 변환한 다음 너무 크지 않은지 확인함. \(200 바이트보다 크지 않은 경우)
+sadmind 서비스가 클라이언트의 호스트 이름을 읽을 때 버퍼 오버플로우에 취약한 경우 호스트 이름의 길이를 읽고 그만큼 앞으로 이동하는 대신 호스트 이름의 길이가 너무 크지 않은지 확인함.
+이를 위해 36 바이트에서 시작하여 4 바이트를 패킷으로 읽어서 숫자로 변환한 다음 너무 크지 않은지 확인함. \(200 바이트보다 크지 않은 경우)
 
 Snort에서는 다음을 수행함 :
 
@@ -7492,7 +7492,7 @@ byte_test:4,>,200,36;
 
 </br>
 
-- 우리의 전체 규칙은 다음과 같음.
+우리의 전체 규칙은 다음과 같음.
 
 </br>
 
