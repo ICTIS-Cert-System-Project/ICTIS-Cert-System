@@ -5,15 +5,15 @@
 <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/feedly_logo_icon_169177.png" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="Feedly"></img><br/>
 
 ## RSS(Really Simple Syndication)정의
-- RSS는 뉴스나 블로그에서 주로 사용하는 콘텐츠 표현 방식임.
-- XML 기반의 표준임.
-- RSS가 등장하기 전에는 원하는 정보를 얻기 위해 해당 사이트를 직접 방문하여야 했으나, RSS 관련 프로그램(혹은 서비스)을 이용하여 자동 수집이 가능해졌기 때문에 사용자는 각각의 사이트 방문 없이 최신 정보들만 골라 한 자리에서 볼 수 있음.
+RSS는 뉴스나 블로그에서 주로 사용하는 콘텐츠 표현 방식임.
+XML 기반의 표준임.
+RSS가 등장하기 전에는 원하는 정보를 얻기 위해 해당 사이트를 직접 방문하여야 했으나, RSS 관련 프로그램(혹은 서비스)을 이용하여 자동 수집이 가능해졌기 때문에 사용자는 각각의 사이트 방문 없이 최신 정보들만 골라 한 자리에서 볼 수 있음.
   
 ## 왜 Feedly로 동향 파악을 해야 하는가?
-- 정보보안 동향 파악을 위해서는 여러 기관 사이트나 뉴스, 블로그를 통해 정보를 접하게 되는데 여러 웹 사이트를 직접 방문하기 보다 Feedly의 RSS 서비스를 이용하여 최신 정보보안 동향 정보를 한데 모아 빠르게 파악하여 전달하고 보고하기 용이함.
+정보보안 동향 파악을 위해서는 여러 기관 사이트나 뉴스, 블로그를 통해 정보를 접하게 되는데 여러 웹 사이트를 직접 방문하기 보다 Feedly의 RSS 서비스를 이용하여 최신 정보보안 동향 정보를 한데 모아 빠르게 파악하여 전달하고 보고하기 용이함.
  
 ## 업무 효율을 높일 수 있는 공식 웹 사이트 정리
-- 정보보안 동향 파악을 위해 공신력 있는 기관, 정보보안 기업 블로그, 기사 등으로 분류해 RSS 서비스를 제공하는 사이트를 바탕으로 정리함.
+정보보안 동향 파악을 위해 공신력 있는 기관, 정보보안 기업 블로그, 기사 등으로 분류해 RSS 서비스를 제공하는 사이트를 바탕으로 정리함.
 
   
 ### [Alerts]
@@ -99,41 +99,41 @@
 10. [Security Affairs | 국외] <http://securityaffairs.co/wordpress/feed>
         
 ## OPML의 정의
-- OPML은 Outline Processor Markup Language(*HTML 또는 XML과 같은 마크업 언어를 의미함*)를 나타냄.
-- OPML은 RSS 구독 목록을 백업하고 교환하기 위한 범용 표준임. 
+OPML은 Outline Processor Markup Language(*HTML 또는 XML과 같은 마크업 언어를 의미함*)를 나타냄.
+OPML은 RSS 구독 목록을 백업하고 교환하기 위한 범용 표준임. 
 
 ## Feedly의 OPML Import와 Export 사용법
 
 ### Feedly의 OPML Import(OPML 파일을 Feedly로 가져오기)
-- [Feedly](https://Feedly.com, "Feedly link")로 이동.
-- Feedly 로그인.
-- <https://feedly.com/i/cortex> 로 이동하여 OPML 파일 선택 버튼을 클릭하거나 OPML 파일을 표시된 공간으로 끌어다 놓음.
-- 소스와 피드가 Feedly에 자동으로 추가됨.
+[Feedly](https://Feedly.com, "Feedly link")로 이동.
+Feedly 로그인.
+<https://feedly.com/i/cortex> 로 이동하여 OPML 파일 선택 버튼을 클릭하거나 OPML 파일을 표시된 공간으로 끌어다 놓음.
+소스와 피드가 Feedly에 자동으로 추가됨.
   
 ### Feedly의 OPML Export (OPML 파일을 통해 피드 내보내기)
 
 **Opml Export의 두가지 방법**
 
 #### 첫번째 방법 
--  <http://feedly.com/i/opml> 링크로 이동하면 바로 *Export*가 가능함.
+<http://feedly.com/i/opml> 링크로 이동하면 바로 *Export*가 가능함.
 #### 두번째 방법
-- [Feedly](https://Feedly.com, "Feedly link")로 이동.
-- *Feedly* 로그인.
+[Feedly](https://Feedly.com, "Feedly link")로 이동.
+*Feedly* 로그인.
   
-- 톱니바퀴 아이콘을 클릭하여 *Organize Sources* 페이지를 열어야 함.
+톱니바퀴 아이콘을 클릭하여 *Organize Sources* 페이지를 열어야 함.
 
 <img src="https://images.ctfassets.net/lzny33ho1g45/1eMBV5VfVSaHTBRJH148sY/1648ee28dbb1bb28575ff35898bbaacc/Click_on_the_gear_icon_in_the_Feeds_section?w=1400&fm=avif">
 
-- 맨 오른쪽에서 곡선 화살표 버튼( OPML 가져오기 버튼 옆)을 클릭함.
+맨 오른쪽에서 곡선 화살표 버튼( OPML 가져오기 버튼 옆)을 클릭함.
 
 <img src="https://images.ctfassets.net/lzny33ho1g45/1laXaqSJRgspmmKlNQkKge/3ee6afbbcd979e23644dd66838d12ae7/Click_on_arrow_button?w=1400&fm=avif">
 
-- OPML 내보내기 페이지가 열림.
+OPML 내보내기 페이지가 열림.
 
 <img src="https://images.ctfassets.net/lzny33ho1g45/1JFR8F5fljjLxWCoOATqE6/0e290832e1c3eefb9aabd043cca6df29/Download_Feedly_OPML_button?w=1400&fm=avif">
-- 위 이미지에서 Feedly OPML 다운로드를 클릭하여 다운로드 프로세스를 시작함.
+위 이미지에서 Feedly OPML 다운로드를 클릭하여 다운로드 프로세스를 시작함.
 
 *파일이 다운로드되면 저장하고 이를 사용하여 다른 RSS 서비스로 가져올 수 있음.*
 
 ## OPML 첨부파일
-- Github 저장소 폴더의 Feedly 이용한 정보보안 동향 파악 방법론 -> RSS 리스트 -> RSS 리스트.opml 다운로드  
+Github 저장소 폴더의 Feedly 이용한 정보보안 동향 파악 방법론 -> RSS 리스트 -> RSS 리스트.opml 다운로드  
