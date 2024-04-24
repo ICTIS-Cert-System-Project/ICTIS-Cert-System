@@ -36,13 +36,37 @@
 현재 사용자의 자동 시작 폴더  
 
 
-   %appdata%\Microsoft\Windows\Start Menu\Programs\Startup<br><br>C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">%appdata%\Microsoft\Windows\Start
+  Menu\Programs\Startup<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start
+  Menu\Programs\Startup</span></span></div>
+</td>
+ </tr>
+</tbody></table>
 
   
 모든 사용자의 자동 시작 폴더  
 
 
-   %programdata%\Microsoft\Windows\Start Menu\Programs\Startup<br><br>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">%programdata%\Microsoft\Windows\Start
+  Menu\Programs\Startup<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">C:\ProgramData\Microsoft\Windows\Start
+  Menu\Programs\StartUp</span></span></div>
+</td>
+ </tr>
+</tbody></table>
 
   
   
@@ -54,15 +78,76 @@
   
 개인 사용자 레지스트리 키  
 
-
-   HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run<br><br>HKCU\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run (64 비트 시스템)<br>    <br>              HKCU\Software\Microsoft\Windows NT\CurrentVersion\Windows\Run<br><br>HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce<br><br>  <br><br>(한 번만 프로그램     및 명령 실행, 즉시 실행이 되어야 클리어)<br><br>HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnceEx<br><br>  <br><br>(한 번만 프로그램 및 명령 실행, 실행 완    료가 되어야 클리어)<br><br>HKCU\Software\Microsoft\Windows\CurrentVersion\RunServices<br><br>HKCU\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">HKCU\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
+  <span style="color: #4f81bd; mso-themecolor: accent1;">(64 </span></span><span style="color: #4f81bd; mso-themecolor: accent1;">비트 시스템<span lang="EN-US">)</span></span><span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Software\Microsoft\Windows
+  NT\CurrentVersion\Windows\Run<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<br></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US" style="color: #4f81bd; mso-themecolor: accent1;">(</span><span style="color: #4f81bd; mso-themecolor: accent1;">한 번만 프로그램
+  및 명령 실행<span lang="EN-US">, </span>즉시 실행이 되어야 클리어<span lang="EN-US">)<o:p></o:p></span></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnceEx<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<br></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US" style="color: #4f81bd; mso-themecolor: accent1;">(</span><span style="color: #4f81bd; mso-themecolor: accent1;">한 번만 프로그램
+  및 명령 실행<span lang="EN-US">, </span>실행 완료가 되어야 클리어<span lang="EN-US">)<o:p></o:p></span></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Software\Microsoft\Windows\CurrentVersion\RunServices<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce</span></span></div>
+</td>
+ </tr>
+</tbody></table>
 
   
 모든 사용자 레지스트리 키  
 
 
-    HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run<br><br>HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run (64 비트 시스템)<br>                      <br>HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce<br><br>  <br><br>(한 번만 프로그램 및 명령 실행, 즉시 실행이 되어야 클리어)<br>             <br>         HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnceEx<br><br>  <br><br>(한 번만 프로그램 및 명령 실행, 실행 완료가 되어야 클리어)<br>    <br>                    HKLM\System\CurrentControlSet\Services<br><br>HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices<br>   <br>                                                HKLM\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce
-
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US">HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
+  <span style="color: #4f81bd; mso-themecolor: accent1;">(64 </span></span><span style="color: #4f81bd; mso-themecolor: accent1;">비트 시스템<span lang="EN-US">)</span></span><span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<br></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US" style="color: #4f81bd; mso-themecolor: accent1;">(</span><span style="color: #4f81bd; mso-themecolor: accent1;">한 번만 프로그램
+  및 명령 실행<span lang="EN-US">, </span>즉시 실행이 되어야 클리어<span lang="EN-US">)</span></span><span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnceEx<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<br></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;"><span lang="EN-US" style="color: #4f81bd; mso-themecolor: accent1;">(</span><span style="color: #4f81bd; mso-themecolor: accent1;">한 번만 프로그램
+  및 명령 실행<span lang="EN-US">, </span>실행 완료가 되어야 클리어<span lang="EN-US">)</span></span><span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\System\CurrentControlSet\Services<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce</span></span></div>
+</td>
+ </tr>
+</tbody></table>
   
   
   
@@ -71,35 +156,148 @@
 Active 설치가 로그온하는 동안 사용자당 한번 명령을 실행하도록 설계됨.  
 
 
-   HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components<br><br>HKLM\SOFTWARE\Wow6432Node\Microsoft\Active Setup\Installed Components
-
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\SOFTWARE\Microsoft\Active
+  Setup\Installed Components<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\SOFTWARE\Wow6432Node\Microsoft\Active
+  Setup\Installed Components</span></span></div>
+</td>
+ </tr>
+</tbody></table>
+ 
   
 문서화되지 않은 자동 시작 기능  
 
 
-   HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\SharedTaskScheduler<br>         <br>HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\SharedTaskScheduler
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\SharedTaskScheduler<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\SharedTaskScheduler</span></span></div>
+</td>
+ </tr>
+</tbody></table>
 
   
 쉘 자동 시작 항목 (ex. 관련 파일이나 폴더를 마우스 오른쪽 버튼으로 클릭 시 항목이 표시되는 기등 등)  
 
-|   |
-|---|
-|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellServiceObjects<br><br>HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellServiceObjects<br><br>HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ShellServiceObjectDelayLoad<br><br>HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\ShellServiceObjectDelayLoad<br><br>HKCU\Software\Classes\*\ShellEx\ContextMenuHandlers<br><br>HKLM\Software\Wow6432Node\Classes\*\ShellEx\ContextMenuHandlers<br><br>HKCU\Software\Classes\Drive\ShellEx\ContextMenuHandlers<br><br>HKLM\Software\Wow6432Node\Classes\Drive\ShellEx\ContextMenuHandlers<br><br>HKLM\Software\Classes\*\ShellEx\PropertySheetHandlers<br><br>HKLM\Software\Wow6432Node\Classes\*\ShellEx\PropertySheetHandlers<br><br>HKCU\Software\Classes\Directory\ShellEx\ContextMenuHandlers<br><br>HKLM\Software\Classes\Directory\ShellEx\ContextMenuHandlers<br><br>HKLM\Software\Wow6432Node\Classes\Directory\ShellEx\ContextMenuHandlers<br><br>HKCU\Software\Classes\Directory\Shellex\DragDropHandlers<br><br>HKLM\Software\Classes\Directory\Shellex\DragDropHandlers<br><br>HKLM\Software\Wow6432Node\Classes\Directory\Shellex\DragDropHandlers<br><br>HKLM\Software\Classes\Directory\Shellex\CopyHookHandlers<br><br>HKCU\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers<br><br>HKLM\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers<br><br>HKLM\Software\Wow6432Node\Classes\Directory\Background\ShellEx\ContextMenuHandlers<br><br>HKLM\Software\Classes\Folder\ShellEx\ContextMenuHandlers<br><br>HKLM\Software\Wow6432Node\Classes\Folder\ShellEx\ContextMenuHandlers<br><br>HKLM\Software\Classes\Folder\ShellEx\DragDropHandlers<br><br>HKLM\Software\Wow6432Node\Classes\Folder\ShellEx\DragDropHandlers<br><br>HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers<br><br>HKLM\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers|
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellServiceObjects<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellServiceObjects<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ShellServiceObjectDelayLoad<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\ShellServiceObjectDelayLoad<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Software\Classes\*\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Classes\*\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Software\Classes\Drive\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Classes\Drive\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Classes\*\ShellEx\PropertySheetHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Classes\*\ShellEx\PropertySheetHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Software\Classes\Directory\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Classes\Directory\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Classes\Directory\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Software\Classes\Directory\Shellex\DragDropHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Classes\Directory\Shellex\DragDropHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Classes\Directory\Shellex\DragDropHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Classes\Directory\Shellex\CopyHookHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Classes\Directory\Background\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Classes\Folder\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Classes\Folder\ShellEx\ContextMenuHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Classes\Folder\ShellEx\DragDropHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Classes\Folder\ShellEx\DragDropHandlers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers</span></span></div>
+</td>
+ </tr>
+</tbody></table>
 
   
 아래 키가 시작하는 동안 로드되는 드라이버를 지정함.  
 
-|   |
-|---|
-|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Font Drivers<br><br>HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32<br><br>HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32|
-
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\SOFTWARE\Microsoft\Windows
+  NT\CurrentVersion\Font Drivers<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Microsoft\Windows
+  NT\CurrentVersion\Drivers32<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Microsoft\Windows
+  NT\CurrentVersion\Drivers32</span></span></div>
+</td>
+ </tr>
+</tbody></table>
   
 기타 시작 키  
 
-|   |
-|---|
-|HKLM\Software\Classes\Filter<br><br>HKLM\Software\Classes\CLSID\{083863F1-70DE-11d0-BD40-00A0C911CE86}\Instance<br><br>HKLM\Software\Wow6432Node\Classes\CLSID\{083863F1-70DE-11d0-BD40-00A0C911CE86}\Instance<br><br>HKLM\Software\Classes\CLSID\{7ED96837-96F0-4812-B211-F13C24117ED3}\Instance<br><br>HKLM\Software\Wow6432Node\Classes\CLSID\{7ED96837-96F0-4812-B211-F13C24117ED3}\Instance<br><br>HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls<br><br>HKCU\Control Panel\Desktop\Scrnsave.exe<br><br>HKLM\System\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9\Catalog_Entries<br><br>HKLM\System\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9\Catalog_Entries64|
-
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Classes\Filter<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Classes\CLSID\{083863F1-70DE-11d0-BD40-00A0C911CE86}\Instance<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Classes\CLSID\{083863F1-70DE-11d0-BD40-00A0C911CE86}\Instance<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Classes\CLSID\{7ED96837-96F0-4812-B211-F13C24117ED3}\Instance<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Wow6432Node\Classes\CLSID\{7ED96837-96F0-4812-B211-F13C24117ED3}\Instance<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\System\CurrentControlSet\Control\Session
+  Manager\KnownDlls<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Control
+  Panel\Desktop\Scrnsave.exe<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\System\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9\Catalog_Entries<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\System\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9\Catalog_Entries64</span></span></div>
+</td>
+ </tr>
+</tbody></table>
   
   
   
@@ -114,16 +312,32 @@ Active 설치가 로그온하는 동안 사용자당 한번 명령을 실행하�
 참고로 로컬 그룹 정책 편집기 열기 : 시작 -> 실행(단축키 : Windows + R) -> gpedit.msc 입력, 명령 프롬프트에서 gpedit.msc 입력  
 로컬 그룹 정책 편집기에서 아래 위치에 있음.  
 
-|   |
-|---|
-|컴퓨터 구성 -> 관리 템플릿 -> 시스템 -> 로그온 -> 사용자 로그온할 때 다음 프로그램 실행<br><br>사용자 구성 -> 관리 템플릿 -> 시스템 -> 로그온 -> 사용자 로그온할 때 다음 프로그램 실행|
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;">컴퓨터 구성<span lang="EN-US"> -&gt; </span>관리 템플릿<span lang="EN-US"> -&gt; </span>시스템<span lang="EN-US"> -&gt; </span>로그온<span lang="EN-US"> -&gt; </span>사용자 로그온할 때 다음 프로그램 실행<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;">사용자 구성<span lang="EN-US"> -&gt; </span>관리 템플릿<span lang="EN-US"> -&gt; </span>시스템<span lang="EN-US"> -&gt; </span>로그온<span lang="EN-US"> -&gt; </span>사용자 로그온할 때 다음 프로그램 실행</span></div>
+</td>
+ </tr>
+</tbody></table>
 
   
 위 위치와 관련된 레지스트리 키는 다음과 같음.  
 
-|   |
-|---|
-|HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run<br><br>HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run|
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</span></span></div>
+</td>
+ </tr>
+</tbody></table>
 
   
   
@@ -137,9 +351,20 @@ Active 설치가 로그온하는 동안 사용자당 한번 명령을 실행하�
   
 작업 스케줄러에서 확인하거나 Tasks 폴더에서 확인할 수 있음.  
 
-|   |
-|---|
-|작업 스케줄러 열기 : 시작 -> 실행(단축키 : Windows + R) -> Taskschd.msc 입력, 명령 프롬프트에서 Taskschd.msc 입력<br><br>C:\Windows\Tasks<br><br>C:\Windows\System32\Tasks|
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span style="font-family: Courier New, Courier, monospace;">작업 스케줄러 열기<span lang="EN-US"> : </span>시작<span lang="EN-US"> -&gt; </span>실행<span lang="EN-US">(</span>단축키<span lang="EN-US"> :
+  Windows + R) -&gt; Taskschd.msc </span>입력<span lang="EN-US">, </span>명령 프롬프트에서<span lang="EN-US"> Taskschd.msc </span>입력<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">C:\Windows\Tasks<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">C:\Windows\System32\Tasks</span></span></div>
+</td>
+ </tr>
+</tbody></table>
 
   
   
@@ -148,9 +373,31 @@ Active 설치가 로그온하는 동안 사용자당 한번 명령을 실행하�
   
 다음 파일은 윈도우 시작 시 프로그램을 자동으로 시작하는 데 사용할 수 있음.  
 
-|   |
-|---|
-|c:\autoexec.bat<br><br>c:\config.sys<br><br>c:\windows\winstart.bat<br><br>c:\windows\wininit.ini<br><br>c:\windows\dosstart.bat<br><br>c:\windows\system.ini<br><br>c:\windows\win.ini<br><br>c:\windows\system\autoexec.nt<br><br>c:\windows\system\config.nt|
+<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-yfti-tbllook: 1184;">
+ <tbody>
+<tr>
+  <td style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0cm 5.4pt 0cm 5.4pt; width: 461.2pt;" valign="top" width="615">
+  <div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">c:\autoexec.bat<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">c:\config.sys<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">c:\windows\winstart.bat<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">c:\windows\wininit.ini<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">c:\windows\dosstart.bat<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">c:\windows\system.ini<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">c:\windows\win.ini<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">c:\windows\system\autoexec.nt<o:p></o:p></span></span></div>
+<div class="MsoNoSpacing">
+<span lang="EN-US"><span style="font-family: Courier New, Courier, monospace;">c:\windows\system\config.nt</span></span></div>
+</td>
+ </tr>
+</tbody></table>
 
   
   
