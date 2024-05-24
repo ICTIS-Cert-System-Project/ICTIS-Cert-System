@@ -67,13 +67,6 @@
             <outline type="rss" text="BleepingComputer" title="BleepingComputer" xmlUrl="http://www.bleepingcomputer.com/feed/" htmlUrl="https://www.bleepingcomputer.com/"/>
         </outline>
         <outline text="Must Read" title="Must Read"/>
-        <outline text="$ Overseas Economy" title="$ Overseas Economy">
-            <outline type="rss" text="Wolf Street" title="Wolf Street" xmlUrl="http://wolfstreet.com/feed" htmlUrl="https://wolfstreet.com"/>
-            <outline type="rss" text="Armstrong Economics" title="Armstrong Economics" xmlUrl="http://armstrongeconomics.com/feed/" htmlUrl="https://www.armstrongeconomics.com"/>
-            <outline type="rss" text="The Daily Reckoning" title="The Daily Reckoning" xmlUrl="http://feeds.feedburner.com/dailyreckoning" htmlUrl="https://dailyreckoning.com/"/>
-            <outline type="rss" text="Dollar Collapse" title="Dollar Collapse" xmlUrl="http://dollarcollapse.com/feed/" htmlUrl="https://dollarcollapse.com"/>
-            <outline type="rss" text="The Economic Collapse" title="The Economic Collapse" xmlUrl="http://theeconomiccollapseblog.com/feed" htmlUrl="http://theeconomiccollapseblog.com"/>
-        </outline>
         <outline text="@ Linux" title="@ Linux">
             <outline type="rss" text="Tecmint" title="Tecmint" xmlUrl="http://www.tecmint.com/feed/" htmlUrl="https://www.tecmint.com"/>
             <outline type="rss" text="LXer" title="LXer" xmlUrl="http://lxer.com/module/newswire/headlines.rss" htmlUrl="http://lxer.com/"/>
@@ -85,17 +78,9 @@
         <outline text="@ H &amp; S Tool" title="@ H &amp; S Tool">
             <outline type="rss" text="KitPloit" title="KitPloit" xmlUrl="http://feeds.feedburner.com/PentestTools" htmlUrl="http://www.kitploit.com/"/>
         </outline>
-        <outline text="$ Domestic Economy" title="$ Domestic Economy">
-            <outline type="rss" text="연합인포맥스" title="연합인포맥스" xmlUrl="http://news.einfomax.co.kr/rss/allArticle.xml" htmlUrl="https://news.einfomax.co.kr"/>
-        </outline>
         <outline text="@ Windows" title="@ Windows">
             <outline type="rss" text="Windows Report" title="Windows Report" xmlUrl="http://wind8apps.com/feed/" htmlUrl="https://windowsreport.com"/>
             <outline type="rss" text="The Windows Club" title="The Windows Club" xmlUrl="http://www.thewindowsclub.com/feed" htmlUrl="https://www.thewindowsclub.com/"/>
-        </outline>
-        <outline text="@ Hacking Forum" title="@ Hacking Forum"/>
-        <outline text="@ CTF + Wargame" title="@ CTF + Wargame">
-            <outline type="rss" text="CTFtime - Writeups" title="CTFtime - Writeups" xmlUrl="http://ctftime.org/writeups/rss/" htmlUrl="https://ctftime.org/writeups/rss/"/>
-            <outline type="rss" text="InfoSec Write-ups" title="InfoSec Write-ups" xmlUrl="https://infosecwriteups.com/feed" htmlUrl="https://infosecwriteups.com?source=rss----7b722bfd1b8d---4"/>
         </outline>
         <outline text="@ H + S Site" title="@ H + S Site">
             <outline type="rss" text="SecWiki" title="SecWiki" xmlUrl="https://www.sec-wiki.com/news/rss" htmlUrl="http://www.sec-wiki.com/"/>
