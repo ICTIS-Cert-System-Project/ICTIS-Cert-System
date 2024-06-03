@@ -238,7 +238,7 @@ MS-OFFICE 문서, Visual Basic 등 다양한 응용 프로그램에서 사용되
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/52b30e9c-86e9-4513-91f3-465efdf54368)
 
-
+MS 워드 문서 내 DDE 스크립트 삽입과정 
 
 DDE를 이용한 악용 사례 중 상당 부분이 MS 워드를 사용하며 MS 워드 내에서 DDE 기능을 사용하는 방법은 위의 그림을 참조하면 되며, 순서는 [삽입] -> [빠른 문서 요소 내 필드 버튼] -> [ = (Formula)] -> [‘!수식의 끝이 잘못되었습니다’ 마우스 우클릭] -> 필드 코드 토글 -> [악성 행위를 수행하는 DDE 스크립트 삽입]으로 이루어짐.
 
