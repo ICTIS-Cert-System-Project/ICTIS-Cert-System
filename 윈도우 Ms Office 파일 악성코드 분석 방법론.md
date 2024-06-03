@@ -22,6 +22,7 @@ OLE 파일 포멧은 파일 시스템 중 MS의 FAT파일 시스템과 유사한
 
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/6e7568cd-f5af-44bf-a6ba-b7613bc57dc9)
+
 [그림 1] OLE 파일 포맷 구조
 
 
