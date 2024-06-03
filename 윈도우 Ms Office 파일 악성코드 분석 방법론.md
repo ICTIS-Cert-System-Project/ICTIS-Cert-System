@@ -54,9 +54,11 @@ OLE 파일 포멧은 파일 시스템 중 MS의 FAT파일 시스템과 유사한
 [표 1] OLE 형식의 MS 워드 문서 구조별 설명
 
 
+### 3. .docx 구조
+
 
 OpenXML 포맷의 MS 워드 문서는 문서별로 다양한 디렉터리 구조를 가질 수 있으며, 기본적으로 ZIP 압축 기술을 사용하여 문서를 작성하고 파일을 저장할 수 있음.
-ZIP 형태로 압축해제 및 영역 분리된 OpenXML 형식의 MS 워드 구조 및 설명은 [그림 2]와 같음.
+ZIP 형태로 압축해제 및 영역 분리된 OpenXML 형식의 MS 워드 구조 및 설명은 [그림 3]와 같음.
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/2dafada9-31c4-4e38-b95f-ca7d56ce3700)
 
@@ -91,6 +93,10 @@ ZIP 형태로 압축해제 및 영역 분리된 OpenXML 형식의 MS 워드 구�
 | ETC              | 4      |
 
 [표 3] 수집된 MS 워드 문서형 악성코드 현황
+
+
+
+----------
 
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/98f6e151-85fa-40c6-aa23-065e9f2be8f8)
