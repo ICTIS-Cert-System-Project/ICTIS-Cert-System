@@ -92,7 +92,8 @@ ZIP 형태로 압축해제 및 영역 분리된 OpenXML 형식의 MS 워드 구�
 [표 3] 수집된 MS 워드 문서형 악성코드 현황
 
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname01.png"></img>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/98f6e151-85fa-40c6-aa23-065e9f2be8f8)
+
 
 [그림 4] MS-Word 구조 내 스트림 구조
 
@@ -106,7 +107,8 @@ MS-Word 문서형 악성코드로 활용되는 기법 중 가장 빈번히 사�
 
 MS-Word 내에 VBA 매크로가 포함될 경우 [그림 5]와 같이 _VBA 스토리지 하위에 _VBA_PROJECT 등 이와 관련된 스트림이 추가적으로 생성됨. 하지만 _VBA 스토리지가 존재한다고 해서 MS-Word 문서 파일이 악성코드라고 판단할 수 없기 때문에 바이너리 파일 내에서 스크립트를 텍스트 형식으로 재추출하고, 코드 분석을 통해 악의적인 행위를 위해 작성된 스크립트인지 확인하는 심층 검증 작업을 거쳐야 함.
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname02.png"></img>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/f2aa6ac7-475c-4b9e-bf68-a8c5018549d6)
+
 
 [그림 5] 매크로가 포함된 MS-Word 문서 파일 스트림 구조
 
@@ -114,7 +116,8 @@ MS-Word 내에 VBA 매크로가 포함될 경우 [그림 5]와 같이 _VBA 스�
 
  추출된 스크립트 중 난독화 되어있는 구문을 데이터 전처리 과정을 통해 코드 분석이 가능한 수준의 평문으로 변환하여 추출합니다. 데이터 전처리 과정을 거치는 이유는 매크로 스크립트 내에서 정상적인 행위의 매크로와 악성 행위를 수행하는 매크로를 구분하기 위함임.
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname03.png"></img>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/5814ac49-abd2-4298-ae1d-6f03e3c785ff)
+
 
 [그림 6] 추출된 MS-Word 내 매크로 스크립트
 
@@ -140,7 +143,8 @@ Mraptor는 A(자동실행트리거)가 기본적으로 포함되어있고 W또�
 
 (예) Document_Open과 같은 자동 실행 트리거(A)가 존재하고 URLDownloadToFileA와 같은 드롭퍼 형식의 파일 다운로드(X) 행위가 동시에 존재한다면 이를 악성으로 판단함. (판단 기준 : A-X, AW-, AWX)
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname04.png"></img>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/d1630664-0c5b-4d6c-b102-e818f7a08f1c)
+
 
 ---
 
@@ -152,27 +156,31 @@ MS-OFFICE는 문서 내부에 다른 문서 파일이나 PDF, 이미지 파일, 
 
 외부 oleobject 객체가 문서 내에 삽입될 경우 [그림 7]와 같이 ObjectPool 스토리지 내 ‘_Ole*’ 형태나 ‘_CompObj’ 형식으로 저장됨. 
  매크로와 마찬가지로 외부 oleobject 객체가 삽입된 MS-Word 파일 내에서 스토리지와 스트림 경로를 모두 텍스트 형식으로 파싱했을 때 ObjectPool 또는 ‘CompObj’, ‘Ole10Native’, ‘ObjInfo’ 등의 키워드가 포함되어 있다면 삽입되어 있는 oleobject의 악성 여부를 검증하게 됨.
+ 
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/7edc66ae-c860-47ba-b60f-e69392986714)
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname05.png"></img>
 
 [그림 7] MS-Word 구조 내 oleobject가 포함된 스트림 구조
 
 [그림 8]은 악성 행위를 수행하는 Javascript가 oleobject 형태로 삽입되어 있는 모습임.
 Javascript 내에서 악성 행위를 실행하기 위해서는 ‘eval’ 함수가 반드시 실행되어야 하므로, 이러한 키워드를 활용하여 Yara-Rule을 생성해서 탐지를 진행함.
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname06.png"></img>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/c69cdcff-bd46-4f10-8506-2e7291e5a081)
+
 
 [그림 8] 악성 oleobject MS-Word 구조 내 스트림 구조 및 eval function
 
 [그림 9]은 사용자를 특정 사이트로 접속시키기 위해 공격자가 IP 또는 URL 형태로 삽입한 oleobject 입니다. IP 또는 URL 형태의 악성 oleobject는 Yara-Rule 정규표현식을 활용하여 탐지를 진행함.
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname07.png"></img>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/d6ba3eb2-15ae-4649-91f6-e4c5ba81cd87)
+
 
 [그림 9] 공격자 IP 및 URL
 
 [그림 10]은 문서 내에 PE 형태의 실행 파일을 oleobject 형식으로 삽입하여 클릭을 유도하여 악성코드를 실행시키는 oleobject 형태임. 앞서 설명되었던 Javascript나 IP, URL의 형태가 아닌 파일이 삽입되어있는 경우에는 oletool 라이브러리 내 포함되어있는 oleobj라는 도구를 활용하여 분석 및 유효 악성 인자를 식별(추출)하여 탐지함.
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname08.png"></img>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/22cfa885-b623-4537-9ca8-193d40d9acf4)
+
 
 [그림 10] PE 바이너리 삽입
 
@@ -185,11 +193,13 @@ MS-OFFICE 문서, Visual Basic 등 다양한 응용 프로그램에서 사용되
 
 다음의 코드는 MS-Word 본문 내에서 CMD 명령 프롬프트를 이용해 계산기를 실행시키는 스크립트임. 예시는 매우 간단한 코드이지만 DDE 필드 코드를 계산기 실행이 아닌 Powershell을 이용할 경우 DDE는 매우 강력한 악성 인자가 됨.
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname09.png"></img>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/c63603b9-ba2c-4821-81c8-a605fc99926c)
+
 
 앞서 매크로와 외부 oleobject 객체가 삽입된 MS-Word 문서형 악성코드를 탐지하기 위해 기본적으로 문서 내의 포맷을 분석해 스트림 목록을 출력하였음. [그림 11]와 같이 MS-Word는 공통적으로 WordDocument 라는 스트림이 존재하며 해당 스트림은 MS-Word의 본문 내용을 포함하고 있음.
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname10.png"></img>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/d99be29a-dc56-49c3-a582-5db9c1491f4e)
+
 
 [그림 11] MS-Word 구조 내 스트림 구조
 
@@ -197,7 +207,8 @@ MS-OFFICE 문서, Visual Basic 등 다양한 응용 프로그램에서 사용되
 
 [그림 12]은 oletool 라이브러리 내에 존재하는 msodde라는 도구를 활용하여 MS-Word 내에 포함된 DDE 스크립트를 추출한 결과 화면임.
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname11.png"></img>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/94f32de4-2fe0-4058-bdc1-1b7c7f1fc5b2)
+
 
 [그림 12] DDE 스크립트
 
@@ -207,7 +218,8 @@ MS-OFFICE 문서, Visual Basic 등 다양한 응용 프로그램에서 사용되
 
 MS-Word 문서는 공격자가 악용할 수 있는 다양한 기능을 제공하기도 하지만 동시에 문서 포맷의 유연성으로 인해 구조 내 위협 인자를 은닉할 수 있는 공간을 제공하여 공격에 자주 사용되는데, 기본 스트림 영역을 확인해보았을 때 ‘CompObj’, ‘DocumentSummaryInformation’, ‘SummaryInformation’, ‘WordDocument’와 같이 공통적인 요소가 있으며, 공격자는 이러한 공통 요소를 활용하여 악성인자를 은닉하기도 함.
 
-<img src="https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname12.png"></img>
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/936e08a7-cd2b-4a53-be60-5c68b4042da4)
+
 
 [그림 13] 공통 요소 활용
 
