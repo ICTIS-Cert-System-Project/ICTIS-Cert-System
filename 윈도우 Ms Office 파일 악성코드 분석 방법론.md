@@ -43,9 +43,9 @@ OLE 파일 포멧은 파일 시스템 중 MS의 FAT파일 시스템과 유사한
 
 
 
-|    |         |
-|---|---|
+
 |**필수 구성 요소**|**설명**|
+|---|---|
 |WordDocument|WordDocument 스트림의 내용은 .doc 파일을 Word 문서로 식별하는 코드를 포함하고 있으며 본문의 내용 포함|
 |1Table/0Table|WordDocument 스트림이 .doc 파일을 Word 문서로 식별하는 과정에서 오프셋에 존재하는 FIB 내에 base.fWhichtblStm이 1로 설정되어 있으면 1Table을 참조하고 그렇지 않으면 0Table을 참조|
 |Data|Data 스트림에는 사전에 정의된 구조가 따로 존재하지 않으며 다른 구조에서 해당 스트림에 대한 참조가 없다면 크게 사용되지 않는 부분|
@@ -65,9 +65,9 @@ ZIP 형태로 압축해제 및 영역 분리된 OpenXML 형식의 MS 워드 구�
 
 
 
-|   |   |
-|---|---|
+
 |**OpenXML** **파일 구성 요소**|**설명**|
+|---|---|
 |Content_Types.xml|OpenXML 포맷 파일에 필수적으로 포함되는 이 파일은 특정 파일 확장명에 대한 기본값 제공|
 |/_rels|모든 패키지는 다른 파트들과 패키지 밖의 리소스들 사이의 관계를 정의|
 |/doc/Props/core.xml|Office Open XML 문서의 메타데이터 등 핵심 속성이 포함|
