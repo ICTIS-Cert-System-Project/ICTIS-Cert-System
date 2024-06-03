@@ -82,4 +82,134 @@ ZIP 형태로 압축해제 및 영역 분리된 OpenXML 형식의 MS 워드 구�
  이러한 특징 때문에 PE 구조의 exe 악성코드를 탐지할 수 있는 분석 방법과는 달리 버전별로 구분하여 영역을 분리하고 분리된 영역 내에서 위협 인자를 찾아낸 후 이를 추출하는 과정이 필요함.
 
 
+| **분류**           | **현황** |
+| ---------------- | ------ |
+| Macro            | 246    |
+| Oleobject        | 171    |
+| DDE              | 18     |
+| Stream & Storage | 14     |
+| ETC              | 4      |
+[표 3] 수집된 MS 워드 문서형 악성코드 현황
+
+
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname01.png)
+
+[그림 4] MS-Word 구조 내 스트림 구조
+
+(OLE 형식)
+MS-Word 문서형 악성코드를 분석 및 탐지하기 위해서 첫째, **구조 내에서 스트림을 추출한 후 위협 인자가 포함된 영역이 구조 내에 존재하는지 확인**.
+둘째, **위협 인자가 포함된 스트림에서 텍스트 형식으로 데이터를 추출**한 후 셋째, **Yara-Rule를 활용하여 탐지**를 진행. 
+
+MS-Word 문서형 악성코드로 활용되는 기법 중 가장 빈번히 사용되는 공격을 대상으로 위협 인자 추출 방안 및 탐지 방법에 관련하여 설명하겠음.
+
+## **_1) VBA_** **_매크로 형태의 악성코드 분석 및 탐지 방법_**
+
+MS-Word 내에 VBA 매크로가 포함될 경우 [그림 5]와 같이 _VBA 스토리지 하위에 _VBA_PROJECT 등 이와 관련된 스트림이 추가적으로 생성됨. 하지만 _VBA 스토리지가 존재한다고 해서 MS-Word 문서 파일이 악성코드라고 판단할 수 없기 때문에 바이너리 파일 내에서 스크립트를 텍스트 형식으로 재추출하고, 코드 분석을 통해 악의적인 행위를 위해 작성된 스크립트인지 확인하는 심층 검증 작업을 거쳐야 함.
+
+![](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname02.png)
+
+[그림 5] 매크로가 포함된 MS-Word 문서 파일 스트림 구조
+
+ MS-Word 문서 구조 내에 매크로 바이너리 파일이 존재할 경우 파일이 포함된 경로명까지 모두 텍스트 형식으로 추출합니다. 추출된 텍스트 파일 내에 Macros, VBA와 같은 키워드가 존재할 경우 MS-Word 문서 파일 내에 VBA 매크로 스크립트가 존재한다고 가정하고 추출하게 됨. 
+
+ 추출된 스크립트 중 난독화 되어있는 구문을 데이터 전처리 과정을 통해 코드 분석이 가능한 수준의 평문으로 변환하여 추출합니다. 데이터 전처리 과정을 거치는 이유는 매크로 스크립트 내에서 정상적인 행위의 매크로와 악성 행위를 수행하는 매크로를 구분하기 위함임.
+
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname03.png)
+
+[그림 6] 추출된 MS-Word 내 매크로 스크립트
+
+MS-Word 내에서 추출된 매크로 스크립트의 예시는 그림 3과 같으며, 추출된 텍스트 형식의 매크로 스크립트의 악성 여부를 판단하기 위해서는 스크립트 내에서 사용된 메소드를 주목하여야 함.
+
+일반적으로 정상 MS-Word 문서 내에 포함된 매크로 스크립트는 MS의 의도에 맞게 특정 문구나 행위에 대한 반복적인 기능을 빠르고 효율적으로 사용할 수 있도록 하는 메소드(기능)를 사용하지만, 매크로를 활용한 문서형 악성코드의 경우에는 악성 행위를 수행하는 일반적으로 사용하지 않는 특정 메소드를 사용하게 됨.
+
+---
+
+### – oletools 라이브러리 내 mraptor 도구의 알고리즘 –
+
+매크로 스크립트의 악성 여부를 판단하는 탐지 알고리즘은 oletools 라이브러리 내 mraptor 도구의 알고리즘을 참고했으며, mraptor는 일반 휴리스틱 기반의 탐지 기법을 사용하여 악성 VBA 매크로 스크립트를 탐지하도록 설계된 도구임. 
+
+간단히 설명하자면 mraptor는 일반 텍스트로 존재하는 스크립트가 존재할 경우 3가지 유형의 해당하는 키워드를 감지하게 됨.
+
+A : 자동 실행 트리거
+
+W : 파일 시스템 또는 메모리에 쓰기
+
+X : VBA 스크립트 외부에서 파일 실행 및 다운로드 또는 페이로드 실행
+
+Mraptor는 A(자동실행트리거)가 기본적으로 포함되어있고 W또는 X가 존재할 때 해당 매크로가 악성 행위를 수행하는 것이라고 판단하게 됨.
+
+(예) Document_Open과 같은 자동 실행 트리거(A)가 존재하고 URLDownloadToFileA와 같은 드롭퍼 형식의 파일 다운로드(X) 행위가 동시에 존재한다면 이를 악성으로 판단함. (판단 기준 : A-X, AW-, AWX)
+
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname04.png)
+
+---
+
+Mraptor의 탐지 알고리즘을 기반으로 Yara-Rule을 생성할 때 String 형식의 **자동실행트리거 메소드(AutoOpen, Document_Open, DocumentOpen)**가 존재하며, **파일 시스템 또는 메모리의 데이터를 수정할 수 있는 메소드(Write, Put, Output, Print 등)**나 **외부에서 파일 실행 및 다운로드 또는 페이로드 실행 메소드(Powershell, URLDownloadToFileA, Shell, Wscript.shell, run 등)**가 포함되어있다면 악성 행위를 수행하는 MS-Word 문서를 악성으로 판단하여 탐지함.
+
+## **_2)_** **_삽입된 외부_** **_oleobject_** **_형태의 악성코드 분석 및 탐지 방법_**
+
+MS-OFFICE는 문서 내부에 다른 문서 파일이나 PDF, 이미지 파일, 실행 파일 등 32가지의 파일을 삽입할 수 있으며, 삽입된 파일을 객체라고 칭하며 이를 외부 oleobject 객체 삽입이라고 부릅니다. 공격자는 MS-Word 문서 내에서 다른 OLE 객체를 참조할 때 문서 내에서 파일이 실행되는 것을 악용하여 악성코드 실행 및 URL 리다이렉트와 같은 비정상 행위를 수행할 수 있음.
+
+외부 oleobject 객체가 문서 내에 삽입될 경우 [그림 7]와 같이 ObjectPool 스토리지 내 ‘_Ole*’ 형태나 ‘_CompObj’ 형식으로 저장됨. 
+ 매크로와 마찬가지로 외부 oleobject 객체가 삽입된 MS-Word 파일 내에서 스토리지와 스트림 경로를 모두 텍스트 형식으로 파싱했을 때 ObjectPool 또는 ‘CompObj’, ‘Ole10Native’, ‘ObjInfo’ 등의 키워드가 포함되어 있다면 삽입되어 있는 oleobject의 악성 여부를 검증하게 됨.
+
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname05.png)
+
+[그림 7] MS-Word 구조 내 oleobject가 포함된 스트림 구조
+
+[그림 8]은 악성 행위를 수행하는 Javascript가 oleobject 형태로 삽입되어 있는 모습임.
+Javascript 내에서 악성 행위를 실행하기 위해서는 ‘eval’ 함수가 반드시 실행되어야 하므로, 이러한 키워드를 활용하여 Yara-Rule을 생성해서 탐지를 진행함.
+
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname06.png)
+
+[그림 8] 악성 oleobject MS-Word 구조 내 스트림 구조 및 eval function
+
+[그림 9]은 사용자를 특정 사이트로 접속시키기 위해 공격자가 IP 또는 URL 형태로 삽입한 oleobject 입니다. IP 또는 URL 형태의 악성 oleobject는 Yara-Rule 정규표현식을 활용하여 탐지를 진행함.
+
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname07.png)
+
+[그림 9] 공격자 IP 및 URL
+
+[그림 10]은 문서 내에 PE 형태의 실행 파일을 oleobject 형식으로 삽입하여 클릭을 유도하여 악성코드를 실행시키는 oleobject 형태임. 앞서 설명되었던 Javascript나 IP, URL의 형태가 아닌 파일이 삽입되어있는 경우에는 oletool 라이브러리 내 포함되어있는 oleobj라는 도구를 활용하여 분석 및 유효 악성 인자를 식별(추출)하여 탐지함.
+
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname08.png)
+
+[그림 10] PE 바이너리 삽입
+
+## **_3) DDE(Dynamic Data Exchange)_** **_형태의 악성코드 분석 및 탐지 방법_**
+
+### DDE의 정의
+
+DDE란 ‘Dynamic Data Exchange’의 약어로 윈도우 응용 프로그램 간의 동일한 데이터를 공유하도록 허용하는 방법 중 하나임. 
+MS-OFFICE 문서, Visual Basic 등 다양한 응용 프로그램에서 사용되고 있으며, 해당 기능을 활용하여 다른 파일을 실행시킬 수 있어 이 기능을 악용하여 악성코드를 다운받거나 실행시키는 행위가 가능함.
+
+다음의 코드는 MS-Word 본문 내에서 CMD 명령 프롬프트를 이용해 계산기를 실행시키는 스크립트임. 예시는 매우 간단한 코드이지만 DDE 필드 코드를 계산기 실행이 아닌 Powershell을 이용할 경우 DDE는 매우 강력한 악성 인자가 됨.
+
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname09.png)
+
+앞서 매크로와 외부 oleobject 객체가 삽입된 MS-Word 문서형 악성코드를 탐지하기 위해 기본적으로 문서 내의 포맷을 분석해 스트림 목록을 출력하였음. [그림 11]와 같이 MS-Word는 공통적으로 WordDocument 라는 스트림이 존재하며 해당 스트림은 MS-Word의 본문 내용을 포함하고 있음.
+
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname10.png)
+
+[그림 11] MS-Word 구조 내 스트림 구조
+
+본문의 내용을 포함하고 있는 ‘WordDocument’라는 스트림을 텍스트 형식으로 파싱하여 Yara-Rule을 통해 String 형식으로 DDE와 같은 키워드로 탐지할 수도 있겠지만, 본문 내에 포함된 내용인 만큼 DDE 필드가 아니더라도 ‘DDE’라는 키워드가 본문 내에 포함될 여지가 있기 때문에 DDE 스크립트를 직접 추출하여 분석 및 탐지하였음.
+
+[그림 12]은 oletool 라이브러리 내에 존재하는 msodde라는 도구를 활용하여 MS-Word 내에 포함된 DDE 스크립트를 추출한 결과 화면임.
+
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname11.png)
+
+[그림 12] DDE 스크립트
+
+다만 실제로 DDE를 악용한 MS-Word 문서형 악성코드가 배포될 때는 백신에서 미리 탐지하지 못하도록 스크립트를 난독화하는 경우가 대부분인데, 이는 전처리 과정을 msodde 도구를 활용하여 해결이 가능합니다. msodde를 활용해 텍스트 형식으로 DDE 스크립트가 출력되는 것을 Yara-Rule을 통해 String 형식으로 “DDEAUTO”와 같은 키워드를 시그니처로하여 탐지할 수 있음.
+
+## **_4) MS-Word 기본 구조 내 위협 인자가 포함된 악성코드 분석 및 탐지 방법_**
+
+MS-Word 문서는 공격자가 악용할 수 있는 다양한 기능을 제공하기도 하지만 동시에 문서 포맷의 유연성으로 인해 구조 내 위협 인자를 은닉할 수 있는 공간을 제공하여 공격에 자주 사용되는데, 기본 스트림 영역을 확인해보았을 때 ‘CompObj’, ‘DocumentSummaryInformation’, ‘SummaryInformation’, ‘WordDocument’와 같이 공통적인 요소가 있으며, 공격자는 이러한 공통 요소를 활용하여 악성인자를 은닉하기도 함.
+
+![](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname12.png)
+
+[그림 13] 공통 요소 활용
+
+[그림 13]는 공통적인 요소 중 ‘DocumentSummaryInformation’ 스트림 내에 실행 파일이 포함되어있는 모습임. 해당 영역에서 발견된 실행 파일을 추출하여 Virustotal에 검사한 결과 워너크라이 랜섬웨어인 것을 확인할 수 있었고 MS-Word 문서를 구성하는 기본 요소라 할지라도 악성 여부에 대한 검증이 필요함.
 
