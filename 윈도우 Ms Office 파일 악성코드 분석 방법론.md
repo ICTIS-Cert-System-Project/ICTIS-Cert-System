@@ -234,12 +234,15 @@ Javascript 내에서 악성 행위를 실행하기 위해서는 ‘eval’ 함�
 DDE란 ‘Dynamic Data Exchange’의 약어로 윈도우 응용 프로그램 간의 동일한 데이터를 공유하도록 허용하는 방법 중 하나임. 
 MS-OFFICE 문서, Visual Basic 등 다양한 응용 프로그램에서 사용되고 있으며, 해당 기능을 활용하여 다른 파일을 실행시킬 수 있어 이 기능을 악용하여 악성코드를 다운받거나 실행시키는 행위가 가능함.
 
+</br>
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/52b30e9c-86e9-4513-91f3-465efdf54368)
 
 
 
 DDE를 이용한 악용 사례 중 상당 부분이 MS 워드를 사용하며 MS 워드 내에서 DDE 기능을 사용하는 방법은 위의 그림을 참조하면 되며, 순서는 [삽입] -> [빠른 문서 요소 내 필드 버튼] -> [ = (Formula)] -> [‘!수식의 끝이 잘못되었습니다’ 마우스 우클릭] -> 필드 코드 토글 -> [악성 행위를 수행하는 DDE 스크립트 삽입]으로 이루어짐.
+
+</br>
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/054686eb-04df-4c7b-aefd-b850305c2faa)
 
