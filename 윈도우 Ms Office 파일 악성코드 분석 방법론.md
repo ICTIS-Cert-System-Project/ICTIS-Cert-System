@@ -180,14 +180,21 @@ Mraptor의 탐지 알고리즘을 기반으로 Yara-Rule을 생성할 때 String
 
 MS 워드 문서 내 Oleobject 삽입 과정
 
+
+</br>
+
+
 Oleobject는 MS 워드 내 기능 중 개체 추가 기능을 통해 비교적 쉽게 삽입될 수 있음. Oleobject 개체 삽입 과정 및 방법은 위와 같으며 [삽입] -> [개체] -> [Package] -> [패키지 만들기] 내에서 Oleobject 삽입의 과정을 거치게 되면 워드 본문 내에 삽입한 Oleobject 객체가 보임.
+
+
+</br>
 
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/9550f180-4b89-4598-a405-261fff820b60)
 
 Oleobject 형태로 삽입된 난독화된 자바스크립트 코드
 
-
+</br>
 
 난독화된 Javascript 코드가 포함된 경우도 존재하는데 공격자가 삽입하는 OLE 객체에 따라 자바스크립트 코드, 쉘 스크립트 실행, ROP 체인, 레지스트리 값을 수정을 하거나 ROP 체인, 힙 스프레이 등의 공격 기법을 통해 PC 관리자와 동일한 권한을 획득할 수 있음.
 
