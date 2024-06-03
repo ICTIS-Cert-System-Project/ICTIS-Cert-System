@@ -25,6 +25,7 @@ DOC와 DOCX 파일 유형의 주요 차이점은 이러한 문서를 저장하�
 
 
 
+</br>
 
 **DOC 파일은 OLE(Object Linking and Embedding) 파일 포멧을 사용함.**</br>
 </br>
