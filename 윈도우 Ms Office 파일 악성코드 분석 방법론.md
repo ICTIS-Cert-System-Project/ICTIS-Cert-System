@@ -106,7 +106,7 @@ MS-Word 문서형 악성코드로 활용되는 기법 중 가장 빈번히 사�
 
 MS-Word 내에 VBA 매크로가 포함될 경우 [그림 5]와 같이 _VBA 스토리지 하위에 _VBA_PROJECT 등 이와 관련된 스트림이 추가적으로 생성됨. 하지만 _VBA 스토리지가 존재한다고 해서 MS-Word 문서 파일이 악성코드라고 판단할 수 없기 때문에 바이너리 파일 내에서 스크립트를 텍스트 형식으로 재추출하고, 코드 분석을 통해 악의적인 행위를 위해 작성된 스크립트인지 확인하는 심층 검증 작업을 거쳐야 함.
 
-![](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname02.png)
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname02.png)
 
 [그림 5] 매크로가 포함된 MS-Word 문서 파일 스트림 구조
 
