@@ -207,7 +207,7 @@ MS-OFFICE 문서, Visual Basic 등 다양한 응용 프로그램에서 사용되
 
 MS-Word 문서는 공격자가 악용할 수 있는 다양한 기능을 제공하기도 하지만 동시에 문서 포맷의 유연성으로 인해 구조 내 위협 인자를 은닉할 수 있는 공간을 제공하여 공격에 자주 사용되는데, 기본 스트림 영역을 확인해보았을 때 ‘CompObj’, ‘DocumentSummaryInformation’, ‘SummaryInformation’, ‘WordDocument’와 같이 공통적인 요소가 있으며, 공격자는 이러한 공통 요소를 활용하여 악성인자를 은닉하기도 함.
 
-![](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname12.png)
+![image](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/11/noname12.png)
 
 [그림 13] 공통 요소 활용
 
