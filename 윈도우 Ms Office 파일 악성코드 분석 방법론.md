@@ -160,7 +160,7 @@ Mraptor는 A(자동실행트리거)가 기본적으로 포함되어있고 W또�
 
 ---
 
-Mraptor의 탐지 알고리즘을 기반으로 Yara-Rule을 생성할 때 String 형식의 **자동실행트리거 메소드(AutoOpen, Document_Open, DocumentOpen)**가 존재하며, **파일 시스템 또는 메모리의 데이터를 수정할 수 있는 메소드(Write, Put, Output, Print 등)**나 **외부에서 파일 실행 및 다운로드 또는 페이로드 실행 메소드(Powershell, URLDownloadToFileA, Shell, Wscript.shell, run 등)**가 포함되어있다면 악성 행위를 수행하는 MS-Word 문서를 악성으로 판단하여 탐지함.
+Mraptor의 탐지 알고리즘을 기반으로 Yara-Rule을 생성할 때 String 형식의 **자동실행트리거 메소드(AutoOpen, Document_Open, DocumentOpen)** 가 존재하며, **파일 시스템 또는 메모리의 데이터를 수정할 수 있는 메소드(Write, Put, Output, Print 등)** 나 **외부에서 파일 실행 및 다운로드 또는 페이로드 실행 메소드(Powershell, URLDownloadToFileA, Shell, Wscript.shell, run 등)** 가 포함되어있다면 악성 행위를 수행하는 MS-Word 문서를 악성으로 판단하여 탐지함.
 
 ## **_2)_** **_삽입된 외부_** **_oleobject_** **_형태의 악성코드 분석 및 탐지 방법_**
 
