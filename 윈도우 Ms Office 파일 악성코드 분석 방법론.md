@@ -117,6 +117,18 @@ MS-Word 문서형 악성코드로 활용되는 기법 중 가장 빈번히 사�
 
 ## **_1) VBA_** **_매크로 형태의 악성코드 분석 및 탐지 방법_**
 
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/a7a990dd-7d31-41c4-a5b0-efff5bb13ea4)
+
+드라마 중 문서형 악성코드 실행 장면[자료=넷플릭스]
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/219cdd5c-0a62-49f3-b4c5-71b7793797c5)
+
+매크로가 포함된 MS 워드 파일 실행 시 나타나는 경고문
+
+매크로 스크립트 기법을 기반으로 한 워드 악성코드가 큰 비중을 차지하고 있는 이유는 특정 문구나 행위에 대한 반복적인 기능을 빠르고 효율적으로 사용할 수 있게 편의 기능으로 추가된 매크로 기능을 VBA(Visual Basic for Application)를 통해 사용자가 직접 원하는 기능을 소스 코드로 작성하여 사용할 수 있기 때문임.
+
+
 MS-Word 내에 VBA 매크로가 포함될 경우 [그림 5]와 같이 _VBA 스토리지 하위에 _VBA_PROJECT 등 이와 관련된 스트림이 추가적으로 생성됨. 하지만 _VBA 스토리지가 존재한다고 해서 MS-Word 문서 파일이 악성코드라고 판단할 수 없기 때문에 바이너리 파일 내에서 스크립트를 텍스트 형식으로 재추출하고, 코드 분석을 통해 악의적인 행위를 위해 작성된 스크립트인지 확인하는 심층 검증 작업을 거쳐야 함.
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/f2aa6ac7-475c-4b9e-bf68-a8c5018549d6)
@@ -164,6 +176,24 @@ Mraptor의 탐지 알고리즘을 기반으로 Yara-Rule을 생성할 때 String
 
 ## **_2)_** **_삽입된 외부_** **_oleobject_** **_형태의 악성코드 분석 및 탐지 방법_**
 
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/51c85500-9671-4dfb-b7c6-51e30ff7fba7)
+
+MS 워드 문서 내 Oleobject 삽입 과정
+
+Oleobject는 MS 워드 내 기능 중 개체 추가 기능을 통해 비교적 쉽게 삽입될 수 있음. Oleobject 개체 삽입 과정 및 방법은 위와 같으며 [삽입] -> [개체] -> [Package] -> [패키지 만들기] 내에서 Oleobject 삽입의 과정을 거치게 되면 워드 본문 내에 삽입한 Oleobject 객체가 보임.
+
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/9550f180-4b89-4598-a405-261fff820b60)
+
+Oleobject 형태로 삽입된 난독화된 자바스크립트 코드
+
+
+
+난독화된 Javascript 코드가 포함된 경우도 존재하는데 공격자가 삽입하는 OLE 객체에 따라 자바스크립트 코드, 쉘 스크립트 실행, ROP 체인, 레지스트리 값을 수정을 하거나 ROP 체인, 힙 스프레이 등의 공격 기법을 통해 PC 관리자와 동일한 권한을 획득할 수 있음.
+
+
+
+
 MS-OFFICE는 문서 내부에 다른 문서 파일이나 PDF, 이미지 파일, 실행 파일 등 32가지의 파일을 삽입할 수 있으며, 삽입된 파일을 객체라고 칭하며 이를 외부 oleobject 객체 삽입이라고 부름름. 공격자는 MS-Word 문서 내에서 다른 OLE 객체를 참조할 때 문서 내에서 파일이 실행되는 것을 악용하여 악성코드 실행 및 URL 리다이렉트와 같은 비정상 행위를 수행할 수 있음.
 
 외부 oleobject 객체가 문서 내에 삽입될 경우 [그림 7]와 같이 ObjectPool 스토리지 내 ‘_Ole*’ 형태나 ‘_CompObj’ 형식으로 저장됨. 
@@ -198,10 +228,26 @@ Javascript 내에서 악성 행위를 실행하기 위해서는 ‘eval’ 함�
 
 ## **_3) DDE(Dynamic Data Exchange)_** **_형태의 악성코드 분석 및 탐지 방법_**
 
-### DDE의 정의
+
+#### DDE의 정의
 
 DDE란 ‘Dynamic Data Exchange’의 약어로 윈도우 응용 프로그램 간의 동일한 데이터를 공유하도록 허용하는 방법 중 하나임. 
 MS-OFFICE 문서, Visual Basic 등 다양한 응용 프로그램에서 사용되고 있으며, 해당 기능을 활용하여 다른 파일을 실행시킬 수 있어 이 기능을 악용하여 악성코드를 다운받거나 실행시키는 행위가 가능함.
+
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/52b30e9c-86e9-4513-91f3-465efdf54368)
+
+
+
+DDE를 이용한 악용 사례 중 상당 부분이 MS 워드를 사용하며 MS 워드 내에서 DDE 기능을 사용하는 방법은 위의 그림을 참조하면 되며, 순서는 [삽입] -> [빠른 문서 요소 내 필드 버튼] -> [ = (Formula)] -> [‘!수식의 끝이 잘못되었습니다’ 마우스 우클릭] -> 필드 코드 토글 -> [악성 행위를 수행하는 DDE 스크립트 삽입]으로 이루어짐.
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/054686eb-04df-4c7b-aefd-b850305c2faa)
+
+예시 스크립트는 ‘DDEAUTO C:\\windows\\system32\\cmd “/k calc.exe”’와 같으며, 이는 CMD 명령 프롬프트를 이용해 계산기를 실행시키는 스크립트입니다. 예시는 매우 간단한 코드이지만 필드 코드를 계산기 실행이 아닌 Powershell을 이용할 경우, DDE는 악용될 소지가 더욱 커지게 됨.
+
+실제로 DDE를 악용한 문서를 배포할 때는 백신에서 탐지하지 못하도록 DDE 스크립트를 난독화 시키는 경우가 많음. MS에서는 이러한 문제점이 있는데도 불구하고 DDE를 없애지 않는 이유는 사전에 DDE 코드를 실행하기 전에 경고 메시지를 띄워주는 부분이 있기 때문에 따로 패치를 진행하지 않는 것으로 보여짐. 이 때문에 사용자의 주의가 요구되는 문서형 악성코드 공격 기법 중 하나라고 말할 수 있음.
+
+
 
 다음의 코드는 MS-Word 본문 내에서 CMD 명령 프롬프트를 이용해 계산기를 실행시키는 스크립트임. 예시는 매우 간단한 코드이지만 DDE 필드 코드를 계산기 실행이 아닌 Powershell을 이용할 경우 DDE는 매우 강력한 악성 인자가 됨.
 
