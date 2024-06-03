@@ -21,5 +21,5 @@ DOC와 DOCX 파일 유형의 주요 차이점은 이러한 문서를 저장하�
 OLE 파일 포멧은 파일 시스템 중 MS의 FAT파일 시스템과 유사한 구조를 지니며, 내부에서 파일과 폴더의 개념 OLE 파일 포멧에서는 이를 각각 Storage, Stream 이라 부르는 복합 문서 파일 형태의 구조를 띄고 있음.</br>
 
 
-![image](![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/6e7568cd-f5af-44bf-a6ba-b7613bc57dc9)
+(![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/6e7568cd-f5af-44bf-a6ba-b7613bc57dc9)
 )
