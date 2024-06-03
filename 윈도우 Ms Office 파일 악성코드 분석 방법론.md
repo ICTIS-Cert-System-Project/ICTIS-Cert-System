@@ -24,7 +24,8 @@ OLE 파일 포멧은 파일 시스템 중 MS의 FAT파일 시스템과 유사한
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/165347210/6e7568cd-f5af-44bf-a6ba-b7613bc57dc9)
 
 
-![](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/09/001-3.jpg)
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/2fd72ee0-5b26-4e65-87ea-d38ce9e27ed4)
+
 
 [그림 1] OLE형식의 MS 워드 문서 구조
 
@@ -41,7 +42,8 @@ OLE 파일 포멧은 파일 시스템 중 MS의 FAT파일 시스템과 유사한
 OpenXML 포맷의 MS 워드 문서는 문서별로 다양한 디렉터리 구조를 가질 수 있으며, 기본적으로 ZIP 압축 기술을 사용하여 문서를 작성하고 파일을 저장할 수 있음.
 ZIP 형태로 압축해제 및 영역 분리된 OpenXML 형식의 MS 워드 구조 및 설명은 [그림 2]와 같음.
 
-![](https://csrc.kaist.ac.kr/blog/wp-content/uploads/2022/09/002.png)
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/2dafada9-31c4-4e38-b95f-ca7d56ce3700)
+
 
 [그림 2] OpenXML형식의 MS 워드 문서 구조
 
