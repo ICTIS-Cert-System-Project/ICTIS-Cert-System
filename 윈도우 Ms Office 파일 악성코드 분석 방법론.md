@@ -3,59 +3,6 @@
 ##### 작성일자 : 2024년 6월 1일
 </br></br>
 
-## DOC 악성코드 상세 분석
-
-> oledump.py
->> 문서형 악성코드를 분석하는 도구이며, OLE 파일(Compound File Binary Format)을 분석하는 프로그램임. </br> OLE 파일에는 데이터 스트림이 포함되어 있어 oledump를 이용하면 이러한 스트림을 분석 가능함. </br> (예) .doc, .xls, .ppt, ...은 OLE 파일임
-
-
-![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/26833497-d70e-445c-afda-5bc8a4c31089)
-
-</br>
-
--s OLE 리스트중 원하는 리스트 스트림 번호를 지정 </br>
--v VBA 매크로를 보기 위한 설정 </br>
-
-</br>
-
-\'|'(파이프라인) 이용하여 동작할 프로세스를 따로 진행함. </br> grep 명령어를 이용하여 특정 문자열 \'='를 찾아내어 필터링한 후 sed(streamlined editor)명령어를 이용하여 반복되는 + 값과 ""를 제거함. </br> 빨간색 줄을 속성 줄이거나 변수 연결이므로 무시 가능함.
-
-</br>
-
-`python oledump.py -s 15 -v ACH\ 5111FJNC\ Aug-06-2018.doc | grep '=' | sed 's/ + //g' | sed 's/\"\"//g' > result.py`
-
-</br>
-
-필터링을 끝낸 뒤 문자열을 출력시키는 코드를 추가함.
-
-
-### sed option
-
-|option| 설명 |
-|----|------|
-| -e | 조건식 스크립트를 직접 지정|
-| -f | 조건식 스크립트가 기재된 파일을 지정|
-| -n |  패턴이 일치하는 라인만 출력|
-| -r | 확장 정규표현을 사용한 스크립트를 사용|
-| -i | 수정한 내용을 파일 덮어쓰기|
-
-### s와 함께 사용하는 치환 플래그
-
-|flag| 설명 |
-|-----|----------|
-|g| 치환이 행 전체에 대해 이뤄짐|
-|p| 행 출력|
-|w| 파일에 쓰기|
-|x| 홀드 스페이스와 패턴 스페이스의 내용을 서로 맞바꾸기|
-|y| 한 문자를 다른 문자로 변환(정규표현식 메타문자 사용 불가능)|
-
-
-
-
-
-
-
-
 
 ##  doc 파일 개요
 
@@ -168,8 +115,51 @@ MS-Word 문서형 악성코드로 활용되는 기법 중 가장 빈번히 사�
 
 ##  DOC 파일 악성코드 상세 분석
 
+### 1. oledump 를 이용한 분석
 
-### **_1. VBA_** **_매크로 형태의 악성코드 분석 및 탐지 방법_**
+> oledump.py
+>> 문서형 악성코드를 분석하는 도구로 OLE 파일(Compound File Binary Format)을 분석에 사용됨. </br> OLE 파일에는 데이터 스트림이 포함되어 있어 oledump를 이용하면 이러한 스트림을 분석 가능함. </br> (예) .doc, .xls, .ppt, ...은 OLE 파일임
+
+</br>
+
+**주요 사용 옵션**</br>
+-s OLE 리스트중 원하는 리스트 스트림 번호를 지정 </br>
+-v VBA 매크로를 보기 위한 설정 </br>
+
+</br>
+
+`python oledump.py -s 15 -v ACH\ 5111FJNC\ Aug-06-2018.doc | grep '=' | sed 's/ + //g' | sed 's/\"\"//g' > result.py`</br>
+
+![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/26833497-d70e-445c-afda-5bc8a4c31089)
+
+
+\'|'(파이프라인) 이용하여 동작할 프로세스를 따로 진행 </br> grep 명령어를 이용하여 특정 문자열 \'='을 찾아내어 필터링한 후 sed(streamlined editor)명령어를 이용하여 반복되는 + 값과 ""를 제거함. </br> 빨간색 줄을 속성 줄이거나 변수 연결이므로 무시 가능함.</br>
+필터링을 끝낸 뒤 문자열을 출력시키는 코드를 추가
+</br>
+
+#### sed  option
+
+|option| 설명 |
+|----|------|
+| -e | 조건식 스크립트를 직접 지정|
+| -f | 조건식 스크립트가 기재된 파일을 지정|
+| -n |  패턴이 일치하는 라인만 출력|
+| -r | 확장 정규표현을 사용한 스크립트를 사용|
+| -i | 수정한 내용을 파일 덮어쓰기|
+
+#### s와 함께 사용하는 치환 플래그
+
+|flag| 설명 |
+|-----|----------|
+|g| 치환이 행 전체에 대해 이뤄짐|
+|p| 행 출력|
+|w| 파일에 쓰기|
+|x| 홀드 스페이스와 패턴 스페이스의 내용을 서로 맞바꾸기|
+|y| 한 문자를 다른 문자로 변환(정규표현식 메타문자 사용 불가능)|
+</br>
+</br>
+
+### **_2. VBA_** **_매크로 형태의 악성코드 분석 및 탐지 방법_**
 
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/a7a990dd-7d31-41c4-a5b0-efff5bb13ea4)
@@ -207,7 +197,7 @@ MS-Word 내에서 추출된 매크로 스크립트의 예시는 그림 3과 같�
 ---
 </br>
 
-### – oletools 라이브러리 내 mraptor 도구의 알고리즘 –
+#### – oletools 라이브러리 내 mraptor 도구의 알고리즘 –
 
 매크로 스크립트의 악성 여부를 판단하는 탐지 알고리즘은 oletools 라이브러리 내 mraptor 도구의 알고리즘을 참고했으며, mraptor는 일반 휴리스틱 기반의 탐지 기법을 사용하여 악성 VBA 매크로 스크립트를 탐지하도록 설계된 도구임. 
 
@@ -230,9 +220,9 @@ Mraptor는 A(자동실행트리거)가 기본적으로 포함되어있고 W또�
 
 Mraptor의 탐지 알고리즘을 기반으로 Yara-Rule을 생성할 때 String 형식의 **자동실행트리거 메소드(AutoOpen, Document_Open, DocumentOpen)** 가 존재하며, **파일 시스템 또는 메모리의 데이터를 수정할 수 있는 메소드(Write, Put, Output, Print 등)** 나 **외부에서 파일 실행 및 다운로드 또는 페이로드 실행 메소드(Powershell, URLDownloadToFileA, Shell, Wscript.shell, run 등)** 가 포함되어있다면 악성 행위를 수행하는 MS-Word 문서를 악성으로 판단하여 탐지함.
 </br>
+</br>
 
-
-### **_2._** **_삽입된 외부_** **_oleobject_** **_형태의 악성코드 분석 및 탐지 방법_**
+### **_3._** **_삽입된 외부_** **_oleobject_** **_형태의 악성코드 분석 및 탐지 방법_**
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/51c85500-9671-4dfb-b7c6-51e30ff7fba7)
 
@@ -291,9 +281,9 @@ Javascript 내에서 악성 행위를 실행하기 위해서는 ‘eval’ 함�
 
 [그림 10] PE 바이너리 삽입
 </br>
+</br>
 
-
-### **_3. DDE(Dynamic Data Exchange)_** **_형태의 악성코드 분석 및 탐지 방법_**
+### **_4. DDE(Dynamic Data Exchange)_** **_형태의 악성코드 분석 및 탐지 방법_**
 
 
 #### DDE의 정의
@@ -344,9 +334,9 @@ DDE를 이용한 악용 사례 중 상당 부분이 MS 워드를 사용하며 MS
 
 다만 실제로 DDE를 악용한 MS-Word 문서형 악성코드가 배포될 때는 백신에서 미리 탐지하지 못하도록 스크립트를 난독화하는 경우가 대부분인데, 이는 전처리 과정을 msodde 도구를 활용하여 해결이 가능함함. msodde를 활용해 텍스트 형식으로 DDE 스크립트가 출력되는 것을 Yara-Rule을 통해 String 형식으로 “DDEAUTO”와 같은 키워드를 시그니처로하여 탐지할 수 있음.
 </br>
+</br>
 
-
-### **_4. MS-Word 기본 구조 내 위협 인자가 포함된 악성코드 분석 및 탐지 방법_**
+### **_5. MS-Word 기본 구조 내 위협 인자가 포함된 악성코드 분석 및 탐지 방법_**
 
 MS-Word 문서는 공격자가 악용할 수 있는 다양한 기능을 제공하기도 하지만 동시에 문서 포맷의 유연성으로 인해 구조 내 위협 인자를 은닉할 수 있는 공간을 제공하여 공격에 자주 사용되는데, 기본 스트림 영역을 확인해보았을 때 ‘CompObj’, ‘DocumentSummaryInformation’, ‘SummaryInformation’, ‘WordDocument’와 같이 공통적인 요소가 있으며, 공격자는 이러한 공통 요소를 활용하여 악성인자를 은닉하기도 함.
 
