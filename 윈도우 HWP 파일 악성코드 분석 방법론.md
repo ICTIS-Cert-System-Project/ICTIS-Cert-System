@@ -146,4 +146,4 @@ Shellcode2EXE를 이용하여 쉘코드를 exe로 변환시키면 다음과 같�
 
 sample2_xup0zGn.hwp는 CVE-2017-8291 취약점을 이용하여 공격하는 다운로더형 악성코드로, 파일 실행 시 내부에 있는 EPS파일에서 쉘코드가 실행.
 
-쉘코드가 실행되면 " http[://]itoassn[.]mireene[.]co[.]kr/shop/shop/mail/com/mun/down[.]php"에서 추가로 악성코드를 다운받도록 구성되어 있음.
+쉘코드가 실행되면 "http[://]itoassn[.]mireene[.]co[.]kr/shop/shop/mail/com/mun/down[.]php"에서 추가로 악성코드를 다운받도록 구성되어 있음.
