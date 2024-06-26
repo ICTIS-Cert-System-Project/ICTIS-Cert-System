@@ -1,9 +1,11 @@
 # findstr
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2020/03/findstr.html "Go koromoon"
-##### 작성자: 김평일 대리
-##### 작성일자: 2024년 4월 18일
+
+
+| 작성자       | 김평일 대리   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 18일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
 
 <br>
 <br>
@@ -59,3 +61,7 @@ C 드라이브 전체에서 대소문자 koromoon 문자열 검색<br>
 `findstr /S /N /I koromoon *`<br>
 
 <br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2020/03/findstr.html "Go koromoon"
