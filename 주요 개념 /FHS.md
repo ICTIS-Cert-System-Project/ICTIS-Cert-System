@@ -1,9 +1,12 @@
 # FHS
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2018/02/blog-post_18.html "Go koromoon"
-##### 작성자: 김평일 대리
-##### 작성일자: 2024년 4월 18일
+
+| 작성자       | 김평일 대리   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 18일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
 
 <br>
 <br>
@@ -44,3 +47,7 @@ HP, 레드햇, IBM, Dell 과 같은 주요 소프트웨어 및 하드웨어 공�
 </br><div align="center">![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/18510716/47c1d2a2-481d-4c1d-81c0-2524b4b69a07)</div>
 
 <br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2018/02/blog-post_18.html "Go koromoon"
