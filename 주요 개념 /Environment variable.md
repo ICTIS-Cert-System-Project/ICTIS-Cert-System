@@ -1,9 +1,11 @@
 # Environment variable
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2018/02/blog-post_19.html "Go koromoon"
-##### 작성자: 김평일 대리
-##### 작성일자: 2024년 4월 17일
+
+| 작성자       | 김평일 대리   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 17일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
 
 <br>
 <br>
@@ -138,7 +140,9 @@ ex. `export PATH=$PATH:/home/koromoon/hack1/bin:/home/koromoon/hack2/bin`<br>
 
 <br>
 
-
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2018/02/blog-post_19.html "Go koromoon"
 
 
 
