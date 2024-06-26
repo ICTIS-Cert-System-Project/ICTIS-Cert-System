@@ -1,9 +1,15 @@
 # SIP
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2020/02/sip.html "Go koromoon"
-##### 작성자: 강하늘 사원
-##### 작성일자: 2024년 4월 10일 
+
+
+| 작성자       |  강하늘 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 10일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
+</br></br>
+
 
 ## (1) SIP의 정의
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/154ab895-39f8-4ee4-9e99-f48dbb240527)
@@ -421,6 +427,12 @@ UAC는 SIP Server가 전송한 nonce 값의 체크섬(checksum)을 계산하여 
 
 
 UAC로부터 인증 정보가 재첨부된 SIP REGISTER 요청 메시지를 수신한 SIP Server는 수신된 인증 정보로 인증 과정이 문제없이 통과되었을 경우 UAC에게 인증이 성공적으로 완료되었음을 알리는  200 OK 메시지를 전송함.
+
+</br></br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2020/02/sip.html "Go koromoon"
 
 ### 참고 사이트 : 
 [1] SIP의 이해 </br>
