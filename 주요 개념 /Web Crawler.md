@@ -1,9 +1,11 @@
 # Web Crawler
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2020/07/web-crawler.html "Go koromoon"
-##### 작성자: 김평일 대리
-##### 작성일자: 2024년 4월 18일
+
+
+| 작성자       | 김평일 대리   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 18일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
 
 <br>
 <br>
@@ -104,48 +106,8 @@ User-Agent 명을 기재해서 사용하며 특정 폴더 및 전체 폴더에 �
 
 `<meta name="robots" content="nofollow"><meta name="googlebot" content="noindex">`<br>
 
+<br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2020/07/web-crawler.html "Go koromoon"
