@@ -1,10 +1,14 @@
 # 간단한 실습을 통한 sqlmap 사용법
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2020/07/sqlmap.html "Go koromoon"
-##### 작성자: 강하늘 사원
-##### 작성일자: 2024년 4월 15일 
 
+
+| 작성자       |  강하늘 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 15일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
+</br></br>
 
 
 보통 SQL Injection 공격은 다음과 같은 순서로 공격 시도함.
@@ -392,5 +396,8 @@ root@kali:/home/kali# sqlmap -hh
 
 < 결과값 출력 >
 
+</br></br>
 
-
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2020/07/sqlmap.html "Go koromoon"
