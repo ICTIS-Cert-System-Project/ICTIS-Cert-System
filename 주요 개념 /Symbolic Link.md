@@ -1,9 +1,15 @@
 # Symbolic Link
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2018/05/inode-symbolic-link-hard-link.html "Go koromoon"
-##### 작성자: 김평일 대리
-##### 작성일자: 2024년 4월 17일
+
+
+| 작성자       | 김평일 대리   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 17일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
+</br></br>
+
 
 ## 심볼릭 링크(Symbolic Link)
 
@@ -17,3 +23,9 @@
 
 </br>심볼릭 링크 생성 명령어</br>
 `ln –s [원본 파일] [링크 파일]`
+
+</br></br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2018/05/inode-symbolic-link-hard-link.html "Go koromoon"
