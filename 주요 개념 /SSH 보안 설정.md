@@ -1,9 +1,14 @@
 # SSH 보안 설정
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][KOROMOONlink]
-[KOROMOONlink]: https://koromoon.blogspot.com/2021/12/ssh.html "Go KOROMOON"
-##### 작성자: 김태현 사원
-##### 작성일자: 2024년 4월 9일 
+
+
+| 작성자       |  김태현 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 9일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
+</br>
 </br>
 
 <div align="center"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEgcMr3mHogFvhbp9imsxYa4iAJsyy51bv5eyni27jD_p2CYrAARqINW3ccccE8x3F88quPJUlMXXwKV8eUcRj1nGSBEIHuwH01PXP1DfqizuAHdSTRC-5P2EF534nAbahBeH4Ry4akfSOrSfdZhnS14f4SbVXrNFTDZzVfqX9wtRFk4mG1yrf3CsA6v=w640-h419"></div>
@@ -291,3 +296,9 @@ id_rsa는 개인키이고 id_rsa.pub는 공개키임.<br>
 </tbody></table><br>
 
 참고 사이트:<br>[https://blog.devolutions.net/2017/04/10-steps-to-secure-open-ssh/](https://blog.devolutions.net/2017/04/10-steps-to-secure-open-ssh/)
+
+</br></br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][KOROMOONlink]
+[KOROMOONlink]: https://koromoon.blogspot.com/2021/12/ssh.html "Go KOROMOON"
