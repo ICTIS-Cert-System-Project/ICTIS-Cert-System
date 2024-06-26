@@ -1,9 +1,12 @@
 # ICMP
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2020/02/icmp.html "Go koromoon"
-##### 작성자: 강하늘 사원
-##### 작성일자: 2024년 4월 18일
+
+| 작성자       | 강하늘 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 18일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+<br>
 
 ## ( 1 ) ICMP 정의
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/04230e68-cc14-49cd-8a53-b9da94c67ab1)
@@ -683,3 +686,7 @@ IP 데이터그램 포맷에 있는 주소 필드는 오직 최초 출발지 주
 라우터 R2 가 라우터 R1 으로부터 데이터그램을 받았을 때 그 데이터그램 안에 들어있는 것은 오직 장비 A의 주소임.
 그래서 라우터 R3 는 문제 보고를 장비 A 로만 송신해야 하며 장비 A 는 그 보고를 보고 어떻게 해야 할지 결정해야 함.
 장비 A 는 사용하는 경로를 바꿀 수도 있고 관리자가 라우터 R1 이 문제를 해결하는 데 사용할 수 있는 에러 보고서를 생성할 수도 있음.
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2020/02/icmp.html "Go koromoon"
