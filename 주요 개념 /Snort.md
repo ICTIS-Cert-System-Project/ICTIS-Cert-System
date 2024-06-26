@@ -1,10 +1,14 @@
 # Snort 규칙 헤더 및 옵션 정보 _(Snort Rule Header & Option Information)_
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][KOROMOONlink]
-[KOROMOONlink]: https://koromoon.blogspot.com/2020/10/snort-snort-rule-header-option.html "Go KOROMOON"
-##### 작성자: 강하늘 사원
-##### 작성일자: 2024년 4월 3일 
-</br>
+
+
+
+| 작성자       |  강하늘 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 3일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+</br></br>
 
 ## (1) 기본 사항
 Snort 는 유연하면서 강력한 그리고 간단한 규칙 기술 언어를 사용함.
@@ -7503,3 +7507,9 @@ content:"|00 01 87 88|"; offset:12; depth:4;
 content:"|00 00 00 01 00 00 00 01|"; offset:20; depth:8;
 
 byte_test:4,>,200,36;
+
+</br></br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][KOROMOONlink]
+[KOROMOONlink]: https://koromoon.blogspot.com/2020/10/snort-snort-rule-header-option.html "Go KOROMOON"
