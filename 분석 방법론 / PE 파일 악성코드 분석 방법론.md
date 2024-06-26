@@ -253,8 +253,9 @@ Procexp는 Process Exploer의 줄임말로, 윈도우 시스템 모니터링 유
 
 추가로, view - scroll to new process를 활성화라여 새로운 프로세스 실행 시 자동으로 해당 프로세스를 따라가도록 설정할 수 있음.
 
+</br></br>
 
-
+Remnux 다운로드 링크 : https://drive.google.com/file/d/1P6zPz7XoiB32Ds6_8PPKz-IVU6BrazqT/view?usp=sharing
 
 
 
