@@ -1,9 +1,13 @@
 # Plink 명령어
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2019/02/plink.html "Go koromoon"
-##### 작성자: 강하늘 사원
-##### 작성일자: 2024년 4월 15일 
+
+| 작성자       | 강하늘 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 15일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
+<br>
 
 
 ## (1) 설명
@@ -80,6 +84,10 @@ plink koromoon@hacker.com -m commands.txt -pw koromoon1004
 포트 포워딩  
 (공격자 PC:4444 ---> 중개 PC:SSH ---> 피해자 PC:3389)  
 plink.exe [중개 PC] -P 22 -C -L 127.0.0.1:4444:[피해자 PC]:3389 -l 계정명 -pw 암호  
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2019/02/plink.html "Go koromoon"
 
 참고 사이트 :   
 [http://hkashfi.blogspot.com/2008/04/bypassing-firewalls-with-port_23.html](http://hkashfi.blogspot.com/2008/04/bypassing-firewalls-with-port_23.html)
