@@ -1,9 +1,11 @@
 # TCP, UDP, ICMP, IPv4, IPv6 Header
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][KOROMOONlink]
-[KOROMOONlink]: https://koromoon.blogspot.com/2020/03/tcp-udp-icmp-ipv4-ipv6-header.html "Go KOROMOON"
-##### 작성자: 강하늘 사원
-##### 작성일자: 2024년 4월 3일 
+
+| 작성자       | 강하늘 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 3일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
 
 
 ## TCP Header
@@ -25,3 +27,8 @@
 ## IPv6 Header
 
 <img src="https://i0.wp.com/ipnet.xyz/wp-content/uploads/2012/03/IP-Header-v6.png?ssl=1" width="640px" Height="487px"></img>
+
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][KOROMOONlink]
+[KOROMOONlink]: https://koromoon.blogspot.com/2020/03/tcp-udp-icmp-ipv4-ipv6-header.html "Go KOROMOON"
