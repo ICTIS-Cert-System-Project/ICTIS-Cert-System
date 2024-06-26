@@ -1,9 +1,12 @@
 # NTLMSSP
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2018/05/ntlmssp.html "Go koromoon"
-##### 작성자: 강하늘 사원
-##### 작성일자: 2024년 4월 12일 
+
+| 작성자       | 강하늘 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 12일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+<br>
 
 
 ## (1) NTLMSSP
@@ -107,7 +110,9 @@ NT 도메인 이름 : Ursa-Minor
 해당 단계를 탐지하는 Snort 룰은 아래와 같음. (위 화면에서 빨간 박스 탐지) </br>
 `alert tcp any any -> any 80:8080 (msg:"KOROMOON_NTLMSSP_Type3_Message"; content"Authorization|3A| NTLM TlRMTVNTUAADAAA";)`
 
-
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2018/05/ntlmssp.html "Go koromoon"
 
 ### 참고 사이트 : </br>
 https://en.wikipedia.org/wiki/NTLMSSP
