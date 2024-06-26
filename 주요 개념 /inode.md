@@ -1,9 +1,14 @@
 # inode
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2018/05/inode-symbolic-link-hard-link.html "Go koromoon"
-##### 작성자: 김평일 대리
-##### 작성일자: 2024년 4월 17일
+
+
+| 작성자       | 김평일 대리   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 17일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
+</br></br>
 
 ##  아이노드(inode)
 
@@ -59,3 +64,7 @@ Single indirect block을 가리키는 포인터로 구성되어 있으므로 `10
 Single indirect block, Double indirect block과 동일한 방식으로 작동함</br>
 Double indirect block을 가리키는 포인터로 구성되어 있으므로 `1024 * 1024 * 1024 * 4KB = 4TB` 의 용량의 관리가 가능함.</br>
 </br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2018/05/inode-symbolic-link-hard-link.html "Go koromoon"
