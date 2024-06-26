@@ -1,9 +1,12 @@
 # passwd
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2018/02/passwd-shadow.html "Go koromoon"
-##### 작성자: 김평일 대리
-##### 작성일자: 2024년 4월 17일
+
+| 작성자       | 김평일 대리   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 17일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+</br>
 
 ## /etc/passwd 파일 구조
 
@@ -35,3 +38,9 @@ root 계정 뿐만 아니라 다른 계정에게도 읽기 권한이 있어 누�
 (5) 사용자 코멘트 정보</br>
 (6) 사용자 홈 디렉터리</br>
 (7) 사용자가 기본으로 사용하는 Shell 정보</br>
+
+</br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2018/02/passwd-shadow.html "Go koromoon"
