@@ -95,5 +95,3 @@ shadow 패스워드에서 일반 패스워드로 되돌리는 명령어</br>
 ##### 원작자: 문광일 PM
 ##### 링크: [KOROMOON][koromoonlink]
 [koromoonlink]: https://koromoon.blogspot.com/2018/02/passwd-shadow.html "Go koromoon"
-
-
