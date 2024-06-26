@@ -291,3 +291,7 @@ badpdf.pdf는 CVE-2007-5659 취약점을 이용하여 공격하는 다운로더�
 
 쉘코드가 실행되면 "http[:]//78[.]109[.]30[.]5/count/005AD56F/load[.]php?pdf=a684eceee76fc522773286a895bc8436"에서 추가로 악성코드를 다운받도록 구성되어 있음.
 
+
+</br></br>
+
+Remnux 다운로드 링크 : [https://drive.google.com/file/d/1P6zPz7XoiB32Ds6_8PPKz-IVU6BrazqT/view?usp=sharing](https://drive.google.com/file/d/16qNBt0mdwLV6uwPicM5KbFQeNdHkrTEG/view?usp=sharing)
