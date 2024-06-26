@@ -1,9 +1,11 @@
 # 윈도우 자동 시작 위치
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2019/01/blog-post_18.html "Go koromoon"
-##### 작성자: 강하늘 사원
-##### 작성일자: 2024년 4월 24일
+
+| 작성자       | 강하늘 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 24일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
 
 </br>
 
@@ -416,3 +418,7 @@ The Windows 7 Boot Process
 [http://social.technet.microsoft.com/wiki/contents/articles/11341.the-windows-7-boot-process-sbsl.aspx](http://social.technet.microsoft.com/wiki/contents/articles/11341.the-windows-7-boot-process-sbsl.aspx)  
 Understand and Control Startup Apps with the System Configuration Utility  
 [https://technet.microsoft.com/en-us/magazine/ee851671.aspx](https://technet.microsoft.com/en-us/magazine/ee851671.aspx)
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2019/01/blog-post_18.html "Go koromoon"
