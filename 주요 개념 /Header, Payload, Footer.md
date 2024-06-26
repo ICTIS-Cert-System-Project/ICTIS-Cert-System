@@ -1,9 +1,12 @@
 # 네트워크 메시지 포맷팅 - 헤더, 페이로드, 푸터
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2019/01/blog-post_16.html "Go koromoon"
-##### 작성자: 강하늘 사원
-##### 작성일자: 2024년 4월 3일 
+
+| 작성자       | 강하늘 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 3일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
 </br>
 
 
@@ -71,3 +74,6 @@ OSI 참조 모델에서 특정 프로토콜에서 사용하는 메시지를 *PDU
 특정 프로토콜의 페이로드에 들어 있는 부분을 *SDU* 라고 부름. 
 하위 계층 프로토콜의 SDU 는 보통 상위 계층 프로토콜의 PDU 임.
 
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2019/01/blog-post_16.html "Go koromoon"
