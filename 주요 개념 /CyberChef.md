@@ -1,9 +1,12 @@
 # CyberChef *(암호화, 인코딩, 압축 및 데이터 분석을 위한 웹 앱)*
-#####  원작자: 문광일 PM
-#####  링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2021/01/cyberchef.html "Go koromoon"
-#####  작성자: 강하늘 사원
-#####  작성일자: 2024년 4월 10일
+
+| 작성자       | 강하늘 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 10일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
 
 </br>
 
@@ -335,3 +338,7 @@ CyberChef 는 여러 기술을 사용하여 데이터가 어떤 인코딩으로 
 10. 여러 계층의 중첩 인코딩을 자동으로 감지
 
 ![image](https://github.com/ICTIS-Cert-System-Project/ICTIS-Cert-System/assets/164521627/2aa8bf55-7745-4c8d-9f9e-ebb65cd2a834)
+
+#####  원작자: 문광일 PM
+#####  링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2021/01/cyberchef.html "Go koromoon"
