@@ -1,9 +1,12 @@
 # Netcat
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][KOROMOONlink]
-[KOROMOONlink]: https://koromoon.blogspot.com/2018/01/netcat.html "Go KOROMOON"
-##### 작성자: 김태현 사원
-##### 작성일자: 2024년 4월 17
+
+
+| 작성자       | 김태현 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 17** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
 </br>
 
 
@@ -114,3 +117,8 @@ Netcat 툴을 이용한 백도어 쉘의 기본 매커니즘은 특정 포트(-p
 <div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQWHXV2Sba-_p1a2eB8zqbCVgQqAaJ-aakB2RXHV05B8I5LH3zkcIdkmRvxFy9QyqSSzzSo51nKxzc_Y1Yiv1OCaR6kd6H-8zVXYHyACv0Bwx7TSVirNYVyC6tbfCSndhpXyRI8ys7-3M/s1600/Reverse+Shell+%25EC%2584%259C%25EB%25B2%2584.png"></div><br>
 <div align="center"><img src ="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgILlZyiTOyqIOo5Gchyphenhyphen5sn1Ypk0XQImvPwJXuZrrCA_Kt0TiyL3tUHnGclcnSH5-Un9W5DhwrzuIr-H6k6lnpD-PmHOP80Y6bl4sny7yyx6yEUxVGKL5elIWNmSDI5UqHXT9RSVTLAjn8/s1600/Reverse+Shell+%25ED%2581%25B4%25EB%259D%25BC%25EC%259D%25B4%25EC%2596%25B8%25ED%258A%25B8.png"></div><br>
 
+</br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][KOROMOONlink]
+[KOROMOONlink]: https://koromoon.blogspot.com/2018/01/netcat.html "Go KOROMOON"
