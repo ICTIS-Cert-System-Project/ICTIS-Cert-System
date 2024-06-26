@@ -352,3 +352,6 @@ MS-Word 문서는 공격자가 악용할 수 있는 다양한 기능을 제공�
 
 [그림 13]는 공통적인 요소 중 ‘DocumentSummaryInformation’ 스트림 내에 실행 파일이 포함되어있는 모습임. 해당 영역에서 발견된 실행 파일을 추출하여 Virustotal에 검사한 결과 워너크라이 랜섬웨어인 것을 확인할 수 있었고 MS-Word 문서를 구성하는 기본 요소라 할지라도 악성 여부에 대한 검증이 필요함.
 
+</br></br>
+
+Remnux 다운로드 링크 : https://drive.google.com/file/d/1P6zPz7XoiB32Ds6_8PPKz-IVU6BrazqT/view?usp=sharing
