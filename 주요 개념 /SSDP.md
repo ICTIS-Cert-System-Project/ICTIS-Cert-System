@@ -1,9 +1,14 @@
 # SSDP
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][koromoonlink]
-[koromoonlink]: https://koromoon.blogspot.com/2020/02/ssdp.html "Go koromoon"
-##### 작성자: 강하늘 사원
-##### 작성일자: 2024년 4월 11일
+
+
+| 작성자       |  강하늘 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 11일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
+</br></br>
 
 ## (1) SSDP
 
@@ -225,3 +230,9 @@ UUID 조건
 1. 중복 X
 2. 128 비트 크기
 3. 변경할 수 없는 고정 값
+
+</br></br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][koromoonlink]
+[koromoonlink]: https://koromoon.blogspot.com/2020/02/ssdp.html "Go koromoon"
