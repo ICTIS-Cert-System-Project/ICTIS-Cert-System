@@ -1,8 +1,12 @@
 # MySQL Injection Cheet Sheet
-##### 링크: [KOROMOON][KOROMOONlink]
-[KOROMOONlink]: https://koromoon.blogspot.com/2018/10/mysql-injection-cheet-sheet.html "Go KOROMOON"
-##### 작성자: 김태현 사원
-##### 작성일자: 2024년 4월 17일 
+
+| 작성자       | 김태현 사원   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 17일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
 </br>
 
 <br><div align="center"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZrq6taZERA6F-hpmK6QBpGVtJeXpx7NivbYH8tuHT_3bTrLQVN035aGfZo2b2ygebR7N1st6MZXVMBARM5YBGMXMRISbL6YuPWsnF_qLrMkOSr0LKojnA5MONQ8Ee_t-qvBSWM9WD1_Q/s1600/MySQL+Injection.jpg"></div><br><br><br>
@@ -735,4 +739,5 @@ int main(int argc, char *argv[])
   return 0;
 }
 ```
-
+##### 링크: [KOROMOON][KOROMOONlink]
+[KOROMOONlink]: https://koromoon.blogspot.com/2018/10/mysql-injection-cheet-sheet.html "Go KOROMOON"
