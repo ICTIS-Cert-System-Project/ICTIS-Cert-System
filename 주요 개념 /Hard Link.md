@@ -1,9 +1,13 @@
 # Hard Link
-##### 원작자: 문광일 PM
-##### 링크: [KOROMOON][KOROMOONlink]
-[KOROMOONlink]: https://koromoon.blogspot.com/2018/05/inode-symbolic-link-hard-link.html "Go KOROMOON"
-##### 작성자: 김평일 대리
-##### 작성일자: 2024년 4월 17일
+
+| 작성자       | 김평일 대리   |
+| --------- | ---------------- |
+| **작성 일자** | **2024년 4월 17일** |
+| **수정 일자** |                  |
+| **비고**    |                  |
+
+
+
 </br>
 
 
@@ -21,3 +25,7 @@
 </br>
 `ln [원본 파일] [링크 파일]`
 </br>
+
+##### 원작자: 문광일 PM
+##### 링크: [KOROMOON][KOROMOONlink]
+[KOROMOONlink]: https://koromoon.blogspot.com/2018/05/inode-symbolic-link-hard-link.html "Go KOROMOON"
